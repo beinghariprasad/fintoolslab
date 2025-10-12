@@ -40,3 +40,4 @@ scripts/uniqueness_report.json
 scripts/paa_questions.json
 scripts/enhanced_prompts/
 scripts/keyword_planner_export.csv
+scripts/processed_prompts.json
