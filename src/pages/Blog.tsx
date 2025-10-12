@@ -7,13 +7,24 @@ import { Link } from 'react-router-dom';
 export default function Blog() {
   const blogPosts = [
     {
+      id: 'compound-interest-calculator-guide-2025',
+      title: 'How to Use a Compound Interest Calculator to Grow Your Savings Faster in 2025',
+      description: 'Master compound interest calculators with our comprehensive 2025 guide. Learn step-by-step how to use calculators for savings, retirement, and college planning with real examples.',
+      publishDate: '2025-01-16',
+      readTime: '15 min read',
+      category: 'Calculator Guides',
+      featured: true,
+      slug: '/blog/compound-interest-calculator-guide-2025',
+      keywords: ['compound interest calculator', 'savings calculator', 'retirement planning', 'financial tools']
+    },
+    {
       id: 'compound-interest-guide',
       title: 'The Complete Guide to Compound Interest: How to Turn $1,000 Into $7,400',
       description: 'Learn how compound interest works, avoid costly mistakes that drain wealth, and discover proven strategies to maximize your money\'s growth potential with real examples.',
       publishDate: '2025-01-15',
       readTime: '12 min read',
       category: 'Investment Strategy',
-      featured: true,
+      featured: false,
       slug: '/blog/compound-interest-guide',
       keywords: ['compound interest', 'investment growth', 'wealth building', 'financial planning']
     }

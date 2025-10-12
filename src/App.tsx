@@ -33,6 +33,7 @@ const EmbedSavingsPage = lazy(() => import("./pages/EmbedSavingsPage"));
 // Blog pages
 const Blog = lazy(() => import("./pages/Blog"));
 const CompoundInterestGuide = lazy(() => import("./pages/blog/CompoundInterestGuide"));
+const CompoundInterestCalculatorGuide2025 = lazy(() => import("./pages/blog/CompoundInterestCalculatorGuide2025"));
 
 const queryClient = new QueryClient();
 
@@ -123,15 +124,23 @@ const App = () => {
                     </Suspense>
                   } 
                 />
-                <Route 
-                  path="/blog/compound-interest-guide" 
+                <Route
+                  path="/blog/compound-interest-guide"
                   element={
                     <Suspense fallback={<PageLoadingSpinner />}>
                       <CompoundInterestGuide />
                     </Suspense>
-                  } 
+                  }
                 />
-                
+                <Route
+                  path="/blog/compound-interest-calculator-guide-2025"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <CompoundInterestCalculatorGuide2025 />
+                    </Suspense>
+                  }
+                />
+
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/terms-of-service" element={<TermsOfService />} />
                 <Route path="/about" element={<About />} />
