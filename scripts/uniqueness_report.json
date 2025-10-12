@@ -1,0 +1,328 @@
+{
+  "checkedAt": "2025-10-12T10:53:48.744Z",
+  "summary": {
+    "total": 10,
+    "approved": 7,
+    "conflicts": 3,
+    "avgUniquenessScore": "0.75"
+  },
+  "results": [
+    {
+      "configId": 0,
+      "template": "calculator-comparison",
+      "primaryKeyword": "compound interest calculator comparison 2025",
+      "title": "Best Compound Interest Calculator Comparison 2025",
+      "checks": {
+        "titleSimilarity": [
+          {
+            "existingPostId": "best-compound-interest-calculator-comparison-2025-top-free-tools",
+            "existingTitle": "Best Compound Interest Calculator Comparison 2025: Top Free Tools",
+            "similarityScore": "0.77"
+          }
+        ],
+        "keywordCannibalization": [
+          {
+            "existingPostId": "best-compound-interest-calculator-comparison-2025-top-free-tools",
+            "overlapScore": "1.00",
+            "conflictingKeywords": [
+              "compound interest calculator comparison 2025"
+            ]
+          }
+        ],
+        "internalDuplicates": [
+          {
+            "duplicateConfigId": 1,
+            "duplicateTitle": "Best Investment Calculator Comparison 2025",
+            "duplicateKeyword": "investment calculator comparison 2025",
+            "titleSimilarity": "0.73",
+            "keywordSimilarity": "0.70"
+          },
+          {
+            "duplicateConfigId": 3,
+            "duplicateTitle": "Best Savings Calculator Comparison 2025",
+            "duplicateKeyword": "savings calculator comparison 2025",
+            "titleSimilarity": "0.71",
+            "keywordSimilarity": "0.68"
+          }
+        ]
+      },
+      "uniquenessScore": 0,
+      "status": "conflict",
+      "flags": [
+        "SIMILAR_TITLE_TO_best-compound-interest-calculator-comparison-2025-top-free-tools (77%)",
+        "KEYWORD_OVERLAP_best-compound-interest-calculator-comparison-2025-top-free-tools (100%)",
+        "DUPLICATE_CONFIG_1",
+        "DUPLICATE_CONFIG_3"
+      ]
+    },
+    {
+      "configId": 1,
+      "template": "calculator-comparison",
+      "primaryKeyword": "investment calculator comparison 2025",
+      "title": "Best Investment Calculator Comparison 2025",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": [
+          {
+            "duplicateConfigId": 2,
+            "duplicateTitle": "Best Loan Calculator Comparison 2025",
+            "duplicateKeyword": "loan calculator comparison 2025",
+            "titleSimilarity": "0.79",
+            "keywordSimilarity": "0.76"
+          },
+          {
+            "duplicateConfigId": 3,
+            "duplicateTitle": "Best Savings Calculator Comparison 2025",
+            "duplicateKeyword": "savings calculator comparison 2025",
+            "titleSimilarity": "0.79",
+            "keywordSimilarity": "0.76"
+          }
+        ]
+      },
+      "uniquenessScore": 0,
+      "status": "conflict",
+      "flags": [
+        "DUPLICATE_CONFIG_2",
+        "DUPLICATE_CONFIG_3"
+      ]
+    },
+    {
+      "configId": 2,
+      "template": "calculator-comparison",
+      "primaryKeyword": "loan calculator comparison 2025",
+      "title": "Best Loan Calculator Comparison 2025",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": [
+          {
+            "duplicateConfigId": 3,
+            "duplicateTitle": "Best Savings Calculator Comparison 2025",
+            "duplicateKeyword": "savings calculator comparison 2025",
+            "titleSimilarity": "0.85",
+            "keywordSimilarity": "0.82"
+          }
+        ]
+      },
+      "uniquenessScore": 0.5,
+      "status": "conflict",
+      "flags": [
+        "DUPLICATE_CONFIG_3"
+      ]
+    },
+    {
+      "configId": 3,
+      "template": "calculator-comparison",
+      "primaryKeyword": "savings calculator comparison 2025",
+      "title": "Best Savings Calculator Comparison 2025",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": []
+      },
+      "uniquenessScore": 1,
+      "status": "approved",
+      "flags": []
+    },
+    {
+      "configId": 4,
+      "template": "location-specific",
+      "primaryKeyword": "mortgage calculator for new york residents",
+      "title": "Mortgage Calculator for New York Residents",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": []
+      },
+      "uniquenessScore": 1,
+      "status": "approved",
+      "flags": []
+    },
+    {
+      "configId": 5,
+      "template": "location-specific",
+      "primaryKeyword": "investment calculator for florida residents",
+      "title": "Investment Calculator for Florida Residents",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": []
+      },
+      "uniquenessScore": 1,
+      "status": "approved",
+      "flags": []
+    },
+    {
+      "configId": 6,
+      "template": "demographic-targeted",
+      "primaryKeyword": "retirement calculator for millennials",
+      "title": "Retirement Calculator for millennials",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": []
+      },
+      "uniquenessScore": 1,
+      "status": "approved",
+      "flags": []
+    },
+    {
+      "configId": 7,
+      "template": "demographic-targeted",
+      "primaryKeyword": "retirement calculator for early career professionals",
+      "title": "Retirement Calculator for early career professionals",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": []
+      },
+      "uniquenessScore": 1,
+      "status": "approved",
+      "flags": []
+    },
+    {
+      "configId": 8,
+      "template": "vs-comparison",
+      "primaryKeyword": "compound interest vs savings calculator",
+      "title": "Compound Interest vs Savings Calculator",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": []
+      },
+      "uniquenessScore": 1,
+      "status": "approved",
+      "flags": []
+    },
+    {
+      "configId": 9,
+      "template": "vs-comparison",
+      "primaryKeyword": "rent vs buy calculator comparison",
+      "title": "Rent vs Buy Calculator",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": []
+      },
+      "uniquenessScore": 1,
+      "status": "approved",
+      "flags": []
+    }
+  ],
+  "conflicts": [
+    {
+      "configId": 0,
+      "template": "calculator-comparison",
+      "primaryKeyword": "compound interest calculator comparison 2025",
+      "title": "Best Compound Interest Calculator Comparison 2025",
+      "checks": {
+        "titleSimilarity": [
+          {
+            "existingPostId": "best-compound-interest-calculator-comparison-2025-top-free-tools",
+            "existingTitle": "Best Compound Interest Calculator Comparison 2025: Top Free Tools",
+            "similarityScore": "0.77"
+          }
+        ],
+        "keywordCannibalization": [
+          {
+            "existingPostId": "best-compound-interest-calculator-comparison-2025-top-free-tools",
+            "overlapScore": "1.00",
+            "conflictingKeywords": [
+              "compound interest calculator comparison 2025"
+            ]
+          }
+        ],
+        "internalDuplicates": [
+          {
+            "duplicateConfigId": 1,
+            "duplicateTitle": "Best Investment Calculator Comparison 2025",
+            "duplicateKeyword": "investment calculator comparison 2025",
+            "titleSimilarity": "0.73",
+            "keywordSimilarity": "0.70"
+          },
+          {
+            "duplicateConfigId": 3,
+            "duplicateTitle": "Best Savings Calculator Comparison 2025",
+            "duplicateKeyword": "savings calculator comparison 2025",
+            "titleSimilarity": "0.71",
+            "keywordSimilarity": "0.68"
+          }
+        ]
+      },
+      "uniquenessScore": 0,
+      "status": "conflict",
+      "flags": [
+        "SIMILAR_TITLE_TO_best-compound-interest-calculator-comparison-2025-top-free-tools (77%)",
+        "KEYWORD_OVERLAP_best-compound-interest-calculator-comparison-2025-top-free-tools (100%)",
+        "DUPLICATE_CONFIG_1",
+        "DUPLICATE_CONFIG_3"
+      ]
+    },
+    {
+      "configId": 1,
+      "template": "calculator-comparison",
+      "primaryKeyword": "investment calculator comparison 2025",
+      "title": "Best Investment Calculator Comparison 2025",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": [
+          {
+            "duplicateConfigId": 2,
+            "duplicateTitle": "Best Loan Calculator Comparison 2025",
+            "duplicateKeyword": "loan calculator comparison 2025",
+            "titleSimilarity": "0.79",
+            "keywordSimilarity": "0.76"
+          },
+          {
+            "duplicateConfigId": 3,
+            "duplicateTitle": "Best Savings Calculator Comparison 2025",
+            "duplicateKeyword": "savings calculator comparison 2025",
+            "titleSimilarity": "0.79",
+            "keywordSimilarity": "0.76"
+          }
+        ]
+      },
+      "uniquenessScore": 0,
+      "status": "conflict",
+      "flags": [
+        "DUPLICATE_CONFIG_2",
+        "DUPLICATE_CONFIG_3"
+      ]
+    },
+    {
+      "configId": 2,
+      "template": "calculator-comparison",
+      "primaryKeyword": "loan calculator comparison 2025",
+      "title": "Best Loan Calculator Comparison 2025",
+      "checks": {
+        "titleSimilarity": [],
+        "keywordCannibalization": [],
+        "internalDuplicates": [
+          {
+            "duplicateConfigId": 3,
+            "duplicateTitle": "Best Savings Calculator Comparison 2025",
+            "duplicateKeyword": "savings calculator comparison 2025",
+            "titleSimilarity": "0.85",
+            "keywordSimilarity": "0.82"
+          }
+        ]
+      },
+      "uniquenessScore": 0.5,
+      "status": "conflict",
+      "flags": [
+        "DUPLICATE_CONFIG_3"
+      ]
+    }
+  ],
+  "approved": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ]
+}

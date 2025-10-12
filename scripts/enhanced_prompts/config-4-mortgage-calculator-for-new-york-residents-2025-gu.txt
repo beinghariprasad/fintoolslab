@@ -1,0 +1,140 @@
+# SEO-Optimized Blog Post Generation Request
+
+**Configuration ID:** 0
+**Template Type:** location-specific
+**Generated:** 2025-10-12
+
+---
+
+## Core Requirements
+
+**Article Title:** Mortgage Calculator for New York Residents: 2025 Guide
+**Primary Keyword:** mortgage calculator for new york residents
+
+**Secondary Keywords:**
+1. best mortgage calculator
+2. free mortgage calculator
+3. mortgage calculator comparison
+4. mortgage calculator features
+5. accurate mortgage calculator
+
+**Target Audience:** New York homebuyers
+**Word Count Target:** 850 words
+**Category:** State-Specific Guides
+
+## Uniqueness & Differentiation
+
+**Uniqueness Score:** 0/1.0
+
+**⚠️ Important - Differentiation Required:**
+This topic has similarities to existing content. Ensure you differentiate by:
+- Using unique examples and case studies
+- Covering angles not addressed in existing posts
+- Providing 2025-specific insights and data
+- Adding unique value propositions
+
+
+## Content Brief
+
+Create a comprehensive location-specific guide for "mortgage calculator for new york residents". The article should provide genuine value to New York homebuyers, include real examples with specific numbers, and help users make informed decisions about financial calculators. Focus on actionable advice and avoid generic content.
+
+## Template-Specific Requirements
+
+
+**Location-Specific Requirements:**
+- State tax rate: 6.5% for New York
+- Include New York-specific tax implications
+- Discuss local cost of living factors
+- Provide New York-relevant examples
+- Link to state-specific resources where appropriate
+
+## SEO Optimization Requirements
+
+**Primary Keyword Placement:**
+- Include in first 100 words of introduction
+- Use in at least 2 section headings (H2 or H3)
+- Include in meta description
+- Natural density: 1-1.5% throughout content
+
+**Secondary Keywords:**
+- Distribute naturally throughout content
+- Use in section headings where appropriate
+- Include variations and related terms
+
+**Internal Linking:**
+- Include links to the following calculators:
+  - /calculators/mortgage
+
+## Required Content Structure
+
+**Introduction (150-200 words):**
+- Hook with compelling statistic or question
+- Include primary keyword in first 100 words
+- Preview main points
+- State article value proposition
+
+**Main Sections (4-6 sections):**
+- Each section 150-250 words
+- Use H2 for main sections, H3 for subsections
+- Include bullet points and lists for scannability
+- Add styled callout boxes for key insights
+
+**Practical Example:**
+- Real-world scenario with specific numbers
+- Step-by-step walkthrough
+- Demonstrate calculator usage
+
+**Conclusion (100-150 words):**
+- Summarize key takeaways
+- Include call-to-action
+- Link to relevant calculator(s)
+
+**FAQ Section (4 questions):**
+- Create 4 common questions about the topic
+- Provide comprehensive answers (50-100 words each)
+
+## Output Format Requirements
+
+**Required JSON Structure:**
+```json
+{
+  "slug": "mortgage-calculator-for-new-york-residents-2025-guide",
+  "title": "Mortgage Calculator for New York Residents: 2025 Guide",
+  "metaDescription": "[150-160 character description with primary keyword]",
+  "primaryKeyword": "mortgage calculator for new york residents",
+  "secondaryKeywords": ["best mortgage calculator","free mortgage calculator","mortgage calculator comparison","mortgage calculator features","accurate mortgage calculator"],
+  "category": "State-Specific Guides",
+  "publishDate": "2025-10-12",
+  "readTime": "5 min read",
+  "featured": false,
+  "content": {
+    "introduction": "[HTML paragraph]",
+    "sections": [
+      { "heading": "[Section Title]", "level": "h2", "content": "[HTML]" }
+    ],
+    "practicalExample": "[HTML with specific numbers and examples]",
+    "conclusion": "[HTML with CTA]",
+    "faqs": [
+      { "question": "[Question]", "answer": "[Answer]" }
+    ]
+  },
+  "internalLinks": ["/calculators/mortgage"],
+  "author": "FinSavvy Future Forge Financial Team",
+  "template": "location-specific"
+}
+```
+
+## Quality Checklist
+
+Before finalizing, ensure:
+- [ ] Primary keyword in first 100 words
+- [ ] All secondary keywords used naturally
+- [ ] 4+ internal links to calculators
+- [ ] 4 FAQ questions answered comprehensively
+- [ ] Practical example with specific numbers
+- [ ] Meta description 150-160 characters
+- [ ] Content is 850+ words
+- [ ] All HTML tags properly closed
+- [ ] Professional yet accessible tone
+- [ ] E-E-A-T principles followed
+- [ ] 2025-specific information where relevant
