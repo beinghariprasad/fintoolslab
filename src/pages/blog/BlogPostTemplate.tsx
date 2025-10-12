@@ -2,7 +2,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { Card, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Calculator, ArrowLeft } from 'lucide-react';
+import { Calculator, ArrowLeft, TrendingUp, Info } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 import type { BlogPost } from '@/types/blog';
@@ -180,75 +180,80 @@ export default function BlogPostTemplate() {
         {/* Main Content */}
         <article className="prose prose-lg max-w-none">
           {/* Introduction */}
-          <div
-            className="mb-8 text-xl leading-relaxed"
-            dangerouslySetInnerHTML={{ __html: post.content.introduction }}
-          />
+          <div className="mb-8 text-xl leading-relaxed blog-content">
+            <div dangerouslySetInnerHTML={{ __html: post.content.introduction }} />
+          </div>
 
           {/* Sections */}
           {post.content.sections.map((section, index) => (
-            <section key={index} className="mb-8">
+            <section key={index} className="mb-12">
               {section.level === 'h3' ? (
-                <h3 className="text-2xl font-semibold mb-4">{section.heading}</h3>
+                <h3 className="text-2xl font-semibold mb-4 flex items-center gap-3">
+                  <TrendingUp className="h-6 w-6 text-blue-600" />
+                  {section.heading}
+                </h3>
               ) : (
-                <h2 className="text-3xl font-bold mb-6">{section.heading}</h2>
+                <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                  <TrendingUp className="h-8 w-8 text-blue-600" />
+                  {section.heading}
+                </h2>
               )}
-              <div
-                className="prose prose-lg max-w-none"
-                dangerouslySetInnerHTML={{ __html: section.content }}
-              />
+              <div className="blog-content" dangerouslySetInnerHTML={{ __html: section.content }} />
             </section>
           ))}
 
           {/* Practical Example */}
           {post.content.practicalExample && (
-            <section className="mb-8">
-              <h2 className="text-3xl font-bold mb-6">Practical Example</h2>
-              <Card className="bg-blue-50">
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                <Calculator className="h-8 w-8 text-green-600" />
+                Practical Example
+              </h2>
+              <Card className="bg-gradient-to-br from-blue-50 to-green-50 border-l-4 border-blue-500">
                 <CardContent className="p-6">
-                  <div
-                    className="prose prose-lg max-w-none"
-                    dangerouslySetInnerHTML={{ __html: post.content.practicalExample }}
-                  />
+                  <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content.practicalExample }} />
                 </CardContent>
               </Card>
             </section>
           )}
 
           {/* Conclusion */}
-          <section className="mb-8">
+          <section className="mb-12">
             <h2 className="text-3xl font-bold mb-6">Conclusion</h2>
-            <div
-              className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: post.content.conclusion }}
-            />
+            <div className="blog-content text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: post.content.conclusion }} />
           </section>
 
           {/* FAQs */}
           {post.content.faqs && post.content.faqs.length > 0 && (
-            <section className="mb-8">
-              <h2 className="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+            <section className="mb-12">
+              <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                <Info className="h-8 w-8 text-purple-600" />
+                Frequently Asked Questions
+              </h2>
               <div className="space-y-6">
                 {post.content.faqs.map((faq, index) => (
-                  <div key={index}>
-                    <h3 className="text-xl font-semibold mb-3">{faq.question}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
-                  </div>
+                  <Card key={index} className="hover:shadow-md transition-shadow">
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-semibold mb-3 text-blue-600">{faq.question}</h3>
+                      <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
+                    </CardContent>
+                  </Card>
                 ))}
               </div>
             </section>
           )}
 
           {/* Call to Action */}
-          <Alert className="mt-8">
-            <Calculator className="h-4 w-4" />
+          <Alert className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 border-green-300">
+            <Calculator className="h-5 w-5 text-green-600" />
             <AlertDescription>
-              <strong>Ready to calculate?</strong> Try our free financial calculators to plan your financial future.
+              <strong className="text-lg">Ready to calculate?</strong>
+              <p className="mt-2 mb-3">Try our free financial calculators to plan your financial future with precision and confidence.</p>
               {post.internalLinks.length > 0 && (
-                <div className="mt-2 flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2">
                   {post.internalLinks.map((link, index) => (
                     <Link key={index} to={link}>
-                      <Button variant="outline" size="sm">
+                      <Button variant="default" size="sm" className="bg-blue-600 hover:bg-blue-700">
                         {link.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} Calculator
                       </Button>
                     </Link>
@@ -262,13 +267,142 @@ export default function BlogPostTemplate() {
         {/* Related Posts Navigation */}
         <div className="mt-12 pt-8 border-t">
           <Link to="/blog">
-            <Button variant="outline">
+            <Button variant="outline" className="hover:bg-gray-100">
               <ArrowLeft className="mr-2 h-4 w-4" />
               View All Articles
             </Button>
           </Link>
         </div>
       </div>
+
+      {/* Global Styles for Blog Content */}
+      <style>{`
+        .blog-content {
+          color: #374151;
+          line-height: 1.8;
+        }
+
+        .blog-content p {
+          margin-bottom: 1.5rem;
+          font-size: 1.0625rem;
+        }
+
+        .blog-content ul, .blog-content ol {
+          margin-bottom: 1.5rem;
+          padding-left: 1.5rem;
+        }
+
+        .blog-content ul {
+          list-style-type: disc;
+        }
+
+        .blog-content ol {
+          list-style-type: decimal;
+        }
+
+        .blog-content li {
+          margin-bottom: 0.75rem;
+          line-height: 1.7;
+        }
+
+        .blog-content strong {
+          font-weight: 600;
+          color: #1f2937;
+        }
+
+        .blog-content a {
+          color: #2563eb;
+          text-decoration: underline;
+          font-weight: 500;
+          transition: color 0.2s;
+        }
+
+        .blog-content a:hover {
+          color: #1d4ed8;
+        }
+
+        .blog-content h3 {
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+          color: #1f2937;
+        }
+
+        .blog-content h4 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          margin-top: 1.5rem;
+          margin-bottom: 0.75rem;
+          color: #374151;
+        }
+
+        .blog-content table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 1.5rem 0;
+        }
+
+        .blog-content th,
+        .blog-content td {
+          border: 1px solid #e5e7eb;
+          padding: 0.75rem 1rem;
+          text-align: left;
+        }
+
+        .blog-content th {
+          background-color: #f9fafb;
+          font-weight: 600;
+          color: #1f2937;
+        }
+
+        .blog-content tr:nth-child(even) {
+          background-color: #f9fafb;
+        }
+
+        .blog-content blockquote {
+          border-left: 4px solid #3b82f6;
+          padding-left: 1.5rem;
+          margin: 1.5rem 0;
+          font-style: italic;
+          color: #4b5563;
+        }
+
+        .blog-content code {
+          background-color: #f3f4f6;
+          padding: 0.125rem 0.375rem;
+          border-radius: 0.25rem;
+          font-size: 0.875em;
+          font-family: 'Courier New', monospace;
+        }
+
+        .blog-content pre {
+          background-color: #1f2937;
+          color: #f9fafb;
+          padding: 1rem;
+          border-radius: 0.5rem;
+          overflow-x: auto;
+          margin: 1.5rem 0;
+        }
+
+        .blog-content pre code {
+          background-color: transparent;
+          padding: 0;
+          color: #f9fafb;
+        }
+
+        /* Special styling for highlighted content divs */
+        .blog-content div[style*="background"] {
+          padding: 1.5rem;
+          border-radius: 0.5rem;
+          margin: 1.5rem 0;
+        }
+
+        .blog-content div[style*="border-left"] {
+          padding-left: 1.5rem;
+          margin: 1.5rem 0;
+        }
+      `}</style>
     </>
   );
 }
