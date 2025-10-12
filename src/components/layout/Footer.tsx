@@ -18,8 +18,8 @@ const toolLinks = [
 
 const companyLinks = [
   { name: 'About Us', href: '/about' },
-  { name: 'Privacy Policy', href: '/privacy' },
-  { name: 'Terms of Service', href: '/terms' },
+  { name: 'Privacy Policy', href: '/privacy-policy' },
+  { name: 'Terms of Service', href: '/terms-of-service' },
   { name: 'Contact', href: '/contact' },
 ];
 

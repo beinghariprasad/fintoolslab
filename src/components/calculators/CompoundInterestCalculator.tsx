@@ -6,8 +6,9 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { EnhancedLineChart, EnhancedAreaChart, EnhancedPieChart } from '@/components/ui/enhanced-chart';
-import { Calculator, TrendingUp, DollarSign, Calendar, Percent, PieChart, Target } from 'lucide-react';
+import { Calculator, TrendingUp, DollarSign, Calendar, Percent, PieChart, Target, Info } from 'lucide-react';
 import { InContentAd } from '@/components/ads/AdSenseUnit';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface CalculationResult {
   totalAmount: number;
@@ -125,6 +126,7 @@ export const CompoundInterestCalculator = () => {
 
   useEffect(() => {
     calculateCompoundInterest();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [principal, contributionAmount, contributionFrequency, annualRate, compoundingFrequency, years]);
 
   const formatCurrency = (amount: number) => {
@@ -136,9 +138,9 @@ export const CompoundInterestCalculator = () => {
     }).format(amount);
   };
 
-  const chartLabelFormatter = (label: any) => `Year ${label}`
-  const chartValueFormatter = (value: number, name: string): [string, string] => {
-    const formattedValue = formatCurrency(value)
+  const chartLabelFormatter = (label: number | string) => `Year ${label}`
+  const chartValueFormatter = (value: number | string, name: string): [string, string] => {
+    const formattedValue = formatCurrency(Number(value))
     return [formattedValue, name] as [string, string]
   }
 
@@ -156,11 +158,11 @@ export const CompoundInterestCalculator = () => {
 
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Calculator Form */}
-      <div className="lg:col-span-1">
-          <div className="gradient-card sticky top-20">
+        <div className="lg:col-span-1">
+          <Card className="financial-card bg-slate-50 border border-slate-200 rounded-xl shadow-sm">
             <CardHeader className="pb-4">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 gradient-blue rounded-2xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-400 rounded-2xl flex items-center justify-center">
                   <Calculator className="h-6 w-6 text-white" />
                 </div>
                 <div>
@@ -174,12 +176,26 @@ export const CompoundInterestCalculator = () => {
             <CardContent className="space-y-4">
               {/* Currency Selection */}
               <div className="space-y-2">
-                <Label htmlFor="currency">Currency</Label>
+                <Label htmlFor="currency" className="font-bold flex items-center gap-1">
+                  Currency
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Select your preferred currency for calculations.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Select value={currency} onValueChange={setCurrency}>
-                  <SelectTrigger>
+                  <SelectTrigger className="border-slate-300 focus:border-primary bg-white rounded-md shadow-sm text-base">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white border-slate-200 rounded-md shadow-lg">
                     {currencies.map((curr) => (
                       <SelectItem key={curr.code} value={curr.code}>
                         {curr.symbol} {curr.name}
@@ -191,7 +207,21 @@ export const CompoundInterestCalculator = () => {
 
               {/* Initial Principal */}
               <div className="space-y-2">
-                <Label htmlFor="principal">Initial Investment</Label>
+                <Label htmlFor="principal" className="font-bold flex items-center gap-1">
+                  Initial Investment
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        The starting amount you invest initially.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <div className="relative">
                   <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
                     {selectedCurrency?.symbol}
@@ -201,7 +231,7 @@ export const CompoundInterestCalculator = () => {
                     type="number"
                     value={principal}
                     onChange={(e) => setPrincipal(e.target.value)}
-                    className="pl-8"
+                    className="pl-8 text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
                     placeholder="10000"
                   />
                 </div>
@@ -209,7 +239,21 @@ export const CompoundInterestCalculator = () => {
 
               {/* Regular Contribution */}
               <div className="space-y-2">
-                <Label htmlFor="contribution">Regular Contribution</Label>
+                <Label htmlFor="contribution" className="font-bold flex items-center gap-1">
+                  Regular Contribution
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        The amount you add to your investment at each interval.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <div className="space-y-3">
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
@@ -220,7 +264,7 @@ export const CompoundInterestCalculator = () => {
                       type="number"
                       value={contributionAmount}
                       onChange={(e) => setContributionAmount(e.target.value)}
-                      className="pl-8"
+                      className="pl-8 text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
                       placeholder="500"
                     />
                   </div>
@@ -228,10 +272,10 @@ export const CompoundInterestCalculator = () => {
                     value={contributionFrequency.toString()} 
                     onValueChange={(value) => setContributionFrequency(parseInt(value))}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="border-slate-300 focus:border-primary bg-white rounded-md shadow-sm text-base">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-white border-slate-200 rounded-md shadow-lg">
                       {contributionFrequencies.map((freq) => (
                         <SelectItem key={freq.value} value={freq.value.toString()}>
                           {freq.label}
@@ -244,7 +288,21 @@ export const CompoundInterestCalculator = () => {
 
               {/* Annual Interest Rate */}
               <div className="space-y-2">
-                <Label htmlFor="rate">Annual Interest Rate</Label>
+                <Label htmlFor="rate" className="font-bold flex items-center gap-1">
+                  Annual Interest Rate
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        The yearly rate of return expected on your investment (as a percentage).
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <div className="relative">
                   <Input
                     id="rate"
@@ -252,7 +310,7 @@ export const CompoundInterestCalculator = () => {
                     step="0.1"
                     value={annualRate}
                     onChange={(e) => setAnnualRate(e.target.value)}
-                    className="pr-8"
+                    className="pr-8 text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
                     placeholder="7"
                   />
                   <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
@@ -263,15 +321,29 @@ export const CompoundInterestCalculator = () => {
 
               {/* Compounding Frequency */}
               <div className="space-y-2">
-                <Label>Compounding Frequency</Label>
+                <Label className="font-bold flex items-center gap-1">
+                  Compounding Frequency
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        How often interest is added to your investment balance.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Select 
                   value={compoundingFrequency.toString()} 
                   onValueChange={(value) => setCompoundingFrequency(parseInt(value))}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="border-slate-300 focus:border-primary bg-white rounded-md shadow-sm text-base">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white border-slate-200 rounded-md shadow-lg">
                     {compoundingFrequencies.map((freq) => (
                       <SelectItem key={freq.value} value={freq.value.toString()}>
                         {freq.label}
@@ -283,26 +355,41 @@ export const CompoundInterestCalculator = () => {
 
               {/* Investment Term */}
               <div className="space-y-2">
-                <Label htmlFor="years">Investment Term (Years)</Label>
+                <Label htmlFor="years" className="font-bold flex items-center gap-1">
+                  Investment Term (Years)
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        The total number of years you plan to invest.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Input
                   id="years"
                   type="number"
                   value={years}
                   onChange={(e) => setYears(e.target.value)}
                   placeholder="10"
+                  className="text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
                 />
               </div>
 
               <Button 
                 onClick={calculateCompoundInterest}
-                className="w-full gradient-blue text-white hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-400 text-white hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 rounded-md"
                 size="lg"
               >
                 <TrendingUp className="h-5 w-5 mr-2" />
                 Calculate Growth
               </Button>
             </CardContent>
-          </div>
+          </Card>
         </div>
 
         {/* Results */}
@@ -310,36 +397,52 @@ export const CompoundInterestCalculator = () => {
           {result && (
             <>
               {/* Summary Cards */}
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="gradient-card p-6 text-center">
-                  <div className="w-16 h-16 gradient-blue rounded-3xl flex items-center justify-center mx-auto mb-4">
-                    <DollarSign className="h-8 w-8 text-white" />
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-2">Final Amount</p>
-                  <p className="text-2xl font-bold text-primary">
-                    {formatCurrency(result.totalAmount)}
-                  </p>
-                </div>
-                
-                <div className="gradient-card p-6 text-center">
-                  <div className="w-16 h-16 gradient-emerald rounded-3xl flex items-center justify-center mx-auto mb-4">
-                    <Calendar className="h-8 w-8 text-white" />
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-2">Total Invested</p>
-                  <p className="text-2xl font-bold text-emerald">
-                    {formatCurrency(result.totalContributions)}
-                  </p>
-                </div>
-                
-                <div className="gradient-card p-6 text-center">
-                  <div className="w-16 h-16 gradient-sunset rounded-3xl flex items-center justify-center mx-auto mb-4">
-                    <Percent className="h-8 w-8 text-white" />
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-2">Interest Earned</p>
-                  <p className="text-2xl font-bold text-orange">
-                    {formatCurrency(result.totalInterest)}
-                  </p>
-                </div>
+              <div className="grid md:grid-cols-3 gap-4">
+                <Card className="financial-card">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 text-lg">
+                      <DollarSign className="h-4 w-4 text-primary" />
+                      Final Amount
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold text-primary">
+                      {formatCurrency(result.totalAmount)}
+                    </div>
+                    <span className="text-sm text-muted-foreground mt-1">Total value at end of term</span>
+                    <span className="text-sm mt-1 opacity-0 select-none">placeholder</span>
+                  </CardContent>
+                </Card>
+                <Card className="financial-card">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 text-lg">
+                      <Calendar className="h-4 w-4 text-green-600" />
+                      Total Invested
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold text-green-600">
+                      {formatCurrency(result.totalContributions)}
+                    </div>
+                    <span className="text-sm text-muted-foreground mt-1">Sum of all contributions</span>
+                    <span className="text-sm mt-1 opacity-0 select-none">placeholder</span>
+                  </CardContent>
+                </Card>
+                <Card className="financial-card">
+                  <CardHeader className="pb-3">
+                    <CardTitle className="flex items-center gap-2 text-lg">
+                      <Percent className="h-4 w-4 text-yellow-600" />
+                      Interest Earned
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-2xl font-bold text-yellow-600">
+                      {formatCurrency(result.totalInterest)}
+                    </div>
+                    <span className="text-sm text-muted-foreground mt-1">Total interest earned</span>
+                    <span className="text-sm mt-1 opacity-0 select-none">placeholder</span>
+                  </CardContent>
+                </Card>
               </div>
 
               {/* Charts */}
@@ -351,7 +454,7 @@ export const CompoundInterestCalculator = () => {
                 </TabsList>
                 
                 <TabsContent value="growth">
-                  <div className="gradient-card">
+                  <Card className="modern-card shadow-lg p-4">
                     <CardHeader className="pb-4">
                       <CardTitle className="text-xl flex items-center gap-2">
                         <TrendingUp className="h-5 w-5 text-primary" />
@@ -369,13 +472,13 @@ export const CompoundInterestCalculator = () => {
                           {
                             dataKey: "total",
                             name: "Total Value",
-                            color: "hsl(var(--primary))",
+                            color: "url(#ci-total-gradient)",
                             strokeWidth: 3
                           },
                           {
                             dataKey: "principal",
                             name: "Contributions",
-                            color: "hsl(var(--emerald))",
+                            color: "url(#ci-principal-gradient)",
                             strokeWidth: 2,
                             strokeDasharray: "5 5"
                           }
@@ -383,12 +486,25 @@ export const CompoundInterestCalculator = () => {
                         labelFormatter={chartLabelFormatter}
                         valueFormatter={chartValueFormatter}
                       />
+                      {/* SVG gradients for line chart */}
+                      <svg width="0" height="0">
+                        <defs>
+                          <linearGradient id="ci-total-gradient" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stopColor="#2563eb" />
+                            <stop offset="100%" stopColor="#60a5fa" />
+                          </linearGradient>
+                          <linearGradient id="ci-principal-gradient" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stopColor="#22c55e" />
+                            <stop offset="100%" stopColor="#bbf7d0" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
                     </CardContent>
-                  </div>
+                  </Card>
                 </TabsContent>
                 
                 <TabsContent value="breakdown">
-                  <div className="gradient-card">
+                  <Card className="modern-card shadow-lg p-4">
                     <CardHeader className="pb-4">
                       <CardTitle className="text-xl flex items-center gap-2">
                         <PieChart className="h-5 w-5 text-emerald" />
@@ -399,30 +515,20 @@ export const CompoundInterestCalculator = () => {
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <EnhancedAreaChart
-                        data={result.yearlyData}
-                        height={350}
-                        areas={[
-                          {
-                            dataKey: "principal",
-                            name: "Principal",
-                            color: "hsl(var(--emerald))",
-                            fillOpacity: 0.8,
-                            stackId: "1"
-                          },
-                          {
-                            dataKey: "interest",
-                            name: "Interest",
-                            color: "hsl(var(--violet))",
-                            fillOpacity: 0.8,
-                            stackId: "1"
-                          }
+                      <EnhancedPieChart
+                        data={[
+                          { name: 'Principal', value: result.totalContributions, gradient: ['#22c55e', '#bbf7d0'] },
+                          { name: 'Interest', value: result.totalInterest, gradient: ['#f59e42', '#fbbf24'] }
                         ]}
-                        labelFormatter={chartLabelFormatter}
-                        valueFormatter={chartValueFormatter}
+                        height={320}
+                        showLabels={true}
+                        valueFormatter={v => formatCurrency(v)}
+                        innerRadius={60}
+                        outerRadius={100}
+                        className="pie-gradient"
                       />
                     </CardContent>
-                  </div>
+                  </Card>
                 </TabsContent>
                 
                 <TabsContent value="comparison">

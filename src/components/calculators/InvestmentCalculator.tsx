@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { EnhancedAreaChart, EnhancedBarChart } from '@/components/ui/enhanced-chart';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calculator, PiggyBank, DollarSign, Calendar, TrendingUp, BarChart3, Target } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface InvestmentData {
   initialInvestment: number;
@@ -138,7 +139,7 @@ export function InvestmentCalculator() {
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Input Form */}
         <div className="lg:col-span-1">
-          <Card className="financial-card">
+          <Card className="financial-card bg-slate-50 border border-slate-200 rounded-xl shadow-sm">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2">
                 <Calculator className="h-5 w-5" />
@@ -148,34 +149,76 @@ export function InvestmentCalculator() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="initialInvestment">Initial Investment</Label>
+                <Label htmlFor="initialInvestment" className="font-bold flex items-center gap-1">
+                  Initial Investment
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Calculator className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        The starting amount you invest initially.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Input
                   id="initialInvestment"
                   type="number"
                   value={data.initialInvestment}
                   onChange={(e) => setData(prev => ({ ...prev, initialInvestment: Number(e.target.value) }))}
-                  className="text-base"
+                  className="text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="monthlyContribution">Monthly Contribution</Label>
+                <Label htmlFor="monthlyContribution" className="font-bold flex items-center gap-1">
+                  Monthly Contribution
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Calculator className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        The amount you add to your investment each month.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Input
                   id="monthlyContribution"
                   type="number"
                   value={data.monthlyContribution}
                   onChange={(e) => setData(prev => ({ ...prev, monthlyContribution: Number(e.target.value) }))}
-                  className="text-base"
+                  className="text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="timeHorizon">Time Horizon (Years)</Label>
+                <Label htmlFor="timeHorizon" className="font-bold flex items-center gap-1">
+                  Time Horizon (Years)
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Calendar className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        The number of years you plan to invest for.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Select value={data.timeHorizon.toString()} onValueChange={(value) => setData(prev => ({ ...prev, timeHorizon: Number(value) }))}>
-                  <SelectTrigger>
+                  <SelectTrigger className="border-slate-300 focus:border-primary bg-white rounded-md shadow-sm text-base">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white border-slate-200 rounded-md shadow-lg">
                     <SelectItem value="5">5 years</SelectItem>
                     <SelectItem value="10">10 years</SelectItem>
                     <SelectItem value="15">15 years</SelectItem>
@@ -187,24 +230,52 @@ export function InvestmentCalculator() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="expectedReturn">Expected Annual Return (%)</Label>
+                <Label htmlFor="expectedReturn" className="font-bold flex items-center gap-1">
+                  Expected Annual Return (%)
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <TrendingUp className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        The yearly rate of return you expect on your investment.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Input
                   id="expectedReturn"
                   type="number"
                   step="0.1"
                   value={data.expectedReturn}
                   onChange={(e) => setData(prev => ({ ...prev, expectedReturn: Number(e.target.value) }))}
-                  className="text-base"
+                  className="text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="riskLevel">Risk Level</Label>
+                <Label htmlFor="riskLevel" className="font-bold flex items-center gap-1">
+                  Risk Level
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Target className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Choose your investment risk profile.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Select value={data.riskLevel} onValueChange={(value) => setData(prev => ({ ...prev, riskLevel: value }))}>
-                  <SelectTrigger>
+                  <SelectTrigger className="border-slate-300 focus:border-primary bg-white rounded-md shadow-sm text-base">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white border-slate-200 rounded-md shadow-lg">
                     {Object.entries(riskLevels).map(([key, level]) => (
                       <SelectItem key={key} value={key}>
                         {level.name}
@@ -215,26 +286,54 @@ export function InvestmentCalculator() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="inflationRate">Inflation Rate (%)</Label>
+                <Label htmlFor="inflationRate" className="font-bold flex items-center gap-1">
+                  Inflation Rate (%)
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <TrendingUp className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        The expected annual inflation rate.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Input
                   id="inflationRate"
                   type="number"
                   step="0.1"
                   value={data.inflationRate}
                   onChange={(e) => setData(prev => ({ ...prev, inflationRate: Number(e.target.value) }))}
-                  className="text-base"
+                  className="text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="taxRate">Tax Rate on Gains (%)</Label>
+                <Label htmlFor="taxRate" className="font-bold flex items-center gap-1">
+                  Tax Rate on Gains (%)
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <DollarSign className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        The percentage of gains that will be taxed.
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Input
                   id="taxRate"
                   type="number"
                   step="0.1"
                   value={data.taxRate}
                   onChange={(e) => setData(prev => ({ ...prev, taxRate: Number(e.target.value) }))}
-                  className="text-base"
+                  className="text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
                 />
               </div>
             </CardContent>
@@ -248,7 +347,7 @@ export function InvestmentCalculator() {
             <Card className="financial-card">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Target className="h-4 w-4" />
+                  <Target className="h-4 w-4 text-primary" />
                   Final Value
                 </CardTitle>
               </CardHeader>
@@ -256,43 +355,40 @@ export function InvestmentCalculator() {
                 <div className="text-2xl font-bold text-primary">
                   ${results.afterTaxValue.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  After taxes
-                </p>
+                <span className="text-sm text-muted-foreground mt-1">After taxes</span>
+                <span className="text-sm mt-1 opacity-0 select-none">placeholder</span>
               </CardContent>
             </Card>
 
             <Card className="financial-card">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <TrendingUp className="h-4 w-4" />
+                  <TrendingUp className="h-4 w-4 text-green-600" />
                   Total Gains
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-financial-success">
+                <div className="text-2xl font-bold text-green-600">
                   ${results.totalGains.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Before taxes
-                </p>
+                <span className="text-sm text-muted-foreground mt-1">Before taxes</span>
+                <span className="text-sm mt-1 opacity-0 select-none">placeholder</span>
               </CardContent>
             </Card>
 
             <Card className="financial-card">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <DollarSign className="h-4 w-4" />
+                  <DollarSign className="h-4 w-4 text-yellow-600" />
                   Real Value
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-financial-gold">
+                <div className="text-2xl font-bold text-yellow-600">
                   ${results.realValue.toLocaleString('en-US', { maximumFractionDigits: 0 })}
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Inflation adjusted
-                </p>
+                <span className="text-sm text-muted-foreground mt-1">Inflation adjusted</span>
+                <span className="text-sm mt-1 opacity-0 select-none">placeholder</span>
               </CardContent>
             </Card>
           </div>
@@ -301,7 +397,7 @@ export function InvestmentCalculator() {
           <Card className="financial-card">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2">
-                <BarChart3 className="h-5 w-5" />
+                <BarChart3 className="h-5 w-5 text-primary" />
                 Investment Growth Over Time
               </CardTitle>
             </CardHeader>
@@ -309,12 +405,31 @@ export function InvestmentCalculator() {
               <EnhancedAreaChart
                 data={chartData}
                 areas={[
-                  { dataKey: 'Total Value', name: 'Total Value', color: 'hsl(var(--financial-blue))' },
-                  { dataKey: 'Contributions', name: 'Contributions', color: 'hsl(var(--financial-success))' },
-                  { dataKey: 'Investment Gains', name: 'Investment Gains', color: 'hsl(var(--financial-gold))' }
+                  { dataKey: 'Total Value', name: 'Total Value', color: 'url(#inv-total-gradient)' },
+                  { dataKey: 'Contributions', name: 'Contributions', color: 'url(#inv-contrib-gradient)' },
+                  { dataKey: 'Investment Gains', name: 'Investment Gains', color: 'url(#inv-gains-gradient)' }
                 ]}
                 height={400}
+                labelFormatter={label => label}
+                valueFormatter={(v, n) => [`$${v.toLocaleString('en-US', { maximumFractionDigits: 0 })}`, n]}
               />
+              {/* SVG gradients for area chart */}
+              <svg width="0" height="0">
+                <defs>
+                  <linearGradient id="inv-total-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#6366f1" />
+                    <stop offset="100%" stopColor="#a5b4fc" />
+                  </linearGradient>
+                  <linearGradient id="inv-contrib-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#22c55e" />
+                    <stop offset="100%" stopColor="#bbf7d0" />
+                  </linearGradient>
+                  <linearGradient id="inv-gains-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#f59e42" />
+                    <stop offset="100%" stopColor="#fbbf24" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </CardContent>
           </Card>
 
@@ -322,7 +437,7 @@ export function InvestmentCalculator() {
           <Card className="financial-card">
             <CardHeader className="pb-4">
               <CardTitle className="flex items-center gap-2">
-                <Target className="h-5 w-5" />
+                <Target className="h-5 w-5 text-primary" />
                 Risk Scenario Analysis
               </CardTitle>
             </CardHeader>
@@ -330,10 +445,21 @@ export function InvestmentCalculator() {
               <EnhancedBarChart
                 data={riskData}
                 bars={[
-                  { dataKey: 'Final Value', name: 'Final Value', color: 'hsl(var(--financial-blue))' }
+                  { dataKey: 'Final Value', name: 'Final Value', color: 'url(#inv-bar-gradient)', radius: [8, 8, 0, 0] }
                 ]}
                 height={300}
+                labelFormatter={label => label}
+                valueFormatter={(v, n) => [`$${v.toLocaleString('en-US', { maximumFractionDigits: 0 })}`, n]}
               />
+              {/* SVG gradient for bar chart */}
+              <svg width="0" height="0">
+                <defs>
+                  <linearGradient id="inv-bar-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#6366f1" />
+                    <stop offset="100%" stopColor="#a5b4fc" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </CardContent>
           </Card>
         </div>

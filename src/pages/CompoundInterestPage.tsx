@@ -1,9 +1,23 @@
+import { lazy, Suspense } from 'react';
 import { CompoundInterestCalculator } from '@/components/calculators/CompoundInterestCalculator';
-import { HeaderAd, FooterAd } from '@/components/ads/AdSenseUnit';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calculator, TrendingUp, DollarSign, Target, BookOpen, Lightbulb } from 'lucide-react';
+import { Calculator, TrendingUp, DollarSign, Target, BookOpen, Lightbulb, Home, HelpCircle } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { PageLoadingSpinner } from '@/components/ui/loading-spinner';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
+// Lazy-load non-critical sections
+const FooterAd = lazy(() => import('@/components/ads/AdSenseUnit').then(m => ({ default: m.FooterAd })));
+
+// Move static data outside component to prevent re-creation
 const educationalContent = [
   {
     title: 'What is Compound Interest?',
@@ -36,6 +50,207 @@ const tips = [
   'Consider tax-advantaged accounts like 401(k)s and IRAs for retirement savings'
 ];
 
+// Pre-compute structured data
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Compound Interest Calculator",
+  "description": "Free compound interest calculator with interactive charts and detailed projections",
+  "url": "https://fintoolslab.com/calculators/compound-interest",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Interactive charts",
+    "Multiple currencies",
+    "Flexible contribution schedules",
+    "Real-time calculations",
+    "Export results"
+  ],
+  "screenshot": "https://fintoolslab.com/calculators/compound-interest",
+  "softwareVersion": "1.0",
+  "author": {
+    "@type": "Organization",
+    "name": "Fin Tools Lab"
+  }
+};
+
+const faqData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I use a compound interest calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "To use our compound interest calculator, enter your initial investment amount, annual interest rate, investment time period, and monthly contribution amount. The calculator will instantly show your projected returns, total contributions, and interest earned over time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between simple and compound interest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simple interest is calculated only on the principal amount, while compound interest is calculated on both the principal and accumulated interest. Compound interest grows faster over time because you earn interest on your interest, creating exponential growth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate are compound interest calculators?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our compound interest calculator uses industry-standard formulas and provides accurate projections based on your inputs. However, actual returns may vary due to market fluctuations, fees, and tax implications. Always consult with a financial advisor for personalized advice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the best frequency for compound interest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "More frequent compounding (daily or monthly) typically yields slightly higher returns than annual compounding. However, the difference becomes less significant as compounding frequency increases. Focus on starting early and making regular contributions for maximum impact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much should I invest to reach my financial goals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use our calculator to experiment with different investment amounts and time periods. Start with your current savings and gradually increase contributions as your income grows. Remember, even small regular investments can grow significantly over time due to compound interest."
+      }
+    }
+  ]
+};
+
+function ExampleWalkthrough() {
+  return (
+    <div className="mt-16">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Lightbulb className="h-5 w-5" />
+            Example Walkthrough
+          </CardTitle>
+          <CardDescription>
+            See how compound interest works with a real example
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <div className="bg-green-50 p-4 rounded-lg">
+              <h4 className="font-semibold text-green-800 mb-2">Scenario:</h4>
+              <ul className="text-green-700 space-y-1 text-sm">
+                <li>• Initial investment: $10,000</li>
+                <li>• Annual interest rate: 7%</li>
+                <li>• Monthly contribution: $500</li>
+                <li>• Time period: 20 years</li>
+              </ul>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4 text-center">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <div className="text-2xl font-bold text-blue-600">$130,000</div>
+                <div className="text-sm text-blue-700">Total Contributions</div>
+              </div>
+              <div className="bg-green-50 p-4 rounded-lg">
+                <div className="text-2xl font-bold text-green-600">$180,000</div>
+                <div className="text-sm text-green-700">Interest Earned</div>
+              </div>
+              <div className="bg-purple-50 p-4 rounded-lg">
+                <div className="text-2xl font-bold text-purple-600">$310,000</div>
+                <div className="text-sm text-purple-700">Final Balance</div>
+              </div>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              This example shows how regular contributions and compound interest can turn $130,000 in contributions into $310,000 over 20 years!
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+function TipsSection() {
+  return (
+    <div className="mt-16">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Target className="h-5 w-5" />
+            Investment Tips
+          </CardTitle>
+          <CardDescription>
+            Maximize your returns with these proven strategies
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid md:grid-cols-2 gap-4">
+            {tips.map((tip, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                <p className="text-sm text-muted-foreground">{tip}</p>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+function FAQSection() {
+  return (
+    <div className="mt-16">
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <HelpCircle className="h-5 w-5" />
+            Frequently Asked Questions
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-6">
+            <div>
+              <h4 className="font-semibold mb-2">How do I use a compound interest calculator?</h4>
+              <p className="text-sm text-muted-foreground">
+                To use our compound interest calculator, enter your initial investment amount, annual interest rate, investment time period, and monthly contribution amount. The calculator will instantly show your projected returns, total contributions, and interest earned over time.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-2">What is the difference between simple and compound interest?</h4>
+              <p className="text-sm text-muted-foreground">
+                Simple interest is calculated only on the principal amount, while compound interest is calculated on both the principal and accumulated interest. Compound interest grows faster over time because you earn interest on your interest, creating exponential growth.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-2">How accurate are compound interest calculators?</h4>
+              <p className="text-sm text-muted-foreground">
+                Our compound interest calculator uses industry-standard formulas and provides accurate projections based on your inputs. However, actual returns may vary due to market fluctuations, fees, and tax implications. Always consult with a financial advisor for personalized advice.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-2">What is the best frequency for compound interest?</h4>
+              <p className="text-sm text-muted-foreground">
+                More frequent compounding (daily or monthly) typically yields slightly higher returns than annual compounding. However, the difference becomes less significant as compounding frequency increases. Focus on starting early and making regular contributions for maximum impact.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-2">How much should I invest to reach my financial goals?</h4>
+              <p className="text-sm text-muted-foreground">
+                Use our calculator to experiment with different investment amounts and time periods. Start with your current savings and gradually increase contributions as your income grows. Remember, even small regular investments can grow significantly over time due to compound interest.
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
 export default function CompoundInterestPage() {
   return (
     <>
@@ -62,125 +277,142 @@ export default function CompoundInterestPage() {
         
         {/* Structured Data */}
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            "name": "Compound Interest Calculator",
-            "description": "Free compound interest calculator with interactive charts and detailed projections",
-            "url": "https://fintoolslab.com/calculators/compound-interest",
-            "applicationCategory": "FinanceApplication",
-            "operatingSystem": "Any",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            "featureList": [
-              "Interactive charts",
-              "Multiple currencies",
-              "Flexible contribution schedules",
-              "Real-time calculations",
-              "Export results"
-            ]
-          })}
+          {JSON.stringify(structuredData)}
+        </script>
+        
+        {/* FAQ Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(faqData)}
         </script>
       </Helmet>
 
       <div className="bg-background">
         <div className="container mx-auto container-padding section-padding">
+          {/* Breadcrumbs */}
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem className="hidden md:block">
+                <BreadcrumbLink asChild>
+                  <Link to="/" className="flex items-center gap-1">
+                    <Home className="h-3 w-3" />
+                    Home
+                  </Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/calculators">Calculators</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Compound Interest</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+
+          {/* Short Answer Box for Featured Snippets */}
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8 rounded-r-lg">
+            <p className="text-blue-800 text-base leading-relaxed">
+              A <strong>compound interest calculator</strong> helps you determine how much your investments will grow over time, 
+              accounting for interest earned on both the principal amount and accumulated interest. 
+              Simply enter your initial investment, interest rate, time period, and contribution frequency 
+              to see your projected returns and understand the power of compounding.
+            </p>
+          </div>
+
           {/* Calculator */}
           <CompoundInterestCalculator />
 
-          {/* Educational Content */}
+          {/* How it Works Section */}
           <div className="mt-16 space-y-8">
             <div className="text-center mb-8">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">
-                Understanding Compound Interest
+                How Compound Interest Works
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Learn how compound interest works and why it's powerful for building wealth
+                Understanding the mechanics behind compound interest and how to use our calculator effectively
               </p>
             </div>
 
+            {/* Formula Section */}
+            <Card className="mb-8">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Calculator className="h-5 w-5" />
+                  The Compound Interest Formula
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="bg-muted p-4 rounded-lg">
+                    <p className="font-mono text-sm md:text-base">
+                      A = P(1 + r/n)^(nt)
+                    </p>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-4 text-sm">
+                    <div>
+                      <strong>A</strong> = Final amount (principal + interest)
+                    </div>
+                    <div>
+                      <strong>P</strong> = Principal amount (initial investment)
+                    </div>
+                    <div>
+                      <strong>r</strong> = Annual interest rate (as a decimal)
+                    </div>
+                    <div>
+                      <strong>n</strong> = Number of times interest is compounded per year
+                    </div>
+                    <div>
+                      <strong>t</strong> = Time in years
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Educational Content */}
             <div className="grid md:grid-cols-2 gap-6">
               {educationalContent.map((item, index) => (
-                <Card key={item.title} className="financial-card">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-3 text-lg">
-                      <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <item.icon className="h-4 w-4 text-primary" />
-                      </div>
+                <Card key={index}>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-lg">
+                      <item.icon className="h-5 w-5 text-primary" />
                       {item.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.content}</p>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {item.content}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
             </div>
-
-            {/* Tips Section */}
-            <Card className="financial-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-3 text-lg">
-                  <div className="w-8 h-8 bg-financial-gold/10 rounded-lg flex items-center justify-center">
-                    <Lightbulb className="h-4 w-4 text-financial-gold" />
-                  </div>
-                  Investment Tips
-                </CardTitle>
-                <CardDescription className="text-sm">
-                  Maximize the power of compound interest with these strategies
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="grid md:grid-cols-2 gap-2">
-                  {tips.map((tip, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 bg-financial-gold rounded-full mt-1.5 flex-shrink-0" />
-                      <span className="text-muted-foreground text-sm">{tip}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Formula Section */}
-            <Card className="financial-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-3 text-lg">
-                  <div className="w-8 h-8 bg-financial-success/10 rounded-lg flex items-center justify-center">
-                    <Calculator className="h-4 w-4 text-financial-success" />
-                  </div>
-                  Compound Interest Formula
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-muted/30 rounded-lg p-4 mb-3">
-                  <p className="text-center text-lg font-mono mb-3">
-                    A = P(1 + r/n)<sup>nt</sup>
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-3 text-sm">
-                    <div>
-                      <strong>A</strong> = Final amount<br />
-                      <strong>P</strong> = Principal<br />
-                      <strong>r</strong> = Annual rate
-                    </div>
-                    <div>
-                      <strong>n</strong> = Compounds per year<br />
-                      <strong>t</strong> = Number of years
-                    </div>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  This formula calculates compound interest growth. Our calculator includes additional contributions for accurate projections.
-                </p>
-              </CardContent>
-            </Card>
           </div>
 
-          {/* Footer Ad */}
-          <FooterAd />
+          {/* Example Walkthrough (lazy) */}
+          <Suspense fallback={<PageLoadingSpinner text="Loading example..." />}>
+            <ExampleWalkthrough />
+          </Suspense>
+
+          {/* Tips Section (lazy) */}
+          <Suspense fallback={<PageLoadingSpinner text="Loading tips..." />}>
+            <TipsSection />
+          </Suspense>
+
+          {/* FAQ Section (lazy) */}
+          <Suspense fallback={<PageLoadingSpinner text="Loading FAQs..." />}>
+            <FAQSection />
+          </Suspense>
+
+          {/* AdSense Footer (lazy) */}
+          <Suspense fallback={<PageLoadingSpinner text="Loading ads..." />}>
+            <div className="mt-16">
+              <FooterAd />
+            </div>
+          </Suspense>
         </div>
       </div>
     </>

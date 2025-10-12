@@ -5,7 +5,8 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { EnhancedBarChart, EnhancedLineChart } from '@/components/ui/enhanced-chart';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Calculator, DollarSign, Calendar, TrendingDown, BarChart3, CreditCard } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Calculator, DollarSign, Calendar, TrendingDown, BarChart3, CreditCard, Info } from 'lucide-react';
 
 interface LoanData {
   principal: number;
@@ -82,7 +83,7 @@ export function LoanCalculator() {
   }, [data]);
 
   const chartData = results.schedule.map(item => ({
-    month: `Month ${item.month}`,
+    year: item.month,
     Principal: item.principal,
     Interest: item.interest,
     'Remaining Balance': item.balance
@@ -95,40 +96,72 @@ export function LoanCalculator() {
     business: { name: 'Business Loan', description: 'Commercial financing' }
   };
 
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
+
+  const chartLabelFormatter = (label: number | string) => `Month ${label}`;
+  const chartValueFormatter = (value: number | string, name: string): [string, string] => {
+    const formattedValue = formatCurrency(Number(value));
+    return [formattedValue, name] as [string, string];
+  };
+
   return (
-    <div className="space-y-6">
+    <div className="max-w-6xl mx-auto space-y-8">
       {/* Header */}
       <div className="text-center space-y-3">
-        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-financial-success to-financial-success-light rounded-xl">
-          <DollarSign className="h-6 w-6 text-white" />
-        </div>
-        <div>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground">Loan Calculator</h1>
-          <p className="text-lg text-muted-foreground mt-2">
-            Calculate loan payments for personal loans, auto loans, and more
-          </p>
-        </div>
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+          Loan Calculator
+        </h1>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Calculate loan payments for personal loans, auto loans, and more
+        </p>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Input Form */}
         <div className="lg:col-span-1">
-          <Card className="financial-card">
+          <Card className="financial-card bg-slate-50 border border-slate-200 rounded-xl shadow-sm">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2">
-                <Calculator className="h-5 w-5" />
-                Loan Details
-              </CardTitle>
-              <CardDescription>Enter your loan information</CardDescription>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-600 to-green-400 rounded-2xl flex items-center justify-center">
+                  <DollarSign className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-xl">Loan Details</CardTitle>
+                  <CardDescription className="text-sm">
+                    Configure your loan parameters
+                  </CardDescription>
+                </div>
+              </div>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="loanType">Loan Type</Label>
+                <Label className="font-bold flex items-center gap-1">
+                  Loan Type
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Type of loan you're calculating
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Select value={data.loanType} onValueChange={(value) => setData(prev => ({ ...prev, loanType: value }))}>
-                  <SelectTrigger>
+                  <SelectTrigger className="border-slate-300 focus:border-primary bg-white rounded-md shadow-sm text-base">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white border-slate-200 rounded-md shadow-lg">
                     {Object.entries(loanTypes).map(([key, type]) => (
                       <SelectItem key={key} value={key}>
                         {type.name}
@@ -139,35 +172,87 @@ export function LoanCalculator() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="principal">Loan Amount</Label>
-                <Input
-                  id="principal"
-                  type="number"
-                  value={data.principal}
-                  onChange={(e) => setData(prev => ({ ...prev, principal: Number(e.target.value) }))}
-                  className="text-base"
-                />
+                <Label className="font-bold flex items-center gap-1">
+                  Loan Amount
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Total amount you want to borrow
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                    $
+                  </span>
+                  <Input
+                    type="number"
+                    value={data.principal}
+                    onChange={(e) => setData(prev => ({ ...prev, principal: Number(e.target.value) }))}
+                    className="pl-8 text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
+                    placeholder="25000"
+                  />
+                </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="interestRate">Interest Rate (%)</Label>
-                <Input
-                  id="interestRate"
-                  type="number"
-                  step="0.01"
-                  value={data.interestRate}
-                  onChange={(e) => setData(prev => ({ ...prev, interestRate: Number(e.target.value) }))}
-                  className="text-base"
-                />
+                <Label className="font-bold flex items-center gap-1">
+                  Interest Rate
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Annual interest rate on the loan
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
+                <div className="relative">
+                  <Input
+                    type="number"
+                    step="0.01"
+                    value={data.interestRate}
+                    onChange={(e) => setData(prev => ({ ...prev, interestRate: Number(e.target.value) }))}
+                    className="pr-8 text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
+                    placeholder="7.5"
+                  />
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                    %
+                  </span>
+                </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="loanTerm">Loan Term (Years)</Label>
+                <Label className="font-bold flex items-center gap-1">
+                  Loan Term
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Duration of the loan in years
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Select value={data.loanTerm.toString()} onValueChange={(value) => setData(prev => ({ ...prev, loanTerm: Number(value) }))}>
-                  <SelectTrigger>
+                  <SelectTrigger className="border-slate-300 focus:border-primary bg-white rounded-md shadow-sm text-base">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white border-slate-200 rounded-md shadow-lg">
                     <SelectItem value="1">1 year</SelectItem>
                     <SelectItem value="2">2 years</SelectItem>
                     <SelectItem value="3">3 years</SelectItem>
@@ -175,20 +260,50 @@ export function LoanCalculator() {
                     <SelectItem value="5">5 years</SelectItem>
                     <SelectItem value="7">7 years</SelectItem>
                     <SelectItem value="10">10 years</SelectItem>
+                    <SelectItem value="15">15 years</SelectItem>
+                    <SelectItem value="20">20 years</SelectItem>
+                    <SelectItem value="30">30 years</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="extraPayment">Extra Monthly Payment</Label>
-                <Input
-                  id="extraPayment"
-                  type="number"
-                  value={data.extraPayment}
-                  onChange={(e) => setData(prev => ({ ...prev, extraPayment: Number(e.target.value) }))}
-                  className="text-base"
-                />
+                <Label className="font-bold flex items-center gap-1">
+                  Extra Monthly Payment
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Additional amount to pay each month to reduce loan term
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                    $
+                  </span>
+                  <Input
+                    type="number"
+                    value={data.extraPayment}
+                    onChange={(e) => setData(prev => ({ ...prev, extraPayment: Number(e.target.value) }))}
+                    className="pl-8 text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
+                    placeholder="0"
+                  />
+                </div>
               </div>
+
+              <Button 
+                className="w-full bg-gradient-to-r from-green-600 to-green-400 text-white hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 rounded-md"
+                size="lg"
+              >
+                <Calculator className="h-5 w-5 mr-2" />
+                Calculate Loan
+              </Button>
             </CardContent>
           </Card>
         </div>
@@ -200,18 +315,18 @@ export function LoanCalculator() {
             <Card className="financial-card">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <CreditCard className="h-4 w-4" />
+                  <CreditCard className="h-4 w-4 text-primary" />
                   Monthly Payment
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-primary">
-                  ${results.monthlyPayment.toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                  {formatCurrency(results.monthlyPayment)}
                 </div>
                 {data.extraPayment > 0 && (
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Total: ${results.totalMonthlyPayment.toLocaleString('en-US', { maximumFractionDigits: 0 })}
-                  </p>
+                  <span className="text-sm text-muted-foreground mt-1">
+                    Total: {formatCurrency(results.totalMonthlyPayment)}
+                  </span>
                 )}
               </CardContent>
             </Card>
@@ -219,18 +334,18 @@ export function LoanCalculator() {
             <Card className="financial-card">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <TrendingDown className="h-4 w-4" />
+                  <TrendingDown className="h-4 w-4 text-red-600" />
                   Total Interest
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-destructive">
-                  ${results.totalInterest.toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                <div className="text-2xl font-bold text-red-600">
+                  {formatCurrency(results.totalInterest)}
                 </div>
                 {data.extraPayment > 0 && results.interestSaved > 0 && (
-                  <p className="text-sm text-financial-success mt-1">
-                    Save: ${results.interestSaved.toLocaleString('en-US', { maximumFractionDigits: 0 })}
-                  </p>
+                  <span className="text-sm text-green-600 mt-1">
+                    Save: {formatCurrency(results.interestSaved)}
+                  </span>
                 )}
               </CardContent>
             </Card>
@@ -238,57 +353,89 @@ export function LoanCalculator() {
             <Card className="financial-card">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Calendar className="h-4 w-4" />
+                  <Calendar className="h-4 w-4 text-blue-600" />
                   Payoff Time
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-primary">
+                <div className="text-2xl font-bold text-blue-600">
                   {Math.floor(results.payoffMonths / 12)}y {results.payoffMonths % 12}m
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">
+                <span className="text-sm text-muted-foreground mt-1">
                   {results.payoffMonths} months
-                </p>
+                </span>
               </CardContent>
             </Card>
           </div>
 
-          {/* Payment Schedule Chart */}
-          <Card className="financial-card">
+          {/* Payment Breakdown Chart */}
+          <Card className="modern-card shadow-lg p-4">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2">
-                <BarChart3 className="h-5 w-5" />
-                Payment Breakdown Over Time
+              <CardTitle className="text-xl flex items-center gap-2">
+                <BarChart3 className="h-5 w-5 text-primary" />
+                Payment Breakdown
               </CardTitle>
+              <CardDescription className="text-base">
+                See how your payments are split between principal and interest
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <EnhancedBarChart
-                data={chartData}
+                data={chartData.slice(0, 24)}
                 bars={[
-                  { dataKey: 'Principal', name: 'Principal', color: 'hsl(var(--financial-success))' },
-                  { dataKey: 'Interest', name: 'Interest', color: 'hsl(var(--financial-gold))' }
+                  { dataKey: 'Principal', name: 'Principal', color: 'url(#loan-principal-gradient)' },
+                  { dataKey: 'Interest', name: 'Interest', color: 'url(#loan-interest-gradient)' }
                 ]}
-                height={400}
+                height={350}
+                labelFormatter={chartLabelFormatter}
+                valueFormatter={chartValueFormatter}
               />
+              {/* SVG gradients for bar chart */}
+              <svg width="0" height="0">
+                <defs>
+                  <linearGradient id="loan-principal-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#2563eb" />
+                    <stop offset="100%" stopColor="#60a5fa" />
+                  </linearGradient>
+                  <linearGradient id="loan-interest-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#f59e0b" />
+                    <stop offset="100%" stopColor="#fbbf24" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </CardContent>
           </Card>
 
-          {/* Balance Chart */}
-          <Card className="financial-card">
+          {/* Remaining Balance Chart */}
+          <Card className="modern-card shadow-lg p-4">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2">
-                <TrendingDown className="h-5 w-5" />
-                Remaining Balance
+              <CardTitle className="text-xl flex items-center gap-2">
+                <TrendingDown className="h-5 w-5 text-green-600" />
+                Remaining Balance Over Time
               </CardTitle>
+              <CardDescription className="text-base">
+                Watch your loan balance decrease over time
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <EnhancedLineChart
                 data={chartData}
                 lines={[
-                  { dataKey: 'Remaining Balance', name: 'Remaining Balance', color: 'hsl(var(--financial-success))' }
+                  { dataKey: 'Remaining Balance', name: 'Remaining Balance', color: 'url(#loan-balance-gradient)', strokeWidth: 3 }
                 ]}
                 height={300}
+                labelFormatter={chartLabelFormatter}
+                valueFormatter={chartValueFormatter}
               />
+              {/* SVG gradient for line chart */}
+              <svg width="0" height="0">
+                <defs>
+                  <linearGradient id="loan-balance-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#22c55e" />
+                    <stop offset="100%" stopColor="#bbf7d0" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </CardContent>
           </Card>
         </div>

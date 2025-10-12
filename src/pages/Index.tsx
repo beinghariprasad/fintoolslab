@@ -1,7 +1,5 @@
 import { HeroSection } from '@/components/home/HeroSection';
 import { CalculatorPreview } from '@/components/home/CalculatorPreview';
-import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
 import { Helmet } from 'react-helmet-async';
 
 const Index = () => {
@@ -29,13 +27,9 @@ const Index = () => {
         <meta property="twitter:description" content="Free professional financial calculators including compound interest, mortgage, loan, retirement, and investment tools." />
       </Helmet>
 
-      <div className="min-h-screen bg-background">
-        <Header />
-        <main>
-          <HeroSection />
-          <CalculatorPreview />
-        </main>
-        <Footer />
+      <div className="bg-background">
+        <HeroSection />
+        <CalculatorPreview />
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { Disclaimer } from '@/components/layout/Disclaimer';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ export const Layout = ({ children }: LayoutProps) => {
       <main className="flex-1">
         {children}
       </main>
+      <Disclaimer />
       <Footer />
     </div>
   );

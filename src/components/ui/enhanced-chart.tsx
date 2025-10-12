@@ -23,9 +23,9 @@ export const ChartWrapper = React.forwardRef<HTMLDivElement, ChartWrapperProps>(
 )
 ChartWrapper.displayName = "ChartWrapper"
 
-interface ModernTooltipProps extends TooltipProps<any, any> {
-  labelFormatter?: (value: any) => string
-  valueFormatter?: (value: any, name: string) => [string, string]
+interface ModernTooltipProps extends TooltipProps<number, string> {
+  labelFormatter?: (value: number | string) => string
+  valueFormatter?: (value: number | string, name: string) => [string, string]
 }
 
 export const ModernTooltip: React.FC<ModernTooltipProps> = ({ 
@@ -72,7 +72,7 @@ export const ModernTooltip: React.FC<ModernTooltipProps> = ({
 }
 
 export const EnhancedLineChart: React.FC<{
-  data: any[]
+  data: Record<string, number | string>[]
   lines: Array<{
     dataKey: string
     name?: string
@@ -82,18 +82,23 @@ export const EnhancedLineChart: React.FC<{
   }>
   height?: number
   className?: string
-  labelFormatter?: (value: any) => string
-  valueFormatter?: (value: any, name: string) => [string, string]
-}> = ({ data, lines, height = 300, className, labelFormatter, valueFormatter }) => (
+  labelFormatter?: (value: number | string) => string
+  valueFormatter?: (value: number | string, name: string) => [string, string]
+  showTooltip?: boolean
+  showLegend?: boolean
+  showGrid?: boolean
+}> = ({ data, lines, height = 300, className, labelFormatter, valueFormatter, showTooltip = true, showLegend = true, showGrid = true }) => (
   <ChartWrapper height={height} className={className}>
     <LineChart data={data}>
-      <CartesianGrid 
-        strokeDasharray="3 3" 
-        stroke="hsl(var(--border))" 
-        opacity={0.3}
-      />
+      {showGrid && (
+        <CartesianGrid 
+          strokeDasharray="3 3" 
+          stroke="hsl(var(--border))" 
+          opacity={0.3}
+        />
+      )}
       <XAxis 
-        dataKey="year"
+        dataKey="month"
         stroke="hsl(var(--muted-foreground))"
         fontSize={12}
         tickLine={false}
@@ -106,10 +111,13 @@ export const EnhancedLineChart: React.FC<{
         axisLine={false}
         tickFormatter={(value) => valueFormatter ? valueFormatter(value, 'value')[0] : value}
       />
-      <Tooltip 
-        content={<ModernTooltip labelFormatter={labelFormatter} valueFormatter={valueFormatter} />}
-        cursor={{ stroke: 'hsl(var(--primary))', strokeWidth: 1, strokeOpacity: 0.3 }}
-      />
+      {showTooltip && (
+        <Tooltip 
+          content={<ModernTooltip labelFormatter={labelFormatter} valueFormatter={valueFormatter} />}
+          cursor={{ stroke: 'hsl(var(--primary))', strokeWidth: 1, strokeOpacity: 0.3 }}
+        />
+      )}
+      {showLegend && <Legend />}
       {lines.map((line, index) => (
         <Line
           key={line.dataKey}
@@ -138,7 +146,7 @@ export const EnhancedLineChart: React.FC<{
 )
 
 export const EnhancedAreaChart: React.FC<{
-  data: any[]
+  data: Record<string, number | string>[]
   areas: Array<{
     dataKey: string
     name?: string
@@ -148,18 +156,23 @@ export const EnhancedAreaChart: React.FC<{
   }>
   height?: number
   className?: string
-  labelFormatter?: (value: any) => string
-  valueFormatter?: (value: any, name: string) => [string, string]
-}> = ({ data, areas, height = 300, className, labelFormatter, valueFormatter }) => (
+  labelFormatter?: (value: number | string) => string
+  valueFormatter?: (value: number | string, name: string) => [string, string]
+  showTooltip?: boolean
+  showLegend?: boolean
+  showGrid?: boolean
+}> = ({ data, areas, height = 300, className, labelFormatter, valueFormatter, showTooltip = true, showLegend = true, showGrid = true }) => (
   <ChartWrapper height={height} className={className}>
     <AreaChart data={data}>
-      <CartesianGrid 
-        strokeDasharray="3 3" 
-        stroke="hsl(var(--border))" 
-        opacity={0.3}
-      />
+      {showGrid && (
+        <CartesianGrid 
+          strokeDasharray="3 3" 
+          stroke="hsl(var(--border))" 
+          opacity={0.3}
+        />
+      )}
       <XAxis 
-        dataKey="year"
+        dataKey="month"
         stroke="hsl(var(--muted-foreground))"
         fontSize={12}
         tickLine={false}
@@ -172,10 +185,13 @@ export const EnhancedAreaChart: React.FC<{
         axisLine={false}
         tickFormatter={(value) => valueFormatter ? valueFormatter(value, 'value')[0] : value}
       />
-      <Tooltip 
-        content={<ModernTooltip labelFormatter={labelFormatter} valueFormatter={valueFormatter} />}
-        cursor={{ stroke: 'hsl(var(--primary))', strokeWidth: 1, strokeOpacity: 0.3 }}
-      />
+      {showTooltip && (
+        <Tooltip 
+          content={<ModernTooltip labelFormatter={labelFormatter} valueFormatter={valueFormatter} />}
+          cursor={{ stroke: 'hsl(var(--primary))', strokeWidth: 1, strokeOpacity: 0.3 }}
+        />
+      )}
+      {showLegend && <Legend />}
       {areas.map((area, index) => (
         <Area
           key={area.dataKey}
@@ -194,7 +210,7 @@ export const EnhancedAreaChart: React.FC<{
 )
 
 export const EnhancedBarChart: React.FC<{
-  data: any[]
+  data: Record<string, number | string>[]
   bars: Array<{
     dataKey: string
     name?: string
@@ -203,18 +219,23 @@ export const EnhancedBarChart: React.FC<{
   }>
   height?: number
   className?: string
-  labelFormatter?: (value: any) => string
-  valueFormatter?: (value: any, name: string) => [string, string]
-}> = ({ data, bars, height = 300, className, labelFormatter, valueFormatter }) => (
+  labelFormatter?: (value: number | string) => string
+  valueFormatter?: (value: number | string, name: string) => [string, string]
+  showTooltip?: boolean
+  showLegend?: boolean
+  showGrid?: boolean
+}> = ({ data, bars, height = 300, className, labelFormatter, valueFormatter, showTooltip = true, showLegend = true, showGrid = true }) => (
   <ChartWrapper height={height} className={className}>
     <BarChart data={data}>
-      <CartesianGrid 
-        strokeDasharray="3 3" 
-        stroke="hsl(var(--border))" 
-        opacity={0.3}
-      />
+      {showGrid && (
+        <CartesianGrid 
+          strokeDasharray="3 3" 
+          stroke="hsl(var(--border))" 
+          opacity={0.3}
+        />
+      )}
       <XAxis 
-        dataKey="year"
+        dataKey="month"
         stroke="hsl(var(--muted-foreground))"
         fontSize={12}
         tickLine={false}
@@ -227,10 +248,13 @@ export const EnhancedBarChart: React.FC<{
         axisLine={false}
         tickFormatter={(value) => valueFormatter ? valueFormatter(value, 'value')[0] : value}
       />
-      <Tooltip 
-        content={<ModernTooltip labelFormatter={labelFormatter} valueFormatter={valueFormatter} />}
-        cursor={{ fill: 'hsl(var(--primary) / 0.1)' }}
-      />
+      {showTooltip && (
+        <Tooltip 
+          content={<ModernTooltip labelFormatter={labelFormatter} valueFormatter={valueFormatter} />}
+          cursor={{ fill: 'hsl(var(--primary) / 0.1)' }}
+        />
+      )}
+      {showLegend && <Legend />}
       {bars.map((bar, index) => (
         <Bar
           key={bar.dataKey}
@@ -247,34 +271,47 @@ export const EnhancedBarChart: React.FC<{
 const RADIAN = Math.PI / 180
 const renderCustomizedLabel = ({
   cx, cy, midAngle, innerRadius, outerRadius, percent
-}: any) => {
-  const radius = innerRadius + (outerRadius - innerRadius) * 0.5
-  const x = cx + radius * Math.cos(-midAngle * RADIAN)
-  const y = cy + radius * Math.sin(-midAngle * RADIAN)
+}: {
+  cx: number
+  cy: number
+  midAngle: number
+  innerRadius: number
+  outerRadius: number
+  percent: number
+}) => {
+  // Hide labels for very small slices
+  if (percent < 0.05) return null;
+  // Move label closer to center (60% of the way from inner to outer radius)
+  const radius = innerRadius + (outerRadius - innerRadius) * 0.6;
+  const x = cx + radius * Math.cos(-midAngle * RADIAN);
+  const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
     <text 
       x={x} 
       y={y} 
       fill="white" 
-      textAnchor={x > cx ? 'start' : 'end'} 
+      textAnchor="middle" 
       dominantBaseline="central"
-      fontSize={12}
+      fontSize={11}
       fontWeight={600}
+      pointerEvents="none"
     >
       {`${(percent * 100).toFixed(0)}%`}
     </text>
-  )
+  );
 }
 
 export const EnhancedPieChart: React.FC<{
-  data: Array<{ name: string; value: number; color: string }>
+  data: Array<{ name: string; value: number; color: string; gradient?: [string, string] }>
   height?: number
   className?: string
   innerRadius?: number
   outerRadius?: number
   showLabels?: boolean
-  valueFormatter?: (value: any) => string
+  valueFormatter?: (value: number | string) => string
+  showTooltip?: boolean
+  showLegend?: boolean
 }> = ({ 
   data, 
   height = 300, 
@@ -282,41 +319,65 @@ export const EnhancedPieChart: React.FC<{
   innerRadius = 0, 
   outerRadius = 100, 
   showLabels = true,
-  valueFormatter 
-}) => (
-  <ChartWrapper height={height} className={className}>
-    <PieChart>
-      <Pie
-        data={data}
-        cx="50%"
-        cy="50%"
-        labelLine={false}
-        label={showLabels ? renderCustomizedLabel : false}
-        outerRadius={outerRadius}
-        innerRadius={innerRadius}
-        fill="#8884d8"
-        dataKey="value"
-        stroke="hsl(var(--background))"
-        strokeWidth={2}
-      >
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={entry.color} />
-        ))}
-      </Pie>
-      <Tooltip 
-        content={
-          <ModernTooltip 
-            valueFormatter={valueFormatter ? (value, name) => [valueFormatter(value), name] : undefined} 
-          />
-        }
-      />
-      <Legend 
-        wrapperStyle={{
-          paddingTop: '20px',
-          fontSize: '14px'
-        }}
-        iconType="circle"
-      />
-    </PieChart>
-  </ChartWrapper>
-)
+  valueFormatter,
+  showTooltip = true,
+  showLegend = true
+}) => {
+  // Generate unique gradient IDs for each slice
+  const gradientIds = data.map((_, i) => `pie-gradient-${i}`);
+  // Default gradients if not provided
+  const defaultGradients: [string, string][] = [
+    ['#2563eb', '#60a5fa'], // blue
+    ['#f59e42', '#fbbf24'], // gold
+    ['#22c55e', '#bbf7d0'], // green
+    ['#a21caf', '#f472b6'], // purple
+  ];
+  return (
+    <ChartWrapper height={height} className={className}>
+      <PieChart>
+        <defs>
+          {data.map((entry, i) => {
+            const [start, end] = entry.gradient || defaultGradients[i % defaultGradients.length];
+            return (
+              <linearGradient id={gradientIds[i]} key={gradientIds[i]} x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor={start} />
+                <stop offset="100%" stopColor={end} />
+              </linearGradient>
+            );
+          })}
+        </defs>
+        <Pie
+          data={data}
+          cx="50%"
+          cy="50%"
+          labelLine={false}
+          label={showLabels ? renderCustomizedLabel : false}
+          outerRadius={outerRadius}
+          innerRadius={innerRadius}
+          fill="#8884d8"
+          dataKey="value"
+          stroke="hsl(var(--background))"
+          strokeWidth={2}
+        >
+          {data.map((entry, i) => (
+            <Cell key={`cell-${i}`} fill={`url(#${gradientIds[i]})`} />
+          ))}
+        </Pie>
+        <Tooltip 
+          content={
+            <ModernTooltip 
+              valueFormatter={valueFormatter ? (value, name) => [valueFormatter(value), name] : undefined} 
+            />
+          }
+        />
+        <Legend 
+          wrapperStyle={{
+            paddingTop: '20px',
+            fontSize: '14px'
+          }}
+          iconType="circle"
+        />
+      </PieChart>
+    </ChartWrapper>
+  );
+}

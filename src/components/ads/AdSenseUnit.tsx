@@ -7,8 +7,8 @@ interface AdSenseUnitProps {
   style?: React.CSSProperties;
 }
 
-// Note: Replace with your actual AdSense publisher ID
-const ADSENSE_CLIENT = 'ca-pub-0000000000000000';
+// AdSense publisher ID (matches ads.txt file)
+const ADSENSE_CLIENT = 'ca-pub-7569819903988510';
 
 export const AdSenseUnit = ({ 
   adSlot, 
@@ -18,24 +18,20 @@ export const AdSenseUnit = ({
 }: AdSenseUnitProps) => {
 
   useEffect(() => {
-    // Only initialize AdSense in production with valid publisher ID
-    if (ADSENSE_CLIENT !== 'ca-pub-0000000000000000' && typeof window !== 'undefined') {
+    // Initialize AdSense
+    if (typeof window !== 'undefined') {
       try {
-        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+        interface WindowWithAdsbygoogle extends Window {
+          adsbygoogle?: Array<Record<string, unknown>>;
+        }
+        const win = window as WindowWithAdsbygoogle;
+        (win.adsbygoogle = win.adsbygoogle || []).push({});
       } catch (error) {
-        // Silently handle AdSense errors in development
+        // Silently handle AdSense errors
+        console.warn('AdSense initialization error:', error);
       }
     }
   }, []);
-
-  // Don't render ads in development or with invalid publisher ID
-  if (ADSENSE_CLIENT === 'ca-pub-0000000000000000') {
-    return (
-      <div className={`ad-container ${className}`} style={style}>
-        <span className="text-muted-foreground">Ad Space - Replace with your AdSense Publisher ID</span>
-      </div>
-    );
-  }
 
   return (
     <div className={`ad-container ${className}`} style={style}>

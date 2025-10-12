@@ -5,7 +5,8 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { EnhancedAreaChart, EnhancedLineChart } from '@/components/ui/enhanced-chart';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Calculator, Target, DollarSign, Calendar, TrendingUp, BarChart3, Wallet } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Calculator, Target, DollarSign, Calendar, TrendingUp, BarChart3, Wallet, Info } from 'lucide-react';
 
 interface SavingsData {
   savingsGoal: number;
@@ -71,7 +72,7 @@ export function SavingsCalculator() {
       
       if (month % 6 === 0 || month <= 12) {
         projections.push({
-          month,
+          year: month,
           balance: currentBalance,
           contributions: data.currentSavings + (data.monthlySavings * month),
           interest: currentBalance - (data.currentSavings + (data.monthlySavings * month)),
@@ -93,7 +94,7 @@ export function SavingsCalculator() {
   }, [data]);
 
   const chartData = results.projections.map(item => ({
-    month: `Month ${item.month}`,
+    year: item.year,
     'Total Savings': item.balance,
     'Contributions': item.contributions,
     'Interest Earned': item.interest,
@@ -109,40 +110,72 @@ export function SavingsCalculator() {
     other: { name: 'Other Goal', description: 'Custom savings target' }
   };
 
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
+
+  const chartLabelFormatter = (label: number | string) => `Month ${label}`;
+  const chartValueFormatter = (value: number | string, name: string): [string, string] => {
+    const formattedValue = formatCurrency(Number(value));
+    return [formattedValue, name] as [string, string];
+  };
+
   return (
-    <div className="space-y-6">
+    <div className="max-w-6xl mx-auto space-y-8">
       {/* Header */}
       <div className="text-center space-y-3">
-        <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl">
-          <Calculator className="h-6 w-6 text-white" />
-        </div>
-        <div>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground">Savings Goal Calculator</h1>
-          <p className="text-lg text-muted-foreground mt-2">
-            Calculate how much to save monthly to reach your financial goals
-          </p>
-        </div>
+        <h1 className="text-3xl md:text-4xl font-bold text-foreground">
+          Savings Goal Calculator
+        </h1>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Calculate how much to save monthly to reach your financial goals
+        </p>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Input Form */}
         <div className="lg:col-span-1">
-          <Card className="financial-card">
+          <Card className="financial-card bg-slate-50 border border-slate-200 rounded-xl shadow-sm">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2">
-                <Target className="h-5 w-5" />
-                Savings Goal
-              </CardTitle>
-              <CardDescription>Set your savings target and timeline</CardDescription>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-600 to-orange-400 rounded-2xl flex items-center justify-center">
+                  <Target className="h-6 w-6 text-white" />
+                </div>
+                <div>
+                  <CardTitle className="text-xl">Savings Goal</CardTitle>
+                  <CardDescription className="text-sm">
+                    Set your savings target and timeline
+                  </CardDescription>
+                </div>
+              </div>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="goalType">Goal Type</Label>
+                <Label className="font-bold flex items-center gap-1">
+                  Goal Type
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Type of savings goal you're working towards
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
                 <Select value={data.goalType} onValueChange={(value) => setData(prev => ({ ...prev, goalType: value }))}>
-                  <SelectTrigger>
+                  <SelectTrigger className="border-slate-300 focus:border-primary bg-white rounded-md shadow-sm text-base">
                     <SelectValue />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-white border-slate-200 rounded-md shadow-lg">
                     {Object.entries(goalTypes).map(([key, goal]) => (
                       <SelectItem key={key} value={key}>
                         {goal.name}
@@ -153,66 +186,158 @@ export function SavingsCalculator() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="savingsGoal">Savings Goal</Label>
-                <Input
-                  id="savingsGoal"
-                  type="number"
-                  value={data.savingsGoal}
-                  onChange={(e) => setData(prev => ({ ...prev, savingsGoal: Number(e.target.value) }))}
-                  className="text-base"
-                />
+                <Label className="font-bold flex items-center gap-1">
+                  Savings Goal
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Total amount you want to save
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                    $
+                  </span>
+                  <Input
+                    type="number"
+                    value={data.savingsGoal}
+                    onChange={(e) => setData(prev => ({ ...prev, savingsGoal: Number(e.target.value) }))}
+                    className="pl-8 text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
+                    placeholder="50000"
+                  />
+                </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="currentSavings">Current Savings</Label>
-                <Input
-                  id="currentSavings"
-                  type="number"
-                  value={data.currentSavings}
-                  onChange={(e) => setData(prev => ({ ...prev, currentSavings: Number(e.target.value) }))}
-                  className="text-base"
-                />
+                <Label className="font-bold flex items-center gap-1">
+                  Current Savings
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Amount you've already saved towards your goal
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                    $
+                  </span>
+                  <Input
+                    type="number"
+                    value={data.currentSavings}
+                    onChange={(e) => setData(prev => ({ ...prev, currentSavings: Number(e.target.value) }))}
+                    className="pl-8 text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
+                    placeholder="5000"
+                  />
+                </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="monthlySavings">Monthly Savings</Label>
-                <Input
-                  id="monthlySavings"
-                  type="number"
-                  value={data.monthlySavings}
-                  onChange={(e) => setData(prev => ({ ...prev, monthlySavings: Number(e.target.value) }))}
-                  className="text-base"
-                />
+                <Label className="font-bold flex items-center gap-1">
+                  Monthly Savings
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Amount you can save each month
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                    $
+                  </span>
+                  <Input
+                    type="number"
+                    value={data.monthlySavings}
+                    onChange={(e) => setData(prev => ({ ...prev, monthlySavings: Number(e.target.value) }))}
+                    className="pl-8 text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
+                    placeholder="500"
+                  />
+                </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="interestRate">Interest Rate (%)</Label>
-                <Input
-                  id="interestRate"
-                  type="number"
-                  step="0.1"
-                  value={data.interestRate}
-                  onChange={(e) => setData(prev => ({ ...prev, interestRate: Number(e.target.value) }))}
-                  className="text-base"
-                />
+                <Label className="font-bold flex items-center gap-1">
+                  Interest Rate
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        Annual interest rate on your savings
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
+                <div className="relative">
+                  <Input
+                    type="number"
+                    step="0.1"
+                    value={data.interestRate}
+                    onChange={(e) => setData(prev => ({ ...prev, interestRate: Number(e.target.value) }))}
+                    className="pr-8 text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
+                    placeholder="4.5"
+                  />
+                  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                    %
+                  </span>
+                </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="timeFrame">Time Frame (Years)</Label>
-                <Select value={data.timeFrame.toString()} onValueChange={(value) => setData(prev => ({ ...prev, timeFrame: Number(value) }))}>
-                  <SelectTrigger>
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="1">1 year</SelectItem>
-                    <SelectItem value="2">2 years</SelectItem>
-                    <SelectItem value="3">3 years</SelectItem>
-                    <SelectItem value="5">5 years</SelectItem>
-                    <SelectItem value="8">8 years</SelectItem>
-                    <SelectItem value="10">10 years</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Label className="font-bold flex items-center gap-1">
+                  Time Frame (Years)
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <span tabIndex={0} className="ml-1 cursor-pointer text-muted-foreground">
+                          <Info className="h-4 w-4" />
+                        </span>
+                      </TooltipTrigger>
+                      <TooltipContent side="top" className="max-w-xs text-xs">
+                        How long you have to reach your savings goal
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Label>
+                <Input
+                  type="number"
+                  value={data.timeFrame}
+                  onChange={(e) => setData(prev => ({ ...prev, timeFrame: Number(e.target.value) }))}
+                  placeholder="8"
+                  className="text-base border-slate-300 focus:border-primary bg-white rounded-md shadow-sm"
+                />
               </div>
+
+              <Button 
+                className="w-full bg-gradient-to-r from-orange-600 to-orange-400 text-white hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 rounded-md"
+                size="lg"
+              >
+                <Target className="h-5 w-5 mr-2" />
+                Calculate Savings
+              </Button>
             </CardContent>
           </Card>
         </div>
@@ -224,100 +349,136 @@ export function SavingsCalculator() {
             <Card className="financial-card">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2 text-lg">
-                  <Calendar className="h-4 w-4" />
+                  <Wallet className="h-4 w-4 text-primary" />
+                  Future Value
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold text-primary">
+                  {formatCurrency(results.futureValue)}
+                </div>
+                <span className="text-sm text-muted-foreground mt-1">
+                  In {data.timeFrame} years
+                </span>
+              </CardContent>
+            </Card>
+
+            <Card className="financial-card">
+              <CardHeader className="pb-3">
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <TrendingUp className="h-4 w-4 text-green-600" />
+                  Goal Status
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                {results.shortfall > 0 ? (
+                  <>
+                    <div className="text-2xl font-bold text-red-600">
+                      {formatCurrency(results.shortfall)}
+                    </div>
+                    <span className="text-sm text-muted-foreground mt-1">
+                      Shortfall from goal
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <div className="text-2xl font-bold text-green-600">
+                      {formatCurrency(results.surplus)}
+                    </div>
+                    <span className="text-sm text-muted-foreground mt-1">
+                      Surplus over goal
+                    </span>
+                  </>
+                )}
+              </CardContent>
+            </Card>
+
+            <Card className="financial-card">
+              <CardHeader className="pb-3">
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <Calendar className="h-4 w-4 text-blue-600" />
                   Time to Goal
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-primary">
-                  {Math.floor(results.monthsToGoal / 12)}y {Math.round(results.monthsToGoal % 12)}m
+                <div className="text-2xl font-bold text-blue-600">
+                  {Math.floor(results.monthsToGoal / 12)}y {results.monthsToGoal % 12}m
                 </div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  {Math.round(results.monthsToGoal)} months
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="financial-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-2 text-lg">
-                  <DollarSign className="h-4 w-4" />
-                  Required Monthly
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-financial-success">
-                  ${results.requiredMonthlyForGoal.toLocaleString('en-US', { maximumFractionDigits: 0 })}
-                </div>
-                <p className="text-sm text-muted-foreground mt-1">
-                  To reach goal in {data.timeFrame} years
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="financial-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-2 text-lg">
-                  <Wallet className="h-4 w-4" />
-                  Final Amount
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold text-primary">
-                  ${results.futureValue.toLocaleString('en-US', { maximumFractionDigits: 0 })}
-                </div>
-                {results.surplus > 0 ? (
-                  <p className="text-sm text-financial-success mt-1">
-                    ${results.surplus.toLocaleString('en-US', { maximumFractionDigits: 0 })} surplus
-                  </p>
-                ) : results.shortfall > 0 ? (
-                  <p className="text-sm text-destructive mt-1">
-                    ${results.shortfall.toLocaleString('en-US', { maximumFractionDigits: 0 })} shortfall
-                  </p>
-                ) : (
-                  <p className="text-sm text-muted-foreground mt-1">Meets goal exactly</p>
-                )}
+                <span className="text-sm text-muted-foreground mt-1">
+                  {results.monthsToGoal} months
+                </span>
               </CardContent>
             </Card>
           </div>
 
-          {/* Savings Progress Chart */}
-          <Card className="financial-card">
+          {/* Savings Growth Chart */}
+          <Card className="modern-card shadow-lg p-4">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5" />
+              <CardTitle className="text-xl flex items-center gap-2">
+                <TrendingUp className="h-5 w-5 text-primary" />
                 Savings Growth Over Time
               </CardTitle>
+              <CardDescription className="text-base">
+                Watch your savings grow with compound interest
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <EnhancedAreaChart
                 data={chartData}
                 areas={[
-                  { dataKey: 'Total Savings', name: 'Total Savings', color: 'hsl(var(--financial-blue))' },
-                  { dataKey: 'Contributions', name: 'Contributions', color: 'hsl(var(--financial-success))' },
-                  { dataKey: 'Interest Earned', name: 'Interest Earned', color: 'hsl(var(--financial-gold))' }
+                  { dataKey: 'Total Savings', name: 'Total Savings', color: 'url(#savings-total-gradient)' },
+                  { dataKey: 'Contributions', name: 'Contributions', color: 'url(#savings-contributions-gradient)' }
                 ]}
-                height={400}
+                height={350}
+                labelFormatter={chartLabelFormatter}
+                valueFormatter={chartValueFormatter}
               />
+              {/* SVG gradients for area chart */}
+              <svg width="0" height="0">
+                <defs>
+                  <linearGradient id="savings-total-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#2563eb" />
+                    <stop offset="100%" stopColor="#60a5fa" />
+                  </linearGradient>
+                  <linearGradient id="savings-contributions-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#f59e0b" />
+                    <stop offset="100%" stopColor="#fbbf24" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </CardContent>
           </Card>
 
-          {/* Goal Progress */}
-          <Card className="financial-card">
+          {/* Goal Progress Chart */}
+          <Card className="modern-card shadow-lg p-4">
             <CardHeader className="pb-4">
-              <CardTitle className="flex items-center gap-2">
-                <BarChart3 className="h-5 w-5" />
-                Goal Achievement Progress
+              <CardTitle className="text-xl flex items-center gap-2">
+                <Target className="h-5 w-5 text-green-600" />
+                Progress Towards Goal
               </CardTitle>
+              <CardDescription className="text-base">
+                Track your progress towards your savings goal
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <EnhancedLineChart
                 data={chartData}
                 lines={[
-                  { dataKey: 'Goal Progress', name: 'Goal Progress', color: 'hsl(var(--financial-success))' }
+                  { dataKey: 'Goal Progress', name: 'Goal Progress (%)', color: 'url(#savings-progress-gradient)', strokeWidth: 3 }
                 ]}
                 height={300}
+                labelFormatter={chartLabelFormatter}
+                valueFormatter={(value, name) => [`${value.toFixed(1)}%`, name]}
               />
+              {/* SVG gradient for line chart */}
+              <svg width="0" height="0">
+                <defs>
+                  <linearGradient id="savings-progress-gradient" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#22c55e" />
+                    <stop offset="100%" stopColor="#bbf7d0" />
+                  </linearGradient>
+                </defs>
+              </svg>
             </CardContent>
           </Card>
         </div>

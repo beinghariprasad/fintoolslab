@@ -80,6 +80,18 @@ const calculators = [
     features: ['Goal tracking', 'Timeline planning', 'Savings strategies', 'Progress monitoring'],
     popular: false,
     href: '/calculators/savings'
+  },
+  {
+    id: 'rent-vs-buy',
+    title: 'Rent vs Buy Calculator',
+    description: 'Compare the total costs of renting vs buying a home. Get break-even analysis, net worth projections, and comprehensive cost breakdowns.',
+    icon: Home,
+    category: 'Real Estate',
+    difficulty: 'Intermediate',
+    color: 'from-green-500 to-green-600',
+    features: ['Break-even analysis', 'Net worth comparison', 'Cost breakdown', 'Tax benefits'],
+    popular: true,
+    href: '/calculators/rent-vs-buy'
   }
 ];
 
