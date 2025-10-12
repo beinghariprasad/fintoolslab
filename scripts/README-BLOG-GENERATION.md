@@ -150,7 +150,7 @@ The agent outputs a JSON file. Process it:
 }
 ```
 
-### Step 5: Update Blog Index
+### Step 5: Update Blog Index and Sitemap
 
 After saving the blog post JSON, update the index:
 
@@ -163,6 +163,13 @@ This automatically:
 - Extracts metadata from each post
 - Generates `src/data/blog/blog-posts.json`
 - Sorts posts by publish date (newest first)
+- **Automatically updates `public/sitemap.xml`** with all blog post URLs
+
+**Note:** The sitemap is now fully automated! It includes:
+- All 15 static pages (homepage, calculators, about, etc.)
+- All blog posts dynamically loaded from blog-posts.json
+- Proper lastmod dates (today's date for new posts)
+- SEO-optimized priorities (0.9 for featured posts, 0.7 for regular posts)
 
 ### Step 6: Verify Build
 
@@ -190,10 +197,32 @@ npm run dev
 ```bash
 git add src/data/blog/posts/[slug].json
 git add src/data/blog/blog-posts.json
+git add public/sitemap.xml  # Automatically updated
 git add scripts/blogPostsConfig.json  # If you added new configs
 git commit -m "Add blog post: [Title]"
 git push
 ```
+
+## Manual Sitemap Generation
+
+If you need to manually regenerate the sitemap (e.g., after adding static pages):
+
+```bash
+node scripts/generateSitemap.cjs
+```
+
+This script:
+- Reads all blog posts from `blog-posts.json`
+- Includes all 15 static routes (homepage, calculators, legal pages, etc.)
+- Generates `public/sitemap.xml` with proper XML formatting
+- Uses today's date for dynamic content (homepage, /blog, /calculators)
+- Maintains original dates for static pages
+
+**When to run manually:**
+- After adding new static pages to the app
+- After changing the domain (update DOMAIN in generateSitemap.cjs)
+- To verify sitemap is correct before major deployments
+- If updateBlogIndex.cjs fails to auto-generate sitemap
 
 ## Template-Specific Guidelines
 
@@ -392,14 +421,20 @@ To generate the full suite of blog posts:
    - Maintain consistency across posts
    - Vary examples and language to avoid repetition
 
-4. **Update sitemap after each batch**
-   - Add new URLs to `public/sitemap.xml`
-   - Update lastmod dates
+4. **Update index (sitemap updates automatically)**
+   ```bash
+   node scripts/updateBlogIndex.cjs
+   ```
+   This single command:
+   - Updates `blog-posts.json` with all new posts
+   - Automatically regenerates `sitemap.xml` with all URLs
+   - No manual sitemap editing required!
 
 5. **Monitor performance**
    - Track indexing in Google Search Console
    - Monitor for duplicate content issues
    - Adjust templates based on performance
+   - Verify sitemap submission (robots.txt already configured)
 
 ## Troubleshooting
 

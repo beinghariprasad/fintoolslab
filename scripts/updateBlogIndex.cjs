@@ -39,3 +39,12 @@ fs.writeFileSync(indexPath, JSON.stringify(blogPosts, null, 2));
 
 console.log(`✅ Updated blog index with ${blogPosts.length} posts`);
 console.log(`📁 Index file: ${indexPath}`);
+
+// Automatically update sitemap
+console.log('\n🗺️  Updating sitemap...');
+try {
+  require('./generateSitemap.cjs');
+} catch (error) {
+  console.error('❌ Failed to update sitemap:', error.message);
+  console.log('   Run manually: node scripts/generateSitemap.cjs');
+}
