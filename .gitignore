@@ -33,3 +33,10 @@ package-lock.json
 .firebase
 .firebaserc
 firebase.json
+
+# SEO workflow generated files
+scripts/configs_validated.json
+scripts/uniqueness_report.json
+scripts/paa_questions.json
+scripts/enhanced_prompts/
+scripts/keyword_planner_export.csv
