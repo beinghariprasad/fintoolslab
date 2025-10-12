@@ -19,14 +19,14 @@ export default function CompoundInterestCalculatorGuide2025() {
       "name": "FinSavvy Future Forge",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://finsavvyfutureforge.com/favicon.ico"
+        "url": "https://fintoolslab.com/favicon.ico"
       }
     },
     "datePublished": "2025-01-15",
     "dateModified": "2025-01-15",
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://finsavvyfutureforge.com/blog/compound-interest-calculator-guide-2025"
+      "@id": "https://fintoolslab.com/blog/compound-interest-calculator-guide-2025"
     },
     "keywords": "how to use compound interest calculator for savings, compound interest calculator comparison for beginners, best free compound interest calculator online, calculate compound interest vs simple interest difference, compound interest calculator with monthly contributions US, how compound interest works for retirement savings, compare compound interest rates calculator free, compound interest calculator for college savings plan, annual vs monthly compound interest calculator, compound interest formula calculator step by step"
   };
@@ -39,19 +39,19 @@ export default function CompoundInterestCalculatorGuide2025() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://finsavvyfutureforge.com"
+        "item": "https://fintoolslab.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Blog",
-        "item": "https://finsavvyfutureforge.com/blog"
+        "item": "https://fintoolslab.com/blog"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Compound Interest Calculator Guide 2025",
-        "item": "https://finsavvyfutureforge.com/blog/compound-interest-calculator-guide-2025"
+        "item": "https://fintoolslab.com/blog/compound-interest-calculator-guide-2025"
       }
     ]
   };
@@ -101,13 +101,13 @@ export default function CompoundInterestCalculatorGuide2025() {
         <title>How to Use a Compound Interest Calculator to Grow Your Savings Faster in 2025 | Complete Guide</title>
         <meta name="description" content="Learn how to use compound interest calculator for savings, retirement, and college funds. Compare best free calculators, understand monthly vs annual compounding, and master step-by-step calculations for US savers." />
         <meta name="keywords" content="how to use compound interest calculator for savings, compound interest calculator comparison for beginners, best free compound interest calculator online, calculate compound interest vs simple interest difference, compound interest calculator with monthly contributions US, how compound interest works for retirement savings, compare compound interest rates calculator free, compound interest calculator for college savings plan, annual vs monthly compound interest calculator, compound interest formula calculator step by step" />
-        <link rel="canonical" href="https://finsavvyfutureforge.com/blog/compound-interest-calculator-guide-2025" />
+        <link rel="canonical" href="https://fintoolslab.com/blog/compound-interest-calculator-guide-2025" />
 
         {/* Open Graph */}
         <meta property="og:title" content="How to Use a Compound Interest Calculator to Grow Your Savings Faster in 2025" />
         <meta property="og:description" content="Complete beginner's guide to compound interest calculators. Learn comparisons, formulas, and strategies for savings, retirement, and college funds." />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://finsavvyfutureforge.com/blog/compound-interest-calculator-guide-2025" />
+        <meta property="og:url" content="https://fintoolslab.com/blog/compound-interest-calculator-guide-2025" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
