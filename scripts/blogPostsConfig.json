@@ -1,0 +1,86 @@
+[
+  {
+    "template": "calculator-comparison",
+    "calculatorType": "Compound Interest",
+    "year": "2025",
+    "primaryKeyword": "compound interest calculator comparison 2025",
+    "targetAudience": "US residents planning long-term savings",
+    "wordCount": 900
+  },
+  {
+    "template": "calculator-comparison",
+    "calculatorType": "Investment",
+    "year": "2025",
+    "primaryKeyword": "investment calculator comparison 2025",
+    "targetAudience": "US investors comparing portfolio calculators",
+    "wordCount": 900
+  },
+  {
+    "template": "calculator-comparison",
+    "calculatorType": "Loan",
+    "year": "2025",
+    "primaryKeyword": "loan calculator comparison 2025",
+    "targetAudience": "US borrowers evaluating loan options",
+    "wordCount": 850
+  },
+  {
+    "template": "calculator-comparison",
+    "calculatorType": "Savings",
+    "year": "2025",
+    "primaryKeyword": "savings calculator comparison 2025",
+    "targetAudience": "US savers building emergency funds",
+    "wordCount": 850
+  },
+  {
+    "template": "location-specific",
+    "calculatorType": "Mortgage",
+    "state": "New York",
+    "stateTaxRate": 6.5,
+    "primaryKeyword": "mortgage calculator for new york residents",
+    "targetAudience": "New York homebuyers",
+    "wordCount": 850
+  },
+  {
+    "template": "location-specific",
+    "calculatorType": "Investment",
+    "state": "Florida",
+    "stateTaxRate": 0,
+    "primaryKeyword": "investment calculator for florida residents",
+    "targetAudience": "Florida investors and retirees",
+    "wordCount": 850
+  },
+  {
+    "template": "demographic-targeted",
+    "calculatorType": "Retirement",
+    "demographic": "millennials",
+    "ageRange": "25-40",
+    "primaryKeyword": "retirement calculator for millennials",
+    "targetAudience": "Millennials starting retirement planning",
+    "wordCount": 900
+  },
+  {
+    "template": "demographic-targeted",
+    "calculatorType": "Retirement",
+    "demographic": "early career professionals",
+    "ageRange": "22-30",
+    "primaryKeyword": "retirement calculator for early career professionals",
+    "targetAudience": "Young professionals beginning wealth building",
+    "wordCount": 850
+  },
+  {
+    "template": "vs-comparison",
+    "calculator1": "Compound Interest",
+    "calculator2": "Savings",
+    "primaryKeyword": "compound interest vs savings calculator",
+    "targetAudience": "Savers choosing the right planning tool",
+    "wordCount": 800
+  },
+  {
+    "template": "vs-comparison",
+    "calculator1": "Rent",
+    "calculator2": "Buy",
+    "primaryKeyword": "rent vs buy calculator comparison",
+    "targetAudience": "Housing market decision makers",
+    "wordCount": 900
+  }
+]
