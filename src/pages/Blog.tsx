@@ -3,32 +3,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Calendar, Clock, ArrowRight, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import blogPostsData from '@/data/blog/blog-posts.json';
 
 export default function Blog() {
-  const blogPosts = [
-    {
-      id: 'compound-interest-calculator-guide-2025',
-      title: 'How to Use a Compound Interest Calculator to Grow Your Savings Faster in 2025',
-      description: 'Master compound interest calculators with our comprehensive 2025 guide. Learn step-by-step how to use calculators for savings, retirement, and college planning with real examples.',
-      publishDate: '2025-01-16',
-      readTime: '15 min read',
-      category: 'Calculator Guides',
-      featured: true,
-      slug: '/blog/compound-interest-calculator-guide-2025',
-      keywords: ['compound interest calculator', 'savings calculator', 'retirement planning', 'financial tools']
-    },
-    {
-      id: 'compound-interest-guide',
-      title: 'The Complete Guide to Compound Interest: How to Turn $1,000 Into $7,400',
-      description: 'Learn how compound interest works, avoid costly mistakes that drain wealth, and discover proven strategies to maximize your money\'s growth potential with real examples.',
-      publishDate: '2025-01-15',
-      readTime: '12 min read',
-      category: 'Investment Strategy',
-      featured: false,
-      slug: '/blog/compound-interest-guide',
-      keywords: ['compound interest', 'investment growth', 'wealth building', 'financial planning']
-    }
-  ];
+  // Load blog posts dynamically from blog-posts.json
+  const blogPosts = blogPostsData;
 
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
@@ -119,7 +98,7 @@ export default function Blog() {
                     ))}
                   </div>
                   
-                  <Link to={featuredPost.slug}>
+                  <Link to={`/blog/${featuredPost.slug}`}>
                     <Button className="bg-blue-600 hover:bg-blue-700 text-white">
                       Read Full Article
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -150,7 +129,7 @@ export default function Blog() {
                       </span>
                     </div>
                     <CardTitle className="text-xl leading-tight hover:text-blue-600 transition-colors">
-                      <Link to={post.slug}>
+                      <Link to={`/blog/${post.slug}`}>
                         {post.title}
                       </Link>
                     </CardTitle>
@@ -179,7 +158,7 @@ export default function Blog() {
                       ))}
                     </div>
                     
-                    <Link to={post.slug}>
+                    <Link to={`/blog/${post.slug}`}>
                       <Button variant="outline" size="sm" className="w-full">
                         Read Article
                         <ArrowRight className="ml-2 h-3 w-3" />

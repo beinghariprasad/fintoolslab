@@ -34,6 +34,7 @@ const EmbedSavingsPage = lazy(() => import("./pages/EmbedSavingsPage"));
 const Blog = lazy(() => import("./pages/Blog"));
 const CompoundInterestGuide = lazy(() => import("./pages/blog/CompoundInterestGuide"));
 const CompoundInterestCalculatorGuide2025 = lazy(() => import("./pages/blog/CompoundInterestCalculatorGuide2025"));
+const BlogPostTemplate = lazy(() => import("./pages/blog/BlogPostTemplate"));
 
 const queryClient = new QueryClient();
 
@@ -137,6 +138,15 @@ const App = () => {
                   element={
                     <Suspense fallback={<PageLoadingSpinner />}>
                       <CompoundInterestCalculatorGuide2025 />
+                    </Suspense>
+                  }
+                />
+                {/* Dynamic blog post route for new posts */}
+                <Route
+                  path="/blog/:slug"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <BlogPostTemplate />
                     </Suspense>
                   }
                 />
