@@ -11,7 +11,8 @@
     "accurate compound interest calculator"
   ],
   "category": "Calculator Guides",
-  "publishDate": "2025-10-12",
+  "publishDate": "2025-10-05",
+  "lastModified": "2026-05-20",
   "readTime": "8 min read",
   "featured": false,
   "content": {
@@ -65,8 +66,10 @@
     ]
   },
   "internalLinks": [
-    "/calculators/compound-interest"
+    "/calculators/compound-interest",
+    "/blog/best-savings-calculator-comparison-2025-top-free-tools",
+    "/blog/best-retirement-calculator-comparison-2025-top-free-tools"
   ],
-  "author": "FinSavvy Future Forge Financial Team",
+  "author": "Fin Tools Lab",
   "template": "calculator-comparison"
 }

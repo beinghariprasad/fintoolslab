@@ -11,7 +11,8 @@
     "accurate retirement calculator"
   ],
   "category": "Calculator Guides",
-  "publishDate": "2025-10-12",
+  "publishDate": "2025-11-15",
+  "lastModified": "2026-05-20",
   "readTime": "8 min read",
   "featured": false,
   "content": {
@@ -61,8 +62,10 @@
     ]
   },
   "internalLinks": [
-    "/calculators/retirement"
+    "/calculators/retirement",
+    "/blog/retirement-calculator-for-california-residents-2025-guide",
+    "/blog/best-savings-calculator-comparison-2025-top-free-tools"
   ],
-  "author": "FinSavvy Future Forge Financial Team",
+  "author": "Fin Tools Lab",
   "template": "calculator-comparison"
 }

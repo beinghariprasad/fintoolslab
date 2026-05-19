@@ -10,10 +10,9 @@ const calculatorLinks = [
 ];
 
 const toolLinks = [
-  { name: 'Financial Planning', href: '/tools/planning' },
-  { name: 'Budget Tracker', href: '/tools/budget' },
-  { name: 'Investment Analysis', href: '/tools/analysis' },
-  { name: 'Risk Assessment', href: '/tools/risk' },
+  { name: 'Savings Calculator', href: '/calculators/savings' },
+  { name: 'Rent vs Buy', href: '/calculators/rent-vs-buy' },
+  { name: 'Blog', href: '/blog' },
 ];
 
 const companyLinks = [
@@ -43,10 +42,10 @@ export const Footer = () => {
               Professional financial calculators and investment tools to help you make informed financial decisions. Free, accurate, and easy to use.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://twitter.com/fintoolslab" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://github.com/fintoolslab" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                 <Github className="h-5 w-5" />
               </a>
               <a href="mailto:contact@fintoolslab.com" className="text-muted-foreground hover:text-primary transition-colors">
@@ -110,7 +109,7 @@ export const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              © 2024 Fin Tools Lab. All rights reserved.
+              © 2026 Fin Tools Lab. All rights reserved.
             </p>
             <p className="text-sm text-muted-foreground">
               Made with ❤️ for better financial decisions

@@ -1,18 +1,12 @@
-const CACHE_NAME = 'fin-tools-lab-v1.2.0';
-const STATIC_CACHE = 'static-v1.2.0';
-const DYNAMIC_CACHE = 'dynamic-v1.2.0';
+const CACHE_NAME = 'fin-tools-lab-v1.3.0';
+const STATIC_CACHE = 'static-v1.3.0';
+const DYNAMIC_CACHE = 'dynamic-v1.3.0';
 
-// Files to cache immediately
+// Files to cache immediately — only stable paths that exist in production
 const STATIC_FILES = [
   '/',
   '/index.html',
-  '/src/main.tsx',
-  '/src/index.css',
-  '/calculators',
-  '/privacy-policy',
-  '/terms-of-service',
-  '/about',
-  '/contact'
+  '/manifest.json'
 ];
 
 // Install event - cache static files
@@ -45,7 +39,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch event - serve from cache, fallback to network
+// Fetch event - network-first for HTML, cache-first for assets
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
@@ -60,27 +54,41 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Navigation requests (HTML) — network-first so users always get fresh content
+  if (request.destination === 'document' || request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          const responseToCache = response.clone();
+          caches.open(DYNAMIC_CACHE).then((cache) => {
+            cache.put(request, responseToCache);
+          });
+          return response;
+        })
+        .catch(() => {
+          return caches.match(request).then((cached) => cached || caches.match('/'));
+        })
+    );
+    return;
+  }
+
+  // Static assets — cache-first (they have content hashes)
   event.respondWith(
     caches.match(request)
       .then((response) => {
-        // Return cached version if available
         if (response) {
           return response;
         }
 
-        // Clone the request for network fallback
         const fetchRequest = request.clone();
 
         return fetch(fetchRequest)
           .then((response) => {
-            // Check if response is valid
             if (!response || response.status !== 200 || response.type !== 'basic') {
               return response;
             }
 
-            // Clone the response for caching
             const responseToCache = response.clone();
-
             caches.open(DYNAMIC_CACHE)
               .then((cache) => {
                 cache.put(request, responseToCache);
@@ -89,27 +97,8 @@ self.addEventListener('fetch', (event) => {
             return response;
           })
           .catch(() => {
-            // Return offline page for navigation requests
-            if (request.destination === 'document') {
-              return caches.match('/');
-            }
+            // Silently fail for missing assets
           });
       })
   );
 });
-
-// Background sync for offline form submissions
-self.addEventListener('sync', (event) => {
-  if (event.tag === 'background-sync') {
-    event.waitUntil(doBackgroundSync());
-  }
-});
-
-async function doBackgroundSync() {
-  try {
-    // Handle any pending background tasks
-    console.log('Background sync completed');
-  } catch (error) {
-    console.error('Background sync failed:', error);
-  }
-} 

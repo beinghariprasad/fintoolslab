@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Geist';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -131,17 +146,125 @@ All colors MUST be HSL.
   }
 }
 
+/* ============================================================
+   New Design System Tokens
+   ============================================================ */
+:root {
+  /* Surfaces */
+  --bg: #f6f7f5;
+  --bg-elev: #ffffff;
+  --bg-sunken: #ecede9;
+  --bg-feature: #0a1628;
+  --bg-feature-2: #0f1d33;
+
+  /* Ink */
+  --ink: #0a1628;
+  --ink-2: #2a3547;
+  --ink-3: #5c6779;
+  --ink-4: #8a93a3;
+  --ink-on-dark: #f5f7f3;
+  --ink-on-dark-2: #a8b3a8;
+  --ink-on-dark-3: #6c7a6c;
+
+  /* Accent (amber) */
+  --ft-accent: #d97706;
+  --ft-accent-2: #f59e0b;
+  --ft-accent-soft: #fef3c7;
+  --ft-accent-ink: #4a2c05;
+
+  /* Lines */
+  --line: #e3e5df;
+  --line-2: #d2d5cc;
+  --line-on-dark: #1f2d44;
+  --line-on-dark-2: #2a3a55;
+
+  /* Status */
+  --pos: #16a34a;
+  --neg: #e54d2e;
+  --warn: #f5a524;
+
+  /* Radii */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+
+  /* Type */
+  --ff-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  --ff-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --ff-display: "Instrument Serif", "Times New Roman", serif;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 0 rgba(10, 22, 40, 0.04), 0 1px 2px rgba(10, 22, 40, 0.04);
+  --shadow-md: 0 1px 0 rgba(10, 22, 40, 0.04), 0 8px 24px -8px rgba(10, 22, 40, 0.12);
+  --shadow-lg: 0 1px 0 rgba(10, 22, 40, 0.04), 0 24px 60px -20px rgba(10, 22, 40, 0.25);
+
+  /* Container */
+  --ft-container: 1240px;
+  --pad-x: clamp(20px, 4vw, 56px);
+}
+
+[data-theme="dark"] {
+  --bg: #07101e;
+  --bg-elev: #0e1a2c;
+  --bg-sunken: #050b14;
+  --bg-feature: #050b14;
+  --bg-feature-2: #0e1a2c;
+  --ink: #f1f4ee;
+  --ink-2: #c9cfc5;
+  --ink-3: #8a93a3;
+  --ink-4: #5b6577;
+  --line: #1a2535;
+  --line-2: #243246;
+  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px -8px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+}
+
+[data-accent="blue"] {
+  --ft-accent: #2563eb;
+  --ft-accent-2: #3b82f6;
+  --ft-accent-soft: #dbeafe;
+  --ft-accent-ink: #0c1e4d;
+}
+[data-accent="mint"] {
+  --ft-accent: #10b981;
+  --ft-accent-2: #34d399;
+  --ft-accent-soft: #d1fae5;
+  --ft-accent-ink: #053b29;
+}
+
 @layer base {
   * {
     @apply border-border;
   }
 
   body {
-    @apply bg-background text-foreground font-inter antialiased;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--ff-sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "ss02", "cv11";
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ft-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 

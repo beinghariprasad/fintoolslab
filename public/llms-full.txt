@@ -1,0 +1,174 @@
+# Fin Tools Lab — Full Content Index for AI Systems
+# https://fintoolslab.com/llms-full.txt
+# License: CC BY 4.0
+# Date-reviewed: 2026-05-20
+
+This file contains pre-rendered text content from Fin Tools Lab's most important pages.
+It is intended for AI systems that do not execute JavaScript, as the site is a
+client-side React application.
+
+---
+
+## Compound Interest Calculator
+URL: https://fintoolslab.com/calculators/compound-interest
+
+### What is a compound interest calculator?
+A compound interest calculator shows how a starting balance plus ongoing contributions
+grow when each period's earnings get reinvested. The math is identical to what
+professional planners use; this version exposes the four inputs that move the answer
+most — principal, contribution, return rate, and time horizon — so you can build
+intuition fast.
+
+### Formula
+FV = P(1 + r/n)^(nt) + PMT · [((1 + r/n)^(nt) - 1) / (r/n)]
+
+Where:
+- P = Principal (starting balance)
+- PMT = Periodic deposit (monthly or yearly contribution)
+- r = Annual rate (expected return, as a decimal)
+- n = Compounding frequency (12 for monthly, 1 for yearly)
+- t = Time horizon (number of years)
+
+### FAQ
+
+Q: What return assumption should I actually use?
+A: A 7% annual return is the historical average for a globally-diversified equity
+portfolio after inflation. For a 60/40 mix, 5-6%. For cash and bonds, 2-4%.
+
+Q: How is compound interest different from simple interest?
+A: Simple interest pays a flat percentage of your original principal every period.
+Compound interest reinvests each period's earnings, so the base grows each cycle.
+Over 20+ years the difference is enormous.
+
+Q: Does compounding frequency really matter?
+A: Less than most people think. Going from yearly to monthly compounding on a 7% return
+adds about 0.23% to your effective annual rate. The bigger lever is almost always time.
+
+Q: What about inflation?
+A: This calculator returns nominal dollars. To translate to today's purchasing power,
+subtract roughly 2-3% from your return assumption to get a real return.
+
+---
+
+## Mortgage Calculator
+URL: https://fintoolslab.com/calculators/mortgage
+
+### What is a mortgage calculator?
+A mortgage calculator tells you the monthly payment on a home loan, then breaks that
+payment into principal, interest, taxes, and insurance so you see exactly where each
+dollar goes. It uses the standard amortization formula lenders use — the same math
+your bank runs, just made transparent.
+
+### Formula
+M = P · [r(1+r)^n] / [(1+r)^n - 1]
+
+Where:
+- M = Monthly payment
+- P = Loan principal
+- r = Monthly interest rate (annual rate / 12)
+- n = Number of payments (years x 12)
+
+### FAQ
+
+Q: How much house can I realistically afford?
+A: The 28/36 rule is a solid starting point: spend no more than 28% of gross monthly
+income on housing costs and no more than 36% on total debt payments.
+
+Q: Should I make extra payments toward principal?
+A: One extra payment per year on a 30-year mortgage at 6.5% can shorten the loan by
+roughly 4-5 years and save tens of thousands in interest.
+
+Q: What credit score do I need for the best rates?
+A: A FICO score of 740+ typically qualifies for the best conventional rates. Each 20-point
+drop can add 0.125-0.25% to your rate.
+
+---
+
+## Retirement Calculator
+URL: https://fintoolslab.com/calculators/retirement
+
+### What is a retirement calculator?
+A retirement calculator projects how your savings grow from now until retirement,
+then estimates the monthly income they can produce. It combines the accumulation phase
+(saving) and the distribution phase (spending) into one model so you can see if your
+current pace gets you where you need to be.
+
+### FAQ
+
+Q: How much do I actually need to retire?
+A: The most-cited benchmark is 25x your annual expenses (based on the Trinity Study's
+4% rule). If you spend $60,000/year, target $1.5 million. Adjust upward for earlier
+retirement or conservative assumptions.
+
+Q: At what age should I claim Social Security?
+A: Every year you delay past 62 increases your benefit by roughly 6-8%, up to age 70.
+Delaying from 62 to 70 can increase monthly income by about 77%.
+
+Q: What is the 4% rule?
+A: The 4% rule says you can withdraw 4% of your portfolio in year one of retirement,
+adjust for inflation each year, and historically have a low probability of running
+out over 30 years. The original Trinity Study used US stock/bond data from 1926-1995.
+
+---
+
+## Rent vs Buy Calculator
+URL: https://fintoolslab.com/calculators/rent-vs-buy
+
+### What is a rent vs buy calculator?
+A rent vs buy calculator models both housing paths in parallel: buying builds equity
+and home value, while renting frees up the down payment to invest. The honest answer
+compares net worth at the end of your time horizon — including taxes, maintenance,
+opportunity cost, and rent inflation. It depends heavily on how long you'll stay.
+
+### FAQ
+
+Q: How many years do I need to stay for buying to beat renting?
+A: The break-even horizon varies by market but typically falls between 4 and 7 years
+in most US cities. In expensive coastal markets it can stretch to 10+ years; in
+affordable Midwest cities it can be as short as 2-3 years.
+
+Q: Is renting really throwing money away?
+A: No. Rent buys you housing, flexibility, freedom from maintenance costs, and the
+ability to deploy capital elsewhere. Mortgage payments also contain a large interest
+component that doesn't build equity. Neither choice is inherently wasteful.
+
+---
+
+## Loan Calculator
+URL: https://fintoolslab.com/calculators/loan
+
+### What is a loan calculator?
+A loan calculator breaks any fixed-rate loan into its payment schedule — showing how
+much goes to principal versus interest each month, the total cost of borrowing, and
+what changes if you pay extra. It works for auto loans, personal loans, student loans,
+and any amortizing debt.
+
+---
+
+## Investment Growth Calculator
+URL: https://fintoolslab.com/calculators/investment
+
+### What is an investment growth calculator?
+An investment growth calculator projects how a lump sum or recurring contributions
+compound over time at a given rate of return. It answers the core planning question:
+if I invest this much, for this long, at this rate, what will I have?
+
+---
+
+## Savings Goal Calculator
+URL: https://fintoolslab.com/calculators/savings
+
+### What is a savings goal calculator?
+A savings goal calculator works backward from a target amount and deadline to tell you
+the monthly deposit needed. It factors in interest earned on your growing balance, so
+the number is lower than simple division would suggest.
+
+---
+
+## About Fin Tools Lab
+URL: https://fintoolslab.com/about
+
+Fin Tools Lab builds free, professional-grade financial calculators. All calculations
+run entirely in the user's browser — no financial data is collected or stored. The tools
+use the same formulas professional financial planners use, made transparent and accessible.
+Founded in 2024, based in San Francisco, CA. Supported by non-intrusive advertising.

@@ -1,429 +1,246 @@
-import { lazy, Suspense } from 'react';
-import { RetirementCalculator } from '@/components/calculators/RetirementCalculator';
-import { HeaderAd } from '@/components/ads/AdSenseUnit';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calculator, Target, Wallet, TrendingUp, BookOpen, Lightbulb, HelpCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { PageLoadingSpinner } from '@/components/ui/loading-spinner';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import { RetirementCalculatorMini } from '@/components/calculators/RetirementCalculatorMini';
+import { CalcPageHero } from '@/components/calculators/CalcPageHero';
+import { CalcExplainer } from '@/components/calculators/CalcExplainer';
+import { CalcFAQ } from '@/components/calculators/CalcFAQ';
+import { CalcRelatedGrid, RailCard } from '@/components/calculators/CalcRelated';
+import { CalcBreakdown } from '@/components/calculators/CalcBreakdown';
+import { CalcShortAnswer } from '@/components/calculators/CalcShortAnswer';
+import { CalcTips } from '@/components/calculators/CalcTips';
+import { AdSlot } from '@/components/ads/AdSlot';
 
-// Lazy-load non-critical sections
-const FooterAd = lazy(() => import('@/components/ads/AdSenseUnit').then(m => ({ default: m.FooterAd })));
-
-const educationalContent = [
+const faqItems = [
   {
-    title: 'Retirement Planning Basics',
-    content: 'Retirement planning involves estimating future expenses and building sufficient savings to maintain your desired lifestyle. Start early to take advantage of compound growth and employer benefits.',
-    icon: BookOpen
+    q: "How much should I have saved at each age?",
+    a: "A common rule of thumb from Fidelity: 1× your salary by 30, 3× by 40, 6× by 50, 8× by 60, and 10× by retirement at 67. These are rough benchmarks — your actual target depends on your expected retirement lifestyle, Social Security income, and planned retirement age. Use the planner to model your specific numbers.",
   },
   {
-    title: 'The 4% Rule',
-    content: 'A common guideline suggests withdrawing 4% of your retirement savings annually. This rate historically preserves capital while providing income. However, consider your specific situation and market conditions.',
-    icon: Target
+    q: "What is employer 401(k) matching and how do I maximize it?",
+    a: "Many employers match a percentage of your 401(k) contributions — for example, 50 cents per dollar up to 6% of salary. If you earn $60,000 and contribute 6% ($3,600), your employer adds $1,800 — a guaranteed 50% instant return. Always contribute at least enough to capture the full match before directing money elsewhere.",
   },
   {
-    title: 'Employer Matching',
-    content: 'Always contribute enough to get your full employer 401(k) match - it\'s free money. Employer matches can significantly boost your retirement savings over time.',
-    icon: Wallet
+    q: "What is the 4% withdrawal rule?",
+    a: "The 4% rule — from the 1994 Trinity Study — suggests you can withdraw 4% of your retirement portfolio in year one, then adjust for inflation annually, with a high probability your savings will last 30 years. With $1,247,300 saved, that's roughly $49,900 per year or $4,160 per month. The rule is a starting point; your mix of stocks, bonds, and other income matters.",
   },
   {
-    title: 'Inflation Impact',
-    content: 'Inflation reduces purchasing power over time. What costs $1,000 today might cost $1,500 in 20 years at 2% inflation. Plan for inflation when calculating retirement needs.',
-    icon: TrendingUp
-  }
+    q: "Traditional 401(k) vs. Roth 401(k) — which is better?",
+    a: "Traditional contributions are pre-tax (you save now, pay tax at withdrawal). Roth contributions are after-tax (you pay now, withdraw tax-free). If you expect your tax rate to be higher in retirement than it is today — common early in a career — Roth is usually better. If you're in a high bracket now and expect lower income in retirement, traditional typically wins. Many planners recommend splitting contributions between both.",
+  },
+  {
+    q: "How does inflation affect my retirement projections?",
+    a: "At 2.5% annual inflation, purchasing power halves roughly every 28 years. A $5,000 monthly budget today requires about $9,300 in 30 years to buy the same things. The calculator's nominal return should be reduced by your inflation assumption to get the real (inflation-adjusted) growth rate. Social Security benefits are inflation-indexed, providing a partial hedge.",
+  },
+  {
+    q: "When should I start drawing Social Security?",
+    a: "You can claim Social Security as early as 62 (at a permanently reduced benefit) or as late as 70 (at a permanently increased benefit). Delaying from 62 to 70 increases your monthly benefit by roughly 77%. If you're in good health and have other assets to bridge the gap, delaying typically maximizes lifetime benefits — especially for the higher earner in a married couple.",
+  },
 ];
 
-const tips = [
-  'Start contributing to retirement accounts as early as possible',
-  'Maximize employer 401(k) matching - it\'s free money',
-  'Consider both traditional and Roth retirement accounts',
-  'Increase contributions when you get raises or bonuses',
-  'Don\'t touch retirement savings early - penalties are costly',
-  'Review and adjust your plan annually as circumstances change'
+const relatedItems = [
+  {
+    name: "Compound Interest",
+    desc: "See how interest compounds on any balance over time.",
+    mark: "CI",
+    href: "/calculators/compound-interest",
+    cat: "Savings",
+    time: "30 sec",
+  },
+  {
+    name: "Investment Growth",
+    desc: "Project how a lump sum or contributions grow with returns.",
+    mark: "IV",
+    href: "/calculators/investment",
+    cat: "Investing",
+    time: "1 min",
+  },
+  {
+    name: "Savings Goal",
+    desc: "Reverse-engineer the monthly deposit needed to hit any target.",
+    mark: "SV",
+    href: "/calculators/savings",
+    cat: "Saving",
+    time: "30 sec",
+  },
+  {
+    name: "Loan Calculator",
+    desc: "Monthly payments and amortization for personal and auto loans.",
+    mark: "LN",
+    href: "/calculators/loan",
+    cat: "Borrowing",
+    time: "30 sec",
+  },
 ];
 
-function ExampleWalkthrough() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Lightbulb className="h-5 w-5" />
-            Example Walkthrough
-          </CardTitle>
-          <CardDescription>
-            See how retirement planning works with a real example
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="bg-green-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-green-800 mb-2">Scenario:</h4>
-              <ul className="text-green-700 space-y-1 text-sm">
-                <li>• Current age: 30</li>
-                <li>• Retirement age: 65</li>
-                <li>• Current savings: $50,000</li>
-                <li>• Annual contribution: $10,000</li>
-                <li>• Expected return: 7%</li>
-              </ul>
-            </div>
-            <div className="grid md:grid-cols-3 gap-4 text-center">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-blue-600">$350,000</div>
-                <div className="text-sm text-blue-700">Total Contributions</div>
-              </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-green-600">$900,000</div>
-                <div className="text-sm text-green-700">Investment Growth</div>
-              </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-purple-600">$1,250,000</div>
-                <div className="text-sm text-purple-700">Final Retirement Balance</div>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              This example shows how consistent saving and compound growth can turn $350,000 in contributions into $1,250,000 by retirement.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function TipsSection() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <TrendingUp className="h-5 w-5" />
-            Retirement Tips
-          </CardTitle>
-          <CardDescription>
-            Maximize your retirement savings with these proven strategies
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid md:grid-cols-2 gap-4">
-            {tips.map((tip, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-muted-foreground">{tip}</p>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function FAQSection() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <HelpCircle className="h-5 w-5" />
-            Frequently Asked Questions
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6">
-            <div>
-              <h4 className="font-semibold mb-2">How much should I save for retirement?</h4>
-              <p className="text-sm text-muted-foreground">
-                A common guideline is to save 10-15% of your income, including employer matches. However, the exact amount depends on your age, desired retirement lifestyle, current savings, and expected retirement age. Use our calculator to project different scenarios.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">What is the 4% rule for retirement withdrawals?</h4>
-              <p className="text-sm text-muted-foreground">
-                The 4% rule suggests you can withdraw 4% of your retirement savings annually while preserving your principal. For example, with $1 million saved, you could withdraw $40,000 annually. This rule accounts for inflation and market fluctuations.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">How does employer 401k matching work?</h4>
-              <p className="text-sm text-muted-foreground">
-                Many employers match a percentage of your 401k contributions, typically 3-6% of your salary. For example, if your employer matches 50% up to 6%, and you contribute 6% of your $50,000 salary ($3,000), your employer adds $1,500 - essentially free money.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">When should I start saving for retirement?</h4>
-              <p className="text-sm text-muted-foreground">
-                Start as early as possible to take advantage of compound growth. Even small contributions in your 20s can grow significantly over time. If you're already in your 30s or 40s, start immediately and consider increasing your contribution rate.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">How does inflation affect retirement planning?</h4>
-              <p className="text-sm text-muted-foreground">
-                Inflation reduces purchasing power over time. At 2% annual inflation, what costs $1,000 today will cost $1,486 in 20 years. Factor inflation into your retirement planning by assuming higher future expenses and adjusting your savings goals accordingly.
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
+const railItems = [
+  { name: "Compound Interest", desc: "See how interest compounds over time", mark: "CI", href: "/calculators/compound-interest" },
+  { name: "Investment Growth", desc: "Model portfolio performance", mark: "IV", href: "/calculators/investment" },
+  { name: "Savings Goal", desc: "Reverse a target into a habit", mark: "SV", href: "/calculators/savings" },
+  { name: "Loan Calculator", desc: "Payment schedules & interest", mark: "LN", href: "/calculators/loan" },
+];
 
 export default function RetirementPage() {
+  const [schedule, setSchedule] = useState<any[] | null>(null);
+
+  useEffect(() => {
+    const onUpdate = (e: CustomEvent) => setSchedule(e.detail?.schedule);
+    window.addEventListener('calc:schedule', onUpdate as EventListener);
+    return () => window.removeEventListener('calc:schedule', onUpdate as EventListener);
+  }, []);
+
   return (
     <>
       <Helmet>
-        <title>Retirement Calculator - 401k & Retirement Planning Calculator | Fin Tools Lab</title>
-        <meta 
-          name="description" 
-          content="Plan for retirement with comprehensive savings and withdrawal analysis. Calculate 401k growth, employer matching, and retirement income." 
+        <title>Retirement Calculator - 401k & Retirement Planning | Fin Tools Lab</title>
+        <meta
+          name="description"
+          content="Project what your nest egg will be at retirement age. See how contributions, employer match and market returns compound over decades with our free retirement planner."
         />
-        <meta name="keywords" content="retirement calculator, 401k calculator, retirement planning, retirement savings, pension calculator, IRA calculator" />
+        <meta name="keywords" content="retirement calculator, 401k calculator, retirement planning, retirement savings, employer match, nest egg calculator" />
         <link rel="canonical" href="https://fintoolslab.com/calculators/retirement" />
-        
+
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fintoolslab.com/calculators/retirement" />
-        <meta property="og:title" content="Retirement Calculator - 401k & Retirement Planning Calculator" />
-        <meta property="og:description" content="Plan for retirement with comprehensive savings and withdrawal analysis using our free retirement calculator." />
-        
+        <meta property="og:title" content="Retirement Calculator - 401k & Retirement Planning" />
+        <meta property="og:description" content="Project your nest egg at retirement age with our free retirement planner." />
+
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://fintoolslab.com/calculators/retirement" />
-        <meta property="twitter:title" content="Retirement Calculator - 401k & Retirement Planning Calculator" />
-        <meta property="twitter:description" content="Plan for retirement with comprehensive savings and withdrawal analysis using our free retirement calculator." />
-        
+        <meta property="twitter:title" content="Retirement Calculator - 401k & Retirement Planning" />
+        <meta property="twitter:description" content="Project your nest egg at retirement age with our free retirement planner." />
+        <meta property="og:image" content="https://fintoolslab.com/og-image.png" />
+        <meta name="twitter:image" content="https://fintoolslab.com/og-image.png" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "Retirement Calculator",
-            "description": "Free retirement calculator with 401k and comprehensive retirement planning",
+            "name": "Retirement Planner",
+            "description": "Free retirement calculator with 401k, employer match, and comprehensive retirement planning",
             "url": "https://fintoolslab.com/calculators/retirement",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "Web Browser",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            "featureList": [
-              "401k growth projection",
-              "Employer matching calculation",
-              "Retirement income planning",
-              "Inflation adjustment",
-              "Withdrawal strategy analysis"
-            ],
-            "screenshot": "https://fintoolslab.com/calculators/retirement",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
             "softwareVersion": "1.0",
-            "author": {
-              "@type": "Organization",
-              "name": "Fin Tools Lab"
-            }
+            "author": { "@type": "Organization", "name": "Fin Tools Lab" },
           })}
         </script>
-        
-        {/* FAQ Schema */}
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How much should I save for retirement?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A common guideline is to save 10-15% of your income, including employer matches. However, the exact amount depends on your age, desired retirement lifestyle, current savings, and expected retirement age. Use our calculator to project different scenarios."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is the 4% rule for retirement withdrawals?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The 4% rule suggests you can withdraw 4% of your retirement savings annually while preserving your principal. For example, with $1 million saved, you could withdraw $40,000 annually. This rule accounts for inflation and market fluctuations."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How does employer 401k matching work?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Many employers match a percentage of your 401k contributions, typically 3-6% of your salary. For example, if your employer matches 50% up to 6%, and you contribute 6% of your $50,000 salary ($3,000), your employer adds $1,500 - essentially free money."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "When should I start saving for retirement?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Start as early as possible to take advantage of compound growth. Even small contributions in your 20s can grow significantly over time. If you're already in your 30s or 40s, start immediately and consider increasing your contribution rate."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How does inflation affect retirement planning?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Inflation reduces purchasing power over time. At 2% annual inflation, what costs $1,000 today will cost $1,486 in 20 years. Factor inflation into your retirement planning by assuming higher future expenses and adjusting your savings goals accordingly."
-                }
-              }
-            ]
+            "mainEntity": faqItems.map((item) => ({
+              "@type": "Question",
+              "name": item.q,
+              "acceptedAnswer": { "@type": "Answer", "text": item.a },
+            })),
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fintoolslab.com" },
+              { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fintoolslab.com/calculators" },
+              { "@type": "ListItem", "position": 3, "name": "Retirement", "item": "https://fintoolslab.com/calculators/retirement" },
+            ],
           })}
         </script>
       </Helmet>
 
-      <div className="bg-background">
-        <div className="container mx-auto container-padding section-padding">
-          {/* Breadcrumbs */}
-          <Breadcrumb className="mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink asChild>
-                  <Link to="/" className="flex items-center gap-1">
-                    <Target className="h-3 w-3" />
-                    Home
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/calculators">Calculators</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Retirement</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+      <CalcPageHero
+        chip="Planning · 2-minute setup"
+        title={<>Retirement <em>planner</em></>}
+        lede="Project what your nest egg will be at retirement age. See how contributions, employer match and market returns compound over decades."
+        meta={[
+          { label: "Free", value: "no sign-up required" },
+          { label: "Updated", value: "2026" },
+        ]}
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Calculators", href: "/calculators" },
+          { label: "Retirement" },
+        ]}
+        workedExample={{
+          amount: "1,247,300",
+          label: "At age 65 · $50K saved, $800/mo, 7% return, 30 years",
+          features: [
+            "$50,000 current savings",
+            "$800 monthly contributions",
+            "7% annual return",
+            "30 years to retirement",
+          ],
+        }}
+      />
 
-          {/* Short Answer Box for Featured Snippets */}
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8 rounded-r-lg">
-            <p className="text-blue-800 text-base leading-relaxed">
-              A <strong>retirement calculator</strong> helps you plan for your financial future by projecting your retirement savings growth, 
-              calculating employer 401k matches, and estimating your retirement income. Enter your current savings, contribution rates, 
-              and retirement goals to see if you're on track for a comfortable retirement.
-            </p>
-          </div>
+      <CalcShortAnswer heading="What is a retirement calculator?">
+        <strong>A retirement calculator</strong> projects what your savings will grow to by a target retirement age, and translates that nest egg into a safe monthly income using the well-known 4% withdrawal rule (or any rate you set). It's the simplest answer to: "Am I saving enough?"
+      </CalcShortAnswer>
 
-          {/* Calculator */}
-          <RetirementCalculator />
-
-          {/* How it Works Section */}
-          <div className="mt-16 space-y-8">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
-                How Retirement Planning Works
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Understanding retirement calculations and how to use our calculator effectively
-              </p>
-            </div>
-
-            {/* Formula Section - Moved to top for better flow */}
-            <Card className="financial-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-3 text-lg">
-                  <div className="w-8 h-8 bg-financial-success/10 rounded-lg flex items-center justify-center">
-                    <Calculator className="h-4 w-4 text-financial-success" />
-                  </div>
-                  The 4% Rule for Retirement Withdrawals
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-muted/30 rounded-lg p-4 mb-4">
-                  <p className="text-center text-lg font-mono mb-3">
-                    Monthly Income = Total Savings × 0.04 ÷ 12
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-3 text-sm">
-                    <div>
-                      <strong>4% Rule</strong> = Annual withdrawal rate<br />
-                      <strong>Total Savings</strong> = Final retirement balance
-                    </div>
-                    <div>
-                      <strong>Monthly Income</strong> = Sustainable monthly withdrawal
-                    </div>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm mb-4">
-                  The 4% rule suggests you can withdraw 4% of your retirement savings annually while preserving your principal.
-                </p>
-                
-                {/* Step-by-step process */}
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-foreground">How the 4% Rule Works:</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Total Savings:</strong> Your retirement portfolio value</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>4% Withdrawal:</strong> Annual amount you can safely withdraw</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Monthly Income:</strong> Divide annual withdrawal by 12</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Principal Preservation:</strong> Remaining balance continues growing</span>
-                    </li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {educationalContent.map((item, index) => (
-                <Card key={item.title} className="financial-card">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-3 text-lg">
-                      <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <item.icon className="h-4 w-4 text-primary" />
-                      </div>
-                      {item.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.content}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Example Walkthrough (lazy) */}
-            <Suspense fallback={<PageLoadingSpinner text="Loading example..." />}>
-              <ExampleWalkthrough />
-            </Suspense>
-
-            {/* Tips Section (lazy) */}
-            <Suspense fallback={<PageLoadingSpinner text="Loading tips..." />}>
-              <TipsSection />
-            </Suspense>
-
-            {/* FAQ Section (lazy) */}
-            <Suspense fallback={<PageLoadingSpinner text="Loading FAQs..." />}>
-              <FAQSection />
-            </Suspense>
-          </div>
-
-          {/* AdSense Footer (lazy) */}
-          <Suspense fallback={<PageLoadingSpinner text="Loading ads..." />}>
-            <div className="mt-16">
-              <FooterAd />
-            </div>
-          </Suspense>
+      <section className="cp-calc-wrap">
+        <div className="container">
+          <RetirementCalculatorMini />
         </div>
-      </div>
+      </section>
+
+      <AdSlot size="leaderboard" />
+
+      <section style={{ paddingBlock: 'clamp(56px, 7vw, 96px)' }}>
+        <div className="container">
+          <div className="cp-split">
+            <div>{schedule && <CalcBreakdown
+              schedule={schedule}
+              columns={[
+                { key: 'contributed', label: 'Contributed' },
+                { key: 'growth', label: 'Growth', accent: true },
+                { key: 'balance', label: 'Nest egg' },
+              ]}
+              yearFormat={(row) => `Age ${row.age}`}
+              shareKey="growth"
+              shareLabel="Growth share"
+              title={<>The <em>full breakdown</em>.</>}
+              csvFilename="retirement-breakdown"
+            />}</div>
+            <div className="cp-rail">
+              <AdSlot size="half" />
+              <RailCard items={railItems} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CalcExplainer
+        title={<>The compounding <em>formula</em> that builds your nest egg.</>}
+        paragraphs={[
+          "Retirement balances grow through the same future-value mechanics as any investment: your existing savings compound each year, and each new contribution compounds for however many years remain before retirement.",
+          "The power of long time horizons is stark. At 7% annual return, money doubles roughly every 10 years. A dollar saved at 35 is worth about twice as much at 65 as a dollar saved at 45. Starting — or increasing — contributions early has an outsized effect that the calculator makes visible.",
+        ]}
+        formulaLabel="Future value with ongoing contributions"
+        formulaDisplay={<>FV = PV(1+r)<sup>t</sup> + PMT × [(1+r)<sup>t</sup> − 1] / r</>}
+        legend={[
+          { symbol: "FV", label: "Future value", desc: "projected retirement balance at your target age" },
+          { symbol: "PV", label: "Present value", desc: "your current retirement savings balance" },
+          { symbol: "r", label: "Rate per period", desc: "expected annual return divided by periods per year" },
+          { symbol: "t", label: "Periods", desc: "total compounding periods until retirement" },
+          { symbol: "PMT", label: "Contribution", desc: "amount you add each period, including employer match" },
+        ]}
+      />
+
+      <CalcTips items={[
+        { title: 'Save 15% of gross income.', text: 'Including employer match, 15% saved consistently from age 25 to 65 reliably hits retirement targets in most return scenarios.' },
+        { title: 'Front-load when you can.', text: 'A dollar saved at 25 is worth roughly 10 dollars saved at 50, given long horizons and compound growth.' },
+        { title: "Withdrawal rate is not income.", text: "A 4% withdrawal rate doesn't mean you can spend 4%. Taxes and inflation adjustments come out of that — net spending is usually closer to 3%." },
+        { title: 'Account for healthcare.', text: 'Pre-Medicare retirement (before 65) requires private health insurance — budget $1.5-2.5K/mo per person for a couple in the US.' },
+        { title: 'Sequence risk is real.', text: 'A bear market in your first 5 retirement years is far more dangerous than one later. Consider a higher cash buffer in early retirement.' },
+        { title: 'Run the math at age 90.', text: "Plan for the full life expectancy. Running out of money at 85 isn't a 'risk' — it's a non-recoverable catastrophe. Bias toward conservative." },
+      ]} />
+
+      <CalcFAQ items={faqItems} />
+
+      <CalcRelatedGrid items={relatedItems} />
     </>
   );
 }

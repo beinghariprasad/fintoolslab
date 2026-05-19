@@ -1,56 +1,15 @@
-import { lazy, Suspense } from 'react';
-import { CompoundInterestCalculator } from '@/components/calculators/CompoundInterestCalculator';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calculator, TrendingUp, DollarSign, Target, BookOpen, Lightbulb, Home, HelpCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { CompoundCalculatorMini } from '@/components/calculators/CompoundCalculatorMini';
+import { CalcPageHero } from '@/components/calculators/CalcPageHero';
+import { CalcExplainer } from '@/components/calculators/CalcExplainer';
+import { CalcFAQ } from '@/components/calculators/CalcFAQ';
+import { CalcRelatedGrid, RailCard } from '@/components/calculators/CalcRelated';
+import { CalcBreakdown } from '@/components/calculators/CalcBreakdown';
+import { CalcShortAnswer } from '@/components/calculators/CalcShortAnswer';
+import { CalcTips } from '@/components/calculators/CalcTips';
+import { AdSlot } from '@/components/ads/AdSlot';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { PageLoadingSpinner } from '@/components/ui/loading-spinner';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 
-// Lazy-load non-critical sections
-const FooterAd = lazy(() => import('@/components/ads/AdSenseUnit').then(m => ({ default: m.FooterAd })));
-
-// Move static data outside component to prevent re-creation
-const educationalContent = [
-  {
-    title: 'What is Compound Interest?',
-    content: 'Compound interest is the addition of interest to the principal sum of a loan or deposit, or in other words, interest on interest. It is the result of reinvesting interest, rather than paying it out, so that interest in the next period is then earned on the principal sum plus previously accumulated interest.',
-    icon: BookOpen
-  },
-  {
-    title: 'The Power of Time',
-    content: 'The longer your money has to compound, the more dramatic the results. Starting early, even with small amounts, can lead to significantly larger returns than starting later with larger amounts. Time is your most powerful ally in building wealth.',
-    icon: Target
-  },
-  {
-    title: 'Compound Frequency Matters',
-    content: 'The frequency of compounding affects your returns. Daily compounding typically yields slightly higher returns than monthly, which yields more than annually. However, the difference becomes less significant as the compounding frequency increases.',
-    icon: TrendingUp
-  },
-  {
-    title: 'Regular Contributions',
-    content: 'Making regular contributions to your investment significantly amplifies the power of compound interest. Even small, consistent contributions can lead to substantial wealth accumulation over time due to the compounding effect.',
-    icon: DollarSign
-  }
-];
-
-const tips = [
-  'Start investing as early as possible to maximize the power of compound interest',
-  'Make regular contributions, even if they\'re small - consistency is key',
-  'Choose investments with higher compound frequencies when possible',
-  'Reinvest your returns rather than withdrawing them to maintain compounding',
-  'Be patient - compound interest works best over long time periods',
-  'Consider tax-advantaged accounts like 401(k)s and IRAs for retirement savings'
-];
-
-// Pre-compute structured data
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -59,362 +18,205 @@ const structuredData = {
   "url": "https://fintoolslab.com/calculators/compound-interest",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "Web Browser",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "featureList": [
-    "Interactive charts",
-    "Multiple currencies",
-    "Flexible contribution schedules",
-    "Real-time calculations",
-    "Export results"
-  ],
-  "screenshot": "https://fintoolslab.com/calculators/compound-interest",
-  "softwareVersion": "1.0",
-  "author": {
-    "@type": "Organization",
-    "name": "Fin Tools Lab"
-  }
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "featureList": ["Interactive charts", "Multiple currencies", "Flexible contribution schedules", "Real-time calculations", "Export results"],
+  "softwareVersion": "3.0",
+  "author": { "@type": "Organization", "name": "Fin Tools Lab" }
 };
 
-const faqData = {
+const faqItems = [
+  {
+    q: "What return assumption should I actually use?",
+    a: "A 7% annual return is the historical average for a globally-diversified equity portfolio after inflation. If you're modeling a 100% stock allocation, 7-8% is reasonable. For a 60/40 mix, 5-6%. For cash and bonds, 2-4%. The point of the calculator isn't to predict — it's to show how sensitive the answer is to this single number.",
+  },
+  {
+    q: "How is compound interest different from simple interest?",
+    a: "Simple interest pays you a flat percentage of your original principal every period — your interest doesn't earn its own interest. Compound interest reinvests each period's earnings, so the base your interest is calculated against grows each cycle. Over short timeframes the difference is small; over 20+ years it's enormous.",
+  },
+  {
+    q: "Does compounding frequency really matter?",
+    a: "Less than most people think. Going from yearly to monthly compounding on a 7% return adds about 0.23% to your effective annual rate — meaningful over a long horizon, but dwarfed by the underlying return assumption. The bigger lever is almost always time.",
+  },
+  {
+    q: "What about inflation?",
+    a: "This calculator returns nominal dollars — the actual sticker number. To translate to today's purchasing power, subtract roughly 2-3% from your return assumption to get a real return.",
+  },
+  {
+    q: "Can I model irregular contributions?",
+    a: "Not directly in this calculator — it assumes a constant periodic deposit. For irregular contribution schedules (bonuses, employer match, raises), use the Retirement Planner, which supports timeline-based events.",
+  },
+  {
+    q: "Are the results financial advice?",
+    a: "No. Fin Tools Lab is educational. Real returns are not constant, fees compound the same way returns do, and your tax situation matters. Use this to build intuition — talk to a licensed planner before making large decisions.",
+  },
+];
+
+const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I use a compound interest calculator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To use our compound interest calculator, enter your initial investment amount, annual interest rate, investment time period, and monthly contribution amount. The calculator will instantly show your projected returns, total contributions, and interest earned over time."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the difference between simple and compound interest?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Simple interest is calculated only on the principal amount, while compound interest is calculated on both the principal and accumulated interest. Compound interest grows faster over time because you earn interest on your interest, creating exponential growth."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are compound interest calculators?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our compound interest calculator uses industry-standard formulas and provides accurate projections based on your inputs. However, actual returns may vary due to market fluctuations, fees, and tax implications. Always consult with a financial advisor for personalized advice."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is the best frequency for compound interest?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "More frequent compounding (daily or monthly) typically yields slightly higher returns than annual compounding. However, the difference becomes less significant as compounding frequency increases. Focus on starting early and making regular contributions for maximum impact."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much should I invest to reach my financial goals?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use our calculator to experiment with different investment amounts and time periods. Start with your current savings and gradually increase contributions as your income grows. Remember, even small regular investments can grow significantly over time due to compound interest."
-      }
-    }
-  ]
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a }
+  }))
 };
 
-function ExampleWalkthrough() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Lightbulb className="h-5 w-5" />
-            Example Walkthrough
-          </CardTitle>
-          <CardDescription>
-            See how compound interest works with a real example
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="bg-green-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-green-800 mb-2">Scenario:</h4>
-              <ul className="text-green-700 space-y-1 text-sm">
-                <li>• Initial investment: $10,000</li>
-                <li>• Annual interest rate: 7%</li>
-                <li>• Monthly contribution: $500</li>
-                <li>• Time period: 20 years</li>
-              </ul>
-            </div>
-            <div className="grid md:grid-cols-3 gap-4 text-center">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-blue-600">$130,000</div>
-                <div className="text-sm text-blue-700">Total Contributions</div>
-              </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-green-600">$180,000</div>
-                <div className="text-sm text-green-700">Interest Earned</div>
-              </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-purple-600">$310,000</div>
-                <div className="text-sm text-purple-700">Final Balance</div>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              This example shows how regular contributions and compound interest can turn $130,000 in contributions into $310,000 over 20 years!
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
+const relatedCalcs = [
+  { name: "Retirement planner", desc: "Project the nest egg you'll have at 65", mark: "R", href: "/calculators/retirement", cat: "Investing", time: "2 min" },
+  { name: "Savings goal", desc: "Reverse-engineer the monthly habit to hit a target", mark: "S", href: "/calculators/savings", cat: "Saving", time: "30 sec" },
+  { name: "Investment growth", desc: "Lump sum vs. dollar-cost average — which wins?", mark: "L", href: "/calculators/investment", cat: "Investing", time: "1 min" },
+  { name: "Mortgage calculator", desc: "See monthly payments and total interest on a home loan", mark: "M", href: "/calculators/mortgage", cat: "Borrowing", time: "1 min" },
+];
 
-function TipsSection() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Target className="h-5 w-5" />
-            Investment Tips
-          </CardTitle>
-          <CardDescription>
-            Maximize your returns with these proven strategies
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid md:grid-cols-2 gap-4">
-            {tips.map((tip, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-muted-foreground">{tip}</p>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function FAQSection() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <HelpCircle className="h-5 w-5" />
-            Frequently Asked Questions
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6">
-            <div>
-              <h4 className="font-semibold mb-2">How do I use a compound interest calculator?</h4>
-              <p className="text-sm text-muted-foreground">
-                To use our compound interest calculator, enter your initial investment amount, annual interest rate, investment time period, and monthly contribution amount. The calculator will instantly show your projected returns, total contributions, and interest earned over time.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">What is the difference between simple and compound interest?</h4>
-              <p className="text-sm text-muted-foreground">
-                Simple interest is calculated only on the principal amount, while compound interest is calculated on both the principal and accumulated interest. Compound interest grows faster over time because you earn interest on your interest, creating exponential growth.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">How accurate are compound interest calculators?</h4>
-              <p className="text-sm text-muted-foreground">
-                Our compound interest calculator uses industry-standard formulas and provides accurate projections based on your inputs. However, actual returns may vary due to market fluctuations, fees, and tax implications. Always consult with a financial advisor for personalized advice.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">What is the best frequency for compound interest?</h4>
-              <p className="text-sm text-muted-foreground">
-                More frequent compounding (daily or monthly) typically yields slightly higher returns than annual compounding. However, the difference becomes less significant as compounding frequency increases. Focus on starting early and making regular contributions for maximum impact.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">How much should I invest to reach my financial goals?</h4>
-              <p className="text-sm text-muted-foreground">
-                Use our calculator to experiment with different investment amounts and time periods. Start with your current savings and gradually increase contributions as your income grows. Remember, even small regular investments can grow significantly over time due to compound interest.
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
+const railItems = [
+  { name: "Retirement planner", desc: "What you'll have at 65", mark: "R", href: "/calculators/retirement" },
+  { name: "Savings goal", desc: "Reverse a target into a habit", mark: "S", href: "/calculators/savings" },
+  { name: "Investment growth", desc: "Lump sum vs. DCA", mark: "L", href: "/calculators/investment" },
+  { name: "Loan calculator", desc: "Payment schedules & interest", mark: "$", href: "/calculators/loan" },
+];
 
 export default function CompoundInterestPage() {
+  const [schedule, setSchedule] = useState<any[] | null>(null);
+
+  useEffect(() => {
+    const onUpdate = (e: CustomEvent) => setSchedule(e.detail?.schedule);
+    window.addEventListener('calc:schedule', onUpdate as EventListener);
+    return () => window.removeEventListener('calc:schedule', onUpdate as EventListener);
+  }, []);
+
   return (
     <>
       <Helmet>
         <title>Compound Interest Calculator - Free Investment Growth Calculator | Fin Tools Lab</title>
-        <meta 
-          name="description" 
-          content="Calculate compound interest with our free calculator. See how your investments grow over time with interactive charts, multiple currencies, and detailed projections. Perfect for retirement and investment planning." 
-        />
+        <meta name="description" content="Calculate compound interest with our free calculator. See how your investments grow over time with interactive charts, multiple currencies, and detailed projections. Perfect for retirement and investment planning." />
         <meta name="keywords" content="compound interest calculator, investment calculator, compound interest, retirement planning, savings calculator, investment growth" />
         <link rel="canonical" href="https://fintoolslab.com/calculators/compound-interest" />
-        
-        {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fintoolslab.com/calculators/compound-interest" />
         <meta property="og:title" content="Compound Interest Calculator - Free Investment Growth Calculator" />
         <meta property="og:description" content="Calculate compound interest with our free calculator. See how your investments grow over time with interactive charts and detailed projections." />
-        
-        {/* Twitter */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://fintoolslab.com/calculators/compound-interest" />
         <meta property="twitter:title" content="Compound Interest Calculator - Free Investment Growth Calculator" />
         <meta property="twitter:description" content="Calculate compound interest with our free calculator. See how your investments grow over time with interactive charts and detailed projections." />
-        
-        {/* Structured Data */}
+        <meta property="og:image" content="https://fintoolslab.com/og-image.png" />
+        <meta name="twitter:image" content="https://fintoolslab.com/og-image.png" />
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-        
-        {/* FAQ Schema */}
-        <script type="application/ld+json">
-          {JSON.stringify(faqData)}
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fintoolslab.com" },
+              { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fintoolslab.com/calculators" },
+              { "@type": "ListItem", "position": 3, "name": "Compound Interest", "item": "https://fintoolslab.com/calculators/compound-interest" }
+            ]
+          })}
         </script>
       </Helmet>
 
-      <div className="bg-background">
-        <div className="container mx-auto container-padding section-padding">
-          {/* Breadcrumbs */}
-          <Breadcrumb className="mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink asChild>
-                  <Link to="/" className="flex items-center gap-1">
-                    <Home className="h-3 w-3" />
-                    Home
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/calculators">Calculators</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Compound Interest</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+      <CalcPageHero
+        chip="Investing · 30-second setup"
+        title={<>Compound interest <em>calculator</em></>}
+        lede="Move four sliders. Watch a thirty-year story unfold. This is the same model professional planners use to project a portfolio — pared down, kept honest, and made obvious."
+        meta={[
+          { label: 'Updated', value: 'May 2026' },
+          { label: 'Engine', value: 'v3.0' },
+          { label: 'Methodology', value: 'FV with periodic deposits' },
+        ]}
+        breadcrumb={[
+          { label: 'Home', href: '/' },
+          { label: 'Calculators', href: '/calculators' },
+          { label: 'Compound interest' },
+        ]}
+        workedExample={{
+          amount: '821,572',
+          label: 'Balance at year 30 · $10K start, $500/mo, 7% return',
+          features: ['Compound monthly or yearly', 'Hover to inspect any year', 'Export the year-by-year table'],
+        }}
+      />
 
-          {/* Short Answer Box for Featured Snippets */}
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8 rounded-r-lg">
-            <p className="text-blue-800 text-base leading-relaxed">
-              A <strong>compound interest calculator</strong> helps you determine how much your investments will grow over time, 
-              accounting for interest earned on both the principal amount and accumulated interest. 
-              Simply enter your initial investment, interest rate, time period, and contribution frequency 
-              to see your projected returns and understand the power of compounding.
-            </p>
-          </div>
+      <CalcShortAnswer heading="What is a compound interest calculator?">
+        <strong>A compound interest calculator</strong> shows how a starting balance plus ongoing contributions grow when each period's earnings get reinvested. The math is identical to what professional planners use; this version exposes the four inputs that move the answer most — principal, contribution, return rate, and time horizon — so you can build intuition fast.
+      </CalcShortAnswer>
 
-          {/* Calculator */}
-          <CompoundInterestCalculator />
-
-          {/* How it Works Section */}
-          <div className="mt-16 space-y-8">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
-                How Compound Interest Works
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Understanding the mechanics behind compound interest and how to use our calculator effectively
-              </p>
-            </div>
-
-            {/* Formula Section */}
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Calculator className="h-5 w-5" />
-                  The Compound Interest Formula
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="bg-muted p-4 rounded-lg">
-                    <p className="font-mono text-sm md:text-base">
-                      A = P(1 + r/n)^(nt)
-                    </p>
-                  </div>
-                  <div className="grid md:grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <strong>A</strong> = Final amount (principal + interest)
-                    </div>
-                    <div>
-                      <strong>P</strong> = Principal amount (initial investment)
-                    </div>
-                    <div>
-                      <strong>r</strong> = Annual interest rate (as a decimal)
-                    </div>
-                    <div>
-                      <strong>n</strong> = Number of times interest is compounded per year
-                    </div>
-                    <div>
-                      <strong>t</strong> = Time in years
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Educational Content */}
-            <div className="grid md:grid-cols-2 gap-6">
-              {educationalContent.map((item, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2 text-lg">
-                      <item.icon className="h-5 w-5 text-primary" />
-                      {item.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {item.content}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Example Walkthrough (lazy) */}
-          <Suspense fallback={<PageLoadingSpinner text="Loading example..." />}>
-            <ExampleWalkthrough />
-          </Suspense>
-
-          {/* Tips Section (lazy) */}
-          <Suspense fallback={<PageLoadingSpinner text="Loading tips..." />}>
-            <TipsSection />
-          </Suspense>
-
-          {/* FAQ Section (lazy) */}
-          <Suspense fallback={<PageLoadingSpinner text="Loading FAQs..." />}>
-            <FAQSection />
-          </Suspense>
-
-          {/* AdSense Footer (lazy) */}
-          <Suspense fallback={<PageLoadingSpinner text="Loading ads..." />}>
-            <div className="mt-16">
-              <FooterAd />
-            </div>
-          </Suspense>
+      <section className="cp-calc-wrap">
+        <div className="container">
+          <CompoundCalculatorMini />
         </div>
-      </div>
+      </section>
+
+      <AdSlot size="leaderboard" />
+
+      <section style={{ paddingBlock: 'clamp(56px, 7vw, 96px)' }}>
+        <div className="container">
+          <div className="cp-split">
+            <div>{schedule && <CalcBreakdown
+              schedule={schedule}
+              columns={[
+                { key: 'contributed', label: 'Contributed' },
+                { key: 'interest', label: 'Interest', accent: true },
+                { key: 'balance', label: 'Balance' },
+              ]}
+              shareKey="interest"
+              shareLabel="Interest share"
+              csvFilename="compound-interest-breakdown"
+            />}</div>
+            <div className="cp-rail">
+              <AdSlot size="half" />
+              <RailCard items={railItems} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CalcExplainer
+        title={<>One equation. <em>Thirty years</em> of consequence.</>}
+        paragraphs={[
+          "Compound interest is the engine behind why time, not contribution size, is the biggest lever most people have. Each period your balance earns a return — and then that return earns its own return next period, recursively.",
+          "Stretch this over decades and the curve gets unintuitive fast: a 25-year-old saving $300/mo ends up with a larger balance than a 35-year-old saving $600/mo, even after the 35-year-old contributes twice as much in absolute dollars.",
+          "The calculator above runs the standard future-value formula for a series — with monthly or yearly compounding — so the numbers match what a financial planner's spreadsheet would produce.",
+        ]}
+        formulaLabel="Future value with periodic deposits"
+        formulaDisplay={
+          <>
+            <span>FV</span>
+            <span style={{ color: 'var(--ink-on-dark-2)' }}>=</span>
+            <span className="accent">P</span>
+            <span style={{ color: 'var(--ink-on-dark-2)' }}>(1 +</span>
+            <span className="accent">r/n</span>
+            <span style={{ color: 'var(--ink-on-dark-2)' }}>)</span>
+            <sup style={{ fontSize: '0.4em', color: 'var(--ink-on-dark-2)' }}>nt</sup>
+            <span style={{ color: 'var(--ink-on-dark-2)' }}>+</span>
+            <span className="accent">PMT</span>
+            <span style={{ color: 'var(--ink-on-dark-2)' }}>·</span>
+            <span style={{ color: 'var(--ink-on-dark-2)', fontStyle: 'normal', fontSize: '0.6em' }}>
+              [((1 + r/n)<sup>nt</sup> − 1) / (r/n)]
+            </span>
+          </>
+        }
+        legend={[
+          { symbol: 'P', label: 'Principal', desc: 'the starting balance' },
+          { symbol: 'PMT', label: 'Periodic deposit', desc: 'your monthly or yearly contribution' },
+          { symbol: 'r', label: 'Annual rate', desc: 'your expected return, as a decimal' },
+          { symbol: 'n', label: 'Compounding frequency', desc: '12 for monthly, 1 for yearly' },
+          { symbol: 't', label: 'Time horizon', desc: 'number of years' },
+        ]}
+      />
+
+      <CalcTips items={[
+        { title: 'Start now, not next year.', text: "One year of compounding at age 25 can outweigh five years of compounding at age 45. Time is the most valuable input." },
+        { title: 'Index funds beat stock picking.', text: "For most long-horizon investors, a broad index fund earns the market return at minimal fee drag — the simplest path to the calculator's projection." },
+        { title: 'Automate the contribution.', text: "Friction kills compounding. Set the monthly deposit to auto-draft on payday so you don't have to think about it." },
+        { title: "Don't time the market.", text: 'Missing the 10 best days of a decade can halve your return. Time IN the market beats timing the market for nearly every long horizon.' },
+        { title: 'Stress-test at 5%, not 10%.', text: 'Conservative return assumptions force higher savings rates. A plan that works at 5% returns is a plan that always works.' },
+        { title: 'Recheck annually.', text: 'Salary changes, market conditions shift, life happens. Re-run the calculator each January and adjust your monthly contribution to stay on track.' },
+      ]} />
+
+      <CalcFAQ items={faqItems} guideLink="/blog/compound-interest-guide" />
+
+      <CalcRelatedGrid items={relatedCalcs} />
     </>
   );
 }

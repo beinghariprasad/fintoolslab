@@ -1,22 +1,106 @@
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Card, CardContent } from '@/components/ui/card';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Calculator, ArrowLeft, TrendingUp, Info } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useState, useEffect } from 'react';
+import { CalcFAQ } from '@/components/calculators/CalcFAQ';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import type { BlogPost } from '@/types/blog';
+
+/* ---------- Reading progress bar ---------- */
+function ReadProgress() {
+  const [pct, setPct] = useState(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setPct(docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  return <div className="read-progress" style={{ width: pct + '%' }} />;
+}
+
+/* ---------- TOC with active tracking ---------- */
+function TableOfContents({ sections }: { sections: { heading: string; id: string }[] }) {
+  const [active, setActive] = useState('');
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 },
+    );
+    sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [sections]);
+
+  return (
+    <nav className="toc">
+      <h4>On this page</h4>
+      <ol>
+        {sections.map((s, i) => (
+          <li key={s.id} className={active === s.id ? 'active' : ''}>
+            <a href={`#${s.id}`}>
+              <span className="n">{String(i + 1).padStart(2, '0')}</span>
+              {s.heading}
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+}
+
+/* ---------- Newsletter rail widget ---------- */
+function RailNewsletter() {
+  return (
+    <div className="rail-newsletter">
+      <h4>Get one useful idea about money, every Sunday.</h4>
+      <p>No hot takes. Just frameworks and tools that actually help.</p>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <input type="email" placeholder="you@inbox.com" />
+        <button type="submit">Subscribe</button>
+      </form>
+      <div className="note">Join our readers · One-click unsubscribe.</div>
+    </div>
+  );
+}
+
+/* ---------- Author bio ---------- */
+function AuthorBio({ name, initials }: { name: string; initials: string }) {
+  return (
+    <div className="author-bio">
+      <div className="author-avatar">{initials}</div>
+      <div>
+        <h5>{name}</h5>
+        <div className="role">Staff writer · Fin Tools Lab</div>
+        <p>
+          Contributing writer at Fin Tools Lab, focused on making financial math
+          accessible through clear explanations and practical tools.
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function BlogPostTemplate() {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const loadPost = async () => {
       try {
-        // Dynamic import of blog post JSON
         const postData = await import(`@/data/blog/posts/${slug}.json`);
         setPost(postData.default);
         setLoading(false);
@@ -26,383 +110,271 @@ export default function BlogPostTemplate() {
         setLoading(false);
       }
     };
-
-    if (slug) {
-      loadPost();
-    }
+    if (slug) loadPost();
   }, [slug]);
+
+  // Build TOC from sections
+  const tocSections = useMemo(() => {
+    if (!post) return [];
+    const items: { heading: string; id: string }[] = [];
+    post.content.sections.forEach((section, i) => {
+      if (section.level !== 'h3') {
+        const id = `section-${i}`;
+        items.push({ heading: section.heading, id });
+      }
+    });
+    if (post.content.practicalExample) items.push({ heading: 'Practical Example', id: 'practical-example' });
+    items.push({ heading: 'Conclusion', id: 'conclusion' });
+    if (post.content.faqs?.length) items.push({ heading: 'FAQ', id: 'faq' });
+    return items;
+  }, [post]);
 
   if (loading) {
     return (
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="animate-pulse">
-          <div className="h-12 bg-gray-200 rounded mb-4"></div>
-          <div className="h-6 bg-gray-200 rounded mb-8 w-2/3"></div>
-          <div className="space-y-4">
-            <div className="h-4 bg-gray-200 rounded"></div>
-            <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-            <div className="h-4 bg-gray-200 rounded w-4/6"></div>
+      <div className="container" style={{ paddingBlock: 'clamp(40px, 6vw, 80px)' }}>
+        <div style={{ maxWidth: 760 }}>
+          <div style={{ height: 48, background: 'var(--bg-sunken)', borderRadius: 'var(--r-sm)', marginBottom: 16 }} />
+          <div style={{ height: 24, background: 'var(--bg-sunken)', borderRadius: 'var(--r-sm)', marginBottom: 32, width: '60%' }} />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {[100, 85, 70].map((w, i) => (
+              <div key={i} style={{ height: 16, background: 'var(--bg-sunken)', borderRadius: 'var(--r-sm)', width: w + '%' }} />
+            ))}
           </div>
         </div>
       </div>
     );
   }
 
-  if (error || !post) {
-    return <Navigate to="/404" replace />;
-  }
+  if (error || !post) return <Navigate to="/404" replace />;
 
-  // Generate structured data
+  const authorName = post.author || 'Fin Tools Lab';
+  const authorInitials = authorName.split(' ').map((w: string) => w[0]).join('').slice(0, 2).toUpperCase();
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
+    "@id": `https://fintoolslab.com/blog/${post.slug}#article`,
     "headline": post.title,
     "description": post.metaDescription,
-    "author": {
-      "@type": "Person",
-      "name": post.author || "FinSavvy Future Forge Financial Team"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "FinSavvy Future Forge",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://fintoolslab.com/favicon.ico"
-      }
-    },
+    "image": { "@type": "ImageObject", "url": "https://fintoolslab.com/og-image.png", "width": 1200, "height": 630 },
+    "author": authorName === "Fin Tools Lab"
+      ? { "@type": "Organization", "@id": "https://fintoolslab.com/#organization", "name": authorName }
+      : { "@type": "Person", "name": authorName },
+    "publisher": { "@type": "Organization", "@id": "https://fintoolslab.com/#organization", "name": "Fin Tools Lab", "logo": { "@type": "ImageObject", "url": "https://fintoolslab.com/icon-192.png", "width": 192, "height": 192 } },
     "datePublished": post.publishDate,
-    "dateModified": post.publishDate,
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": `https://fintoolslab.com/blog/${post.slug}`
-    },
-    "keywords": [post.primaryKeyword, ...post.secondaryKeywords].join(', ')
+    "dateModified": (post as any).lastModified || post.publishDate,
+    "mainEntityOfPage": { "@type": "WebPage", "@id": `https://fintoolslab.com/blog/${post.slug}` },
+    "keywords": [post.primaryKeyword, ...post.secondaryKeywords].join(', '),
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://fintoolslab.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Blog",
-        "item": "https://fintoolslab.com/blog"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": post.title,
-        "item": `https://fintoolslab.com/blog/${post.slug}`
-      }
-    ]
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fintoolslab.com" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://fintoolslab.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://fintoolslab.com/blog/${post.slug}` },
+    ],
   };
 
-  const faqSchema = post.content.faqs && post.content.faqs.length > 0 ? {
+  const faqSchema = post.content.faqs?.length ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "mainEntity": post.content.faqs.map(faq => ({
+    "mainEntity": post.content.faqs.map((faq) => ({
       "@type": "Question",
       "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
+      "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
+    })),
   } : null;
+
+  const faqItems = post.content.faqs?.map((faq) => ({ q: faq.question, a: faq.answer })) || [];
 
   return (
     <>
       <Helmet>
-        <title>{post.title} | Fintoolslab</title>
+        <title>{post.title} | Fin Tools Lab</title>
         <meta name="description" content={post.metaDescription} />
         <meta name="keywords" content={[post.primaryKeyword, ...post.secondaryKeywords].join(', ')} />
         <link rel="canonical" href={`https://fintoolslab.com/blog/${post.slug}`} />
-
-        {/* Open Graph */}
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.metaDescription} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://fintoolslab.com/blog/${post.slug}`} />
-
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.metaDescription} />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(articleSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-        {faqSchema && (
-          <script type="application/ld+json">
-            {JSON.stringify(faqSchema)}
-          </script>
-        )}
+        <meta property="og:image" content="https://fintoolslab.com/og-image.png" />
+        <meta name="twitter:image" content="https://fintoolslab.com/og-image.png" />
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}
       </Helmet>
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        {/* Back to Blog Button */}
-        <Link to="/blog" className="inline-flex items-center gap-2 text-blue-600 hover:underline mb-6">
-          <ArrowLeft className="h-4 w-4" />
-          Back to Blog
-        </Link>
+      <ReadProgress />
 
-        {/* Header */}
-        <header className="mb-8">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
-              {post.category}
-            </span>
-            <span className="text-sm text-muted-foreground">{post.readTime}</span>
+      {/* Breadcrumb */}
+      <div className="container">
+        <nav className="crumb" aria-label="Breadcrumb">
+          <Link to="/">Home</Link>
+          <span className="sep"> · </span>
+          <Link to="/blog">Field notes</Link>
+          <span className="sep"> · </span>
+          <span className="here">{post.category}</span>
+        </nav>
+      </div>
+
+      {/* Post hero */}
+      <section className="post-hero">
+        <div className="container">
+          <div className="post-meta">
+            <span className="cat">{post.category}</span>
+            <span className="dot">·</span>
+            <span>{post.readTime}</span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-            {post.title}
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Published on {new Date(post.publishDate).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </p>
-        </header>
+          <h1>{post.title}</h1>
+          <p className="subtitle">{post.metaDescription}</p>
 
-        {/* Main Content */}
-        <article className="prose prose-lg max-w-none">
-          {/* Introduction */}
-          <div className="mb-8 text-xl leading-relaxed blog-content">
-            <div dangerouslySetInnerHTML={{ __html: post.content.introduction }} />
+          <div className="post-author-row">
+            <div className="author-avatar">{authorInitials}</div>
+            <div className="author-meta">
+              <b>{authorName}</b>
+              <span>{new Date(post.publishDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+            </div>
+            <div className="post-share">
+              <button type="button" aria-label="Share on Twitter" onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://fintoolslab.com/blog/${post.slug}`)}`, '_blank')}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 4l6.5 8L4 20h2l5.5-7 4.5 7h5l-7-9 6-7h-2l-5 6L8 4H4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/></svg>
+              </button>
+              <button type="button" aria-label="Copy link" onClick={() => navigator.clipboard?.writeText(`https://fintoolslab.com/blog/${post.slug}`)}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M10 14a3.5 3.5 0 005 0l4-4a3.536 3.536 0 00-5-5l-.5.5M14 10a3.5 3.5 0 00-5 0l-4 4a3.536 3.536 0 005 5l.5-.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3-column layout */}
+      <section className="container" style={{ paddingBlock: 'clamp(40px, 5vw, 64px)' }}>
+        <div className="post-layout">
+          {/* TOC */}
+          <div className="post-toc-col">
+            <TableOfContents sections={tocSections} />
           </div>
 
-          {/* Sections */}
-          {post.content.sections.map((section, index) => (
-            <section key={index} className="mb-12">
-              {section.level === 'h3' ? (
-                <h3 className="text-2xl font-semibold mb-4 flex items-center gap-3">
-                  <TrendingUp className="h-6 w-6 text-blue-600" />
-                  {section.heading}
-                </h3>
-              ) : (
-                <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-                  <TrendingUp className="h-8 w-8 text-blue-600" />
-                  {section.heading}
-                </h2>
+          {/* Article content */}
+          <div ref={contentRef}>
+            {/* Key takeaway */}
+            <div className="key-takeaway">
+              <h4>Key takeaway</h4>
+              <p dangerouslySetInnerHTML={{ __html: post.content.introduction.replace(/<[^>]+>/g, '').slice(0, 300) + '...' }} />
+            </div>
+
+            <div className="post-content">
+              <div dangerouslySetInnerHTML={{ __html: post.content.introduction }} />
+
+              {post.content.sections.map((section, index) => {
+                const id = section.level !== 'h3' ? `section-${index}` : undefined;
+                return (
+                  <section key={index}>
+                    {section.level === 'h3' ? (
+                      <h3>{section.heading}</h3>
+                    ) : (
+                      <h2 id={id}>{section.heading}</h2>
+                    )}
+                    <div dangerouslySetInnerHTML={{ __html: section.content }} />
+                  </section>
+                );
+              })}
+
+              {post.content.practicalExample && (
+                <section>
+                  <h2 id="practical-example">Practical Example</h2>
+                  <div className="callout">
+                    <div className="callout-icon">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2v10l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/></svg>
+                    </div>
+                    <div className="callout-body" dangerouslySetInnerHTML={{ __html: post.content.practicalExample }} />
+                  </div>
+                </section>
               )}
-              <div className="blog-content" dangerouslySetInnerHTML={{ __html: section.content }} />
-            </section>
-          ))}
 
-          {/* Practical Example */}
-          {post.content.practicalExample && (
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-                <Calculator className="h-8 w-8 text-green-600" />
-                Practical Example
-              </h2>
-              <Card className="bg-gradient-to-br from-blue-50 to-green-50 border-l-4 border-blue-500">
-                <CardContent className="p-6">
-                  <div className="blog-content" dangerouslySetInnerHTML={{ __html: post.content.practicalExample }} />
-                </CardContent>
-              </Card>
-            </section>
-          )}
+              <section>
+                <h2 id="conclusion">Conclusion</h2>
+                <div dangerouslySetInnerHTML={{ __html: post.content.conclusion }} />
+              </section>
+            </div>
 
-          {/* Conclusion */}
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Conclusion</h2>
-            <div className="blog-content text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: post.content.conclusion }} />
-          </section>
-
-          {/* FAQs */}
-          {post.content.faqs && post.content.faqs.length > 0 && (
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
-                <Info className="h-8 w-8 text-purple-600" />
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-6">
-                {post.content.faqs.map((faq, index) => (
-                  <Card key={index} className="hover:shadow-md transition-shadow">
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-semibold mb-3 text-blue-600">{faq.question}</h3>
-                      <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* Call to Action */}
-          <Alert className="mt-8 bg-gradient-to-r from-green-50 to-blue-50 border-green-300">
-            <Calculator className="h-5 w-5 text-green-600" />
-            <AlertDescription>
-              <strong className="text-lg">Ready to calculate?</strong>
-              <p className="mt-2 mb-3">Try our free financial calculators to plan your financial future with precision and confidence.</p>
-              {post.internalLinks.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {post.internalLinks.map((link, index) => (
-                    <Link key={index} to={link}>
-                      <Button variant="default" size="sm" className="bg-blue-600 hover:bg-blue-700">
-                        {link.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())} Calculator
-                      </Button>
+            {/* Inline calculator CTA */}
+            {post.internalLinks?.length > 0 && (
+              <div className="inline-calc">
+                <div className="label">Try it yourself</div>
+                <h4>Run the numbers with our free calculators</h4>
+                <p>See how the concepts in this article apply to your specific financial situation.</p>
+                <div className="row">
+                  {post.internalLinks.map((link, i) => (
+                    <Link key={i} to={link} className="btn btn-accent btn-sm">
+                      {link.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())}
                     </Link>
                   ))}
                 </div>
-              )}
-            </AlertDescription>
-          </Alert>
-        </article>
+              </div>
+            )}
 
-        {/* Related Posts Navigation */}
-        <div className="mt-12 pt-8 border-t">
-          <Link to="/blog">
-            <Button variant="outline" className="hover:bg-gray-100">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              View All Articles
-            </Button>
+            {/* Author bio */}
+            <AuthorBio name={authorName} initials={authorInitials} />
+
+            {/* FAQ */}
+            {faqItems.length > 0 && (
+              <div id="faq">
+                <CalcFAQ items={faqItems} />
+              </div>
+            )}
+          </div>
+
+          {/* Rail */}
+          <div className="post-rail-col">
+            <div className="post-rail">
+              <RailNewsletter />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter band */}
+      <section style={{ paddingBlock: 'clamp(48px, 6vw, 96px)' }}>
+        <div className="container">
+          <div className="newsletter-band">
+            <div>
+              <div className="eyebrow" style={{ color: 'var(--ink-on-dark-2)', marginBottom: 14 }}>The Compound newsletter</div>
+              <h2>One useful idea<br />about money, <em>every Sunday</em>.</h2>
+              <p style={{ marginTop: 16 }}>
+                No hot takes, no "10 things millionaires do." Just one solid framework or tool we found
+                useful this week — like the article you just read.
+              </p>
+            </div>
+            <div>
+              <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
+                <input type="email" placeholder="you@inbox.com" />
+                <button type="submit">Subscribe</button>
+              </form>
+              <div style={{ fontSize: 12, color: 'var(--ink-on-dark-3)', marginTop: 12 }}>
+                Join our readers · One-click unsubscribe.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Back link */}
+      <section style={{ paddingBottom: 40 }}>
+        <div className="container">
+          <Link to="/blog" className="btn btn-ghost">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" style={{ transform: 'rotate(180deg)' }}>
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            View all articles
           </Link>
         </div>
-      </div>
-
-      {/* Global Styles for Blog Content */}
-      <style>{`
-        .blog-content {
-          color: #374151;
-          line-height: 1.8;
-        }
-
-        .blog-content p {
-          margin-bottom: 1.5rem;
-          font-size: 1.0625rem;
-        }
-
-        .blog-content ul, .blog-content ol {
-          margin-bottom: 1.5rem;
-          padding-left: 1.5rem;
-        }
-
-        .blog-content ul {
-          list-style-type: disc;
-        }
-
-        .blog-content ol {
-          list-style-type: decimal;
-        }
-
-        .blog-content li {
-          margin-bottom: 0.75rem;
-          line-height: 1.7;
-        }
-
-        .blog-content strong {
-          font-weight: 600;
-          color: #1f2937;
-        }
-
-        .blog-content a {
-          color: #2563eb;
-          text-decoration: underline;
-          font-weight: 500;
-          transition: color 0.2s;
-        }
-
-        .blog-content a:hover {
-          color: #1d4ed8;
-        }
-
-        .blog-content h3 {
-          font-size: 1.5rem;
-          font-weight: 600;
-          margin-top: 2rem;
-          margin-bottom: 1rem;
-          color: #1f2937;
-        }
-
-        .blog-content h4 {
-          font-size: 1.25rem;
-          font-weight: 600;
-          margin-top: 1.5rem;
-          margin-bottom: 0.75rem;
-          color: #374151;
-        }
-
-        .blog-content table {
-          width: 100%;
-          border-collapse: collapse;
-          margin: 1.5rem 0;
-        }
-
-        .blog-content th,
-        .blog-content td {
-          border: 1px solid #e5e7eb;
-          padding: 0.75rem 1rem;
-          text-align: left;
-        }
-
-        .blog-content th {
-          background-color: #f9fafb;
-          font-weight: 600;
-          color: #1f2937;
-        }
-
-        .blog-content tr:nth-child(even) {
-          background-color: #f9fafb;
-        }
-
-        .blog-content blockquote {
-          border-left: 4px solid #3b82f6;
-          padding-left: 1.5rem;
-          margin: 1.5rem 0;
-          font-style: italic;
-          color: #4b5563;
-        }
-
-        .blog-content code {
-          background-color: #f3f4f6;
-          padding: 0.125rem 0.375rem;
-          border-radius: 0.25rem;
-          font-size: 0.875em;
-          font-family: 'Courier New', monospace;
-        }
-
-        .blog-content pre {
-          background-color: #1f2937;
-          color: #f9fafb;
-          padding: 1rem;
-          border-radius: 0.5rem;
-          overflow-x: auto;
-          margin: 1.5rem 0;
-        }
-
-        .blog-content pre code {
-          background-color: transparent;
-          padding: 0;
-          color: #f9fafb;
-        }
-
-        /* Special styling for highlighted content divs */
-        .blog-content div[style*="background"] {
-          padding: 1.5rem;
-          border-radius: 0.5rem;
-          margin: 1.5rem 0;
-        }
-
-        .blog-content div[style*="border-left"] {
-          padding-left: 1.5rem;
-          margin: 1.5rem 0;
-        }
-      `}</style>
+      </section>
     </>
   );
 }

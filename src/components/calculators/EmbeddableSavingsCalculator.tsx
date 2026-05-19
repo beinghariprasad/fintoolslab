@@ -424,7 +424,7 @@ export function EmbeddableSavingsCalculator({
                   data={chartData}
                   xKey="year"
                   yKeys={['Total Savings', 'Contributions']}
-                  colors={['#10b981', '#3b82f6']}
+                  colors={['#d97706', '#3b82f6']}
                   showTooltip={true}
                   showLegend={true}
                   showGrid={true}

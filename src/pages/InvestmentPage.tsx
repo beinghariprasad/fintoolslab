@@ -1,433 +1,245 @@
-import { lazy, Suspense } from 'react';
-import { InvestmentCalculator } from '@/components/calculators/InvestmentCalculator';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calculator, Target, TrendingUp, PiggyBank, BookOpen, Lightbulb, HelpCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { PageLoadingSpinner } from '@/components/ui/loading-spinner';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import { InvestmentCalculatorMini } from '@/components/calculators/InvestmentCalculatorMini';
+import { CalcPageHero } from '@/components/calculators/CalcPageHero';
+import { CalcExplainer } from '@/components/calculators/CalcExplainer';
+import { CalcFAQ } from '@/components/calculators/CalcFAQ';
+import { CalcRelatedGrid, RailCard } from '@/components/calculators/CalcRelated';
+import { CalcBreakdown } from '@/components/calculators/CalcBreakdown';
+import { CalcShortAnswer } from '@/components/calculators/CalcShortAnswer';
+import { CalcTips } from '@/components/calculators/CalcTips';
+import { AdSlot } from '@/components/ads/AdSlot';
 
-// Lazy-load non-critical sections
-const FooterAd = lazy(() => import('@/components/ads/AdSenseUnit').then(m => ({ default: m.FooterAd })));
-
-const educationalContent = [
+const faqItems = [
   {
-    title: 'Investment Basics',
-    content: 'Investing involves purchasing assets with the expectation of generating income or appreciation. Diversification across different asset classes helps manage risk while pursuing returns over the long term.',
-    icon: BookOpen
+    q: "What annual return rate should I use?",
+    a: "The US stock market has returned roughly 10% annually before inflation over the long run, and about 7% after inflation. For a diversified portfolio of stocks and bonds, 6–8% is a reasonable planning assumption. Use a conservative rate (5–6%) for stress-testing and a moderate rate (7–8%) for your base case.",
   },
   {
-    title: 'Risk vs Return',
-    content: 'Higher potential returns typically come with higher risk. Conservative investments offer stability but lower returns, while aggressive investments offer higher potential returns with more volatility.',
-    icon: Target
+    q: "How does dollar-cost averaging work?",
+    a: "Dollar-cost averaging means investing a fixed amount on a regular schedule — say $300 every month — regardless of market conditions. When prices are low you buy more shares; when prices are high you buy fewer. Over time this smooths out your average purchase price and removes the pressure of trying to time the market.",
   },
   {
-    title: 'Time Horizon',
-    content: 'Your investment timeline affects your strategy. Longer time horizons allow for more aggressive investments and recovery from market downturns, while shorter horizons require more conservative approaches.',
-    icon: TrendingUp
+    q: "Should I invest a lump sum or contribute regularly?",
+    a: "Research consistently shows that investing a lump sum immediately outperforms spreading it out over time in about two-thirds of historical periods, because markets rise more often than they fall. However, if investing the lump sum would cause you to sell during a downturn, a regular contribution schedule may suit your risk tolerance better.",
   },
   {
-    title: 'Tax Implications',
-    content: 'Different investments have different tax treatments. Consider tax-advantaged accounts like 401(k)s and IRAs, and understand the difference between capital gains and ordinary income taxation.',
-    icon: PiggyBank
-  }
+    q: "How do investment fees affect long-term returns?",
+    a: "Fees compound just like returns — but in the wrong direction. A 1% annual expense ratio on a $100,000 portfolio can cost more than $30,000 over 20 years compared to a 0.05% index fund. Minimizing fees through low-cost index funds is one of the highest-certainty ways to improve long-term results.",
+  },
+  {
+    q: "What is the difference between taxable and tax-advantaged accounts?",
+    a: "Tax-advantaged accounts (401k, IRA, Roth IRA) let your investments grow without annual tax drag. Traditional accounts give you an upfront deduction; Roth accounts give you tax-free withdrawals. Taxable brokerage accounts offer more flexibility but dividends and realized gains are taxed each year. Prioritize tax-advantaged accounts before investing in taxable accounts.",
+  },
+  {
+    q: "How often should I rebalance my portfolio?",
+    a: "Most financial planners recommend reviewing your allocation annually or whenever one asset class drifts more than 5–10 percentage points from your target. Rebalancing too frequently generates unnecessary transaction costs and taxes; rebalancing too rarely lets risk creep up without your knowing. Annual rebalancing is a practical default for most investors.",
+  },
 ];
 
-const tips = [
-  'Start investing early to take advantage of compound growth',
-  'Diversify across different asset classes and geographic regions',
-  'Consider low-cost index funds for broad market exposure',
-  'Rebalance your portfolio periodically to maintain target allocation',
-  'Don\'t try to time the market - consistency beats timing',
-  'Keep fees low as they can significantly impact long-term returns'
+const relatedItems = [
+  {
+    name: "Compound Interest",
+    desc: "See how interest compounds on any balance over time.",
+    mark: "CI",
+    href: "/calculators/compound-interest",
+    cat: "Savings",
+    time: "30 sec",
+  },
+  {
+    name: "Retirement Planner",
+    desc: "Project your nest egg at retirement with contributions and match.",
+    mark: "RT",
+    href: "/calculators/retirement",
+    cat: "Planning",
+    time: "2 min",
+  },
+  {
+    name: "Savings Goal",
+    desc: "Reverse-engineer the monthly deposit needed to hit any target.",
+    mark: "SV",
+    href: "/calculators/savings",
+    cat: "Saving",
+    time: "30 sec",
+  },
+  {
+    name: "Mortgage Calculator",
+    desc: "Monthly payment breakdown for any home loan.",
+    mark: "MG",
+    href: "/calculators/mortgage",
+    cat: "Borrowing",
+    time: "1 min",
+  },
 ];
 
-function ExampleWalkthrough() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Lightbulb className="h-5 w-5" />
-            Example Walkthrough
-          </CardTitle>
-          <CardDescription>
-            See how investment growth works with a real example
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="bg-green-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-green-800 mb-2">Scenario:</h4>
-              <ul className="text-green-700 space-y-1 text-sm">
-                <li>• Initial investment: $5,000</li>
-                <li>• Annual return rate: 8%</li>
-                <li>• Monthly contribution: $200</li>
-                <li>• Time period: 25 years</li>
-              </ul>
-            </div>
-            <div className="grid md:grid-cols-3 gap-4 text-center">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-blue-600">$65,000</div>
-                <div className="text-sm text-blue-700">Total Contributions</div>
-              </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-green-600">$120,000</div>
-                <div className="text-sm text-green-700">Investment Growth</div>
-              </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-purple-600">$185,000</div>
-                <div className="text-sm text-purple-700">Final Portfolio Value</div>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              This example shows how regular investing and compound growth can turn $65,000 in contributions into $185,000 over 25 years.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function TipsSection() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <TrendingUp className="h-5 w-5" />
-            Investment Tips
-          </CardTitle>
-          <CardDescription>
-            Maximize your returns with these proven strategies
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid md:grid-cols-2 gap-4">
-            {tips.map((tip, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-muted-foreground">{tip}</p>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function FAQSection() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <HelpCircle className="h-5 w-5" />
-            Frequently Asked Questions
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6">
-            <div>
-              <h4 className="font-semibold mb-2">How do I calculate investment returns?</h4>
-              <p className="text-sm text-muted-foreground">
-                To calculate investment returns, enter your initial investment, expected annual return rate, time period, and any regular contributions. Our calculator will show your projected portfolio value, total contributions, and total returns including compound growth.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">What is compound interest and how does it work?</h4>
-              <p className="text-sm text-muted-foreground">
-                Compound interest is when your investment earnings generate additional earnings over time. For example, if you earn 7% annually on $10,000, you'll have $10,700 after year 1, $11,449 after year 2, and so on. The longer you invest, the more powerful compound growth becomes.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">How much should I invest for retirement?</h4>
-              <p className="text-sm text-muted-foreground">
-                A common rule is to save 10-15% of your income for retirement. However, the exact amount depends on your age, desired retirement lifestyle, and current savings. Use our calculator to project different scenarios and find what works for your situation.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">What's the difference between simple and compound interest?</h4>
-              <p className="text-sm text-muted-foreground">
-                Simple interest is calculated only on the principal amount, while compound interest is calculated on both principal and accumulated interest. Compound interest grows faster over time, making it more beneficial for long-term investments.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">How do I choose the right investment return rate?</h4>
-              <p className="text-sm text-muted-foreground">
-                Historical stock market returns average 7-10% annually, but past performance doesn't guarantee future results. Conservative estimates use 5-7%, moderate 7-9%, and aggressive 9-12%. Consider your risk tolerance and investment timeline when choosing a rate.
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
+const railItems = [
+  { name: "Compound Interest", desc: "See how interest compounds over time", mark: "CI", href: "/calculators/compound-interest" },
+  { name: "Retirement Planner", desc: "Project your nest egg at 65", mark: "RT", href: "/calculators/retirement" },
+  { name: "Savings Goal", desc: "Reverse a target into a habit", mark: "SV", href: "/calculators/savings" },
+  { name: "Mortgage Calculator", desc: "Monthly payment breakdown", mark: "MG", href: "/calculators/mortgage" },
+];
 
 export default function InvestmentPage() {
+  const [schedule, setSchedule] = useState<any[] | null>(null);
+
+  useEffect(() => {
+    const onUpdate = (e: CustomEvent) => setSchedule(e.detail?.schedule);
+    window.addEventListener('calc:schedule', onUpdate as EventListener);
+    return () => window.removeEventListener('calc:schedule', onUpdate as EventListener);
+  }, []);
+
   return (
     <>
       <Helmet>
-        <title>Investment Calculator - Portfolio Growth & Risk Analysis | Fin Tools Lab</title>
-        <meta 
-          name="description" 
-          content="Analyze investment returns with different scenarios and timeframes. Calculate portfolio growth, risk assessment, and tax implications." 
+        <title>Investment Calculator - Portfolio Growth & Return Projections | Fin Tools Lab</title>
+        <meta
+          name="description"
+          content="Model how a lump sum or regular contributions grow over time. Compare strategies and see the impact of different return assumptions with our free investment calculator."
         />
-        <meta name="keywords" content="investment calculator, portfolio growth, risk analysis, investment returns, asset allocation, retirement investing" />
+        <meta name="keywords" content="investment calculator, portfolio growth, investment returns, compound growth, lump sum calculator, regular contributions" />
         <link rel="canonical" href="https://fintoolslab.com/calculators/investment" />
-        
+
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fintoolslab.com/calculators/investment" />
-        <meta property="og:title" content="Investment Calculator - Portfolio Growth & Risk Analysis" />
-        <meta property="og:description" content="Analyze investment returns with different scenarios and timeframes using our free investment calculator." />
-        
+        <meta property="og:title" content="Investment Calculator - Portfolio Growth & Return Projections" />
+        <meta property="og:description" content="Model how a lump sum or regular contributions grow over time with our free investment calculator." />
+
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://fintoolslab.com/calculators/investment" />
-        <meta property="twitter:title" content="Investment Calculator - Portfolio Growth & Risk Analysis" />
-        <meta property="twitter:description" content="Analyze investment returns with different scenarios and timeframes using our free investment calculator." />
-        
+        <meta property="twitter:title" content="Investment Calculator - Portfolio Growth & Return Projections" />
+        <meta property="twitter:description" content="Model how a lump sum or regular contributions grow over time with our free investment calculator." />
+        <meta property="og:image" content="https://fintoolslab.com/og-image.png" />
+        <meta name="twitter:image" content="https://fintoolslab.com/og-image.png" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
             "name": "Investment Calculator",
-            "description": "Free investment calculator with portfolio growth and risk analysis",
+            "description": "Free investment calculator with portfolio growth and return projections",
             "url": "https://fintoolslab.com/calculators/investment",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "Web Browser",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            "featureList": [
-              "Portfolio growth projection",
-              "Compound interest calculation",
-              "Risk analysis",
-              "Tax implications",
-              "Regular contribution planning"
-            ],
-            "screenshot": "https://fintoolslab.com/calculators/investment",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
             "softwareVersion": "1.0",
-            "author": {
-              "@type": "Organization",
-              "name": "Fin Tools Lab"
-            }
+            "author": { "@type": "Organization", "name": "Fin Tools Lab" },
           })}
         </script>
-        
-        {/* FAQ Schema */}
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How do I calculate investment returns?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "To calculate investment returns, enter your initial investment, expected annual return rate, time period, and any regular contributions. Our calculator will show your projected portfolio value, total contributions, and total returns including compound growth."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is compound interest and how does it work?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Compound interest is when your investment earnings generate additional earnings over time. For example, if you earn 7% annually on $10,000, you'll have $10,700 after year 1, $11,449 after year 2, and so on. The longer you invest, the more powerful compound growth becomes."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How much should I invest for retirement?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A common rule is to save 10-15% of your income for retirement. However, the exact amount depends on your age, desired retirement lifestyle, and current savings. Use our calculator to project different scenarios and find what works for your situation."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What's the difference between simple and compound interest?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Simple interest is calculated only on the principal amount, while compound interest is calculated on both principal and accumulated interest. Compound interest grows faster over time, making it more beneficial for long-term investments."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do I choose the right investment return rate?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Historical stock market returns average 7-10% annually, but past performance doesn't guarantee future results. Conservative estimates use 5-7%, moderate 7-9%, and aggressive 9-12%. Consider your risk tolerance and investment timeline when choosing a rate."
-                }
-              }
-            ]
+            "mainEntity": faqItems.map((item) => ({
+              "@type": "Question",
+              "name": item.q,
+              "acceptedAnswer": { "@type": "Answer", "text": item.a },
+            })),
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fintoolslab.com" },
+              { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fintoolslab.com/calculators" },
+              { "@type": "ListItem", "position": 3, "name": "Investment growth", "item": "https://fintoolslab.com/calculators/investment" },
+            ],
           })}
         </script>
       </Helmet>
 
-      <div className="bg-background">
-        <div className="container mx-auto container-padding section-padding">
-          {/* Breadcrumbs */}
-          <Breadcrumb className="mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink asChild>
-                  <Link to="/" className="flex items-center gap-1">
-                    <Target className="h-3 w-3" />
-                    Home
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/calculators">Calculators</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Investment</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+      <CalcPageHero
+        chip="Investing · 1-minute setup"
+        title={<>Investment growth <em>calculator</em></>}
+        lede="Model how a lump sum or regular contributions grow over time. Compare strategies and see the impact of different return assumptions."
+        meta={[
+          { label: "Free", value: "no sign-up required" },
+          { label: "Updated", value: "2026" },
+        ]}
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Calculators", href: "/calculators" },
+          { label: "Investment growth" },
+        ]}
+        workedExample={{
+          amount: "267,893",
+          label: "Growth after 20 years · $25K start, $300/mo, 8% return",
+          features: [
+            "$25,000 initial lump sum",
+            "$300 monthly contributions",
+            "8% annual return",
+            "20-year time horizon",
+          ],
+        }}
+      />
 
-          {/* Short Answer Box for Featured Snippets */}
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8 rounded-r-lg">
-            <p className="text-blue-800 text-base leading-relaxed">
-              An <strong>investment calculator</strong> helps you project the future value of your investments using compound interest. 
-              Enter your initial investment, expected annual return rate, time period, and regular contributions to see how your 
-              money can grow over time and plan for long-term financial goals like retirement.
-            </p>
-          </div>
+      <CalcShortAnswer heading="What is an investment growth calculator?">
+        <strong>An investment calculator</strong> models how an initial deposit and ongoing monthly contributions could compound over time, given an expected return and fund fees. It's the same math underlying every retirement projection — pared down so you can see exactly which inputs matter most.
+      </CalcShortAnswer>
 
-          {/* Calculator */}
-          <InvestmentCalculator />
-
-          {/* How it Works Section */}
-          <div className="mt-16 space-y-8">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
-                How Investment Growth Works
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Understanding compound interest and how to use our investment calculator effectively
-              </p>
-            </div>
-
-            {/* Formula Section - Moved to top for better flow */}
-            <Card className="financial-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-3 text-lg">
-                  <div className="w-8 h-8 bg-financial-success/10 rounded-lg flex items-center justify-center">
-                    <Calculator className="h-4 w-4 text-financial-success" />
-                  </div>
-                  The Investment Growth Formula
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-muted/30 rounded-lg p-4 mb-4">
-                  <p className="text-center text-lg font-mono mb-3">
-                    FV = PV(1 + r)<sup>t</sup> + PMT[((1 + r)<sup>t</sup> - 1) / r]
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-3 text-sm">
-                    <div>
-                      <strong>FV</strong> = Future value<br />
-                      <strong>PV</strong> = Present value<br />
-                      <strong>r</strong> = Annual return rate
-                    </div>
-                    <div>
-                      <strong>t</strong> = Time in years<br />
-                      <strong>PMT</strong> = Regular contributions
-                    </div>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm mb-4">
-                  This formula calculates the future value of an investment with regular contributions and compound growth.
-                </p>
-                
-                {/* Step-by-step process */}
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-foreground">How the Formula Works:</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Present Value (PV):</strong> Your initial investment amount</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Rate (r):</strong> Annual return rate (as a decimal)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Time (t):</strong> Investment period in years</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Contributions (PMT):</strong> Regular monthly or annual contributions</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Future Value (FV):</strong> Your projected portfolio value</span>
-                    </li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {educationalContent.map((item, index) => (
-                <Card key={item.title} className="financial-card">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-3 text-lg">
-                      <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <item.icon className="h-4 w-4 text-primary" />
-                      </div>
-                      {item.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.content}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Example Walkthrough (lazy) */}
-            <Suspense fallback={<PageLoadingSpinner text="Loading example..." />}>
-              <ExampleWalkthrough />
-            </Suspense>
-
-            {/* Tips Section (lazy) */}
-            <Suspense fallback={<PageLoadingSpinner text="Loading tips..." />}>
-              <TipsSection />
-            </Suspense>
-
-            {/* FAQ Section (lazy) */}
-            <Suspense fallback={<PageLoadingSpinner text="Loading FAQs..." />}>
-              <FAQSection />
-            </Suspense>
-          </div>
-
-          {/* AdSense Footer (lazy) */}
-          <Suspense fallback={<PageLoadingSpinner text="Loading ads..." />}>
-            <div className="mt-16">
-              <FooterAd />
-            </div>
-          </Suspense>
+      <section className="cp-calc-wrap">
+        <div className="container">
+          <InvestmentCalculatorMini />
         </div>
-      </div>
+      </section>
+
+      <AdSlot size="leaderboard" />
+
+      <section style={{ paddingBlock: 'clamp(56px, 7vw, 96px)' }}>
+        <div className="container">
+          <div className="cp-split">
+            <div>{schedule && <CalcBreakdown
+              schedule={schedule}
+              columns={[
+                { key: 'contributed', label: 'Contributed' },
+                { key: 'gains', label: 'Gains', accent: true },
+                { key: 'balance', label: 'Portfolio value' },
+              ]}
+              shareKey="gains"
+              shareLabel="Gains share"
+              title={<>The <em>full breakdown</em>.</>}
+              csvFilename="investment-growth-breakdown"
+            />}</div>
+            <div className="cp-rail">
+              <AdSlot size="half" />
+              <RailCard items={railItems} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CalcExplainer
+        title={<>The future value <em>formula</em> powering the projection.</>}
+        paragraphs={[
+          "The calculator combines two effects: compound growth on your existing balance, and the accumulated value of each regular contribution you make. Together they produce the future value shown in the chart.",
+          "The key insight is that both components grow exponentially. Money invested earlier has more time to compound, which is why increasing contributions — or starting sooner — has an outsized effect in later years.",
+        ]}
+        formulaLabel="Future value with contributions"
+        formulaDisplay={<>FV = PV(1+r)<sup>t</sup> + PMT × [(1+r)<sup>t</sup> − 1] / r</>}
+        legend={[
+          { symbol: "FV", label: "Future value", desc: "projected portfolio balance at end of period" },
+          { symbol: "PV", label: "Present value", desc: "your initial lump-sum investment today" },
+          { symbol: "r", label: "Rate per period", desc: "annual return divided by compounding periods per year" },
+          { symbol: "t", label: "Periods", desc: "total number of compounding periods" },
+          { symbol: "PMT", label: "Contribution", desc: "amount added each period (monthly, annual, etc.)" },
+        ]}
+      />
+
+      <CalcTips items={[
+        { title: 'Use 6-7% real, not 10% nominal.', text: "The S&P's nominal long-run return is ~10%, but 2-3% of that gets eaten by inflation. Plan in real dollars." },
+        { title: 'Stay invested through the chop.', text: 'Missing the 10 best market days of a decade can cut your return by 50%+. The hard part of investing is doing nothing.' },
+        { title: 'Fees of 1% = 30% of your money.', text: 'Over 40 years at 7% returns, a 1% fee swap-out (active to passive) typically grows your final balance by 25-30%.' },
+        { title: 'Maximize tax-advantaged space first.', text: '401(k) match → HSA → Roth IRA → 401(k) max → taxable. The calculator works for all accounts; the wrapper matters.' },
+        { title: 'Rebalance once a year.', text: 'Drifted to 80/20 stocks/bonds from a 70/30 target? Trim back. Forces buy-low/sell-high without market-timing.' },
+        { title: 'Set it and forget it.', text: 'Automate the monthly contribution from your paycheck. The friction of manually transferring kills more portfolios than market crashes do.' },
+      ]} />
+
+      <CalcFAQ items={faqItems} />
+
+      <CalcRelatedGrid items={relatedItems} />
     </>
   );
 }

@@ -33,8 +33,15 @@ export const AdSenseUnit = ({
     }
   }, []);
 
+  const minHeightMap: Record<string, string> = {
+    auto: '100px',
+    rectangle: '250px',
+    horizontal: '90px',
+    vertical: '600px',
+  };
+
   return (
-    <div className={`ad-container ${className}`} style={style}>
+    <div className={`ad-container ${className}`} style={{ minHeight: minHeightMap[adFormat], ...style }}>
       <ins
         className="adsbygoogle"
         style={{ display: 'block', ...style }}
@@ -42,7 +49,7 @@ export const AdSenseUnit = ({
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive="true"
-        
+
       />
     </div>
   );

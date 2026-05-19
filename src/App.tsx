@@ -1,10 +1,9 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
-import { Layout } from "@/components/layout/Layout";
+import { LayoutNew } from "@/components/layout/LayoutNew";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { lazy, Suspense } from 'react';
 import { PageLoadingSpinner } from "@/components/ui/loading-spinner";
 import { usePerformance } from "@/hooks/use-performance";
@@ -45,11 +44,10 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Layout>
+        <ThemeProvider>
+          <TooltipProvider>
+            <BrowserRouter>
+              <LayoutNew>
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/calculators" element={<CalculatorList />} />
@@ -157,9 +155,10 @@ const App = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
-            </Layout>
-          </BrowserRouter>
-        </TooltipProvider>
+              </LayoutNew>
+            </BrowserRouter>
+          </TooltipProvider>
+        </ThemeProvider>
       </HelmetProvider>
     </QueryClientProvider>
   );

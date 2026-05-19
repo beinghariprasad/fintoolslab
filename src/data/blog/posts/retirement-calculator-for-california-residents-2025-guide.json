@@ -11,7 +11,8 @@
     "California residents financial planning"
   ],
   "category": "State-Specific Guides",
-  "publishDate": "2025-10-12",
+  "publishDate": "2025-11-28",
+  "lastModified": "2026-05-20",
   "readTime": "7 min read",
   "featured": false,
   "content": {
@@ -52,8 +53,10 @@
     ]
   },
   "internalLinks": [
-    "/calculators/retirement"
+    "/calculators/retirement",
+    "/blog/best-retirement-calculator-comparison-2025-top-free-tools",
+    "/blog/best-savings-calculator-comparison-2025-top-free-tools"
   ],
-  "author": "FinSavvy Future Forge Financial Team",
+  "author": "Fin Tools Lab",
   "template": "location-specific"
 }

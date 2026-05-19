@@ -11,7 +11,8 @@
     "accurate mortgage calculator"
   ],
   "category": "Calculator Guides",
-  "publishDate": "2025-10-12",
+  "publishDate": "2025-11-02",
+  "lastModified": "2026-05-20",
   "readTime": "8 min read",
   "featured": false,
   "content": {
@@ -61,8 +62,10 @@
     ]
   },
   "internalLinks": [
-    "/calculators/mortgage"
+    "/calculators/mortgage",
+    "/blog/mortgage-calculator-for-new-york-residents-2025-guide",
+    "/blog/best-compound-interest-calculator-comparison-2025-top-free-tools"
   ],
-  "author": "FinSavvy Future Forge Financial Team",
+  "author": "Fin Tools Lab",
   "template": "calculator-comparison"
 }

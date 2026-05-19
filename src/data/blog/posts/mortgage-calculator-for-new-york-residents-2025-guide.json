@@ -11,7 +11,8 @@
     "accurate mortgage calculator"
   ],
   "category": "State-Specific Guides",
-  "publishDate": "2025-10-12",
+  "publishDate": "2025-12-22",
+  "lastModified": "2026-05-20",
   "readTime": "5 min read",
   "featured": false,
   "content": {
@@ -70,51 +71,53 @@
     ]
   },
   "internalLinks": [
-    "/calculators/mortgage"
+    "/calculators/mortgage",
+    "/blog/best-mortgage-calculator-comparison-2025-top-free-tools",
+    "/blog/best-retirement-calculator-comparison-2025-top-free-tools"
   ],
-  "author": "FinSavvy Future Forge Financial Team",
+  "author": "Fin Tools Lab",
   "template": "location-specific",
   "schemaMarkup": {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Article",
-        "@id": "https://yourdomain.com/mortgage-calculator-for-new-york-residents-2025-guide#article",
+        "@id": "https://fintoolslab.com/mortgage-calculator-for-new-york-residents-2025-guide#article",
         "headline": "Mortgage Calculator for New York Residents: 2025 Guide",
         "description": "Find the best mortgage calculator for New York residents. Compare features, accuracy, and NY-specific tax calculations for informed 2025 homebuying.",
-        "image": "https://yourdomain.com/images/ny-mortgage-calculator-guide.jpg",
-        "datePublished": "2025-10-12",
-        "dateModified": "2025-10-12",
+        "image": "https://fintoolslab.com/images/ny-mortgage-calculator-guide.jpg",
+        "datePublished": "2025-12-22",
+        "dateModified": "2026-05-20",
         "author": {
           "@type": "Organization",
-          "@id": "https://yourdomain.com/#organization",
-          "name": "FinSavvy Future Forge Financial Team"
+          "@id": "https://fintoolslab.com/#organization",
+          "name": "Fin Tools Lab"
         },
         "publisher": {
           "@type": "Organization",
-          "@id": "https://yourdomain.com/#organization",
-          "name": "FinSavvy Future Forge",
+          "@id": "https://fintoolslab.com/#organization",
+          "name": "Fin Tools Lab",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://yourdomain.com/logo.png"
+            "url": "https://fintoolslab.com/logo.png"
           }
         },
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": "https://yourdomain.com/mortgage-calculator-for-new-york-residents-2025-guide"
+          "@id": "https://fintoolslab.com/mortgage-calculator-for-new-york-residents-2025-guide"
         },
         "articleSection": "State-Specific Guides",
         "keywords": "mortgage calculator for new york residents, best mortgage calculator, free mortgage calculator, mortgage calculator comparison, mortgage calculator features, accurate mortgage calculator"
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://yourdomain.com/mortgage-calculator-for-new-york-residents-2025-guide#breadcrumb",
+        "@id": "https://fintoolslab.com/mortgage-calculator-for-new-york-residents-2025-guide#breadcrumb",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "https://yourdomain.com/",
+              "@id": "https://fintoolslab.com/",
               "name": "Home"
             }
           },
@@ -122,7 +125,7 @@
             "@type": "ListItem",
             "position": 2,
             "item": {
-              "@id": "https://yourdomain.com/state-specific-guides/",
+              "@id": "https://fintoolslab.com/state-specific-guides/",
               "name": "State-Specific Guides"
             }
           },
@@ -130,7 +133,7 @@
             "@type": "ListItem",
             "position": 3,
             "item": {
-              "@id": "https://yourdomain.com/mortgage-calculator-for-new-york-residents-2025-guide",
+              "@id": "https://fintoolslab.com/mortgage-calculator-for-new-york-residents-2025-guide",
               "name": "Mortgage Calculator for New York Residents: 2025 Guide"
             }
           }
@@ -138,7 +141,7 @@
       },
       {
         "@type": "FAQPage",
-        "@id": "https://yourdomain.com/mortgage-calculator-for-new-york-residents-2025-guide#faq",
+        "@id": "https://fintoolslab.com/mortgage-calculator-for-new-york-residents-2025-guide#faq",
         "mainEntity": [
           {
             "@type": "Question",

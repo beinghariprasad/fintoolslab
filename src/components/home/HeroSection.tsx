@@ -114,8 +114,11 @@ export const HeroSection = () => {
             <div className="relative glass-card p-8 float-animation">
               <img
                 src={heroImage}
-                alt="Financial Tools and Charts"
+                alt="Financial calculators showing compound interest growth charts and investment projections"
                 className="w-full h-auto rounded-xl"
+                width={600}
+                height={400}
+                fetchPriority="high"
               />
               
               {/* Floating Elements */}

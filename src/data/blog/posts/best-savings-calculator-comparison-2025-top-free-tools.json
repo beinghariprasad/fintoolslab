@@ -11,7 +11,8 @@
     "accurate savings calculator"
   ],
   "category": "Calculator Guides",
-  "publishDate": "2025-10-12",
+  "publishDate": "2025-10-18",
+  "lastModified": "2026-05-20",
   "readTime": "5 min read",
   "featured": false,
   "content": {
@@ -70,8 +71,10 @@
     ]
   },
   "internalLinks": [
-    "/calculators/savings"
+    "/calculators/savings",
+    "/blog/savings-calculator-for-texas-residents-2025-guide",
+    "/blog/best-compound-interest-calculator-comparison-2025-top-free-tools"
   ],
-  "author": "FinSavvy Future Forge Financial Team",
+  "author": "Fin Tools Lab",
   "template": "calculator-comparison"
 }

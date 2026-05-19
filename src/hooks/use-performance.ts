@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 interface PerformanceMetrics {
   fcp: number | null;
   lcp: number | null;
-  fid: number | null;
+  inp: number | null;
   cls: number | null;
   ttfb: number | null;
 }
@@ -16,7 +16,6 @@ export function usePerformance() {
       entries.forEach((entry) => {
         if (entry.name === 'first-contentful-paint') {
           console.log('FCP:', entry.startTime);
-          // Send to analytics
           if (typeof gtag !== 'undefined') {
             gtag('event', 'timing_complete', {
               name: 'fcp',
@@ -33,7 +32,6 @@ export function usePerformance() {
       const lastEntry = entries[entries.length - 1];
       if (lastEntry) {
         console.log('LCP:', lastEntry.startTime);
-        // Send to analytics
         if (typeof gtag !== 'undefined') {
           gtag('event', 'timing_complete', {
             name: 'lcp',
@@ -43,17 +41,21 @@ export function usePerformance() {
       }
     });
 
-    // Track First Input Delay (FID)
-    const fidObserver = new PerformanceObserver((list) => {
+    // Track Interaction to Next Paint (INP) - replaces deprecated FID
+    let maxINP = 0;
+    const inpObserver = new PerformanceObserver((list) => {
       const entries = list.getEntries();
       entries.forEach((entry) => {
-        console.log('FID:', entry.processingStart - entry.startTime);
-        // Send to analytics
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'timing_complete', {
-            name: 'fid',
-            value: Math.round(entry.processingStart - entry.startTime)
-          });
+        const duration = entry.duration;
+        if (duration > maxINP) {
+          maxINP = duration;
+          console.log('INP candidate:', duration);
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'timing_complete', {
+              name: 'inp',
+              value: Math.round(duration)
+            });
+          }
         }
       });
     });
@@ -75,7 +77,6 @@ export function usePerformance() {
     if (navigationEntry) {
       const ttfb = navigationEntry.responseStart - navigationEntry.requestStart;
       console.log('TTFB:', ttfb);
-      // Send to analytics
       if (typeof gtag !== 'undefined') {
         gtag('event', 'timing_complete', {
           name: 'ttfb',
@@ -88,7 +89,7 @@ export function usePerformance() {
     try {
       fcpObserver.observe({ entryTypes: ['paint'] });
       lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
-      fidObserver.observe({ entryTypes: ['first-input'] });
+      inpObserver.observe({ type: 'event', buffered: true, durationThreshold: 40 } as PerformanceObserverInit);
       clsObserver.observe({ entryTypes: ['layout-shift'] });
     } catch (error) {
       console.warn('Performance Observer not supported:', error);
@@ -98,12 +99,11 @@ export function usePerformance() {
     return () => {
       fcpObserver.disconnect();
       lcpObserver.disconnect();
-      fidObserver.disconnect();
+      inpObserver.disconnect();
       clsObserver.disconnect();
     };
   }, []);
 
-  // Function to manually track custom metrics
   const trackCustomMetric = (name: string, value: number) => {
     console.log(`${name}:`, value);
     if (typeof gtag !== 'undefined') {
@@ -115,4 +115,4 @@ export function usePerformance() {
   };
 
   return { trackCustomMetric };
-} 
+}

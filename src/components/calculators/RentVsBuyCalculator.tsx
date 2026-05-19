@@ -1150,8 +1150,8 @@ export function RentVsBuyCalculator() {
 
             <Card className="text-center">
               <CardContent className="pt-6">
-                <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-full mx-auto mb-3">
-                  <TrendingUp className="h-6 w-6 text-emerald-600" />
+                <div className="flex items-center justify-center w-12 h-12 bg-amber-100 rounded-full mx-auto mb-3">
+                  <TrendingUp className="h-6 w-6 text-amber-600" />
                 </div>
                 <div className="space-y-1">
                   <p className="text-sm font-medium text-muted-foreground">Net Worth Difference</p>
@@ -1372,9 +1372,9 @@ export function RentVsBuyCalculator() {
                         height={400}
                         lines={[
                           { dataKey: 'Rent Net Worth', stroke: '#f59e0b', strokeWidth: 3 },
-                          { dataKey: 'Buy Net Worth', stroke: '#10b981', strokeWidth: 3 },
+                          { dataKey: 'Buy Net Worth', stroke: '#d97706', strokeWidth: 3 },
                           { dataKey: 'Real Rent Net Worth', stroke: '#f59e0b', strokeWidth: 2, strokeDasharray: '5 5' },
-                          { dataKey: 'Real Buy Net Worth', stroke: '#10b981', strokeWidth: 2, strokeDasharray: '5 5' }
+                          { dataKey: 'Real Buy Net Worth', stroke: '#d97706', strokeWidth: 2, strokeDasharray: '5 5' }
                         ]}
                         xAxisKey="year"
                         labelFormatter={(label) => label}
@@ -1447,9 +1447,9 @@ export function RentVsBuyCalculator() {
                         height={400}
                         lines={[
                           { dataKey: 'Rent Total Cost', stroke: '#f59e0b', strokeWidth: 3 },
-                          { dataKey: 'Buy Total Cost', stroke: '#10b981', strokeWidth: 3 },
+                          { dataKey: 'Buy Total Cost', stroke: '#d97706', strokeWidth: 3 },
                           { dataKey: 'Real Rent Total Cost', stroke: '#f59e0b', strokeWidth: 2, strokeDasharray: '5 5' },
-                          { dataKey: 'Real Buy Total Cost', stroke: '#10b981', strokeWidth: 2, strokeDasharray: '5 5' }
+                          { dataKey: 'Real Buy Total Cost', stroke: '#d97706', strokeWidth: 2, strokeDasharray: '5 5' }
                         ]}
                         xAxisKey="year"
                         labelFormatter={(label) => label}
@@ -1478,7 +1478,7 @@ export function RentVsBuyCalculator() {
                         data={interestBreakdownData}
                         height={400}
                         bars={[
-                          { dataKey: 'Principal Payment', fill: '#10b981' },
+                          { dataKey: 'Principal Payment', fill: '#d97706' },
                           { dataKey: 'Interest Payment', fill: '#ef4444' },
                           { dataKey: 'Tax Benefits', fill: '#3b82f6' }
                         ]}

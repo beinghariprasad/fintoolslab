@@ -1,202 +1,116 @@
-import { lazy, Suspense } from 'react';
-import { MortgageCalculator } from '@/components/calculators/MortgageCalculator';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calculator, Home, TrendingDown, DollarSign, BookOpen, Lightbulb, HelpCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { PageLoadingSpinner } from '@/components/ui/loading-spinner';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import { MortgageCalculatorMini } from '@/components/calculators/MortgageCalculatorMini';
+import { CalcPageHero } from '@/components/calculators/CalcPageHero';
+import { CalcExplainer } from '@/components/calculators/CalcExplainer';
+import { CalcFAQ } from '@/components/calculators/CalcFAQ';
+import { CalcRelatedGrid, RailCard } from '@/components/calculators/CalcRelated';
+import { CalcBreakdown } from '@/components/calculators/CalcBreakdown';
+import { CalcShortAnswer } from '@/components/calculators/CalcShortAnswer';
+import { CalcTips } from '@/components/calculators/CalcTips';
+import { AdSlot } from '@/components/ads/AdSlot';
 
-// Lazy-load non-critical sections
-const FooterAd = lazy(() => import('@/components/ads/AdSenseUnit').then(m => ({ default: m.FooterAd })));
-
-const educationalContent = [
+const faqItems = [
   {
-    title: 'Understanding Mortgages',
-    content: 'A mortgage is a loan specifically used to purchase real estate. The property serves as collateral for the loan. Mortgages typically have lower interest rates than personal loans because they are secured by the property value.',
-    icon: BookOpen
+    q: "What is the difference between a fixed and adjustable-rate mortgage?",
+    a: "A fixed-rate mortgage keeps the same interest rate for the life of the loan, giving you predictable monthly payments. An adjustable-rate mortgage (ARM) starts with a lower rate that can change periodically based on a market index. Fixed rates offer stability; ARMs can save money early but carry rate-change risk after the initial period.",
   },
   {
-    title: 'Down Payment Impact',
-    content: 'A larger down payment reduces your loan amount, monthly payments, and total interest paid. It can also help you avoid Private Mortgage Insurance (PMI) if you put down 20% or more.',
-    icon: Home
+    q: "Should I choose a 15-year or 30-year mortgage?",
+    a: "A 30-year mortgage has lower monthly payments but costs significantly more in total interest. A 15-year mortgage builds equity twice as fast and can save tens of thousands in interest, but the higher payment requires a stronger monthly budget. Run both scenarios in the calculator to see the exact trade-off for your loan amount.",
   },
   {
-    title: 'Interest Rates Matter',
-    content: 'Even a small difference in interest rates can significantly impact your monthly payment and total cost. A 1% difference on a $300,000 loan can cost or save you tens of thousands over the life of the loan.',
-    icon: TrendingDown
+    q: "What is PMI and how do I avoid it?",
+    a: "Private Mortgage Insurance (PMI) is required when your down payment is less than 20% of the home's purchase price. It protects the lender — not you — and typically costs 0.5–1% of the loan amount annually. You can avoid PMI by putting 20% down, or you can request cancellation once you reach 20% equity through payments or appreciation.",
   },
   {
-    title: 'Additional Costs',
-    content: 'Beyond principal and interest, homeowners pay property taxes, insurance, and possibly PMI. These costs are often escrowed with your monthly payment, making budgeting easier.',
-    icon: DollarSign
-  }
+    q: "What closing costs should I budget for?",
+    a: "Closing costs typically run 2–5% of the loan amount and include origination fees, appraisal, title insurance, attorney fees, prepaid taxes, and homeowners insurance. On a $350,000 home that's $7,000–$17,500 in addition to your down payment. Ask lenders for a Loan Estimate early so you can compare.",
+  },
+  {
+    q: "When does refinancing make sense?",
+    a: "Refinancing makes sense when you can lower your interest rate by at least 0.5–1%, plan to stay in the home long enough to recoup closing costs, or want to switch from an ARM to a fixed rate. Divide your total closing costs by your monthly savings to find your break-even point. If you'll stay past that point, refinancing likely pays off.",
+  },
+  {
+    q: "How much does making extra principal payments save?",
+    a: "Even one extra payment per year on a 30-year mortgage can shave 4–5 years off the loan and save thousands in interest. Extra payments go directly to principal, reducing the balance on which interest accrues each month. Use the amortization table in the calculator to model any extra payment scenario.",
+  },
 ];
 
-const tips = [
-  'Save for a 20% down payment to avoid PMI and get better rates',
-  'Shop around with multiple lenders to find the best interest rate',
-  'Consider the total monthly payment, not just principal and interest',
-  'Factor in maintenance, utilities, and other homeownership costs',
-  'Get pre-approved to understand your budget before house hunting',
-  'Consider shorter loan terms if you can afford higher payments'
+const relatedItems = [
+  {
+    name: "Compound Interest",
+    desc: "See how interest compounds on any balance over time.",
+    mark: "CI",
+    href: "/calculators/compound-interest",
+    cat: "Savings",
+    time: "30 sec",
+  },
+  {
+    name: "Loan Calculator",
+    desc: "Monthly payments and amortization for personal and auto loans.",
+    mark: "LN",
+    href: "/calculators/loan",
+    cat: "Borrowing",
+    time: "30 sec",
+  },
+  {
+    name: "Rent vs. Buy",
+    desc: "Compare the true 10-year cost of renting against buying.",
+    mark: "RB",
+    href: "/calculators/rent-vs-buy",
+    cat: "Real estate",
+    time: "2 min",
+  },
+  {
+    name: "Investment Growth",
+    desc: "Project how a lump sum or contributions grow with returns.",
+    mark: "IV",
+    href: "/calculators/investment",
+    cat: "Investing",
+    time: "1 min",
+  },
 ];
 
-function ExampleWalkthrough() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Lightbulb className="h-5 w-5" />
-            Example Walkthrough
-          </CardTitle>
-          <CardDescription>
-            See how a mortgage works with a real example
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div className="bg-green-50 p-4 rounded-lg">
-              <h4 className="font-semibold text-green-800 mb-2">Scenario:</h4>
-              <ul className="text-green-700 space-y-1 text-sm">
-                <li>• Home price: $400,000</li>
-                <li>• Down payment: $80,000 (20%)</li>
-                <li>• Loan amount: $320,000</li>
-                <li>• Interest rate: 6%</li>
-                <li>• Loan term: 30 years</li>
-              </ul>
-            </div>
-            <div className="grid md:grid-cols-3 gap-4 text-center">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-blue-600">$1,919</div>
-                <div className="text-sm text-blue-700">Monthly Payment</div>
-              </div>
-              <div className="bg-green-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-green-600">$371,640</div>
-                <div className="text-sm text-green-700">Total Interest</div>
-              </div>
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <div className="text-2xl font-bold text-purple-600">$691,640</div>
-                <div className="text-sm text-purple-700">Total Cost</div>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              This example shows how a $320,000 loan at 6% over 30 years results in $371,640 in interest, for a total cost of $691,640.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function TipsSection() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <TrendingDown className="h-5 w-5" />
-            Mortgage Tips
-          </CardTitle>
-          <CardDescription>
-            Maximize your savings with these proven strategies
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid md:grid-cols-2 gap-4">
-            {tips.map((tip, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                <p className="text-sm text-muted-foreground">{tip}</p>
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-function FAQSection() {
-  return (
-    <div className="mt-16">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <HelpCircle className="h-5 w-5" />
-            Frequently Asked Questions
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6">
-            <div>
-              <h4 className="font-semibold mb-2">How do I calculate my mortgage payment?</h4>
-              <p className="text-sm text-muted-foreground">
-                To calculate your mortgage payment, enter your loan amount, interest rate, loan term, and down payment. Our calculator will show your monthly principal and interest payment, plus estimates for property taxes, insurance, and PMI if applicable.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">What is PMI and when do I need it?</h4>
-              <p className="text-sm text-muted-foreground">
-                PMI (Private Mortgage Insurance) is required when your down payment is less than 20% of the home's value. It protects the lender if you default on the loan. PMI typically costs 0.5% to 1% of the loan amount annually and can be removed once you reach 20% equity.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">How much should I put down on a house?</h4>
-              <p className="text-sm text-muted-foreground">
-                A 20% down payment is ideal as it avoids PMI and provides better loan terms. However, many lenders accept 3-5% down payments for first-time buyers. Consider your savings, monthly budget, and long-term financial goals when deciding on your down payment amount.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">What's the difference between 15-year and 30-year mortgages?</h4>
-              <p className="text-sm text-muted-foreground">
-                A 15-year mortgage has higher monthly payments but lower total interest costs and builds equity faster. A 30-year mortgage has lower monthly payments but higher total interest costs. Choose based on your monthly budget and long-term financial goals.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">How do interest rates affect my mortgage payment?</h4>
-              <p className="text-sm text-muted-foreground">
-                Higher interest rates increase your monthly payment and total loan cost. A 1% rate difference on a $300,000 loan can change your monthly payment by $200-300 and total interest by tens of thousands of dollars over the loan term.
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
+const railItems = [
+  { name: "Compound Interest", desc: "See how interest compounds over time", mark: "CI", href: "/calculators/compound-interest" },
+  { name: "Loan Calculator", desc: "Personal & auto loan payments", mark: "LN", href: "/calculators/loan" },
+  { name: "Rent vs. Buy", desc: "Compare renting against buying", mark: "RB", href: "/calculators/rent-vs-buy" },
+  { name: "Investment Growth", desc: "Project portfolio growth", mark: "IV", href: "/calculators/investment" },
+];
 
 export default function MortgagePage() {
+  const [schedule, setSchedule] = useState<any[] | null>(null);
+
+  useEffect(() => {
+    const onUpdate = (e: CustomEvent) => setSchedule(e.detail?.schedule);
+    window.addEventListener('calc:schedule', onUpdate as EventListener);
+    return () => window.removeEventListener('calc:schedule', onUpdate as EventListener);
+  }, []);
+
   return (
     <>
       <Helmet>
         <title>Mortgage Calculator - Free Home Loan Payment Calculator | Fin Tools Lab</title>
-        <meta 
-          name="description" 
-          content="Calculate mortgage payments, total interest, and amortization schedules. Free mortgage calculator with PMI, property tax, and insurance calculations." 
+        <meta
+          name="description"
+          content="Calculate mortgage payments, total interest, and amortization schedules. Free mortgage calculator with PMI, property tax, and insurance calculations."
         />
         <meta name="keywords" content="mortgage calculator, home loan calculator, mortgage payment, interest rate, down payment, PMI calculator" />
         <link rel="canonical" href="https://fintoolslab.com/calculators/mortgage" />
-        
+
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://fintoolslab.com/calculators/mortgage" />
         <meta property="og:title" content="Mortgage Calculator - Free Home Loan Payment Calculator" />
         <meta property="og:description" content="Calculate mortgage payments, total interest, and amortization schedules with our free mortgage calculator." />
-        
+
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://fintoolslab.com/calculators/mortgage" />
         <meta property="twitter:title" content="Mortgage Calculator - Free Home Loan Payment Calculator" />
         <meta property="twitter:description" content="Calculate mortgage payments, total interest, and amortization schedules with our free mortgage calculator." />
-        
+        <meta property="og:image" content="https://fintoolslab.com/og-image.png" />
+        <meta name="twitter:image" content="https://fintoolslab.com/og-image.png" />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -206,224 +120,126 @@ export default function MortgagePage() {
             "url": "https://fintoolslab.com/calculators/mortgage",
             "applicationCategory": "FinanceApplication",
             "operatingSystem": "Web Browser",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            "featureList": [
-              "Monthly payment calculation",
-              "Amortization schedule",
-              "PMI calculations",
-              "Property tax estimates",
-              "Insurance costs"
-            ],
-            "screenshot": "https://fintoolslab.com/calculators/mortgage",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
             "softwareVersion": "1.0",
-            "author": {
-              "@type": "Organization",
-              "name": "Fin Tools Lab"
-            }
+            "author": { "@type": "Organization", "name": "Fin Tools Lab" },
           })}
         </script>
-        
-        {/* FAQ Schema */}
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "How do I calculate my mortgage payment?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "To calculate your mortgage payment, enter your loan amount, interest rate, loan term, and down payment. Our calculator will show your monthly principal and interest payment, plus estimates for property taxes, insurance, and PMI if applicable."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What is PMI and when do I need it?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "PMI (Private Mortgage Insurance) is required when your down payment is less than 20% of the home's value. It protects the lender if you default on the loan. PMI typically costs 0.5% to 1% of the loan amount annually and can be removed once you reach 20% equity."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How much should I put down on a house?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A 20% down payment is ideal as it avoids PMI and provides better loan terms. However, many lenders accept 3-5% down payments for first-time buyers. Consider your savings, monthly budget, and long-term financial goals when deciding on your down payment amount."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "What's the difference between 15-year and 30-year mortgages?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "A 15-year mortgage has higher monthly payments but lower total interest costs and builds equity faster. A 30-year mortgage has lower monthly payments but higher total interest costs. Choose based on your monthly budget and long-term financial goals."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How do interest rates affect my mortgage payment?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Higher interest rates increase your monthly payment and total loan cost. A 1% rate difference on a $300,000 loan can change your monthly payment by $200-300 and total interest by tens of thousands of dollars over the loan term."
-                }
-              }
-            ]
+            "mainEntity": faqItems.map((item) => ({
+              "@type": "Question",
+              "name": item.q,
+              "acceptedAnswer": { "@type": "Answer", "text": item.a },
+            })),
+          })}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://fintoolslab.com" },
+              { "@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://fintoolslab.com/calculators" },
+              { "@type": "ListItem", "position": 3, "name": "Mortgage", "item": "https://fintoolslab.com/calculators/mortgage" },
+            ],
           })}
         </script>
       </Helmet>
 
-      <div className="bg-background">
-        <div className="container mx-auto container-padding section-padding">
-          {/* Breadcrumbs */}
-          <Breadcrumb className="mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem className="hidden md:block">
-                <BreadcrumbLink asChild>
-                  <Link to="/" className="flex items-center gap-1">
-                    <Home className="h-3 w-3" />
-                    Home
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/calculators">Calculators</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Mortgage</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+      <CalcPageHero
+        chip="Borrowing · 1-minute setup"
+        title={<>Mortgage <em>calculator</em></>}
+        lede="Enter your home price, down payment, interest rate and loan term to see your monthly payment breakdown including principal, interest, taxes and insurance."
+        meta={[
+          { label: "Free", value: "no sign-up required" },
+          { label: "Updated", value: "2026" },
+        ]}
+        breadcrumb={[
+          { label: "Home", href: "/" },
+          { label: "Calculators", href: "/calculators" },
+          { label: "Mortgage" },
+        ]}
+        workedExample={{
+          amount: "1,687",
+          label: "Monthly payment · $350K home, 20% down, 6.5% rate, 30-yr",
+          features: [
+            "$280,000 loan after 20% down",
+            "6.5% annual interest rate",
+            "360 monthly payments",
+            "Principal + interest only",
+          ],
+        }}
+      />
 
-          {/* Short Answer Box for Featured Snippets */}
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8 rounded-r-lg">
-            <p className="text-blue-800 text-base leading-relaxed">
-              A <strong>mortgage calculator</strong> helps you determine your monthly home loan payments, including principal, 
-              interest, property taxes, insurance, and PMI. Simply enter your loan amount, interest rate, loan term, 
-              and down payment to see your total monthly payment and understand the full cost of homeownership.
-            </p>
-          </div>
+      <CalcShortAnswer heading="What is a mortgage calculator?">
+        <strong>A mortgage calculator</strong> tells you what a home will actually cost you each month — principal and interest, plus property tax and insurance — and shows how the split between interest and principal shifts over the life of the loan. Move the sliders to model different prices, down payments, and rates side by side.
+      </CalcShortAnswer>
 
-          {/* Calculator */}
-          <MortgageCalculator />
-
-          {/* How it Works Section */}
-          <div className="mt-16 space-y-8">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl md:text-3xl font-bold mb-3">
-                How Mortgage Payments Work
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Understanding the mechanics behind mortgage calculations and how to use our calculator effectively
-              </p>
-            </div>
-
-            {/* Formula Section - Moved to top for better flow */}
-            <Card className="financial-card">
-              <CardHeader className="pb-3">
-                <CardTitle className="flex items-center gap-3 text-lg">
-                  <div className="w-8 h-8 bg-financial-success/10 rounded-lg flex items-center justify-center">
-                    <Calculator className="h-4 w-4 text-financial-success" />
-                  </div>
-                  The Mortgage Payment Formula
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-muted/30 rounded-lg p-4 mb-4">
-                  <p className="text-center text-lg font-mono mb-3">
-                    M = P[r(1+r)<sup>n</sup>]/[(1+r)<sup>n</sup>-1]
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-3 text-sm">
-                    <div>
-                      <strong>M</strong> = Monthly payment<br />
-                      <strong>P</strong> = Principal amount<br />
-                      <strong>r</strong> = Monthly interest rate
-                    </div>
-                    <div>
-                      <strong>n</strong> = Total number of payments
-                    </div>
-                  </div>
-                </div>
-                <p className="text-muted-foreground text-sm mb-4">
-                  This formula calculates your monthly principal and interest payment. Additional costs like taxes, insurance, and PMI are added separately.
-                </p>
-                
-                {/* Step-by-step process */}
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-foreground">How the Formula Works:</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Principal (P):</strong> Your loan amount after down payment</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Rate (r):</strong> Monthly interest rate (annual rate ÷ 12)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Payments (n):</strong> Total number of monthly payments</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="w-1.5 h-1.5 bg-financial-success rounded-full mt-2 flex-shrink-0" />
-                      <span><strong>Result (M):</strong> Your monthly principal and interest payment</span>
-                    </li>
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {educationalContent.map((item, index) => (
-                <Card key={item.title} className="financial-card">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="flex items-center gap-3 text-lg">
-                      <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                        <item.icon className="h-4 w-4 text-primary" />
-                      </div>
-                      {item.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.content}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Example Walkthrough (lazy) */}
-            <Suspense fallback={<PageLoadingSpinner text="Loading example..." />}>
-              <ExampleWalkthrough />
-            </Suspense>
-
-            {/* Tips Section (lazy) */}
-            <Suspense fallback={<PageLoadingSpinner text="Loading tips..." />}>
-              <TipsSection />
-            </Suspense>
-
-            {/* FAQ Section (lazy) */}
-            <Suspense fallback={<PageLoadingSpinner text="Loading FAQs..." />}>
-              <FAQSection />
-            </Suspense>
-          </div>
-
-          {/* AdSense Footer (lazy) */}
-          <Suspense fallback={<PageLoadingSpinner text="Loading ads..." />}>
-            <div className="mt-16">
-              <FooterAd />
-            </div>
-          </Suspense>
+      <section className="cp-calc-wrap">
+        <div className="container">
+          <MortgageCalculatorMini />
         </div>
-      </div>
+      </section>
+
+      <AdSlot size="leaderboard" />
+
+      <section style={{ paddingBlock: 'clamp(56px, 7vw, 96px)' }}>
+        <div className="container">
+          <div className="cp-split">
+            <div>{schedule && <CalcBreakdown
+              schedule={schedule}
+              columns={[
+                { key: 'principal', label: 'Principal paid' },
+                { key: 'interest', label: 'Interest paid', accent: true },
+                { key: 'balance', label: 'Remaining' },
+              ]}
+              shareKey="interest"
+              shareBase={['principal', 'interest']}
+              shareLabel="Interest share"
+              title={<>The <em>full breakdown</em>.</>}
+              csvFilename="mortgage-breakdown"
+            />}</div>
+            <div className="cp-rail">
+              <AdSlot size="half" />
+              <RailCard items={railItems} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CalcExplainer
+        title={<>The payment <em>formula</em> behind every mortgage.</>}
+        paragraphs={[
+          "Every fixed-rate mortgage payment is calculated with the same formula. It spreads your principal evenly across the loan term while front-loading interest — so early payments are mostly interest and later payments are mostly principal.",
+          "Property taxes, homeowners insurance, and PMI are added on top of this base payment. They don't shrink over time like the interest component does.",
+        ]}
+        formulaLabel="Monthly principal & interest"
+        formulaDisplay={<>M = P[r(1+r)<sup>n</sup>] / [(1+r)<sup>n</sup> − 1]</>}
+        legend={[
+          { symbol: "M", label: "Monthly payment", desc: "principal + interest portion of your monthly bill" },
+          { symbol: "P", label: "Loan principal", desc: "home price minus your down payment" },
+          { symbol: "r", label: "Monthly rate", desc: "annual interest rate divided by 12" },
+          { symbol: "n", label: "Total payments", desc: "loan term in years multiplied by 12" },
+        ]}
+      />
+
+      <CalcTips items={[
+        { title: 'Aim for under 28% of gross income.', text: "If PITI plus HOA exceeds 28% of your pretax monthly income, you're likely house-poor. Lenders will go higher; that doesn't mean you should." },
+        { title: 'Run the numbers at +1%.', text: "Rate volatility is the single biggest variable. Always model your payment at a rate 0.5-1% above today's, so a slow lock doesn't break the budget." },
+        { title: "Don't sleep on tax + insurance.", text: 'Property tax and homeowners insurance often add $400-800/mo to a payment. The headline P&I figure understates real cost.' },
+        { title: 'Extra $200/mo = years off.', text: '$200/month extra on a 30-yr loan at 6.5% knocks roughly 6 years off and saves $80K+ in interest. Try it in the calculator.' },
+        { title: "20% down isn't always optimal.", text: 'Putting more down avoids PMI but reduces liquidity. Run the scenario at 10% with PMI and invest the difference — sometimes that wins.' },
+        { title: "Refi math is sensitivity, not certainty.", text: "Refinancing usually pays off if you'll save more in interest than the closing costs over your expected stay. Use the calc to check your specific break-even." },
+      ]} />
+
+      <CalcFAQ items={faqItems} />
+
+      <CalcRelatedGrid items={relatedItems} />
     </>
   );
 }

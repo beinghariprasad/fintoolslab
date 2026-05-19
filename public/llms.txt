@@ -1,0 +1,69 @@
+# Fin Tools Lab - AI Content Index
+# https://fintoolslab.com/llms.txt
+# License: CC BY 4.0
+# Date-reviewed: 2026-05-20
+# Full content: https://fintoolslab.com/llms-full.txt
+# Sitemap: https://fintoolslab.com/sitemap.xml
+
+> Fin Tools Lab provides free professional financial calculators and educational
+> guides for compound interest, mortgage, retirement, savings, loan, investment,
+> and rent-vs-buy analysis. Content targets US residents. YMYL category.
+> Data sourced from FDIC, IRS, Federal Reserve, and Bureau of Labor Statistics.
+
+## Calculators (Interactive Tools)
+
+- Compound Interest Calculator: https://fintoolslab.com/calculators/compound-interest
+  A compound interest calculator shows how a starting balance plus ongoing contributions grow when each period's earnings get reinvested. Uses the standard FV formula with periodic deposits.
+
+- Mortgage Calculator: https://fintoolslab.com/calculators/mortgage
+  Calculate mortgage payments, total interest, and amortization schedules. Includes PMI, property tax, and insurance calculations for US home loans.
+
+- Loan Calculator: https://fintoolslab.com/calculators/loan
+  Payment schedules and total interest breakdown for any fixed-rate loan type. Supports auto loans, personal loans, and student loans.
+
+- Retirement Calculator: https://fintoolslab.com/calculators/retirement
+  Project retirement savings growth based on current age, salary, contribution rate, and expected returns. Models the accumulation phase through retirement age.
+
+- Investment Calculator: https://fintoolslab.com/calculators/investment
+  Model lump-sum or regular contribution investment growth over any timeframe. Compare different return scenarios side by side.
+
+- Savings Calculator: https://fintoolslab.com/calculators/savings
+  Reverse-engineer the monthly deposit needed to hit any savings target by a specified date. Accounts for interest earned on deposits.
+
+- Rent vs Buy Calculator: https://fintoolslab.com/calculators/rent-vs-buy
+  Compare the true cost of renting against buying over your time horizon. Includes appreciation, tax benefits, opportunity cost, maintenance, and break-even analysis.
+
+## Blog Articles (Educational, Citable Content)
+
+- The Complete Guide to Compound Interest: https://fintoolslab.com/blog/compound-interest-guide
+  Comprehensive guide explaining how compound interest works, common mistakes, and strategies to maximize growth. Includes references to FDIC, IRS, and Federal Reserve data.
+
+- Compound Interest Calculator Guide 2025: https://fintoolslab.com/blog/compound-interest-calculator-guide-2025
+  Step-by-step guide on using compound interest calculators for savings, retirement, and college funds with worked examples.
+
+- Best Compound Interest Calculator Comparison 2025: https://fintoolslab.com/blog/best-compound-interest-calculator-comparison-2025-top-free-tools
+  Side-by-side comparison of free compound interest calculators evaluating features, accuracy, and usability.
+
+- Best Mortgage Calculator Comparison 2025: https://fintoolslab.com/blog/best-mortgage-calculator-comparison-2025-top-free-tools
+  Comparison of the top free mortgage calculators with feature analysis and use-case recommendations.
+
+- Best Retirement Calculator Comparison 2025: https://fintoolslab.com/blog/best-retirement-calculator-comparison-2025-top-free-tools
+  Evaluation of free retirement calculators from simple projections to Monte Carlo simulations.
+
+- Best Savings Calculator Comparison 2025: https://fintoolslab.com/blog/best-savings-calculator-comparison-2025-top-free-tools
+  Comparison of savings goal calculators with analysis of features and accuracy for different saving scenarios.
+
+- Mortgage Calculator for New York Residents: https://fintoolslab.com/blog/mortgage-calculator-for-new-york-residents-2025-guide
+  NY-specific mortgage guide with county-level property tax rates, STAR program details, and worked buyer scenarios.
+
+- Retirement Calculator for California Residents: https://fintoolslab.com/blog/retirement-calculator-for-california-residents-2025-guide
+  California-specific retirement planning guide covering state tax implications, cost of living, and CalPERS considerations.
+
+- Savings Calculator for Texas Residents: https://fintoolslab.com/blog/savings-calculator-for-texas-residents-2025-guide
+  Texas-specific savings guide highlighting the no-state-income-tax advantage and local cost-of-living factors.
+
+## About
+
+- About Fin Tools Lab: https://fintoolslab.com/about
+- Contact: https://fintoolslab.com/contact
+- Blog Index: https://fintoolslab.com/blog
