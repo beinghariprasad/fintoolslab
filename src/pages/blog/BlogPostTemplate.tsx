@@ -156,13 +156,13 @@ export default function BlogPostTemplate() {
     "@id": `https://fintoolslab.com/blog/${post.slug}#article`,
     "headline": post.title,
     "description": post.metaDescription,
-    "image": { "@type": "ImageObject", "url": "https://fintoolslab.com/og-image.png", "width": 1200, "height": 630 },
+    "image": { "@type": "ImageObject", "url": post.ogImage ? `https://fintoolslab.com${post.ogImage}` : "https://fintoolslab.com/og-image.png", "width": 1200, "height": 630 },
     "author": authorName === "Fin Tools Lab"
       ? { "@type": "Organization", "@id": "https://fintoolslab.com/#organization", "name": authorName }
       : { "@type": "Person", "name": authorName },
     "publisher": { "@type": "Organization", "@id": "https://fintoolslab.com/#organization", "name": "Fin Tools Lab", "logo": { "@type": "ImageObject", "url": "https://fintoolslab.com/icon-192.png", "width": 192, "height": 192 } },
     "datePublished": post.publishDate,
-    "dateModified": (post as any).lastModified || post.publishDate,
+    "dateModified": post.lastModified || post.publishDate,
     "mainEntityOfPage": { "@type": "WebPage", "@id": `https://fintoolslab.com/blog/${post.slug}` },
     "keywords": [post.primaryKeyword, ...post.secondaryKeywords].join(', '),
   };
@@ -203,8 +203,10 @@ export default function BlogPostTemplate() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.metaDescription} />
-        <meta property="og:image" content="https://fintoolslab.com/og-image.png" />
-        <meta name="twitter:image" content="https://fintoolslab.com/og-image.png" />
+        <meta property="og:image" content={post.ogImage ? `https://fintoolslab.com${post.ogImage}` : "https://fintoolslab.com/og-image.png"} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content={post.ogImage ? `https://fintoolslab.com${post.ogImage}` : "https://fintoolslab.com/og-image.png"} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         {faqSchema && <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>}

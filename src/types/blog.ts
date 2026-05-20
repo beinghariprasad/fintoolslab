@@ -27,8 +27,11 @@ export interface BlogPost {
   secondaryKeywords: string[];
   category: string;
   publishDate: string;
+  lastModified?: string;
   readTime: string;
   featured?: boolean;
+  heroImage?: string;
+  ogImage?: string;
   content: BlogContent;
   internalLinks: string[];
   author?: string;

@@ -28,7 +28,7 @@ export default function Contact() {
 
       <section className="section-tight">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 'clamp(32px, 5vw, 60px)', alignItems: 'start' }}>
+          <div className="contact-grid">
             <div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
                 {contactMethods.map(m => (
@@ -56,7 +56,7 @@ export default function Contact() {
                 </div>
               ) : (
                 <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 18 }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))', gap: 18 }}>
                     <div>
                       <label className="ft-label">Name</label>
                       <input className="ft-input" placeholder="Your name" required />

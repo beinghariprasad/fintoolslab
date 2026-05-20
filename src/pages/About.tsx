@@ -48,7 +48,7 @@ export default function About() {
 
       <section className="section-tight">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 16 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 260px), 1fr))', gap: 16 }}>
             {values.map((v) => (
               <div key={v.title} className="content-card">
                 <h3>{v.title}</h3>
@@ -63,7 +63,7 @@ export default function About() {
         <div className="container">
           <div className="eyebrow" style={{ marginBottom: 12 }}>The team</div>
           <h2 className="display" style={{ fontSize: 'clamp(32px, 4vw, 52px)', marginBottom: 40 }}>People behind the <em style={{ color: 'var(--ft-accent)', fontStyle: 'italic' }}>numbers</em>.</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))', gap: 20 }}>
             {teamMembers.map((m) => (
               <div key={m.name} className="content-card">
                 <div style={{ width: 48, height: 48, borderRadius: 12, background: 'var(--bg-sunken)', display: 'grid', placeItems: 'center', marginBottom: 16, fontFamily: 'var(--ff-display)', fontSize: 22, color: 'var(--ink-2)' }}>
