@@ -34,9 +34,11 @@ export function InvestmentCalculator() {
     const monthlyInflation = data.inflationRate / 100 / 12;
     const totalMonths = data.timeHorizon * 12;
     
-    // Future value with regular contributions
-    const futureValue = data.initialInvestment * Math.pow(1 + monthlyReturn, totalMonths) +
-      data.monthlyContribution * ((Math.pow(1 + monthlyReturn, totalMonths) - 1) / monthlyReturn);
+    // Future value with regular contributions (0% return: no growth)
+    const futureValue = monthlyReturn === 0
+      ? data.initialInvestment + data.monthlyContribution * totalMonths
+      : data.initialInvestment * Math.pow(1 + monthlyReturn, totalMonths) +
+        data.monthlyContribution * ((Math.pow(1 + monthlyReturn, totalMonths) - 1) / monthlyReturn);
     
     const totalContributions = data.initialInvestment + (data.monthlyContribution * totalMonths);
     const totalGains = futureValue - totalContributions;
@@ -79,8 +81,10 @@ export function InvestmentCalculator() {
 
     const riskProjections = Object.entries(scenarios).map(([risk, returnRate]) => {
       const monthlyRet = returnRate / 100 / 12;
-      const futVal = data.initialInvestment * Math.pow(1 + monthlyRet, totalMonths) +
-        data.monthlyContribution * ((Math.pow(1 + monthlyRet, totalMonths) - 1) / monthlyRet);
+      const futVal = monthlyRet === 0
+        ? data.initialInvestment + data.monthlyContribution * totalMonths
+        : data.initialInvestment * Math.pow(1 + monthlyRet, totalMonths) +
+          data.monthlyContribution * ((Math.pow(1 + monthlyRet, totalMonths) - 1) / monthlyRet);
       
       return {
         scenario: risk,

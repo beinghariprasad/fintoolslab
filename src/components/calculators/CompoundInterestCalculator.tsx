@@ -67,38 +67,22 @@ export const CompoundInterestCalculator = () => {
     const t = parseFloat(years) || 0;
     const contributionsPerYear = contributionFrequency;
 
-    if (P <= 0 || r < 0 || t <= 0) return;
+    if (P < 0 || r < 0 || t <= 0) return;
 
     const yearlyData: CalculationResult['yearlyData'] = [];
     let currentPrincipal = P;
     let totalContributions = P;
 
     for (let year = 1; year <= t; year++) {
-      // Add annual contributions
       const annualContribution = PMT * contributionsPerYear;
-      
-      // Calculate compound interest for the year
-      const yearStartBalance = currentPrincipal;
-      
-      // For monthly contributions, we need to compound each month
-      let yearEndBalance = yearStartBalance;
-      for (let month = 1; month <= 12; month++) {
-        // Add monthly contribution if applicable
-        if (contributionsPerYear === 12 && month <= 12) {
-          yearEndBalance += PMT;
-        } else if (contributionsPerYear === 1 && month === 12) {
-          yearEndBalance += PMT;
-        } else if (contributionsPerYear === 52 && month <= 12) {
-          yearEndBalance += PMT * (52/12);
-        }
-        
-        // Apply monthly compounding
-        yearEndBalance *= (1 + r/n);
-      }
 
-      // If annual contribution, add at year end
-      if (contributionsPerYear === 1) {
-        yearEndBalance += PMT;
+      // Iterate one compounding period at a time, spreading the year's
+      // contributions evenly across periods (deposited at period start)
+      const contributionPerPeriod = annualContribution / n;
+      let yearEndBalance = currentPrincipal;
+      for (let period = 1; period <= n; period++) {
+        yearEndBalance += contributionPerPeriod;
+        yearEndBalance *= (1 + r / n);
       }
 
       totalContributions += annualContribution;

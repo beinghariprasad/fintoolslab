@@ -29,9 +29,11 @@ export function LoanCalculator() {
     const monthlyRate = data.interestRate / 100 / 12;
     const totalPayments = data.loanTerm * 12;
     
-    // Monthly payment calculation
-    const monthlyPayment = data.principal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) / 
-                          (Math.pow(1 + monthlyRate, totalPayments) - 1);
+    // Monthly payment calculation (0% rate: straight-line principal)
+    const monthlyPayment = monthlyRate === 0
+      ? data.principal / totalPayments
+      : data.principal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) /
+        (Math.pow(1 + monthlyRate, totalPayments) - 1);
     
     const totalMonthlyPayment = monthlyPayment + data.extraPayment;
     const totalInterest = (monthlyPayment * totalPayments) - data.principal;
@@ -52,23 +54,29 @@ export function LoanCalculator() {
       if (balance <= 0) break;
     }
     
-    // Payment schedule
+    // Payment schedule over the full payoff period (honors extra payments),
+    // downsampled to at most ~60 points for the chart
     balance = data.principal;
     const schedule = [];
-    
-    for (let month = 1; month <= Math.min(totalPayments, 60); month++) {
+    let cumulativeInterest = 0;
+    const sampleEvery = Math.max(1, Math.ceil(totalPayments / 60));
+
+    for (let month = 1; month <= totalPayments && balance > 0; month++) {
       const interestPayment = balance * monthlyRate;
-      const principalPayment = monthlyPayment - interestPayment;
+      const principalPayment = Math.min(totalMonthlyPayment - interestPayment, balance);
+      cumulativeInterest += interestPayment;
       balance -= principalPayment;
-      
-      schedule.push({
-        month,
-        payment: monthlyPayment,
-        principal: principalPayment,
-        interest: interestPayment,
-        balance: Math.max(0, balance),
-        cumulativeInterest: schedule.reduce((sum, item) => sum + item.interest, 0) + interestPayment
-      });
+
+      if (month % sampleEvery === 0 || balance <= 0 || month === totalPayments) {
+        schedule.push({
+          month,
+          payment: principalPayment + interestPayment,
+          principal: principalPayment,
+          interest: interestPayment,
+          balance: Math.max(0, balance),
+          cumulativeInterest
+        });
+      }
     }
 
     return {

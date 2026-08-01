@@ -43,36 +43,36 @@ export function RetirementCalculator() {
     // Future value calculation with growing contributions
     let totalSavings = data.currentSavings;
     let currentContribution = totalMonthlyContribution;
+    let cumulativeContributions = data.currentSavings;
     const projections = [];
-    
+
     for (let year = 1; year <= yearsToRetirement; year++) {
       const age = data.currentAge + year;
-      
-      // Compound existing savings
-      totalSavings *= Math.pow(1 + data.returnRate / 100, 1);
-      
-      // Add contributions for the year with growth
+
+      // Monthly compounding with end-of-month contributions
       for (let month = 1; month <= 12; month++) {
         totalSavings = totalSavings * (1 + monthlyReturn) + currentContribution;
       }
-      
-      // Increase contribution based on salary growth
-      if (year > 1) {
-        currentContribution *= (1 + annualSalaryGrowth);
-      }
-      
+
+      cumulativeContributions += currentContribution * 12;
+
       projections.push({
         year,
         age,
         totalSavings,
         yearlyContribution: currentContribution * 12,
+        cumulativeContributions,
         realValue: totalSavings / Math.pow(1 + data.inflationRate / 100, year)
       });
+
+      // Increase next year's contribution based on salary growth
+      currentContribution *= (1 + annualSalaryGrowth);
     }
-    
+
     const finalAmount = totalSavings;
-    const totalContributions = data.currentSavings + 
-      projections.reduce((sum, p) => sum + p.yearlyContribution, 0);
+    const totalContributions = projections.length > 0
+      ? projections[projections.length - 1].cumulativeContributions
+      : data.currentSavings;
     const totalGrowth = finalAmount - totalContributions;
     
     // Monthly retirement income calculation
@@ -94,9 +94,7 @@ export function RetirementCalculator() {
     year: item.year,
     'Total Savings': item.totalSavings,
     'Real Value': item.realValue,
-    'Contributions': data.currentSavings + 
-      results.projections.slice(0, results.projections.indexOf(item) + 1)
-        .reduce((sum, p) => sum + p.yearlyContribution, 0)
+    'Contributions': item.cumulativeContributions
   }));
 
   const allocationData = [

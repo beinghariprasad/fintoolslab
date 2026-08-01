@@ -31,17 +31,21 @@ export function SavingsCalculator() {
     const monthlyRate = data.interestRate / 100 / 12;
     const totalMonths = data.timeFrame * 12;
     
-    // Future value with compound interest and regular contributions
-    const futureValue = data.currentSavings * Math.pow(1 + monthlyRate, totalMonths) +
-      data.monthlySavings * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
-    
+    // Future value with compound interest and regular contributions (0% rate safe)
+    const futureValue = monthlyRate === 0
+      ? data.currentSavings + data.monthlySavings * totalMonths
+      : data.currentSavings * Math.pow(1 + monthlyRate, totalMonths) +
+        data.monthlySavings * ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
+
     const totalContributions = data.currentSavings + (data.monthlySavings * totalMonths);
     const totalInterest = futureValue - totalContributions;
-    
-    // Calculate what monthly savings is needed to reach goal
-    const remainingGoal = Math.max(0, data.savingsGoal - data.currentSavings);
-    const requiredMonthlyForGoal = remainingGoal / 
-      ((Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate);
+
+    // Monthly savings needed to reach the goal, accounting for growth of current savings
+    const fvOfCurrentSavings = data.currentSavings * Math.pow(1 + monthlyRate, totalMonths);
+    const remainingGoal = Math.max(0, data.savingsGoal - fvOfCurrentSavings);
+    const requiredMonthlyForGoal = monthlyRate === 0
+      ? remainingGoal / totalMonths
+      : remainingGoal * monthlyRate / (Math.pow(1 + monthlyRate, totalMonths) - 1);
     
     // Timeline to reach goal with current savings rate
     const goalDiff = data.savingsGoal - data.currentSavings;

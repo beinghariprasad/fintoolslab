@@ -45,36 +45,45 @@ export function MortgageCalculator() {
     const monthlyRate = data.interestRate / 100 / 12;
     const totalPayments = data.loanTerm * 12;
     
-    // Monthly payment calculation
-    const monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) / 
-                          (Math.pow(1 + monthlyRate, totalPayments) - 1);
-    
+    // Monthly payment calculation (0% rate: straight-line principal)
+    const monthlyPayment = monthlyRate === 0
+      ? principal / totalPayments
+      : principal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) /
+        (Math.pow(1 + monthlyRate, totalPayments) - 1);
+
     // Additional monthly costs
     const monthlyPropertyTax = (data.loanAmount * data.propertyTax / 100) / 12;
     const monthlyInsurance = data.insurance / 12;
-    const monthlyPMI = principal < data.loanAmount * 0.8 ? (principal * data.pmi / 100) / 12 : 0;
-    
+    // PMI applies when the loan-to-value ratio exceeds 80%
+    const monthlyPMI = principal > data.loanAmount * 0.8 ? (principal * data.pmi / 100) / 12 : 0;
+
     const totalMonthlyPayment = monthlyPayment + monthlyPropertyTax + monthlyInsurance + monthlyPMI;
     const totalInterest = (monthlyPayment * totalPayments) - principal;
-    
-    // Amortization schedule
+
+    // Amortization schedule aggregated by year
     let balance = principal;
     const schedule = [];
-    
+    let yearPrincipal = 0;
+    let yearInterest = 0;
+
     for (let month = 1; month <= Math.min(totalPayments, 360); month++) {
       const interestPayment = balance * monthlyRate;
       const principalPayment = monthlyPayment - interestPayment;
       balance -= principalPayment;
-      
-      if (month <= 12 || month % 12 === 0) {
+      yearPrincipal += principalPayment;
+      yearInterest += interestPayment;
+
+      if (month % 12 === 0 || month === Math.min(totalPayments, 360)) {
         schedule.push({
           year: Math.ceil(month / 12),
           payment: monthlyPayment,
-          principal: principalPayment,
-          interest: interestPayment,
+          principal: yearPrincipal,
+          interest: yearInterest,
           balance: Math.max(0, balance),
           totalPaid: monthlyPayment * month
         });
+        yearPrincipal = 0;
+        yearInterest = 0;
       }
     }
 

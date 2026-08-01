@@ -41,3 +41,11 @@ scripts/paa_questions.json
 scripts/enhanced_prompts/
 scripts/keyword_planner_export.csv
 scripts/processed_prompts.json
+
+# Environment secrets
+.env
+.env.*
+
+# Local tooling artifacts
+.playwright-mcp/
+/*.png

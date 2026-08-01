@@ -91,13 +91,14 @@ export function RentVsBuyCalculator() {
     const monthlyRate = data.loanRate / 100 / 12;
     const totalPayments = data.loanTerm * 12;
     
-    // Get investment return based on risk profile
-    const selectedProfile = investmentRiskProfiles[data.investmentRiskProfile as keyof typeof investmentRiskProfiles];
-    const actualInvestmentReturn = selectedProfile ? selectedProfile.return : data.investmentReturn;
-    
-    // Monthly home loan payment (P&I)
-    const monthlyLoanPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) / 
-                              (Math.pow(1 + monthlyRate, totalPayments) - 1);
+    // Investment return: user-editable value (auto-populated when the risk profile changes)
+    const actualInvestmentReturn = data.investmentReturn;
+
+    // Monthly home loan payment (P&I), 0% rate safe
+    const monthlyLoanPayment = monthlyRate === 0
+      ? principal / totalPayments
+      : principal * (monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) /
+        (Math.pow(1 + monthlyRate, totalPayments) - 1);
     
     // Additional monthly home ownership costs
     const monthlyPropertyTax = (data.homePrice * data.propertyTax / 100) / 12;
@@ -132,24 +133,25 @@ export function RentVsBuyCalculator() {
         let yearlyPrincipal = 0;
         let yearlyInterest = 0;
         
-        // Calculate principal and interest for the year
+        // Calculate principal and interest for the year (loan payments stop once paid off)
         for (let month = 1; month <= 12; month++) {
+          if (remainingBalance <= 0) break;
           const interestPayment = remainingBalance * monthlyRate;
-          const principalPayment = monthlyLoanPayment - interestPayment;
+          const principalPayment = Math.min(monthlyLoanPayment - interestPayment, remainingBalance);
           yearlyInterest += interestPayment;
           yearlyPrincipal += principalPayment;
-          remainingBalance = Math.max(0, remainingBalance - principalPayment);
+          remainingBalance -= principalPayment;
         }
-        
+
         cumulativeInterestPaid += yearlyInterest;
         cumulativePrincipalPaid += yearlyPrincipal;
-        
+
         const yearlyTax = monthlyPropertyTax * 12;
         const yearlyInsurance = data.homeInsurance;
         const yearlyMaintenance = monthlyMaintenance * 12;
         const yearlySocietyCharges = data.societyCharges * 12;
-        
-        const totalYearlyOwnership = monthlyLoanPayment * 12 + yearlyTax + yearlyInsurance + 
+
+        const totalYearlyOwnership = yearlyPrincipal + yearlyInterest + yearlyTax + yearlyInsurance +
                                     yearlyMaintenance + yearlySocietyCharges;
       
         cumulativeOwnershipCost += totalYearlyOwnership;
@@ -160,15 +162,16 @@ export function RentVsBuyCalculator() {
         // Investment growth for down payment (rent scenario)
         downPaymentInvestment *= (1 + actualInvestmentReturn / 100);
         
-        // Investment of rent difference
-        const monthlyDifference = totalMonthlyOwnership - currentRent;
+        // Investment of rent difference (based on this year's actual ownership cost)
+        const monthlyDifference = totalYearlyOwnership / 12 - currentRent;
         let yearlyDifferenceInvested = 0;
-        
+
         if (monthlyDifference > 0) {
-          // If buying costs more, invest the saved amount in rent scenario
+          // If buying costs more, invest the saved amount in rent scenario.
+          // Contributions made during the year earn roughly a half-year of growth.
           yearlyDifferenceInvested = monthlyDifference * 12;
           totalRentInvested += yearlyDifferenceInvested;
-          downPaymentInvestment += yearlyDifferenceInvested * (1 + actualInvestmentReturn / 100);
+          downPaymentInvestment += yearlyDifferenceInvested * (1 + actualInvestmentReturn / 100 / 2);
         }
         
         // Net worth calculations
