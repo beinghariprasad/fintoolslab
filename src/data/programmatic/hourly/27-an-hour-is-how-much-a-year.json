@@ -1,0 +1,450 @@
+{
+  "slug": "27-an-hour-is-how-much-a-year",
+  "path": "/salary/27-an-hour-is-how-much-a-year",
+  "category": "hourly",
+  "title": "$27 an Hour Is How Much a Year? (2026)",
+  "metaDescription": "$27/hour is $56,160 a year at 40 hrs/week — $4,680 monthly, $2,160.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+  "hero": {
+    "chip": "Hourly wage · 2026 figures",
+    "titleBefore": "$27 an hour is ",
+    "titleEm": "$56,160 a year",
+    "titleAfter": ".",
+    "lede": "Full time at 40 hours a week, 52 weeks a year (2,080 hours). Below: every pay-period equivalent, overtime tables at time-and-a-half, and a 2026 federal-only take-home estimate.",
+    "meta": [
+      {
+        "label": "Basis",
+        "value": "2,080 hours/year"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Calculators",
+        "href": "/calculators"
+      },
+      {
+        "label": "$27 an hour"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "56,160",
+      "label": "Per year · $27 × 2,080 working hours",
+      "features": [
+        "$1,080.00 per 40-hour week",
+        "$2,160.00 per biweekly check",
+        "$4,680.00 per month",
+        "≈ $3,942.05/mo after est. federal tax"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "How much is $27 an hour per year?",
+    "html": "<strong>$27 an hour is $56,160 a year</strong> at 40 hours a week for 52 weeks (2,080 hours). That's $1,080.00 a week, $2,160.00 biweekly, and $4,680.00 a month gross. After estimated federal income tax and FICA, a single filer keeps about $47,305 — and steady overtime at $40.50/hour raises the total fast."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Pay schedule",
+      "title": "What $27/hour adds up to <em>per period</em>.",
+      "columns": [
+        {
+          "label": "Pay period"
+        },
+        {
+          "label": "Gross pay",
+          "align": "r"
+        },
+        {
+          "label": "How it is figured",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "Daily (8 hours)",
+          "$216.00",
+          "$27 × 8"
+        ],
+        [
+          "Weekly (40 hours)",
+          "$1,080.00",
+          "$27 × 40"
+        ],
+        [
+          "Biweekly (80 hours)",
+          "$2,160.00",
+          "$27 × 80"
+        ],
+        [
+          "Monthly",
+          "$4,680.00",
+          "$56,160 ÷ 12"
+        ],
+        [
+          "Annual (2,080 hours)",
+          {
+            "text": "$56,160",
+            "accent": true,
+            "strong": true
+          },
+          "$27 × 2,080"
+        ],
+        [
+          "Part-time (30 hrs/week)",
+          "$42,120",
+          "$27 × 30 × 52"
+        ]
+      ],
+      "note": "Gross (pre-tax) figures assuming paid hours every week of the year. Unpaid time off reduces them proportionally."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "The yearly picture",
+      "title": "$27 an hour in 2026, in <em>plain numbers</em>.",
+      "paragraphs": [
+        "At $27 an hour, a full-time year — 40 hours a week for 52 weeks, with no unpaid time off — grosses <strong>$56,160</strong>. That's $1,080.00 a week, $2,160.00 per biweekly paycheck, and about $4,680.00 a month before taxes.",
+        "Measured against the middle of the U.S. labor market, $27/hour is about 14% below the U.S. median full-time wage — the BLS median works out to about $31.28/hour ($1,251/week, BLS, Q2 2026). The big lever for hourly earners is overtime: every OT hour pays $40.50 at time-and-a-half."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Overtime",
+      "title": "Overtime at $40.50/hour changes the math <em>quickly</em>.",
+      "columns": [
+        {
+          "label": "Weekly hours"
+        },
+        {
+          "label": "Weekly pay",
+          "align": "r"
+        },
+        {
+          "label": "Annual pay",
+          "align": "r"
+        },
+        {
+          "label": "vs. 40-hour year",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "40 (no overtime)",
+          "$1,080.00",
+          {
+            "text": "$56,160",
+            "accent": true
+          },
+          "—"
+        ],
+        [
+          "45 (5 OT hours)",
+          "$1,282.50",
+          "$66,690",
+          {
+            "text": "+$10,530"
+          }
+        ],
+        [
+          "50 (10 OT hours)",
+          "$1,485.00",
+          "$77,220",
+          {
+            "text": "+$21,060"
+          }
+        ],
+        [
+          "55 (15 OT hours)",
+          "$1,687.50",
+          "$87,750",
+          {
+            "text": "+$31,590"
+          }
+        ]
+      ],
+      "note": "Overtime rows assume time-and-a-half (1.5 × $27 = $40.50) on hours past 40, every week of the year — the FLSA baseline for non-exempt workers."
+    },
+    {
+      "type": "table",
+      "eyebrow": "Federal-only estimate",
+      "title": "From $56,160 gross to <em>take-home</em>.",
+      "columns": [
+        {
+          "label": "Line item"
+        },
+        {
+          "label": "Amount",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "Gross annual pay (2,080 hours)",
+          "$56,160.00"
+        ],
+        [
+          "Standard deduction (single, 2026)",
+          "−$16,100.00"
+        ],
+        [
+          "Federally taxable income",
+          "$40,060.00"
+        ],
+        [
+          "Federal income tax (effective 8.1%)",
+          "−$4,559.20"
+        ],
+        [
+          "Social Security (6.2%)",
+          "−$3,481.92"
+        ],
+        [
+          "Medicare (1.45%)",
+          "−$814.32"
+        ],
+        [
+          "Estimated annual take-home",
+          {
+            "text": "$47,304.56",
+            "accent": true,
+            "strong": true
+          }
+        ],
+        [
+          "≈ Monthly take-home",
+          "$3,942.05"
+        ],
+        [
+          "≈ Per hour after federal tax",
+          "$22.74"
+        ]
+      ],
+      "note": "Single filer, standard deduction, no state/local income tax, credits, or pre-tax benefits. Actual checks vary."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Taxes",
+      "title": "What a single filer actually <em>keeps</em>.",
+      "paragraphs": [
+        "Federally, this wage puts a single filer in the 12% marginal bracket for 2026: $56,160 gross less the $16,100 standard deduction is $40,060 taxable, generating $4,559 of income tax (8.1% effective). Add $4,296 of FICA and estimated take-home is $47,305/year, or $3,942.05/month."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "How nearby wages <em>stack up</em>.",
+      "columns": [
+        {
+          "label": "Hourly wage"
+        },
+        {
+          "label": "Annual (2,080 hrs)",
+          "align": "r"
+        },
+        {
+          "label": "Monthly",
+          "align": "r"
+        },
+        {
+          "label": "Est. monthly take-home",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$24/hour",
+            "href": "/salary/24-an-hour-is-how-much-a-year"
+          },
+          {
+            "text": "$49,920"
+          },
+          {
+            "text": "$4,160.00"
+          },
+          {
+            "text": "$3,524.23"
+          }
+        ],
+        [
+          {
+            "text": "$25/hour",
+            "href": "/salary/25-an-hour-is-how-much-a-year"
+          },
+          {
+            "text": "$52,000"
+          },
+          {
+            "text": "$4,333.33"
+          },
+          {
+            "text": "$3,663.50"
+          }
+        ],
+        [
+          {
+            "text": "$26/hour",
+            "href": "/salary/26-an-hour-is-how-much-a-year"
+          },
+          {
+            "text": "$54,080"
+          },
+          {
+            "text": "$4,506.67"
+          },
+          {
+            "text": "$3,802.77"
+          }
+        ],
+        [
+          {
+            "text": "$27/hour (this page)",
+            "accent": true
+          },
+          {
+            "text": "$56,160"
+          },
+          {
+            "text": "$4,680.00"
+          },
+          {
+            "text": "$3,942.05"
+          }
+        ],
+        [
+          {
+            "text": "$28/hour",
+            "href": "/salary/28-an-hour-is-how-much-a-year"
+          },
+          {
+            "text": "$58,240"
+          },
+          {
+            "text": "$4,853.33"
+          },
+          {
+            "text": "$4,081.32"
+          }
+        ],
+        [
+          {
+            "text": "$29/hour",
+            "href": "/salary/29-an-hour-is-how-much-a-year"
+          },
+          {
+            "text": "$60,320"
+          },
+          {
+            "text": "$5,026.67"
+          },
+          {
+            "text": "$4,220.59"
+          }
+        ],
+        [
+          {
+            "text": "$30/hour",
+            "href": "/salary/30-an-hour-is-how-much-a-year"
+          },
+          {
+            "text": "$62,400"
+          },
+          {
+            "text": "$5,200.00"
+          },
+          {
+            "text": "$4,359.87"
+          }
+        ]
+      ],
+      "note": "Take-home column uses the same federal-only, single-filer estimate as the table above."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How much is $27 an hour per year?",
+      "a": "$27 an hour is $56,160 a year at full time — 40 hours a week for 52 weeks (2,080 hours). At 30 hours a week it comes to $42,120, and with 10 hours of weekly overtime it reaches about $77,220."
+    },
+    {
+      "q": "How much is $27 an hour biweekly?",
+      "a": "A standard 80-hour biweekly period at $27/hour grosses $2,160.00. After estimated federal income tax and FICA for a single filer, roughly $1,819.41 remains per check, before state taxes."
+    },
+    {
+      "q": "How much is $27 an hour after taxes?",
+      "a": "On $56,160 of annual wages, a single filer taking the 2026 standard deduction pays about $4,559 of federal income tax plus $4,296 of FICA, keeping roughly $47,305 a year — about $22.74 per hour worked. State and local taxes reduce this further where they apply."
+    },
+    {
+      "q": "How much is $27 an hour with overtime?",
+      "a": "Overtime pays time-and-a-half: $40.50 per hour past 40 in a week. A steady 50-hour week earns $1,485.00 weekly — $77,220 a year, $21,060 more than the straight 40-hour year."
+    },
+    {
+      "q": "Is $27 an hour a good wage in 2026?",
+      "a": "$27/hour annualizes to $56,160, which is about 14% below the U.S. median full-time wage — the BLS median for full-time workers is $1,251/week (about $31.28/hour, BLS, Q2 2026). Local cost of living, benefits, and schedule stability matter as much as the rate itself."
+    }
+  ],
+  "cta": {
+    "label": "Do more with the wage",
+    "title": "See what this paycheck can build",
+    "text": "Saving even one hour's pay per day — about $585 a month — compounds into real money. Run your own numbers in the calculators.",
+    "links": [
+      {
+        "label": "Savings Calculator",
+        "href": "/calculators/savings"
+      },
+      {
+        "label": "Compound Interest Calculator",
+        "href": "/calculators/compound-interest"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "$56,000/year → hourly",
+      "desc": "The reverse view: what a $56,000 salary pays per hour and per paycheck.",
+      "mark": "SL",
+      "href": "/salary/56000-a-year-is-how-much-an-hour",
+      "cat": "Salary",
+      "time": "1 min read"
+    },
+    {
+      "name": "Savings Calculator",
+      "desc": "Set a goal and see the monthly saving it takes.",
+      "mark": "SV",
+      "href": "/calculators/savings",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Compound Interest",
+      "desc": "How invested savings compound over the years.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Loan Calculator",
+      "desc": "Payments on car or personal loans at this income.",
+      "mark": "LN",
+      "href": "/calculators/loan",
+      "cat": "Borrowing",
+      "time": "30 sec"
+    }
+  ],
+  "methodology": [
+    "Annualization is straight arithmetic: $27 × 2,080 hours (40 hours × 52 weeks) = $56,160, with daily/weekly/biweekly/monthly rows derived the same way. No unpaid leave is assumed.",
+    "Overtime rows use the FLSA non-exempt baseline of 1.5× base pay ($40.50/hour) on hours over 40 per week, sustained all 52 weeks.",
+    "The take-home estimate uses 2026 federal brackets for a single filer with the $16,100 standard deduction plus employee FICA (7.65%). It excludes state/local tax, credits, and pre-tax benefits.",
+    "Median-wage comparison: BLS median usual weekly earnings, full-time workers, $1,251/week (BLS, Q2 2026).",
+    "Educational estimates only — not tax, legal, or financial advice."
+  ],
+  "dateModified": "2026-08-01"
+}

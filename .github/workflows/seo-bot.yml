@@ -1,0 +1,82 @@
+name: SEO Bot
+
+on:
+  schedule:
+    # Every Monday 09:00 UTC — release the next batch of programmatic pages
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release-batch:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "1"
+
+      - name: Release next page batch
+        id: release
+        run: |
+          node scripts/seo-bot/release-batch.mjs
+          if git diff --quiet src/data/programmatic/manifest.json 2>/dev/null; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.release.outputs.changed == 'true'
+        run: |
+          BATCH=$(node -p "require('./scripts/seo-bot/last-release.json').batch")
+          git config user.name "seo-bot"
+          git config user.email "seo-bot@users.noreply.github.com"
+          git add src/data/programmatic/manifest.json public/sitemap.xml scripts/seo-bot/last-release.json
+          git commit -m "seo-bot: release programmatic page batch $BATCH"
+          git push
+          # Vercel deploys this push automatically; prerender runs in its build.
+
+      - name: Ping IndexNow with released URLs
+        if: steps.release.outputs.changed == 'true'
+        run: node scripts/seo-bot/ping-indexnow.mjs
+
+  # Regression gate: the SEO build (vite build + prerender + sitemap) must pass
+  verify-build:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chrome for prerendering
+        run: npx puppeteer browsers install chrome
+
+      - name: Build with prerender + sitemap
+        run: npm run build:seo
+
+      - name: Check prerendered output
+        run: |
+          test -f dist/calculators/mortgage/index.html
+          if ! grep -qi "mortgage" dist/calculators/mortgage/index.html; then
+            echo "Prerendered mortgage page looks empty" && exit 1
+          fi
+          test -f dist/sitemap.xml
+          echo "Prerender verification passed"

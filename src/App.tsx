@@ -25,6 +25,25 @@ const LoanPage = lazy(() => import("./pages/LoanPage"));
 const RetirementPage = lazy(() => import("./pages/RetirementPage"));
 const SavingsPage = lazy(() => import("./pages/SavingsPage"));
 const RentVsBuyPage = lazy(() => import("./pages/RentVsBuyPage"));
+const SalaryToHourlyPage = lazy(() => import("./pages/SalaryToHourlyPage"));
+const CoastFirePage = lazy(() => import("./pages/CoastFirePage"));
+const CDCalculatorPage = lazy(() => import("./pages/CDCalculatorPage"));
+const HYSAPage = lazy(() => import("./pages/HYSAPage"));
+const RMDCalculatorPage = lazy(() => import("./pages/RMDCalculatorPage"));
+
+// Programmatic SEO pages (data-driven; see src/data/programmatic/manifest.json)
+const SalaryProgrammaticPage = lazy(() =>
+  import("./pages/programmatic/ProgrammaticPage").then((m) => ({ default: m.SalaryProgrammaticPage }))
+);
+const MortgageProgrammaticPage = lazy(() =>
+  import("./pages/programmatic/ProgrammaticPage").then((m) => ({ default: m.MortgageProgrammaticPage }))
+);
+const AutoLoanProgrammaticPage = lazy(() =>
+  import("./pages/programmatic/ProgrammaticPage").then((m) => ({ default: m.AutoLoanProgrammaticPage }))
+);
+const GrowthProgrammaticPage = lazy(() =>
+  import("./pages/programmatic/ProgrammaticPage").then((m) => ({ default: m.GrowthProgrammaticPage }))
+);
 
 // Embed pages
 const EmbedSavingsPage = lazy(() => import("./pages/EmbedSavingsPage"));
@@ -104,6 +123,46 @@ const App = () => {
                     </Suspense>
                   } 
                 />
+                <Route
+                  path="/calculators/salary-to-hourly"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <SalaryToHourlyPage />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/calculators/coast-fire"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <CoastFirePage />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/calculators/cd"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <CDCalculatorPage />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/calculators/hysa"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <HYSAPage />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/calculators/rmd"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <RMDCalculatorPage />
+                    </Suspense>
+                  }
+                />
                 {/* Embed routes */}
                 <Route 
                   path="/embed/savings" 
@@ -145,6 +204,40 @@ const App = () => {
                   element={
                     <Suspense fallback={<PageLoadingSpinner />}>
                       <BlogPostTemplate />
+                    </Suspense>
+                  }
+                />
+
+                {/* Programmatic SEO pages (src/data/programmatic/manifest.json) */}
+                <Route
+                  path="/salary/:slug"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <SalaryProgrammaticPage />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/mortgage/:slug"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <MortgageProgrammaticPage />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/auto-loan/:slug"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <AutoLoanProgrammaticPage />
+                    </Suspense>
+                  }
+                />
+                <Route
+                  path="/savings/:slug"
+                  element={
+                    <Suspense fallback={<PageLoadingSpinner />}>
+                      <GrowthProgrammaticPage />
                     </Suspense>
                   }
                 />

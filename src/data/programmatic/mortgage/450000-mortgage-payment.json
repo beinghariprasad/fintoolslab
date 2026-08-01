@@ -1,0 +1,587 @@
+{
+  "slug": "450000-mortgage-payment",
+  "path": "/mortgage/450000-mortgage-payment",
+  "category": "mortgage",
+  "title": "$450,000 Mortgage Payment by Rate & Term (2026)",
+  "metaDescription": "A $450,000 mortgage costs $2,844.31/mo at 6.5% over 30 years ($3,919.98 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+  "hero": {
+    "chip": "Mortgage · 2026 rate table",
+    "titleBefore": "The $450,000 mortgage ",
+    "titleEm": "payment",
+    "titleAfter": ", at every rate.",
+    "lede": "Principal-and-interest payments on a $450,000 home loan across 5.0%–7.5% rates and 15/30-year terms, plus total interest, a first-year amortization schedule, and the income the 28% rule implies.",
+    "meta": [
+      {
+        "label": "Rates shown",
+        "value": "5.0%–7.5%"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Mortgage Calculator",
+        "href": "/calculators/mortgage"
+      },
+      {
+        "label": "$450,000 mortgage"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "2,844.31",
+      "label": "Monthly P&I · $450,000 at 6.5%, 30-year fixed",
+      "features": [
+        "$3,919.98/mo on a 15-year term",
+        "$573,952 total interest over 30 yrs",
+        "≈ $121,899 income under the 28% rule",
+        "Taxes, insurance & PMI not included"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "What does a $450,000 mortgage cost per month?",
+    "html": "<strong>A $450,000 mortgage costs about $2,844.31 a month</strong> in principal and interest at 6.5% on a 30-year fixed term, or $3,919.98 on a 15-year. Depending on your rate (5.0%–7.5%), the 30-year payment runs $2,415.70–$3,146.47. Total 30-year interest at 6.5%: $573,952."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Monthly payment",
+      "title": "$450,000 mortgage payment <em>by rate and term</em>.",
+      "columns": [
+        {
+          "label": "Interest rate"
+        },
+        {
+          "label": "15-year P&I",
+          "align": "r"
+        },
+        {
+          "label": "30-year P&I",
+          "align": "r"
+        },
+        {
+          "label": "Difference / mo",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "5.0%",
+          "$3,558.57",
+          {
+            "text": "$2,415.70",
+            "accent": false
+          },
+          "$1,142.87"
+        ],
+        [
+          "5.5%",
+          "$3,676.88",
+          {
+            "text": "$2,555.05",
+            "accent": false
+          },
+          "$1,121.83"
+        ],
+        [
+          "6.0%",
+          "$3,797.36",
+          {
+            "text": "$2,697.98",
+            "accent": false
+          },
+          "$1,099.38"
+        ],
+        [
+          "6.5% (used below)",
+          "$3,919.98",
+          {
+            "text": "$2,844.31",
+            "accent": true
+          },
+          "$1,075.67"
+        ],
+        [
+          "7.0%",
+          "$4,044.73",
+          {
+            "text": "$2,993.86",
+            "accent": false
+          },
+          "$1,050.87"
+        ],
+        [
+          "7.5%",
+          "$4,171.56",
+          {
+            "text": "$3,146.47",
+            "accent": false
+          },
+          "$1,025.09"
+        ]
+      ],
+      "note": "Principal and interest only — add property taxes, homeowners insurance, and PMI (if under 20% down) for the full monthly cost."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "The headline numbers",
+      "title": "What $450,000 of mortgage debt really costs.",
+      "paragraphs": [
+        "A $450,000 mortgage at 6.5% over 30 years costs <strong>$2,844.31 a month</strong> in principal and interest. The same loan on a 15-year term jumps to $3,919.98 monthly — but slashes lifetime interest from $573,952 to $255,596, a saving of $318,355.",
+        "A single percentage point matters enormously at this size: 6.0% versus 7.0% on a 30-year $450,000 loan is $295.88 more every month, or about $106,517 over 360 payments. That's why the payment table spans $2,415.70 (at 5.0%) to $3,146.47 (at 7.5%)."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Lifetime cost",
+      "title": "Total interest on $450,000 <em>over the full term</em>.",
+      "columns": [
+        {
+          "label": "Interest rate"
+        },
+        {
+          "label": "15-yr total interest",
+          "align": "r"
+        },
+        {
+          "label": "30-yr total interest",
+          "align": "r"
+        },
+        {
+          "label": "30-yr total repaid",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "5.0%",
+          "$190,543",
+          {
+            "text": "$419,652",
+            "accent": false
+          },
+          "$869,652"
+        ],
+        [
+          "5.5%",
+          "$211,838",
+          {
+            "text": "$469,818",
+            "accent": false
+          },
+          "$919,818"
+        ],
+        [
+          "6.0%",
+          "$233,525",
+          {
+            "text": "$521,273",
+            "accent": false
+          },
+          "$971,273"
+        ],
+        [
+          "6.5%",
+          "$255,596",
+          {
+            "text": "$573,952",
+            "accent": true
+          },
+          "$1,023,952"
+        ],
+        [
+          "7.0%",
+          "$278,051",
+          {
+            "text": "$627,790",
+            "accent": false
+          },
+          "$1,077,790"
+        ],
+        [
+          "7.5%",
+          "$300,881",
+          {
+            "text": "$682,729",
+            "accent": false
+          },
+          "$1,132,729"
+        ]
+      ],
+      "note": "At 6.5% on a 30-year term you repay $1,023,952 in total — 2.28× the amount borrowed."
+    },
+    {
+      "type": "table",
+      "eyebrow": "Year one · 6.5%, 30-year",
+      "title": "First-year amortization: where each payment <em>actually goes</em>.",
+      "columns": [
+        {
+          "label": "Month"
+        },
+        {
+          "label": "Payment",
+          "align": "r"
+        },
+        {
+          "label": "Interest",
+          "align": "r"
+        },
+        {
+          "label": "Principal",
+          "align": "r"
+        },
+        {
+          "label": "Balance",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "M01",
+          "$2,844.31",
+          {
+            "text": "$2,437.50",
+            "accent": true
+          },
+          "$406.81",
+          "$449,593.19"
+        ],
+        [
+          "M02",
+          "$2,844.31",
+          {
+            "text": "$2,435.30",
+            "accent": true
+          },
+          "$409.01",
+          "$449,184.18"
+        ],
+        [
+          "M03",
+          "$2,844.31",
+          {
+            "text": "$2,433.08",
+            "accent": true
+          },
+          "$411.23",
+          "$448,772.95"
+        ],
+        [
+          "M04",
+          "$2,844.31",
+          {
+            "text": "$2,430.85",
+            "accent": true
+          },
+          "$413.46",
+          "$448,359.49"
+        ],
+        [
+          "M05",
+          "$2,844.31",
+          {
+            "text": "$2,428.61",
+            "accent": true
+          },
+          "$415.70",
+          "$447,943.79"
+        ],
+        [
+          "M06",
+          "$2,844.31",
+          {
+            "text": "$2,426.36",
+            "accent": true
+          },
+          "$417.95",
+          "$447,525.84"
+        ],
+        [
+          "M07",
+          "$2,844.31",
+          {
+            "text": "$2,424.10",
+            "accent": true
+          },
+          "$420.21",
+          "$447,105.63"
+        ],
+        [
+          "M08",
+          "$2,844.31",
+          {
+            "text": "$2,421.82",
+            "accent": true
+          },
+          "$422.49",
+          "$446,683.14"
+        ],
+        [
+          "M09",
+          "$2,844.31",
+          {
+            "text": "$2,419.53",
+            "accent": true
+          },
+          "$424.78",
+          "$446,258.36"
+        ],
+        [
+          "M10",
+          "$2,844.31",
+          {
+            "text": "$2,417.23",
+            "accent": true
+          },
+          "$427.08",
+          "$445,831.28"
+        ],
+        [
+          "M11",
+          "$2,844.31",
+          {
+            "text": "$2,414.92",
+            "accent": true
+          },
+          "$429.39",
+          "$445,401.89"
+        ],
+        [
+          "M12",
+          "$2,844.31",
+          {
+            "text": "$2,412.59",
+            "accent": true
+          },
+          "$431.72",
+          "$444,970.17"
+        ]
+      ],
+      "note": "In year one you pay $29,102 of interest but only $5,030 of principal — early payments are mostly interest, which is why extra principal payments early on save so much."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Beyond P&I",
+      "title": "PMI, income needed, and the <em>rest of the bill</em>.",
+      "paragraphs": [
+        "If your down payment is under 20% of the purchase price, expect private mortgage insurance on top: typically 0.5–1% of the loan per year, or roughly $188–$375 a month on $450,000. With 20% down, a $450,000 loan corresponds to about a $562,500 home — and no PMI. Property taxes and homeowners insurance also come on top of every figure here.",
+        "Lenders often screen affordability with the 28% rule: housing below 28% of gross income. Covering $2,844.31 a month of P&I under that rule takes about $121,899 a year of income. Because taxes and insurance stack on top, real qualifying incomes run higher."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "Nearby loan amounts at 6.5%.",
+      "columns": [
+        {
+          "label": "Loan amount"
+        },
+        {
+          "label": "30-yr P&I",
+          "align": "r"
+        },
+        {
+          "label": "15-yr P&I",
+          "align": "r"
+        },
+        {
+          "label": "Income needed (28% rule)",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$300,000 loan",
+            "href": "/mortgage/300000-mortgage-payment"
+          },
+          {
+            "text": "$1,896.20"
+          },
+          {
+            "text": "$2,613.32"
+          },
+          {
+            "text": "$81,266"
+          }
+        ],
+        [
+          {
+            "text": "$350,000 loan",
+            "href": "/mortgage/350000-mortgage-payment"
+          },
+          {
+            "text": "$2,212.24"
+          },
+          {
+            "text": "$3,048.88"
+          },
+          {
+            "text": "$94,810"
+          }
+        ],
+        [
+          {
+            "text": "$400,000 loan",
+            "href": "/mortgage/400000-mortgage-payment"
+          },
+          {
+            "text": "$2,528.27"
+          },
+          {
+            "text": "$3,484.43"
+          },
+          {
+            "text": "$108,354"
+          }
+        ],
+        [
+          {
+            "text": "$450,000 loan (this page)",
+            "accent": true
+          },
+          {
+            "text": "$2,844.31"
+          },
+          {
+            "text": "$3,919.98"
+          },
+          {
+            "text": "$121,899"
+          }
+        ],
+        [
+          {
+            "text": "$500,000 loan",
+            "href": "/mortgage/500000-mortgage-payment"
+          },
+          {
+            "text": "$3,160.34"
+          },
+          {
+            "text": "$4,355.54"
+          },
+          {
+            "text": "$135,443"
+          }
+        ],
+        [
+          {
+            "text": "$550,000 loan",
+            "href": "/mortgage/550000-mortgage-payment"
+          },
+          {
+            "text": "$3,476.37"
+          },
+          {
+            "text": "$4,791.09"
+          },
+          {
+            "text": "$148,987"
+          }
+        ],
+        [
+          {
+            "text": "$600,000 loan",
+            "href": "/mortgage/600000-mortgage-payment"
+          },
+          {
+            "text": "$3,792.41"
+          },
+          {
+            "text": "$5,226.64"
+          },
+          {
+            "text": "$162,532"
+          }
+        ]
+      ],
+      "note": "Income column applies the 28% front-end rule to the 30-year P&I payment only; taxes and insurance push the real requirement higher."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is the monthly payment on a $450,000 mortgage?",
+      "a": "At 6.5% on a 30-year fixed, a $450,000 mortgage costs $2,844.31 a month in principal and interest. Across rates from 5.0% to 7.5%, the 30-year payment ranges from $2,415.70 to $3,146.47. Property taxes, insurance, and PMI come on top."
+    },
+    {
+      "q": "How much income do I need for a $450,000 mortgage?",
+      "a": "Using the 28% front-end rule on the $2,844.31 payment (6.5%, 30-year), you'd want roughly $121,899 of gross annual income for the principal and interest alone. Since lenders count taxes, insurance, PMI, and your other debts too, a comfortable qualifying income is typically higher."
+    },
+    {
+      "q": "How much interest will I pay on a $450,000 mortgage?",
+      "a": "At 6.5%, total interest comes to $573,952 over a 30-year term versus $255,596 over 15 years — the shorter term saves $318,355. In the first year alone the 30-year loan accrues $29,102 of interest against just $5,030 of principal reduction."
+    },
+    {
+      "q": "Is a 15-year or 30-year term better for a $450,000 loan?",
+      "a": "The 30-year payment ($2,844.31 at 6.5%) is $1,075.67 cheaper per month than the 15-year ($3,919.98), but costs $318,355 more in lifetime interest. Choose 15 years if the payment fits comfortably; otherwise take the 30-year and make extra principal payments when you can."
+    },
+    {
+      "q": "Does the $450,000 payment include taxes and insurance?",
+      "a": "No — every figure on this page is principal and interest only. Budget extra for property tax and homeowners insurance (often several hundred dollars monthly, varying by state), plus PMI of roughly $188–$375/month if your down payment is under 20%. With 20% down, $450,000 of financing corresponds to about a $562,500 purchase price."
+    }
+  ],
+  "cta": {
+    "label": "Your exact numbers",
+    "title": "Model your own rate, down payment, and term",
+    "text": "These tables use fixed rate steps. The interactive mortgage calculator handles any rate, adds PMI, property tax, and insurance, and builds the full 360-payment amortization schedule.",
+    "links": [
+      {
+        "label": "Mortgage Calculator",
+        "href": "/calculators/mortgage"
+      },
+      {
+        "label": "Rent vs. Buy Calculator",
+        "href": "/calculators/rent-vs-buy"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "Mortgage Calculator",
+      "desc": "Full PITI payment with PMI, taxes, and amortization.",
+      "mark": "MG",
+      "href": "/calculators/mortgage",
+      "cat": "Borrowing",
+      "time": "1 min"
+    },
+    {
+      "name": "Rent vs. Buy",
+      "desc": "Compare the true 10-year cost of renting against buying.",
+      "mark": "RB",
+      "href": "/calculators/rent-vs-buy",
+      "cat": "Real estate",
+      "time": "2 min"
+    },
+    {
+      "name": "Loan Calculator",
+      "desc": "Payments and amortization for any fixed-rate loan.",
+      "mark": "LN",
+      "href": "/calculators/loan",
+      "cat": "Borrowing",
+      "time": "30 sec"
+    },
+    {
+      "name": "Compound Interest",
+      "desc": "What the money you save on interest could earn instead.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    }
+  ],
+  "methodology": [
+    "Payments use the standard amortization formula M = P·r(1+r)ⁿ / ((1+r)ⁿ − 1) with monthly compounding, on a $450,000 principal. Rates shown (5.0%–7.5%) are illustrative steps, not quotes — your rate depends on credit, points, and the market.",
+    "The amortization table applies 6.5%/30-year, computing interest on the running balance each month and rounding to cents, the way a servicer statement does.",
+    "All figures are principal and interest only. Property tax, homeowners insurance, HOA dues, and PMI are excluded except where explicitly estimated (PMI shown at 0.5–1% of the loan per year).",
+    "Income-needed figures apply the 28% front-end ratio to P&I only. Educational estimates — not lending, tax, or financial advice."
+  ],
+  "dateModified": "2026-08-01"
+}

@@ -1,0 +1,1364 @@
+{
+  "pages": [
+    {
+      "slug": "30000-a-year-is-how-much-an-hour",
+      "path": "/salary/30000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$30,000 a Year Is How Much an Hour? (2026)",
+      "description": "$30,000 a year is $14.42/hour at 40 hrs/week — $576.92 weekly, $2,500 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/salary/30000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "15-an-hour-is-how-much-a-year",
+      "path": "/salary/15-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$15 an Hour Is How Much a Year? (2026)",
+      "description": "$15/hour is $31,200 a year at 40 hrs/week — $2,600 monthly, $1,200.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/hourly/15-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "100000-mortgage-payment",
+      "path": "/mortgage/100000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$100,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $100,000 mortgage costs $632.07/mo at 6.5% over 30 years ($871.11 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/mortgage/100000-mortgage-payment.json"
+    },
+    {
+      "slug": "15000-car-loan-payment",
+      "path": "/auto-loan/15000-car-loan-payment",
+      "category": "auto-loan",
+      "title": "$15,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+      "description": "A $15,000 car loan costs $297.02/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/auto-loan/15000-car-loan-payment.json"
+    },
+    {
+      "slug": "how-much-will-1000-grow-in-20-years",
+      "path": "/savings/how-much-will-1000-grow-in-20-years",
+      "category": "growth",
+      "title": "How Much Will $1,000 Grow in 20 Years? (2026)",
+      "description": "$1,000 grows to $3,870 in 20 years at 7% — and $6,728 at 10%. See growth tables for 4–10% returns, 5–30 year horizons, and monthly contributions.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/growth/how-much-will-1000-grow-in-20-years.json"
+    },
+    {
+      "slug": "35000-a-year-is-how-much-an-hour",
+      "path": "/salary/35000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$35,000 a Year Is How Much an Hour? (2026)",
+      "description": "$35,000 a year is $16.83/hour at 40 hrs/week — $673.08 weekly, $2,917 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/salary/35000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "16-an-hour-is-how-much-a-year",
+      "path": "/salary/16-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$16 an Hour Is How Much a Year? (2026)",
+      "description": "$16/hour is $33,280 a year at 40 hrs/week — $2,773 monthly, $1,280.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/hourly/16-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "150000-mortgage-payment",
+      "path": "/mortgage/150000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$150,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $150,000 mortgage costs $948.10/mo at 6.5% over 30 years ($1,306.66 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/mortgage/150000-mortgage-payment.json"
+    },
+    {
+      "slug": "20000-car-loan-payment",
+      "path": "/auto-loan/20000-car-loan-payment",
+      "category": "auto-loan",
+      "title": "$20,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+      "description": "A $20,000 car loan costs $396.02/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/auto-loan/20000-car-loan-payment.json"
+    },
+    {
+      "slug": "how-much-will-5000-grow-in-20-years",
+      "path": "/savings/how-much-will-5000-grow-in-20-years",
+      "category": "growth",
+      "title": "How Much Will $5,000 Grow in 20 Years? (2026)",
+      "description": "$5,000 grows to $19,348 in 20 years at 7% — and $33,638 at 10%. See growth tables for 4–10% returns, 5–30 year horizons, and monthly contributions.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/growth/how-much-will-5000-grow-in-20-years.json"
+    },
+    {
+      "slug": "40000-a-year-is-how-much-an-hour",
+      "path": "/salary/40000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$40,000 a Year Is How Much an Hour? (2026)",
+      "description": "$40,000 a year is $19.23/hour at 40 hrs/week — $769.23 weekly, $3,333 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/salary/40000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "17-an-hour-is-how-much-a-year",
+      "path": "/salary/17-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$17 an Hour Is How Much a Year? (2026)",
+      "description": "$17/hour is $35,360 a year at 40 hrs/week — $2,947 monthly, $1,360.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/hourly/17-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "200000-mortgage-payment",
+      "path": "/mortgage/200000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$200,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $200,000 mortgage costs $1,264.14/mo at 6.5% over 30 years ($1,742.21 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/mortgage/200000-mortgage-payment.json"
+    },
+    {
+      "slug": "25000-car-loan-payment",
+      "path": "/auto-loan/25000-car-loan-payment",
+      "category": "auto-loan",
+      "title": "$25,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+      "description": "A $25,000 car loan costs $495.03/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/auto-loan/25000-car-loan-payment.json"
+    },
+    {
+      "slug": "how-much-will-10000-grow-in-20-years",
+      "path": "/savings/how-much-will-10000-grow-in-20-years",
+      "category": "growth",
+      "title": "How Much Will $10,000 Grow in 20 Years? (2026)",
+      "description": "$10,000 grows to $38,697 in 20 years at 7% — and $67,275 at 10%. See growth tables for 4–10% returns, 5–30 year horizons, and monthly contributions.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/growth/how-much-will-10000-grow-in-20-years.json"
+    },
+    {
+      "slug": "42000-a-year-is-how-much-an-hour",
+      "path": "/salary/42000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$42,000 a Year Is How Much an Hour? (2026)",
+      "description": "$42,000 a year is $20.19/hour at 40 hrs/week — $807.69 weekly, $3,500 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/salary/42000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "18-an-hour-is-how-much-a-year",
+      "path": "/salary/18-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$18 an Hour Is How Much a Year? (2026)",
+      "description": "$18/hour is $37,440 a year at 40 hrs/week — $3,120 monthly, $1,440.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/hourly/18-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "250000-mortgage-payment",
+      "path": "/mortgage/250000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$250,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $250,000 mortgage costs $1,580.17/mo at 6.5% over 30 years ($2,177.77 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/mortgage/250000-mortgage-payment.json"
+    },
+    {
+      "slug": "30000-car-loan-payment",
+      "path": "/auto-loan/30000-car-loan-payment",
+      "category": "auto-loan",
+      "title": "$30,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+      "description": "A $30,000 car loan costs $594.04/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/auto-loan/30000-car-loan-payment.json"
+    },
+    {
+      "slug": "how-much-will-20000-grow-in-20-years",
+      "path": "/savings/how-much-will-20000-grow-in-20-years",
+      "category": "growth",
+      "title": "How Much Will $20,000 Grow in 20 Years? (2026)",
+      "description": "$20,000 grows to $77,394 in 20 years at 7% — and $134,550 at 10%. See growth tables for 4–10% returns, 5–30 year horizons, and monthly contributions.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/growth/how-much-will-20000-grow-in-20-years.json"
+    },
+    {
+      "slug": "45000-a-year-is-how-much-an-hour",
+      "path": "/salary/45000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$45,000 a Year Is How Much an Hour? (2026)",
+      "description": "$45,000 a year is $21.63/hour at 40 hrs/week — $865.38 weekly, $3,750 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/salary/45000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "19-an-hour-is-how-much-a-year",
+      "path": "/salary/19-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$19 an Hour Is How Much a Year? (2026)",
+      "description": "$19/hour is $39,520 a year at 40 hrs/week — $3,293 monthly, $1,520.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/hourly/19-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "300000-mortgage-payment",
+      "path": "/mortgage/300000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$300,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $300,000 mortgage costs $1,896.20/mo at 6.5% over 30 years ($2,613.32 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/mortgage/300000-mortgage-payment.json"
+    },
+    {
+      "slug": "35000-car-loan-payment",
+      "path": "/auto-loan/35000-car-loan-payment",
+      "category": "auto-loan",
+      "title": "$35,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+      "description": "A $35,000 car loan costs $693.04/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/auto-loan/35000-car-loan-payment.json"
+    },
+    {
+      "slug": "how-much-will-25000-grow-in-20-years",
+      "path": "/savings/how-much-will-25000-grow-in-20-years",
+      "category": "growth",
+      "title": "How Much Will $25,000 Grow in 20 Years? (2026)",
+      "description": "$25,000 grows to $96,742 in 20 years at 7% — and $168,188 at 10%. See growth tables for 4–10% returns, 5–30 year horizons, and monthly contributions.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/growth/how-much-will-25000-grow-in-20-years.json"
+    },
+    {
+      "slug": "47000-a-year-is-how-much-an-hour",
+      "path": "/salary/47000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$47,000 a Year Is How Much an Hour? (2026)",
+      "description": "$47,000 a year is $22.60/hour at 40 hrs/week — $903.85 weekly, $3,917 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/salary/47000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "20-an-hour-is-how-much-a-year",
+      "path": "/salary/20-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$20 an Hour Is How Much a Year? (2026)",
+      "description": "$20/hour is $41,600 a year at 40 hrs/week — $3,467 monthly, $1,600.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/hourly/20-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "350000-mortgage-payment",
+      "path": "/mortgage/350000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$350,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $350,000 mortgage costs $2,212.24/mo at 6.5% over 30 years ($3,048.88 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/mortgage/350000-mortgage-payment.json"
+    },
+    {
+      "slug": "40000-car-loan-payment",
+      "path": "/auto-loan/40000-car-loan-payment",
+      "category": "auto-loan",
+      "title": "$40,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+      "description": "A $40,000 car loan costs $792.05/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/auto-loan/40000-car-loan-payment.json"
+    },
+    {
+      "slug": "how-much-will-50000-grow-in-20-years",
+      "path": "/savings/how-much-will-50000-grow-in-20-years",
+      "category": "growth",
+      "title": "How Much Will $50,000 Grow in 20 Years? (2026)",
+      "description": "$50,000 grows to $193,484 in 20 years at 7% — and $336,375 at 10%. See growth tables for 4–10% returns, 5–30 year horizons, and monthly contributions.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/growth/how-much-will-50000-grow-in-20-years.json"
+    },
+    {
+      "slug": "50000-a-year-is-how-much-an-hour",
+      "path": "/salary/50000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$50,000 a Year Is How Much an Hour? (2026)",
+      "description": "$50,000 a year is $24.04/hour at 40 hrs/week — $961.54 weekly, $4,167 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/salary/50000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "21-an-hour-is-how-much-a-year",
+      "path": "/salary/21-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$21 an Hour Is How Much a Year? (2026)",
+      "description": "$21/hour is $43,680 a year at 40 hrs/week — $3,640 monthly, $1,680.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/hourly/21-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "400000-mortgage-payment",
+      "path": "/mortgage/400000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$400,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $400,000 mortgage costs $2,528.27/mo at 6.5% over 30 years ($3,484.43 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/mortgage/400000-mortgage-payment.json"
+    },
+    {
+      "slug": "45000-car-loan-payment",
+      "path": "/auto-loan/45000-car-loan-payment",
+      "category": "auto-loan",
+      "title": "$45,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+      "description": "A $45,000 car loan costs $891.05/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/auto-loan/45000-car-loan-payment.json"
+    },
+    {
+      "slug": "how-much-will-100000-grow-in-20-years",
+      "path": "/savings/how-much-will-100000-grow-in-20-years",
+      "category": "growth",
+      "title": "How Much Will $100,000 Grow in 20 Years? (2026)",
+      "description": "$100,000 grows to $386,968 in 20 years at 7% — and $672,750 at 10%. See growth tables for 4–10% returns, 5–30 year horizons, and monthly contributions.",
+      "batch": 1,
+      "published": true,
+      "dataFile": "src/data/programmatic/growth/how-much-will-100000-grow-in-20-years.json"
+    },
+    {
+      "slug": "52000-a-year-is-how-much-an-hour",
+      "path": "/salary/52000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$52,000 a Year Is How Much an Hour? (2026)",
+      "description": "$52,000 a year is $25.00/hour at 40 hrs/week — $1,000.00 weekly, $4,333 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/52000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "22-an-hour-is-how-much-a-year",
+      "path": "/salary/22-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$22 an Hour Is How Much a Year? (2026)",
+      "description": "$22/hour is $45,760 a year at 40 hrs/week — $3,813 monthly, $1,760.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/22-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "450000-mortgage-payment",
+      "path": "/mortgage/450000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$450,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $450,000 mortgage costs $2,844.31/mo at 6.5% over 30 years ($3,919.98 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/450000-mortgage-payment.json"
+    },
+    {
+      "slug": "50000-car-loan-payment",
+      "path": "/auto-loan/50000-car-loan-payment",
+      "category": "auto-loan",
+      "title": "$50,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+      "description": "A $50,000 car loan costs $990.06/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/auto-loan/50000-car-loan-payment.json"
+    },
+    {
+      "slug": "how-much-will-250000-grow-in-20-years",
+      "path": "/savings/how-much-will-250000-grow-in-20-years",
+      "category": "growth",
+      "title": "How Much Will $250,000 Grow in 20 Years? (2026)",
+      "description": "$250,000 grows to $967,421 in 20 years at 7% — and $1,681,875 at 10%. See growth tables for 4–10% returns, 5–30 year horizons, and monthly contributions.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/growth/how-much-will-250000-grow-in-20-years.json"
+    },
+    {
+      "slug": "55000-a-year-is-how-much-an-hour",
+      "path": "/salary/55000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$55,000 a Year Is How Much an Hour? (2026)",
+      "description": "$55,000 a year is $26.44/hour at 40 hrs/week — $1,057.69 weekly, $4,583 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/55000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "23-an-hour-is-how-much-a-year",
+      "path": "/salary/23-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$23 an Hour Is How Much a Year? (2026)",
+      "description": "$23/hour is $47,840 a year at 40 hrs/week — $3,987 monthly, $1,840.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/23-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "500000-mortgage-payment",
+      "path": "/mortgage/500000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$500,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $500,000 mortgage costs $3,160.34/mo at 6.5% over 30 years ($4,355.54 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/500000-mortgage-payment.json"
+    },
+    {
+      "slug": "55000-car-loan-payment",
+      "path": "/auto-loan/55000-car-loan-payment",
+      "category": "auto-loan",
+      "title": "$55,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+      "description": "A $55,000 car loan costs $1,089.07/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/auto-loan/55000-car-loan-payment.json"
+    },
+    {
+      "slug": "58000-a-year-is-how-much-an-hour",
+      "path": "/salary/58000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$58,000 a Year Is How Much an Hour? (2026)",
+      "description": "$58,000 a year is $27.88/hour at 40 hrs/week — $1,115.38 weekly, $4,833 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/58000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "24-an-hour-is-how-much-a-year",
+      "path": "/salary/24-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$24 an Hour Is How Much a Year? (2026)",
+      "description": "$24/hour is $49,920 a year at 40 hrs/week — $4,160 monthly, $1,920.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/24-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "550000-mortgage-payment",
+      "path": "/mortgage/550000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$550,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $550,000 mortgage costs $3,476.37/mo at 6.5% over 30 years ($4,791.09 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/550000-mortgage-payment.json"
+    },
+    {
+      "slug": "60000-car-loan-payment",
+      "path": "/auto-loan/60000-car-loan-payment",
+      "category": "auto-loan",
+      "title": "$60,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+      "description": "A $60,000 car loan costs $1,188.07/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/auto-loan/60000-car-loan-payment.json"
+    },
+    {
+      "slug": "60000-a-year-is-how-much-an-hour",
+      "path": "/salary/60000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$60,000 a Year Is How Much an Hour? (2026)",
+      "description": "$60,000 a year is $28.85/hour at 40 hrs/week — $1,153.85 weekly, $5,000 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/60000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "25-an-hour-is-how-much-a-year",
+      "path": "/salary/25-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$25 an Hour Is How Much a Year? (2026)",
+      "description": "$25/hour is $52,000 a year at 40 hrs/week — $4,333 monthly, $2,000.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/25-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "600000-mortgage-payment",
+      "path": "/mortgage/600000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$600,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $600,000 mortgage costs $3,792.41/mo at 6.5% over 30 years ($5,226.64 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/600000-mortgage-payment.json"
+    },
+    {
+      "slug": "62000-a-year-is-how-much-an-hour",
+      "path": "/salary/62000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$62,000 a Year Is How Much an Hour? (2026)",
+      "description": "$62,000 a year is $29.81/hour at 40 hrs/week — $1,192.31 weekly, $5,167 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/62000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "26-an-hour-is-how-much-a-year",
+      "path": "/salary/26-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$26 an Hour Is How Much a Year? (2026)",
+      "description": "$26/hour is $54,080 a year at 40 hrs/week — $4,507 monthly, $2,080.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/26-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "650000-mortgage-payment",
+      "path": "/mortgage/650000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$650,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $650,000 mortgage costs $4,108.44/mo at 6.5% over 30 years ($5,662.20 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/650000-mortgage-payment.json"
+    },
+    {
+      "slug": "65000-a-year-is-how-much-an-hour",
+      "path": "/salary/65000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$65,000 a Year Is How Much an Hour? (2026)",
+      "description": "$65,000 a year is $31.25/hour at 40 hrs/week — $1,250.00 weekly, $5,417 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/65000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "27-an-hour-is-how-much-a-year",
+      "path": "/salary/27-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$27 an Hour Is How Much a Year? (2026)",
+      "description": "$27/hour is $56,160 a year at 40 hrs/week — $4,680 monthly, $2,160.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/27-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "700000-mortgage-payment",
+      "path": "/mortgage/700000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$700,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $700,000 mortgage costs $4,424.48/mo at 6.5% over 30 years ($6,097.75 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/700000-mortgage-payment.json"
+    },
+    {
+      "slug": "68000-a-year-is-how-much-an-hour",
+      "path": "/salary/68000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$68,000 a Year Is How Much an Hour? (2026)",
+      "description": "$68,000 a year is $32.69/hour at 40 hrs/week — $1,307.69 weekly, $5,667 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/68000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "28-an-hour-is-how-much-a-year",
+      "path": "/salary/28-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$28 an Hour Is How Much a Year? (2026)",
+      "description": "$28/hour is $58,240 a year at 40 hrs/week — $4,853 monthly, $2,240.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/28-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "750000-mortgage-payment",
+      "path": "/mortgage/750000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$750,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $750,000 mortgage costs $4,740.51/mo at 6.5% over 30 years ($6,533.31 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/750000-mortgage-payment.json"
+    },
+    {
+      "slug": "70000-a-year-is-how-much-an-hour",
+      "path": "/salary/70000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$70,000 a Year Is How Much an Hour? (2026)",
+      "description": "$70,000 a year is $33.65/hour at 40 hrs/week — $1,346.15 weekly, $5,833 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 2,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/70000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "29-an-hour-is-how-much-a-year",
+      "path": "/salary/29-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$29 an Hour Is How Much a Year? (2026)",
+      "description": "$29/hour is $60,320 a year at 40 hrs/week — $5,027 monthly, $2,320.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/29-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "800000-mortgage-payment",
+      "path": "/mortgage/800000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$800,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $800,000 mortgage costs $5,056.54/mo at 6.5% over 30 years ($6,968.86 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/800000-mortgage-payment.json"
+    },
+    {
+      "slug": "72000-a-year-is-how-much-an-hour",
+      "path": "/salary/72000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$72,000 a Year Is How Much an Hour? (2026)",
+      "description": "$72,000 a year is $34.62/hour at 40 hrs/week — $1,384.62 weekly, $6,000 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/72000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "30-an-hour-is-how-much-a-year",
+      "path": "/salary/30-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$30 an Hour Is How Much a Year? (2026)",
+      "description": "$30/hour is $62,400 a year at 40 hrs/week — $5,200 monthly, $2,400.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/30-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "850000-mortgage-payment",
+      "path": "/mortgage/850000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$850,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $850,000 mortgage costs $5,372.58/mo at 6.5% over 30 years ($7,404.41 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/850000-mortgage-payment.json"
+    },
+    {
+      "slug": "75000-a-year-is-how-much-an-hour",
+      "path": "/salary/75000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$75,000 a Year Is How Much an Hour? (2026)",
+      "description": "$75,000 a year is $36.06/hour at 40 hrs/week — $1,442.31 weekly, $6,250 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/75000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "31-an-hour-is-how-much-a-year",
+      "path": "/salary/31-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$31 an Hour Is How Much a Year? (2026)",
+      "description": "$31/hour is $64,480 a year at 40 hrs/week — $5,373 monthly, $2,480.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/31-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "900000-mortgage-payment",
+      "path": "/mortgage/900000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$900,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $900,000 mortgage costs $5,688.61/mo at 6.5% over 30 years ($7,839.97 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/900000-mortgage-payment.json"
+    },
+    {
+      "slug": "78000-a-year-is-how-much-an-hour",
+      "path": "/salary/78000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$78,000 a Year Is How Much an Hour? (2026)",
+      "description": "$78,000 a year is $37.50/hour at 40 hrs/week — $1,500.00 weekly, $6,500 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/78000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "32-an-hour-is-how-much-a-year",
+      "path": "/salary/32-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$32 an Hour Is How Much a Year? (2026)",
+      "description": "$32/hour is $66,560 a year at 40 hrs/week — $5,547 monthly, $2,560.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/32-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "950000-mortgage-payment",
+      "path": "/mortgage/950000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$950,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $950,000 mortgage costs $6,004.65/mo at 6.5% over 30 years ($8,275.52 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/950000-mortgage-payment.json"
+    },
+    {
+      "slug": "80000-a-year-is-how-much-an-hour",
+      "path": "/salary/80000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$80,000 a Year Is How Much an Hour? (2026)",
+      "description": "$80,000 a year is $38.46/hour at 40 hrs/week — $1,538.46 weekly, $6,667 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/80000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "33-an-hour-is-how-much-a-year",
+      "path": "/salary/33-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$33 an Hour Is How Much a Year? (2026)",
+      "description": "$33/hour is $68,640 a year at 40 hrs/week — $5,720 monthly, $2,640.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/33-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "1000000-mortgage-payment",
+      "path": "/mortgage/1000000-mortgage-payment",
+      "category": "mortgage",
+      "title": "$1,000,000 Mortgage Payment by Rate & Term (2026)",
+      "description": "A $1,000,000 mortgage costs $6,320.68/mo at 6.5% over 30 years ($8,711.07 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/mortgage/1000000-mortgage-payment.json"
+    },
+    {
+      "slug": "85000-a-year-is-how-much-an-hour",
+      "path": "/salary/85000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$85,000 a Year Is How Much an Hour? (2026)",
+      "description": "$85,000 a year is $40.87/hour at 40 hrs/week — $1,634.62 weekly, $7,083 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/85000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "34-an-hour-is-how-much-a-year",
+      "path": "/salary/34-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$34 an Hour Is How Much a Year? (2026)",
+      "description": "$34/hour is $70,720 a year at 40 hrs/week — $5,893 monthly, $2,720.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/34-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "90000-a-year-is-how-much-an-hour",
+      "path": "/salary/90000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$90,000 a Year Is How Much an Hour? (2026)",
+      "description": "$90,000 a year is $43.27/hour at 40 hrs/week — $1,730.77 weekly, $7,500 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/90000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "35-an-hour-is-how-much-a-year",
+      "path": "/salary/35-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$35 an Hour Is How Much a Year? (2026)",
+      "description": "$35/hour is $72,800 a year at 40 hrs/week — $6,067 monthly, $2,800.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/35-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "95000-a-year-is-how-much-an-hour",
+      "path": "/salary/95000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$95,000 a Year Is How Much an Hour? (2026)",
+      "description": "$95,000 a year is $45.67/hour at 40 hrs/week — $1,826.92 weekly, $7,917 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/95000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "36-an-hour-is-how-much-a-year",
+      "path": "/salary/36-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$36 an Hour Is How Much a Year? (2026)",
+      "description": "$36/hour is $74,880 a year at 40 hrs/week — $6,240 monthly, $2,880.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/36-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "100000-a-year-is-how-much-an-hour",
+      "path": "/salary/100000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$100,000 a Year Is How Much an Hour? (2026)",
+      "description": "$100,000 a year is $48.08/hour at 40 hrs/week — $1,923.08 weekly, $8,333 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/100000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "37-an-hour-is-how-much-a-year",
+      "path": "/salary/37-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$37 an Hour Is How Much a Year? (2026)",
+      "description": "$37/hour is $76,960 a year at 40 hrs/week — $6,413 monthly, $2,960.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/37-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "105000-a-year-is-how-much-an-hour",
+      "path": "/salary/105000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$105,000 a Year Is How Much an Hour? (2026)",
+      "description": "$105,000 a year is $50.48/hour at 40 hrs/week — $2,019.23 weekly, $8,750 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/105000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "38-an-hour-is-how-much-a-year",
+      "path": "/salary/38-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$38 an Hour Is How Much a Year? (2026)",
+      "description": "$38/hour is $79,040 a year at 40 hrs/week — $6,587 monthly, $3,040.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/38-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "110000-a-year-is-how-much-an-hour",
+      "path": "/salary/110000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$110,000 a Year Is How Much an Hour? (2026)",
+      "description": "$110,000 a year is $52.88/hour at 40 hrs/week — $2,115.38 weekly, $9,167 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 3,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/110000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "39-an-hour-is-how-much-a-year",
+      "path": "/salary/39-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$39 an Hour Is How Much a Year? (2026)",
+      "description": "$39/hour is $81,120 a year at 40 hrs/week — $6,760 monthly, $3,120.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/39-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "115000-a-year-is-how-much-an-hour",
+      "path": "/salary/115000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$115,000 a Year Is How Much an Hour? (2026)",
+      "description": "$115,000 a year is $55.29/hour at 40 hrs/week — $2,211.54 weekly, $9,583 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/115000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "40-an-hour-is-how-much-a-year",
+      "path": "/salary/40-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$40 an Hour Is How Much a Year? (2026)",
+      "description": "$40/hour is $83,200 a year at 40 hrs/week — $6,933 monthly, $3,200.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/40-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "120000-a-year-is-how-much-an-hour",
+      "path": "/salary/120000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$120,000 a Year Is How Much an Hour? (2026)",
+      "description": "$120,000 a year is $57.69/hour at 40 hrs/week — $2,307.69 weekly, $10,000 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/120000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "45-an-hour-is-how-much-a-year",
+      "path": "/salary/45-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$45 an Hour Is How Much a Year? (2026)",
+      "description": "$45/hour is $93,600 a year at 40 hrs/week — $7,800 monthly, $3,600.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/45-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "31000-a-year-is-how-much-an-hour",
+      "path": "/salary/31000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$31,000 a Year Is How Much an Hour? (2026)",
+      "description": "$31,000 a year is $14.90/hour at 40 hrs/week — $596.15 weekly, $2,583 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/31000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "50-an-hour-is-how-much-a-year",
+      "path": "/salary/50-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$50 an Hour Is How Much a Year? (2026)",
+      "description": "$50/hour is $104,000 a year at 40 hrs/week — $8,667 monthly, $4,000.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/50-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "32000-a-year-is-how-much-an-hour",
+      "path": "/salary/32000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$32,000 a Year Is How Much an Hour? (2026)",
+      "description": "$32,000 a year is $15.38/hour at 40 hrs/week — $615.38 weekly, $2,667 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/32000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "55-an-hour-is-how-much-a-year",
+      "path": "/salary/55-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$55 an Hour Is How Much a Year? (2026)",
+      "description": "$55/hour is $114,400 a year at 40 hrs/week — $9,533 monthly, $4,400.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/55-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "33000-a-year-is-how-much-an-hour",
+      "path": "/salary/33000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$33,000 a Year Is How Much an Hour? (2026)",
+      "description": "$33,000 a year is $15.87/hour at 40 hrs/week — $634.62 weekly, $2,750 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/33000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "60-an-hour-is-how-much-a-year",
+      "path": "/salary/60-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$60 an Hour Is How Much a Year? (2026)",
+      "description": "$60/hour is $124,800 a year at 40 hrs/week — $10,400 monthly, $4,800.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/60-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "34000-a-year-is-how-much-an-hour",
+      "path": "/salary/34000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$34,000 a Year Is How Much an Hour? (2026)",
+      "description": "$34,000 a year is $16.35/hour at 40 hrs/week — $653.85 weekly, $2,833 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/34000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "41-an-hour-is-how-much-a-year",
+      "path": "/salary/41-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$41 an Hour Is How Much a Year? (2026)",
+      "description": "$41/hour is $85,280 a year at 40 hrs/week — $7,107 monthly, $3,280.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/41-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "36000-a-year-is-how-much-an-hour",
+      "path": "/salary/36000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$36,000 a Year Is How Much an Hour? (2026)",
+      "description": "$36,000 a year is $17.31/hour at 40 hrs/week — $692.31 weekly, $3,000 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/36000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "42-an-hour-is-how-much-a-year",
+      "path": "/salary/42-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$42 an Hour Is How Much a Year? (2026)",
+      "description": "$42/hour is $87,360 a year at 40 hrs/week — $7,280 monthly, $3,360.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/42-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "37000-a-year-is-how-much-an-hour",
+      "path": "/salary/37000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$37,000 a Year Is How Much an Hour? (2026)",
+      "description": "$37,000 a year is $17.79/hour at 40 hrs/week — $711.54 weekly, $3,083 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/37000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "43-an-hour-is-how-much-a-year",
+      "path": "/salary/43-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$43 an Hour Is How Much a Year? (2026)",
+      "description": "$43/hour is $89,440 a year at 40 hrs/week — $7,453 monthly, $3,440.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/43-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "38000-a-year-is-how-much-an-hour",
+      "path": "/salary/38000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$38,000 a Year Is How Much an Hour? (2026)",
+      "description": "$38,000 a year is $18.27/hour at 40 hrs/week — $730.77 weekly, $3,167 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/38000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "44-an-hour-is-how-much-a-year",
+      "path": "/salary/44-an-hour-is-how-much-a-year",
+      "category": "hourly",
+      "title": "$44 an Hour Is How Much a Year? (2026)",
+      "description": "$44/hour is $91,520 a year at 40 hrs/week — $7,627 monthly, $3,520.00 biweekly. See overtime pay tables and a 2026 federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/hourly/44-an-hour-is-how-much-a-year.json"
+    },
+    {
+      "slug": "39000-a-year-is-how-much-an-hour",
+      "path": "/salary/39000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$39,000 a Year Is How Much an Hour? (2026)",
+      "description": "$39,000 a year is $18.75/hour at 40 hrs/week — $750.00 weekly, $3,250 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/39000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "41000-a-year-is-how-much-an-hour",
+      "path": "/salary/41000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$41,000 a Year Is How Much an Hour? (2026)",
+      "description": "$41,000 a year is $19.71/hour at 40 hrs/week — $788.46 weekly, $3,417 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/41000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "43000-a-year-is-how-much-an-hour",
+      "path": "/salary/43000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$43,000 a Year Is How Much an Hour? (2026)",
+      "description": "$43,000 a year is $20.67/hour at 40 hrs/week — $826.92 weekly, $3,583 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/43000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "44000-a-year-is-how-much-an-hour",
+      "path": "/salary/44000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$44,000 a Year Is How Much an Hour? (2026)",
+      "description": "$44,000 a year is $21.15/hour at 40 hrs/week — $846.15 weekly, $3,667 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/44000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "46000-a-year-is-how-much-an-hour",
+      "path": "/salary/46000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$46,000 a Year Is How Much an Hour? (2026)",
+      "description": "$46,000 a year is $22.12/hour at 40 hrs/week — $884.62 weekly, $3,833 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/46000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "48000-a-year-is-how-much-an-hour",
+      "path": "/salary/48000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$48,000 a Year Is How Much an Hour? (2026)",
+      "description": "$48,000 a year is $23.08/hour at 40 hrs/week — $923.08 weekly, $4,000 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 4,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/48000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "49000-a-year-is-how-much-an-hour",
+      "path": "/salary/49000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$49,000 a Year Is How Much an Hour? (2026)",
+      "description": "$49,000 a year is $23.56/hour at 40 hrs/week — $942.31 weekly, $4,083 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/49000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "51000-a-year-is-how-much-an-hour",
+      "path": "/salary/51000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$51,000 a Year Is How Much an Hour? (2026)",
+      "description": "$51,000 a year is $24.52/hour at 40 hrs/week — $980.77 weekly, $4,250 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/51000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "53000-a-year-is-how-much-an-hour",
+      "path": "/salary/53000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$53,000 a Year Is How Much an Hour? (2026)",
+      "description": "$53,000 a year is $25.48/hour at 40 hrs/week — $1,019.23 weekly, $4,417 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/53000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "54000-a-year-is-how-much-an-hour",
+      "path": "/salary/54000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$54,000 a Year Is How Much an Hour? (2026)",
+      "description": "$54,000 a year is $25.96/hour at 40 hrs/week — $1,038.46 weekly, $4,500 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/54000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "56000-a-year-is-how-much-an-hour",
+      "path": "/salary/56000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$56,000 a Year Is How Much an Hour? (2026)",
+      "description": "$56,000 a year is $26.92/hour at 40 hrs/week — $1,076.92 weekly, $4,667 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/56000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "57000-a-year-is-how-much-an-hour",
+      "path": "/salary/57000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$57,000 a Year Is How Much an Hour? (2026)",
+      "description": "$57,000 a year is $27.40/hour at 40 hrs/week — $1,096.15 weekly, $4,750 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/57000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "59000-a-year-is-how-much-an-hour",
+      "path": "/salary/59000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$59,000 a Year Is How Much an Hour? (2026)",
+      "description": "$59,000 a year is $28.37/hour at 40 hrs/week — $1,134.62 weekly, $4,917 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/59000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "61000-a-year-is-how-much-an-hour",
+      "path": "/salary/61000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$61,000 a Year Is How Much an Hour? (2026)",
+      "description": "$61,000 a year is $29.33/hour at 40 hrs/week — $1,173.08 weekly, $5,083 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/61000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "63000-a-year-is-how-much-an-hour",
+      "path": "/salary/63000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$63,000 a Year Is How Much an Hour? (2026)",
+      "description": "$63,000 a year is $30.29/hour at 40 hrs/week — $1,211.54 weekly, $5,250 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/63000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "64000-a-year-is-how-much-an-hour",
+      "path": "/salary/64000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$64,000 a Year Is How Much an Hour? (2026)",
+      "description": "$64,000 a year is $30.77/hour at 40 hrs/week — $1,230.77 weekly, $5,333 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/64000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "66000-a-year-is-how-much-an-hour",
+      "path": "/salary/66000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$66,000 a Year Is How Much an Hour? (2026)",
+      "description": "$66,000 a year is $31.73/hour at 40 hrs/week — $1,269.23 weekly, $5,500 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/66000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "67000-a-year-is-how-much-an-hour",
+      "path": "/salary/67000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$67,000 a Year Is How Much an Hour? (2026)",
+      "description": "$67,000 a year is $32.21/hour at 40 hrs/week — $1,288.46 weekly, $5,583 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/67000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "69000-a-year-is-how-much-an-hour",
+      "path": "/salary/69000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$69,000 a Year Is How Much an Hour? (2026)",
+      "description": "$69,000 a year is $33.17/hour at 40 hrs/week — $1,326.92 weekly, $5,750 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/69000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "71000-a-year-is-how-much-an-hour",
+      "path": "/salary/71000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$71,000 a Year Is How Much an Hour? (2026)",
+      "description": "$71,000 a year is $34.13/hour at 40 hrs/week — $1,365.38 weekly, $5,917 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/71000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "73000-a-year-is-how-much-an-hour",
+      "path": "/salary/73000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$73,000 a Year Is How Much an Hour? (2026)",
+      "description": "$73,000 a year is $35.10/hour at 40 hrs/week — $1,403.85 weekly, $6,083 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/73000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "74000-a-year-is-how-much-an-hour",
+      "path": "/salary/74000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$74,000 a Year Is How Much an Hour? (2026)",
+      "description": "$74,000 a year is $35.58/hour at 40 hrs/week — $1,423.08 weekly, $6,167 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/74000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "76000-a-year-is-how-much-an-hour",
+      "path": "/salary/76000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$76,000 a Year Is How Much an Hour? (2026)",
+      "description": "$76,000 a year is $36.54/hour at 40 hrs/week — $1,461.54 weekly, $6,333 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/76000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "77000-a-year-is-how-much-an-hour",
+      "path": "/salary/77000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$77,000 a Year Is How Much an Hour? (2026)",
+      "description": "$77,000 a year is $37.02/hour at 40 hrs/week — $1,480.77 weekly, $6,417 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/77000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "79000-a-year-is-how-much-an-hour",
+      "path": "/salary/79000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$79,000 a Year Is How Much an Hour? (2026)",
+      "description": "$79,000 a year is $37.98/hour at 40 hrs/week — $1,519.23 weekly, $6,583 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/79000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "82000-a-year-is-how-much-an-hour",
+      "path": "/salary/82000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$82,000 a Year Is How Much an Hour? (2026)",
+      "description": "$82,000 a year is $39.42/hour at 40 hrs/week — $1,576.92 weekly, $6,833 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/82000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "84000-a-year-is-how-much-an-hour",
+      "path": "/salary/84000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$84,000 a Year Is How Much an Hour? (2026)",
+      "description": "$84,000 a year is $40.38/hour at 40 hrs/week — $1,615.38 weekly, $7,000 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/84000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "86000-a-year-is-how-much-an-hour",
+      "path": "/salary/86000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$86,000 a Year Is How Much an Hour? (2026)",
+      "description": "$86,000 a year is $41.35/hour at 40 hrs/week — $1,653.85 weekly, $7,167 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/86000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "88000-a-year-is-how-much-an-hour",
+      "path": "/salary/88000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$88,000 a Year Is How Much an Hour? (2026)",
+      "description": "$88,000 a year is $42.31/hour at 40 hrs/week — $1,692.31 weekly, $7,333 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/88000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "92000-a-year-is-how-much-an-hour",
+      "path": "/salary/92000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$92,000 a Year Is How Much an Hour? (2026)",
+      "description": "$92,000 a year is $44.23/hour at 40 hrs/week — $1,769.23 weekly, $7,667 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/92000-a-year-is-how-much-an-hour.json"
+    },
+    {
+      "slug": "98000-a-year-is-how-much-an-hour",
+      "path": "/salary/98000-a-year-is-how-much-an-hour",
+      "category": "salary",
+      "title": "$98,000 a Year Is How Much an Hour? (2026)",
+      "description": "$98,000 a year is $47.12/hour at 40 hrs/week — $1,884.62 weekly, $8,167 monthly. Full 2026 breakdown with a federal take-home estimate.",
+      "batch": 5,
+      "published": false,
+      "dataFile": "src/data/programmatic/salary/98000-a-year-is-how-much-an-hour.json"
+    }
+  ]
+}

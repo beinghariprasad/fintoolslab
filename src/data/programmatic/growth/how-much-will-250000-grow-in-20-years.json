@@ -1,0 +1,446 @@
+{
+  "slug": "how-much-will-250000-grow-in-20-years",
+  "path": "/savings/how-much-will-250000-grow-in-20-years",
+  "category": "growth",
+  "title": "How Much Will $250,000 Grow in 20 Years? (2026)",
+  "metaDescription": "$250,000 grows to $967,421 in 20 years at 7% — and $1,681,875 at 10%. See growth tables for 4–10% returns, 5–30 year horizons, and monthly contributions.",
+  "hero": {
+    "chip": "Compound growth · projection tables",
+    "titleBefore": "$250,000 today is ",
+    "titleEm": "$967,421 in 20 years",
+    "titleAfter": " at 7%.",
+    "lede": "Full growth tables for a $250,000 starting balance: returns from 4% to 10%, horizons from 5 to 30 years, with and without monthly contributions — plus rule-of-72 doubling times.",
+    "meta": [
+      {
+        "label": "Headline",
+        "value": "7% return, 20 years"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Compound Interest",
+        "href": "/calculators/compound-interest"
+      },
+      {
+        "label": "$250,000 in 20 years"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "967,421",
+      "label": "$250,000 at 7% for 20 years, no additions",
+      "features": [
+        "$717,421 of pure compounding",
+        "$1,681,875 if returns average 10%",
+        "$1,061,777 with $100/mo added",
+        "Doubles roughly every 10.3 years at 7%"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "How much will $250,000 grow in 20 years?",
+    "html": "<strong>$250,000 grows to about $967,421 in 20 years at a 7% average annual return</strong> — 3.87× the starting amount. At 5% it reaches $663,324; at 10%, $1,681,875. Add $100 a month and the 7% outcome climbs to roughly $1,061,777. Returns are illustrative averages, not guarantees."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Lump sum",
+      "title": "$250,000 left to compound, <em>no additions</em>.",
+      "columns": [
+        {
+          "label": "Annual return"
+        },
+        {
+          "label": "5 years",
+          "align": "r"
+        },
+        {
+          "label": "10 years",
+          "align": "r"
+        },
+        {
+          "label": "20 years",
+          "align": "r"
+        },
+        {
+          "label": "30 years",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "4%",
+          "$304,163",
+          "$370,061",
+          "$547,781",
+          "$810,849"
+        ],
+        [
+          "5%",
+          "$319,070",
+          "$407,224",
+          "$663,324",
+          "$1,080,486"
+        ],
+        [
+          "7% (headline)",
+          "$350,638",
+          "$491,788",
+          {
+            "text": "$967,421",
+            "accent": true,
+            "strong": true
+          },
+          "$1,903,064"
+        ],
+        [
+          "8%",
+          "$367,332",
+          "$539,731",
+          "$1,165,239",
+          "$2,515,664"
+        ],
+        [
+          "10%",
+          "$402,628",
+          "$648,436",
+          "$1,681,875",
+          "$4,362,351"
+        ]
+      ],
+      "note": "Annual compounding on the starting amount only, before taxes, fees, and inflation. Returns are illustrative assumptions, not predictions."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "The compounding math",
+      "title": "What $250,000 becomes when you <em>leave it alone</em>.",
+      "paragraphs": [
+        "At a 7% annual return, $250,000 turns into <strong>$967,421</strong> over 20 years. None of that requires new deposits — it's $717,421 of pure compounding, and the curve steepens with every year you leave it invested.",
+        "Small differences in return compound into huge differences in outcome: at 4%, $250,000 reaches $547,781 in 20 years; at 10% it reaches $1,681,875. Three extra points from 4% to 7% is worth $419,640; the full jump to 10% is worth $1,134,094."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "With monthly contributions · 7% return",
+      "title": "Add a monthly deposit and the curve <em>bends up</em>.",
+      "columns": [
+        {
+          "label": "Monthly addition"
+        },
+        {
+          "label": "5 years",
+          "align": "r"
+        },
+        {
+          "label": "10 years",
+          "align": "r"
+        },
+        {
+          "label": "20 years",
+          "align": "r"
+        },
+        {
+          "label": "30 years",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "$250,000 alone",
+          {
+            "text": "$354,406"
+          },
+          {
+            "text": "$502,415"
+          },
+          {
+            "text": "$1,009,685"
+          },
+          {
+            "text": "$2,029,124"
+          }
+        ],
+        [
+          "+ $100/month",
+          "$361,566",
+          "$519,724",
+          {
+            "text": "$1,061,777",
+            "accent": true
+          },
+          "$2,151,121"
+        ],
+        [
+          "+ $250/month",
+          "$372,305",
+          "$545,687",
+          {
+            "text": "$1,139,916",
+            "accent": true
+          },
+          "$2,334,117"
+        ],
+        [
+          "+ $500/month",
+          "$390,203",
+          "$588,958",
+          {
+            "text": "$1,270,148",
+            "accent": true
+          },
+          "$2,639,110"
+        ]
+      ],
+      "note": "7% annual return compounded monthly, contributions at each month's end. The $250,000-alone row differs slightly from the annual-compounding table above because of the monthly compounding convention."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Contributions",
+      "title": "Deposits first, compounding <em>later</em>.",
+      "paragraphs": [
+        "Adding even modest monthly contributions transforms the curve. Put $100 a month alongside the $250,000 and the 20-year total at 7% jumps from $967,421 to about $1,061,777; at $500 a month it reaches $1,270,148. Contributions do the heavy lifting early, compounding takes over later."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Rule of 72",
+      "title": "How fast $250,000 <em>doubles</em>.",
+      "columns": [
+        {
+          "label": "Annual return"
+        },
+        {
+          "label": "Years to double (72 ÷ rate)",
+          "align": "r"
+        },
+        {
+          "label": "Rule-of-72 estimate, 30 yrs",
+          "align": "r"
+        },
+        {
+          "label": "Exact value, 30 yrs",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "4%",
+          "18.0 years",
+          "$793,701",
+          {
+            "text": "$810,849",
+            "accent": false
+          }
+        ],
+        [
+          "5%",
+          "14.4 years",
+          "$1,059,463",
+          {
+            "text": "$1,080,486",
+            "accent": false
+          }
+        ],
+        [
+          "7%",
+          "10.3 years",
+          "$1,886,160",
+          {
+            "text": "$1,903,064",
+            "accent": true
+          }
+        ],
+        [
+          "8%",
+          "9.0 years",
+          "$2,519,842",
+          {
+            "text": "$2,515,664",
+            "accent": false
+          }
+        ],
+        [
+          "10%",
+          "7.2 years",
+          "$4,489,848",
+          {
+            "text": "$4,362,351",
+            "accent": false
+          }
+        ]
+      ],
+      "note": "At 7%, money doubles roughly every 10.3 years — so a 20-year horizon fits almost two full doublings of $250,000."
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "Other starting amounts, <em>20-year view</em>.",
+      "columns": [
+        {
+          "label": "Starting amount"
+        },
+        {
+          "label": "At 5% · 20 yrs",
+          "align": "r"
+        },
+        {
+          "label": "At 7% · 20 yrs",
+          "align": "r"
+        },
+        {
+          "label": "At 10% · 20 yrs",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$25,000 starting",
+            "href": "/savings/how-much-will-25000-grow-in-20-years"
+          },
+          {
+            "text": "$66,332"
+          },
+          {
+            "text": "$96,742"
+          },
+          {
+            "text": "$168,188"
+          }
+        ],
+        [
+          {
+            "text": "$50,000 starting",
+            "href": "/savings/how-much-will-50000-grow-in-20-years"
+          },
+          {
+            "text": "$132,665"
+          },
+          {
+            "text": "$193,484"
+          },
+          {
+            "text": "$336,375"
+          }
+        ],
+        [
+          {
+            "text": "$100,000 starting",
+            "href": "/savings/how-much-will-100000-grow-in-20-years"
+          },
+          {
+            "text": "$265,330"
+          },
+          {
+            "text": "$386,968"
+          },
+          {
+            "text": "$672,750"
+          }
+        ],
+        [
+          {
+            "text": "$250,000 starting (this page)",
+            "accent": true
+          },
+          {
+            "text": "$663,324"
+          },
+          {
+            "text": "$967,421"
+          },
+          {
+            "text": "$1,681,875"
+          }
+        ]
+      ],
+      "note": "Annual compounding, lump sum only — click through for the full breakdown of any amount."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How much will $250,000 grow in 20 years at 7%?",
+      "a": "$250,000 compounding at 7% annually becomes about $967,421 in 20 years — 3.87× the starting amount, or $717,421 of growth with no additional deposits. With monthly compounding the figure is slightly higher: about $1,009,685."
+    },
+    {
+      "q": "How much will $250,000 be worth in 20 years at 10%?",
+      "a": "At a 10% average annual return — near the S&P 500's long-run nominal average — $250,000 grows to about $1,681,875 in 20 years. At a more conservative 5% it reaches $663,324, and at 4% (a savings-account-like rate) about $547,781."
+    },
+    {
+      "q": "How long does it take $250,000 to double?",
+      "a": "By the rule of 72, dividing 72 by the return gives the doubling time: about 10.3 years at 7%, 7.2 years at 10%, and 18.0 years at 4%. Over 30 years at 7%, $250,000 doubles almost three times, reaching about $1,903,064."
+    },
+    {
+      "q": "What if I add $100 a month to $250,000?",
+      "a": "Adding $100 a month at a 7% return takes the 20-year total from about $1,009,685 to roughly $1,061,777. At $250/month it reaches $1,139,916, and at $500/month about $1,270,148."
+    },
+    {
+      "q": "Are these growth numbers guaranteed?",
+      "a": "No. Market returns vary year to year — 7% and 10% are long-run averages, not promises, and real results are lumpy, can be negative for stretches, and are reduced by taxes, fees, and inflation. Treat every figure here as an illustration of compounding math, not a forecast."
+    }
+  ],
+  "cta": {
+    "label": "Your own scenario",
+    "title": "Chart any amount, rate, and timeline",
+    "text": "The interactive compound interest calculator draws the full year-by-year curve for any starting balance, contribution schedule, and compounding frequency.",
+    "links": [
+      {
+        "label": "Compound Interest Calculator",
+        "href": "/calculators/compound-interest"
+      },
+      {
+        "label": "Investment Calculator",
+        "href": "/calculators/investment"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "Compound Interest",
+      "desc": "Interactive version of these tables with charts.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Investment Growth",
+      "desc": "Project a portfolio with regular contributions.",
+      "mark": "IV",
+      "href": "/calculators/investment",
+      "cat": "Investing",
+      "time": "1 min"
+    },
+    {
+      "name": "Savings Calculator",
+      "desc": "Work backward from a savings goal to a monthly amount.",
+      "mark": "SV",
+      "href": "/calculators/savings",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Retirement Calculator",
+      "desc": "Stretch the same compounding out to retirement age.",
+      "mark": "RT",
+      "href": "/calculators/retirement",
+      "cat": "Retirement",
+      "time": "1 min"
+    }
+  ],
+  "methodology": [
+    "Lump-sum tables use annual compounding: FV = P × (1 + r)ᵗ. The contribution table uses monthly compounding (r ÷ 12) with deposits at the end of each month, which is why its zero-contribution row runs slightly ahead of the annual table.",
+    "Return rates (4–10%) are illustrative long-run averages: 4–5% resembles high-yield savings/bonds, 7% a conservative stock-portfolio assumption, 10% the S&P 500’s long-run nominal average. Actual returns vary and can be negative.",
+    "All figures are nominal — before taxes, investment fees, and inflation, each of which reduces real-world outcomes.",
+    "Educational illustrations of compound-interest math — not investment advice or a forecast."
+  ],
+  "dateModified": "2026-08-01"
+}

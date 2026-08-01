@@ -1,0 +1,542 @@
+{
+  "slug": "1000000-mortgage-payment",
+  "path": "/mortgage/1000000-mortgage-payment",
+  "category": "mortgage",
+  "title": "$1,000,000 Mortgage Payment by Rate & Term (2026)",
+  "metaDescription": "A $1,000,000 mortgage costs $6,320.68/mo at 6.5% over 30 years ($8,711.07 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+  "hero": {
+    "chip": "Mortgage · 2026 rate table",
+    "titleBefore": "The $1,000,000 mortgage ",
+    "titleEm": "payment",
+    "titleAfter": ", at every rate.",
+    "lede": "Principal-and-interest payments on a $1,000,000 home loan across 5.0%–7.5% rates and 15/30-year terms, plus total interest, a first-year amortization schedule, and the income the 28% rule implies.",
+    "meta": [
+      {
+        "label": "Rates shown",
+        "value": "5.0%–7.5%"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Mortgage Calculator",
+        "href": "/calculators/mortgage"
+      },
+      {
+        "label": "$1,000,000 mortgage"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "6,320.68",
+      "label": "Monthly P&I · $1,000,000 at 6.5%, 30-year fixed",
+      "features": [
+        "$8,711.07/mo on a 15-year term",
+        "$1,275,445 total interest over 30 yrs",
+        "≈ $270,886 income under the 28% rule",
+        "Taxes, insurance & PMI not included"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "What does a $1,000,000 mortgage cost per month?",
+    "html": "<strong>A $1,000,000 mortgage costs about $6,320.68 a month</strong> in principal and interest at 6.5% on a 30-year fixed term, or $8,711.07 on a 15-year. Depending on your rate (5.0%–7.5%), the 30-year payment runs $5,368.22–$6,992.15. Total 30-year interest at 6.5%: $1,275,445."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Monthly payment",
+      "title": "$1,000,000 mortgage payment <em>by rate and term</em>.",
+      "columns": [
+        {
+          "label": "Interest rate"
+        },
+        {
+          "label": "15-year P&I",
+          "align": "r"
+        },
+        {
+          "label": "30-year P&I",
+          "align": "r"
+        },
+        {
+          "label": "Difference / mo",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "5.0%",
+          "$7,907.94",
+          {
+            "text": "$5,368.22",
+            "accent": false
+          },
+          "$2,539.72"
+        ],
+        [
+          "5.5%",
+          "$8,170.83",
+          {
+            "text": "$5,677.89",
+            "accent": false
+          },
+          "$2,492.94"
+        ],
+        [
+          "6.0%",
+          "$8,438.57",
+          {
+            "text": "$5,995.51",
+            "accent": false
+          },
+          "$2,443.06"
+        ],
+        [
+          "6.5% (used below)",
+          "$8,711.07",
+          {
+            "text": "$6,320.68",
+            "accent": true
+          },
+          "$2,390.39"
+        ],
+        [
+          "7.0%",
+          "$8,988.28",
+          {
+            "text": "$6,653.02",
+            "accent": false
+          },
+          "$2,335.26"
+        ],
+        [
+          "7.5%",
+          "$9,270.12",
+          {
+            "text": "$6,992.15",
+            "accent": false
+          },
+          "$2,277.97"
+        ]
+      ],
+      "note": "Principal and interest only — add property taxes, homeowners insurance, and PMI (if under 20% down) for the full monthly cost."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "The headline numbers",
+      "title": "What $1,000,000 of mortgage debt really costs.",
+      "paragraphs": [
+        "At today's representative 6.5% rate, $1,000,000 of mortgage debt runs <strong>$6,320.68 a month</strong> on a 30-year term, or $8,711.07 on a 15-year. Over the full term that's $1,275,445 of interest versus $567,993 — a $707,452 difference for the faster payoff.",
+        "Rates move the payment more than most buyers expect: on $1,000,000, going from 6.0% to 7.0% adds $657.51 a month on a 30-year term — $236,704 over the life of the loan. Across the 5.0%–7.5% range in the table above, the 30-year payment spans $5,368.22 to $6,992.15."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Lifetime cost",
+      "title": "Total interest on $1,000,000 <em>over the full term</em>.",
+      "columns": [
+        {
+          "label": "Interest rate"
+        },
+        {
+          "label": "15-yr total interest",
+          "align": "r"
+        },
+        {
+          "label": "30-yr total interest",
+          "align": "r"
+        },
+        {
+          "label": "30-yr total repaid",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "5.0%",
+          "$423,429",
+          {
+            "text": "$932,559",
+            "accent": false
+          },
+          "$1,932,559"
+        ],
+        [
+          "5.5%",
+          "$470,749",
+          {
+            "text": "$1,044,040",
+            "accent": false
+          },
+          "$2,044,040"
+        ],
+        [
+          "6.0%",
+          "$518,943",
+          {
+            "text": "$1,158,384",
+            "accent": false
+          },
+          "$2,158,384"
+        ],
+        [
+          "6.5%",
+          "$567,993",
+          {
+            "text": "$1,275,445",
+            "accent": true
+          },
+          "$2,275,445"
+        ],
+        [
+          "7.0%",
+          "$617,890",
+          {
+            "text": "$1,395,087",
+            "accent": false
+          },
+          "$2,395,087"
+        ],
+        [
+          "7.5%",
+          "$668,622",
+          {
+            "text": "$1,517,174",
+            "accent": false
+          },
+          "$2,517,174"
+        ]
+      ],
+      "note": "At 6.5% on a 30-year term you repay $2,275,445 in total — 2.28× the amount borrowed."
+    },
+    {
+      "type": "table",
+      "eyebrow": "Year one · 6.5%, 30-year",
+      "title": "First-year amortization: where each payment <em>actually goes</em>.",
+      "columns": [
+        {
+          "label": "Month"
+        },
+        {
+          "label": "Payment",
+          "align": "r"
+        },
+        {
+          "label": "Interest",
+          "align": "r"
+        },
+        {
+          "label": "Principal",
+          "align": "r"
+        },
+        {
+          "label": "Balance",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "M01",
+          "$6,320.68",
+          {
+            "text": "$5,416.67",
+            "accent": true
+          },
+          "$904.01",
+          "$999,095.99"
+        ],
+        [
+          "M02",
+          "$6,320.68",
+          {
+            "text": "$5,411.77",
+            "accent": true
+          },
+          "$908.91",
+          "$998,187.08"
+        ],
+        [
+          "M03",
+          "$6,320.68",
+          {
+            "text": "$5,406.85",
+            "accent": true
+          },
+          "$913.83",
+          "$997,273.25"
+        ],
+        [
+          "M04",
+          "$6,320.68",
+          {
+            "text": "$5,401.90",
+            "accent": true
+          },
+          "$918.78",
+          "$996,354.47"
+        ],
+        [
+          "M05",
+          "$6,320.68",
+          {
+            "text": "$5,396.92",
+            "accent": true
+          },
+          "$923.76",
+          "$995,430.71"
+        ],
+        [
+          "M06",
+          "$6,320.68",
+          {
+            "text": "$5,391.92",
+            "accent": true
+          },
+          "$928.76",
+          "$994,501.95"
+        ],
+        [
+          "M07",
+          "$6,320.68",
+          {
+            "text": "$5,386.89",
+            "accent": true
+          },
+          "$933.79",
+          "$993,568.16"
+        ],
+        [
+          "M08",
+          "$6,320.68",
+          {
+            "text": "$5,381.83",
+            "accent": true
+          },
+          "$938.85",
+          "$992,629.31"
+        ],
+        [
+          "M09",
+          "$6,320.68",
+          {
+            "text": "$5,376.74",
+            "accent": true
+          },
+          "$943.94",
+          "$991,685.37"
+        ],
+        [
+          "M10",
+          "$6,320.68",
+          {
+            "text": "$5,371.63",
+            "accent": true
+          },
+          "$949.05",
+          "$990,736.32"
+        ],
+        [
+          "M11",
+          "$6,320.68",
+          {
+            "text": "$5,366.49",
+            "accent": true
+          },
+          "$954.19",
+          "$989,782.13"
+        ],
+        [
+          "M12",
+          "$6,320.68",
+          {
+            "text": "$5,361.32",
+            "accent": true
+          },
+          "$959.36",
+          "$988,822.77"
+        ]
+      ],
+      "note": "In year one you pay $64,671 of interest but only $11,177 of principal — early payments are mostly interest, which is why extra principal payments early on save so much."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Beyond P&I",
+      "title": "PMI, income needed, and the <em>rest of the bill</em>.",
+      "paragraphs": [
+        "Remember that these are principal-and-interest numbers only. Put down less than 20% and PMI adds roughly $417–$833 monthly (0.5–1% of $1,000,000 per year) until you reach 20% equity. Property tax and insurance frequently add several hundred dollars more — a $1,000,000 loan with 20% down implies a purchase price near $1,250,000.",
+        "How much income does it take? The common 28% front-end rule says housing costs shouldn't exceed 28% of gross income. On the $6,320.68 payment at 6.5%/30-year, that implies roughly $270,886 of annual income — and more once taxes, insurance, and any PMI join the payment."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "Nearby loan amounts at 6.5%.",
+      "columns": [
+        {
+          "label": "Loan amount"
+        },
+        {
+          "label": "30-yr P&I",
+          "align": "r"
+        },
+        {
+          "label": "15-yr P&I",
+          "align": "r"
+        },
+        {
+          "label": "Income needed (28% rule)",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$850,000 loan",
+            "href": "/mortgage/850000-mortgage-payment"
+          },
+          {
+            "text": "$5,372.58"
+          },
+          {
+            "text": "$7,404.41"
+          },
+          {
+            "text": "$230,253"
+          }
+        ],
+        [
+          {
+            "text": "$900,000 loan",
+            "href": "/mortgage/900000-mortgage-payment"
+          },
+          {
+            "text": "$5,688.61"
+          },
+          {
+            "text": "$7,839.97"
+          },
+          {
+            "text": "$243,798"
+          }
+        ],
+        [
+          {
+            "text": "$950,000 loan",
+            "href": "/mortgage/950000-mortgage-payment"
+          },
+          {
+            "text": "$6,004.65"
+          },
+          {
+            "text": "$8,275.52"
+          },
+          {
+            "text": "$257,342"
+          }
+        ],
+        [
+          {
+            "text": "$1,000,000 loan (this page)",
+            "accent": true
+          },
+          {
+            "text": "$6,320.68"
+          },
+          {
+            "text": "$8,711.07"
+          },
+          {
+            "text": "$270,886"
+          }
+        ]
+      ],
+      "note": "Income column applies the 28% front-end rule to the 30-year P&I payment only; taxes and insurance push the real requirement higher."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is the monthly payment on a $1,000,000 mortgage?",
+      "a": "At 6.5% on a 30-year fixed, a $1,000,000 mortgage costs $6,320.68 a month in principal and interest. Across rates from 5.0% to 7.5%, the 30-year payment ranges from $5,368.22 to $6,992.15. Property taxes, insurance, and PMI come on top."
+    },
+    {
+      "q": "How much income do I need for a $1,000,000 mortgage?",
+      "a": "Using the 28% front-end rule on the $6,320.68 payment (6.5%, 30-year), you'd want roughly $270,886 of gross annual income for the principal and interest alone. Since lenders count taxes, insurance, PMI, and your other debts too, a comfortable qualifying income is typically higher."
+    },
+    {
+      "q": "How much interest will I pay on a $1,000,000 mortgage?",
+      "a": "At 6.5%, total interest comes to $1,275,445 over a 30-year term versus $567,993 over 15 years — the shorter term saves $707,452. In the first year alone the 30-year loan accrues $64,671 of interest against just $11,177 of principal reduction."
+    },
+    {
+      "q": "Is a 15-year or 30-year term better for a $1,000,000 loan?",
+      "a": "The 30-year payment ($6,320.68 at 6.5%) is $2,390.39 cheaper per month than the 15-year ($8,711.07), but costs $707,452 more in lifetime interest. Choose 15 years if the payment fits comfortably; otherwise take the 30-year and make extra principal payments when you can."
+    },
+    {
+      "q": "Does the $1,000,000 payment include taxes and insurance?",
+      "a": "No — every figure on this page is principal and interest only. Budget extra for property tax and homeowners insurance (often several hundred dollars monthly, varying by state), plus PMI of roughly $417–$833/month if your down payment is under 20%. With 20% down, $1,000,000 of financing corresponds to about a $1,250,000 purchase price."
+    }
+  ],
+  "cta": {
+    "label": "Your exact numbers",
+    "title": "Model your own rate, down payment, and term",
+    "text": "These tables use fixed rate steps. The interactive mortgage calculator handles any rate, adds PMI, property tax, and insurance, and builds the full 360-payment amortization schedule.",
+    "links": [
+      {
+        "label": "Mortgage Calculator",
+        "href": "/calculators/mortgage"
+      },
+      {
+        "label": "Rent vs. Buy Calculator",
+        "href": "/calculators/rent-vs-buy"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "Mortgage Calculator",
+      "desc": "Full PITI payment with PMI, taxes, and amortization.",
+      "mark": "MG",
+      "href": "/calculators/mortgage",
+      "cat": "Borrowing",
+      "time": "1 min"
+    },
+    {
+      "name": "Rent vs. Buy",
+      "desc": "Compare the true 10-year cost of renting against buying.",
+      "mark": "RB",
+      "href": "/calculators/rent-vs-buy",
+      "cat": "Real estate",
+      "time": "2 min"
+    },
+    {
+      "name": "Loan Calculator",
+      "desc": "Payments and amortization for any fixed-rate loan.",
+      "mark": "LN",
+      "href": "/calculators/loan",
+      "cat": "Borrowing",
+      "time": "30 sec"
+    },
+    {
+      "name": "Compound Interest",
+      "desc": "What the money you save on interest could earn instead.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    }
+  ],
+  "methodology": [
+    "Payments use the standard amortization formula M = P·r(1+r)ⁿ / ((1+r)ⁿ − 1) with monthly compounding, on a $1,000,000 principal. Rates shown (5.0%–7.5%) are illustrative steps, not quotes — your rate depends on credit, points, and the market.",
+    "The amortization table applies 6.5%/30-year, computing interest on the running balance each month and rounding to cents, the way a servicer statement does.",
+    "All figures are principal and interest only. Property tax, homeowners insurance, HOA dues, and PMI are excluded except where explicitly estimated (PMI shown at 0.5–1% of the loan per year).",
+    "Income-needed figures apply the 28% front-end ratio to P&I only. Educational estimates — not lending, tax, or financial advice."
+  ],
+  "dateModified": "2026-08-01"
+}

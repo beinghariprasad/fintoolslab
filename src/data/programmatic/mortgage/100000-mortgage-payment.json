@@ -1,0 +1,542 @@
+{
+  "slug": "100000-mortgage-payment",
+  "path": "/mortgage/100000-mortgage-payment",
+  "category": "mortgage",
+  "title": "$100,000 Mortgage Payment by Rate & Term (2026)",
+  "metaDescription": "A $100,000 mortgage costs $632.07/mo at 6.5% over 30 years ($871.11 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+  "hero": {
+    "chip": "Mortgage · 2026 rate table",
+    "titleBefore": "The $100,000 mortgage ",
+    "titleEm": "payment",
+    "titleAfter": ", at every rate.",
+    "lede": "Principal-and-interest payments on a $100,000 home loan across 5.0%–7.5% rates and 15/30-year terms, plus total interest, a first-year amortization schedule, and the income the 28% rule implies.",
+    "meta": [
+      {
+        "label": "Rates shown",
+        "value": "5.0%–7.5%"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Mortgage Calculator",
+        "href": "/calculators/mortgage"
+      },
+      {
+        "label": "$100,000 mortgage"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "632.07",
+      "label": "Monthly P&I · $100,000 at 6.5%, 30-year fixed",
+      "features": [
+        "$871.11/mo on a 15-year term",
+        "$127,545 total interest over 30 yrs",
+        "≈ $27,089 income under the 28% rule",
+        "Taxes, insurance & PMI not included"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "What does a $100,000 mortgage cost per month?",
+    "html": "<strong>A $100,000 mortgage costs about $632.07 a month</strong> in principal and interest at 6.5% on a 30-year fixed term, or $871.11 on a 15-year. Depending on your rate (5.0%–7.5%), the 30-year payment runs $536.82–$699.21. Total 30-year interest at 6.5%: $127,545."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Monthly payment",
+      "title": "$100,000 mortgage payment <em>by rate and term</em>.",
+      "columns": [
+        {
+          "label": "Interest rate"
+        },
+        {
+          "label": "15-year P&I",
+          "align": "r"
+        },
+        {
+          "label": "30-year P&I",
+          "align": "r"
+        },
+        {
+          "label": "Difference / mo",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "5.0%",
+          "$790.79",
+          {
+            "text": "$536.82",
+            "accent": false
+          },
+          "$253.97"
+        ],
+        [
+          "5.5%",
+          "$817.08",
+          {
+            "text": "$567.79",
+            "accent": false
+          },
+          "$249.29"
+        ],
+        [
+          "6.0%",
+          "$843.86",
+          {
+            "text": "$599.55",
+            "accent": false
+          },
+          "$244.31"
+        ],
+        [
+          "6.5% (used below)",
+          "$871.11",
+          {
+            "text": "$632.07",
+            "accent": true
+          },
+          "$239.04"
+        ],
+        [
+          "7.0%",
+          "$898.83",
+          {
+            "text": "$665.30",
+            "accent": false
+          },
+          "$233.53"
+        ],
+        [
+          "7.5%",
+          "$927.01",
+          {
+            "text": "$699.21",
+            "accent": false
+          },
+          "$227.80"
+        ]
+      ],
+      "note": "Principal and interest only — add property taxes, homeowners insurance, and PMI (if under 20% down) for the full monthly cost."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "The headline numbers",
+      "title": "What $100,000 of mortgage debt really costs.",
+      "paragraphs": [
+        "At today's representative 6.5% rate, $100,000 of mortgage debt runs <strong>$632.07 a month</strong> on a 30-year term, or $871.11 on a 15-year. Over the full term that's $127,545 of interest versus $56,800 — a $70,745 difference for the faster payoff.",
+        "Rates move the payment more than most buyers expect: on $100,000, going from 6.0% to 7.0% adds $65.75 a month on a 30-year term — $23,670 over the life of the loan. Across the 5.0%–7.5% range in the table above, the 30-year payment spans $536.82 to $699.21."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Lifetime cost",
+      "title": "Total interest on $100,000 <em>over the full term</em>.",
+      "columns": [
+        {
+          "label": "Interest rate"
+        },
+        {
+          "label": "15-yr total interest",
+          "align": "r"
+        },
+        {
+          "label": "30-yr total interest",
+          "align": "r"
+        },
+        {
+          "label": "30-yr total repaid",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "5.0%",
+          "$42,342",
+          {
+            "text": "$93,255",
+            "accent": false
+          },
+          "$193,255"
+        ],
+        [
+          "5.5%",
+          "$47,074",
+          {
+            "text": "$104,404",
+            "accent": false
+          },
+          "$204,404"
+        ],
+        [
+          "6.0%",
+          "$51,895",
+          {
+            "text": "$115,838",
+            "accent": false
+          },
+          "$215,838"
+        ],
+        [
+          "6.5%",
+          "$56,800",
+          {
+            "text": "$127,545",
+            "accent": true
+          },
+          "$227,545"
+        ],
+        [
+          "7.0%",
+          "$61,789",
+          {
+            "text": "$139,508",
+            "accent": false
+          },
+          "$239,508"
+        ],
+        [
+          "7.5%",
+          "$66,862",
+          {
+            "text": "$151,716",
+            "accent": false
+          },
+          "$251,716"
+        ]
+      ],
+      "note": "At 6.5% on a 30-year term you repay $227,545 in total — 2.28× the amount borrowed."
+    },
+    {
+      "type": "table",
+      "eyebrow": "Year one · 6.5%, 30-year",
+      "title": "First-year amortization: where each payment <em>actually goes</em>.",
+      "columns": [
+        {
+          "label": "Month"
+        },
+        {
+          "label": "Payment",
+          "align": "r"
+        },
+        {
+          "label": "Interest",
+          "align": "r"
+        },
+        {
+          "label": "Principal",
+          "align": "r"
+        },
+        {
+          "label": "Balance",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "M01",
+          "$632.07",
+          {
+            "text": "$541.67",
+            "accent": true
+          },
+          "$90.40",
+          "$99,909.60"
+        ],
+        [
+          "M02",
+          "$632.07",
+          {
+            "text": "$541.18",
+            "accent": true
+          },
+          "$90.89",
+          "$99,818.71"
+        ],
+        [
+          "M03",
+          "$632.07",
+          {
+            "text": "$540.68",
+            "accent": true
+          },
+          "$91.39",
+          "$99,727.32"
+        ],
+        [
+          "M04",
+          "$632.07",
+          {
+            "text": "$540.19",
+            "accent": true
+          },
+          "$91.88",
+          "$99,635.44"
+        ],
+        [
+          "M05",
+          "$632.07",
+          {
+            "text": "$539.69",
+            "accent": true
+          },
+          "$92.38",
+          "$99,543.06"
+        ],
+        [
+          "M06",
+          "$632.07",
+          {
+            "text": "$539.19",
+            "accent": true
+          },
+          "$92.88",
+          "$99,450.18"
+        ],
+        [
+          "M07",
+          "$632.07",
+          {
+            "text": "$538.69",
+            "accent": true
+          },
+          "$93.38",
+          "$99,356.80"
+        ],
+        [
+          "M08",
+          "$632.07",
+          {
+            "text": "$538.18",
+            "accent": true
+          },
+          "$93.89",
+          "$99,262.91"
+        ],
+        [
+          "M09",
+          "$632.07",
+          {
+            "text": "$537.67",
+            "accent": true
+          },
+          "$94.40",
+          "$99,168.51"
+        ],
+        [
+          "M10",
+          "$632.07",
+          {
+            "text": "$537.16",
+            "accent": true
+          },
+          "$94.91",
+          "$99,073.60"
+        ],
+        [
+          "M11",
+          "$632.07",
+          {
+            "text": "$536.65",
+            "accent": true
+          },
+          "$95.42",
+          "$98,978.18"
+        ],
+        [
+          "M12",
+          "$632.07",
+          {
+            "text": "$536.13",
+            "accent": true
+          },
+          "$95.94",
+          "$98,882.24"
+        ]
+      ],
+      "note": "In year one you pay $6,467 of interest but only $1,118 of principal — early payments are mostly interest, which is why extra principal payments early on save so much."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Beyond P&I",
+      "title": "PMI, income needed, and the <em>rest of the bill</em>.",
+      "paragraphs": [
+        "Remember that these are principal-and-interest numbers only. Put down less than 20% and PMI adds roughly $42–$83 monthly (0.5–1% of $100,000 per year) until you reach 20% equity. Property tax and insurance frequently add several hundred dollars more — a $100,000 loan with 20% down implies a purchase price near $125,000.",
+        "How much income does it take? The common 28% front-end rule says housing costs shouldn't exceed 28% of gross income. On the $632.07 payment at 6.5%/30-year, that implies roughly $27,089 of annual income — and more once taxes, insurance, and any PMI join the payment."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "Nearby loan amounts at 6.5%.",
+      "columns": [
+        {
+          "label": "Loan amount"
+        },
+        {
+          "label": "30-yr P&I",
+          "align": "r"
+        },
+        {
+          "label": "15-yr P&I",
+          "align": "r"
+        },
+        {
+          "label": "Income needed (28% rule)",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$100,000 loan (this page)",
+            "accent": true
+          },
+          {
+            "text": "$632.07"
+          },
+          {
+            "text": "$871.11"
+          },
+          {
+            "text": "$27,089"
+          }
+        ],
+        [
+          {
+            "text": "$150,000 loan",
+            "href": "/mortgage/150000-mortgage-payment"
+          },
+          {
+            "text": "$948.10"
+          },
+          {
+            "text": "$1,306.66"
+          },
+          {
+            "text": "$40,633"
+          }
+        ],
+        [
+          {
+            "text": "$200,000 loan",
+            "href": "/mortgage/200000-mortgage-payment"
+          },
+          {
+            "text": "$1,264.14"
+          },
+          {
+            "text": "$1,742.21"
+          },
+          {
+            "text": "$54,177"
+          }
+        ],
+        [
+          {
+            "text": "$250,000 loan",
+            "href": "/mortgage/250000-mortgage-payment"
+          },
+          {
+            "text": "$1,580.17"
+          },
+          {
+            "text": "$2,177.77"
+          },
+          {
+            "text": "$67,722"
+          }
+        ]
+      ],
+      "note": "Income column applies the 28% front-end rule to the 30-year P&I payment only; taxes and insurance push the real requirement higher."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is the monthly payment on a $100,000 mortgage?",
+      "a": "At 6.5% on a 30-year fixed, a $100,000 mortgage costs $632.07 a month in principal and interest. Across rates from 5.0% to 7.5%, the 30-year payment ranges from $536.82 to $699.21. Property taxes, insurance, and PMI come on top."
+    },
+    {
+      "q": "How much income do I need for a $100,000 mortgage?",
+      "a": "Using the 28% front-end rule on the $632.07 payment (6.5%, 30-year), you'd want roughly $27,089 of gross annual income for the principal and interest alone. Since lenders count taxes, insurance, PMI, and your other debts too, a comfortable qualifying income is typically higher."
+    },
+    {
+      "q": "How much interest will I pay on a $100,000 mortgage?",
+      "a": "At 6.5%, total interest comes to $127,545 over a 30-year term versus $56,800 over 15 years — the shorter term saves $70,745. In the first year alone the 30-year loan accrues $6,467 of interest against just $1,118 of principal reduction."
+    },
+    {
+      "q": "Is a 15-year or 30-year term better for a $100,000 loan?",
+      "a": "The 30-year payment ($632.07 at 6.5%) is $239.04 cheaper per month than the 15-year ($871.11), but costs $70,745 more in lifetime interest. Choose 15 years if the payment fits comfortably; otherwise take the 30-year and make extra principal payments when you can."
+    },
+    {
+      "q": "Does the $100,000 payment include taxes and insurance?",
+      "a": "No — every figure on this page is principal and interest only. Budget extra for property tax and homeowners insurance (often several hundred dollars monthly, varying by state), plus PMI of roughly $42–$83/month if your down payment is under 20%. With 20% down, $100,000 of financing corresponds to about a $125,000 purchase price."
+    }
+  ],
+  "cta": {
+    "label": "Your exact numbers",
+    "title": "Model your own rate, down payment, and term",
+    "text": "These tables use fixed rate steps. The interactive mortgage calculator handles any rate, adds PMI, property tax, and insurance, and builds the full 360-payment amortization schedule.",
+    "links": [
+      {
+        "label": "Mortgage Calculator",
+        "href": "/calculators/mortgage"
+      },
+      {
+        "label": "Rent vs. Buy Calculator",
+        "href": "/calculators/rent-vs-buy"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "Mortgage Calculator",
+      "desc": "Full PITI payment with PMI, taxes, and amortization.",
+      "mark": "MG",
+      "href": "/calculators/mortgage",
+      "cat": "Borrowing",
+      "time": "1 min"
+    },
+    {
+      "name": "Rent vs. Buy",
+      "desc": "Compare the true 10-year cost of renting against buying.",
+      "mark": "RB",
+      "href": "/calculators/rent-vs-buy",
+      "cat": "Real estate",
+      "time": "2 min"
+    },
+    {
+      "name": "Loan Calculator",
+      "desc": "Payments and amortization for any fixed-rate loan.",
+      "mark": "LN",
+      "href": "/calculators/loan",
+      "cat": "Borrowing",
+      "time": "30 sec"
+    },
+    {
+      "name": "Compound Interest",
+      "desc": "What the money you save on interest could earn instead.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    }
+  ],
+  "methodology": [
+    "Payments use the standard amortization formula M = P·r(1+r)ⁿ / ((1+r)ⁿ − 1) with monthly compounding, on a $100,000 principal. Rates shown (5.0%–7.5%) are illustrative steps, not quotes — your rate depends on credit, points, and the market.",
+    "The amortization table applies 6.5%/30-year, computing interest on the running balance each month and rounding to cents, the way a servicer statement does.",
+    "All figures are principal and interest only. Property tax, homeowners insurance, HOA dues, and PMI are excluded except where explicitly estimated (PMI shown at 0.5–1% of the loan per year).",
+    "Income-needed figures apply the 28% front-end ratio to P&I only. Educational estimates — not lending, tax, or financial advice."
+  ],
+  "dateModified": "2026-08-01"
+}

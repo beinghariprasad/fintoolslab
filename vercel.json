@@ -1,4 +1,22 @@
 {
+  "buildCommand": "npm run build:seo",
+  "redirects": [
+    {
+      "source": "/blog/mortgage-calculator-for-new-york-residents-2025-guide",
+      "destination": "/blog/mortgage-calculator-for-new-york-residents-2026-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/retirement-calculator-for-california-residents-2025-guide",
+      "destination": "/blog/retirement-calculator-for-california-residents-2026-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/savings-calculator-for-texas-residents-2025-guide",
+      "destination": "/blog/savings-calculator-for-texas-residents-2026-guide",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

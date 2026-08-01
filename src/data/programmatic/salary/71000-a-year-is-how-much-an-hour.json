@@ -1,0 +1,452 @@
+{
+  "slug": "71000-a-year-is-how-much-an-hour",
+  "path": "/salary/71000-a-year-is-how-much-an-hour",
+  "category": "salary",
+  "title": "$71,000 a Year Is How Much an Hour? (2026)",
+  "metaDescription": "$71,000 a year is $34.13/hour at 40 hrs/week — $1,365.38 weekly, $5,917 monthly. Full 2026 breakdown with a federal take-home estimate.",
+  "hero": {
+    "chip": "Salary breakdown · 2026 figures",
+    "titleBefore": "$71,000 a year is ",
+    "titleEm": "$34.13 an hour",
+    "titleAfter": ".",
+    "lede": "Based on a 40-hour week worked 52 weeks a year (2,080 hours). Below: every pay-period equivalent, the rate at other workweeks, a 2026 federal take-home estimate, and how $71,000 compares with the U.S. median.",
+    "meta": [
+      {
+        "label": "Basis",
+        "value": "2,080 hours/year"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Calculators",
+        "href": "/calculators"
+      },
+      {
+        "label": "$71,000 a year"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "34.13",
+      "label": "Per hour · $71,000 ÷ 2,080 working hours",
+      "features": [
+        "$1,365.38 per week",
+        "$2,730.77 per biweekly check",
+        "$5,916.67 per month",
+        "≈ $4,898.21/mo after est. federal tax"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "How much is $71,000 a year per hour?",
+    "html": "<strong>$71,000 a year is $34.13 an hour</strong> at 40 hours a week, 52 weeks a year (2,080 hours). That's $273.08 a day, $1,365.38 a week, $2,730.77 biweekly, and $5,916.67 a month — all gross. After estimated federal income tax and FICA, a single filer keeps about $58,779 a year, roughly $4,898 a month."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Pay schedule",
+      "title": "What $71,000 looks like <em>per paycheck</em>.",
+      "columns": [
+        {
+          "label": "Pay period"
+        },
+        {
+          "label": "Gross pay",
+          "align": "r"
+        },
+        {
+          "label": "How it is figured",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "Hourly",
+          {
+            "text": "$34.13",
+            "accent": true
+          },
+          "$71,000 ÷ 2,080 hours"
+        ],
+        [
+          "Daily (8-hour day)",
+          "$273.08",
+          "$71,000 ÷ 260 workdays"
+        ],
+        [
+          "Weekly",
+          "$1,365.38",
+          "$71,000 ÷ 52 weeks"
+        ],
+        [
+          "Biweekly",
+          "$2,730.77",
+          "$71,000 ÷ 26 pay periods"
+        ],
+        [
+          "Semi-monthly",
+          "$2,958.33",
+          "$71,000 ÷ 24 pay periods"
+        ],
+        [
+          "Monthly",
+          "$5,916.67",
+          "$71,000 ÷ 12 months"
+        ],
+        [
+          "Annual",
+          {
+            "text": "$71,000",
+            "strong": true
+          },
+          "gross salary"
+        ]
+      ],
+      "note": "All figures are gross (pre-tax). See the take-home table below for the federal-only estimate after taxes."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Context",
+      "title": "Where $71,000 stands in 2026.",
+      "paragraphs": [
+        "At 40 hours a week, $71,000 a year is <strong>$34.13 an hour</strong>. That is the offer-letter number, not the bank-deposit number: gross pay lands at $2,730.77 per biweekly check, and what actually arrives depends on taxes and benefits withheld.",
+        "For context, the median full-time U.S. worker earns $1,251 a week per the BLS (BLS, Q2 2026) — about $65,052 a year — so this salary runs roughly 9% ahead of the middle of the distribution. A useful rule of thumb at this level: every extra $1 of hourly pay is worth about $2,080 a year at full time, so small raises compound faster than they feel."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Workweek math",
+      "title": "The hourly rate depends on <em>your hours</em>.",
+      "columns": [
+        {
+          "label": "Hours per week"
+        },
+        {
+          "label": "Hours per year",
+          "align": "r"
+        },
+        {
+          "label": "Hourly rate",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "35 hours",
+          "1,820",
+          {
+            "text": "$39.01",
+            "accent": false
+          }
+        ],
+        [
+          "37.5 hours",
+          "1,950",
+          {
+            "text": "$36.41",
+            "accent": false
+          }
+        ],
+        [
+          "40 hours (standard)",
+          "2,080",
+          {
+            "text": "$34.13",
+            "accent": true
+          }
+        ],
+        [
+          "45 hours",
+          "2,340",
+          {
+            "text": "$30.34",
+            "accent": false
+          }
+        ]
+      ],
+      "note": "Salaried roles rarely pay overtime — at 45 hours a week the same $71,000 effectively pays $30.34 per hour worked."
+    },
+    {
+      "type": "table",
+      "eyebrow": "Federal-only estimate",
+      "title": "From $71,000 gross to <em>take-home</em>.",
+      "columns": [
+        {
+          "label": "Line item"
+        },
+        {
+          "label": "Amount",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "Gross annual salary",
+          "$71,000.00"
+        ],
+        [
+          "Standard deduction (single, 2026)",
+          "−$16,100.00"
+        ],
+        [
+          "Federally taxable income",
+          "$54,900.00"
+        ],
+        [
+          "Federal income tax (effective 9.6%)",
+          "−$6,790.00"
+        ],
+        [
+          "Social Security (6.2%)",
+          "−$4,402.00"
+        ],
+        [
+          "Medicare (1.45%)",
+          "−$1,029.50"
+        ],
+        [
+          "Estimated annual take-home",
+          {
+            "text": "$58,778.50",
+            "accent": true,
+            "strong": true
+          }
+        ],
+        [
+          "≈ Monthly take-home",
+          "$4,898.21"
+        ],
+        [
+          "≈ Biweekly take-home",
+          "$2,260.71"
+        ]
+      ],
+      "note": "Single filer, standard deduction, no state/local income tax, no credits or pre-tax benefits. Your actual paycheck will differ."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Taxes",
+      "title": "Why the 22% bracket doesn't mean <em>22% tax</em>.",
+      "paragraphs": [
+        "Only $54,900 of this salary is actually taxable federally once the 2026 standard deduction of $16,100 is applied. Federal income tax totals $6,790 — a 9.6% effective rate even though the marginal bracket is 22% — and employee FICA adds $5,432.",
+        "After those federal deductions, take-home is roughly $58,779 a year — $2,260.71 per biweekly paycheck. On a 50/30/20 plan that budget supports about $2,449/month of essentials, $1,469/month of discretionary spending, and $980/month toward savings, before any state income tax."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "How nearby salaries <em>stack up</em>.",
+      "columns": [
+        {
+          "label": "Annual salary"
+        },
+        {
+          "label": "Hourly (40 hrs)",
+          "align": "r"
+        },
+        {
+          "label": "Weekly",
+          "align": "r"
+        },
+        {
+          "label": "Est. monthly take-home",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$68,000 a year",
+            "href": "/salary/68000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$32.69"
+          },
+          {
+            "text": "$1,307.69"
+          },
+          {
+            "text": "$4,722.33"
+          }
+        ],
+        [
+          {
+            "text": "$69,000 a year",
+            "href": "/salary/69000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$33.17"
+          },
+          {
+            "text": "$1,326.92"
+          },
+          {
+            "text": "$4,780.96"
+          }
+        ],
+        [
+          {
+            "text": "$70,000 a year",
+            "href": "/salary/70000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$33.65"
+          },
+          {
+            "text": "$1,346.15"
+          },
+          {
+            "text": "$4,839.58"
+          }
+        ],
+        [
+          {
+            "text": "$71,000 a year (this page)",
+            "accent": true
+          },
+          {
+            "text": "$34.13"
+          },
+          {
+            "text": "$1,365.38"
+          },
+          {
+            "text": "$4,898.21"
+          }
+        ],
+        [
+          {
+            "text": "$72,000 a year",
+            "href": "/salary/72000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$34.62"
+          },
+          {
+            "text": "$1,384.62"
+          },
+          {
+            "text": "$4,956.83"
+          }
+        ],
+        [
+          {
+            "text": "$73,000 a year",
+            "href": "/salary/73000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$35.10"
+          },
+          {
+            "text": "$1,403.85"
+          },
+          {
+            "text": "$5,015.46"
+          }
+        ],
+        [
+          {
+            "text": "$74,000 a year",
+            "href": "/salary/74000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$35.58"
+          },
+          {
+            "text": "$1,423.08"
+          },
+          {
+            "text": "$5,074.08"
+          }
+        ]
+      ],
+      "note": "Take-home column is the same federal-only, single-filer estimate used above."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How much is $71,000 a year per hour?",
+      "a": "$71,000 a year is $34.13 an hour at 40 hours a week (2,080 hours a year). At 37.5 hours a week it rises to $36.41 an hour, and if you actually work 45-hour weeks it averages $30.34 per hour worked."
+    },
+    {
+      "q": "How much is $71,000 a year biweekly?",
+      "a": "Gross biweekly pay on $71,000 is $2,730.77 ($71,000 ÷ 26 pay periods). After estimated federal income tax and FICA for a single filer, roughly $2,260.71 per check remains — before state taxes and benefits."
+    },
+    {
+      "q": "How much is $71,000 a year after taxes?",
+      "a": "Using 2026 federal brackets and the $16,100 standard deduction, a single filer earning $71,000 pays about $6,790 in federal income tax and $5,432 in FICA, keeping roughly $58,779 a year ($4,898.21 a month). This is a federal-only estimate — state and local taxes reduce it further."
+    },
+    {
+      "q": "Is $71,000 a good salary in 2026?",
+      "a": "$71,000 is about 9% above the U.S. median full-time salary of roughly $65,052 (BLS, Q2 2026: $1,251/week). Whether it is \"good\" depends heavily on your metro's cost of living, household size, and debt load — the same salary goes much further in a low-cost region than in an expensive coastal city."
+    },
+    {
+      "q": "What tax bracket is $71,000 in for 2026?",
+      "a": "After the $16,100 standard deduction, $71,000 leaves $54,900 of taxable income, which puts a single filer in the 22% marginal bracket for 2026. Only income above each threshold is taxed at the higher rate, so the effective federal rate is just 9.6%."
+    }
+  ],
+  "cta": {
+    "label": "Put the paycheck to work",
+    "title": "Turn this salary into a savings plan",
+    "text": "Even $980 a month — the 20% slice of the take-home estimate above — compounds into serious money over a decade. Model it with real numbers.",
+    "links": [
+      {
+        "label": "Savings Calculator",
+        "href": "/calculators/savings"
+      },
+      {
+        "label": "Compound Interest Calculator",
+        "href": "/calculators/compound-interest"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "$34/hour → yearly",
+      "desc": "Flip the math: what $34 an hour earns per year, with overtime tables.",
+      "mark": "HR",
+      "href": "/salary/34-an-hour-is-how-much-a-year",
+      "cat": "Salary",
+      "time": "1 min read"
+    },
+    {
+      "name": "Savings Calculator",
+      "desc": "See what saving a slice of this paycheck grows into.",
+      "mark": "SV",
+      "href": "/calculators/savings",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Compound Interest",
+      "desc": "How invested savings compound over the years.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Retirement Calculator",
+      "desc": "Project what this income can fund by retirement.",
+      "mark": "RT",
+      "href": "/calculators/retirement",
+      "cat": "Retirement",
+      "time": "1 min"
+    }
+  ],
+  "methodology": [
+    "Conversions are straight arithmetic on gross salary: $71,000 ÷ 2,080 hours (40 × 52) for hourly, ÷ 260 workdays for daily, ÷ 52, 26, 24 and 12 for the pay-period figures. No taxes are applied to those rows.",
+    "The take-home estimate uses 2026 federal brackets for a single filer with the $16,100 standard deduction, plus employee FICA (6.2% Social Security + 1.45% Medicare). It excludes state/local income tax, credits, and pre-tax benefits such as 401(k) or health premiums — so real paychecks will differ.",
+    "The median comparison uses BLS median usual weekly earnings for full-time wage and salary workers: $1,251/week (BLS, Q2 2026).",
+    "Educational estimates only — not tax, legal, or financial advice."
+  ],
+  "dateModified": "2026-08-01"
+}

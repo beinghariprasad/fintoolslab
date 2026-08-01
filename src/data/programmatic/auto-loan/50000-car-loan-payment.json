@@ -1,0 +1,411 @@
+{
+  "slug": "50000-car-loan-payment",
+  "path": "/auto-loan/50000-car-loan-payment",
+  "category": "auto-loan",
+  "title": "$50,000 Car Loan Payment: 48, 60 & 72 Months (2026)",
+  "metaDescription": "A $50,000 car loan costs $990.06/mo at 7% APR over 60 months. Compare 48/60/72-month payments at 5–9%, total interest, and depreciation risk.",
+  "hero": {
+    "chip": "Auto loan · 2026 rate table",
+    "titleBefore": "The $50,000 car loan ",
+    "titleEm": "payment",
+    "titleAfter": ", term by term.",
+    "lede": "Monthly payments on $50,000 of auto financing across 5%–9% APRs and 48/60/72-month terms, plus total interest and what depreciation does to your equity along the way.",
+    "meta": [
+      {
+        "label": "APRs shown",
+        "value": "5%–9%"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Loan Calculator",
+        "href": "/calculators/loan"
+      },
+      {
+        "label": "$50,000 car loan"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "990.06",
+      "label": "Monthly payment · $50,000 at 7% APR, 60 months",
+      "features": [
+        "$1,197.31/mo on 48 months",
+        "$852.45/mo on 72 months",
+        "$9,404 total interest (60 mo)",
+        "Before taxes, fees & insurance"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "What does a $50,000 car loan cost per month?",
+    "html": "<strong>A $50,000 car loan costs about $990.06 a month</strong> at 7% APR over 60 months, with $9,404 of total interest. On 48 months the payment is $1,197.31 ($7,471 interest); on 72 months it's $852.45 ($11,376 interest). Your APR and down payment move these numbers — the tables below cover 5%–9%."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Monthly payment",
+      "title": "$50,000 car loan payment <em>by rate and term</em>.",
+      "columns": [
+        {
+          "label": "APR"
+        },
+        {
+          "label": "48 months",
+          "align": "r"
+        },
+        {
+          "label": "60 months",
+          "align": "r"
+        },
+        {
+          "label": "72 months",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "5%",
+          "$1,151.46",
+          {
+            "text": "$943.56",
+            "accent": false
+          },
+          "$805.25"
+        ],
+        [
+          "6%",
+          "$1,174.25",
+          {
+            "text": "$966.64",
+            "accent": false
+          },
+          "$828.64"
+        ],
+        [
+          "7% (used below)",
+          "$1,197.31",
+          {
+            "text": "$990.06",
+            "accent": true
+          },
+          "$852.45"
+        ],
+        [
+          "8%",
+          "$1,220.65",
+          {
+            "text": "$1,013.82",
+            "accent": false
+          },
+          "$876.66"
+        ],
+        [
+          "9%",
+          "$1,244.25",
+          {
+            "text": "$1,037.92",
+            "accent": false
+          },
+          "$901.28"
+        ]
+      ],
+      "note": "Principal and interest on the amount financed. Taxes, title, registration, and insurance are extra — and a down payment or trade-in reduces the financed amount directly."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "The trade-off",
+      "title": "Payment vs. interest: the term is the <em>real decision</em>.",
+      "paragraphs": [
+        "A $50,000 car loan at 7% runs <strong>$990.06 per month on a 60-month term</strong>, with $9,404 of lifetime interest. The term is the big trade-off: 48 months means $1,197.31/month but only $7,471 of interest, while 72 months lowers the payment to $852.45 at a cost of $11,376 in interest."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Lifetime cost",
+      "title": "Total interest on $50,000 <em>over the loan</em>.",
+      "columns": [
+        {
+          "label": "APR"
+        },
+        {
+          "label": "48-mo interest",
+          "align": "r"
+        },
+        {
+          "label": "60-mo interest",
+          "align": "r"
+        },
+        {
+          "label": "72-mo interest",
+          "align": "r"
+        },
+        {
+          "label": "72 vs 48 extra cost",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "5%",
+          "$5,270",
+          {
+            "text": "$6,614",
+            "accent": false
+          },
+          "$7,978",
+          "+$2,708"
+        ],
+        [
+          "6%",
+          "$6,364",
+          {
+            "text": "$7,998",
+            "accent": false
+          },
+          "$9,662",
+          "+$3,298"
+        ],
+        [
+          "7%",
+          "$7,471",
+          {
+            "text": "$9,404",
+            "accent": true
+          },
+          "$11,376",
+          "+$3,906"
+        ],
+        [
+          "8%",
+          "$8,591",
+          {
+            "text": "$10,829",
+            "accent": false
+          },
+          "$13,120",
+          "+$4,528"
+        ],
+        [
+          "9%",
+          "$9,724",
+          {
+            "text": "$12,275",
+            "accent": false
+          },
+          "$14,892",
+          "+$5,168"
+        ]
+      ],
+      "note": "At 7%, choosing 72 months over 48 costs $3,906 more in interest on this loan — the price of the lower monthly payment."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Depreciation",
+      "title": "The car loses value faster than the loan <em>pays down</em>.",
+      "paragraphs": [
+        "Cars depreciate faster than long loans amortize. A typical new vehicle loses about 20% of its value in year one and roughly 15% a year after that — so a $50,000 car is worth around $34,000 after two years. On a 72-month loan at 7% you'd still owe about $35,599 at that point — roughly $1,599 of negative equity. Shorter terms and bigger down payments keep the balance under the car's value."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "Nearby loan amounts at 7% APR.",
+      "columns": [
+        {
+          "label": "Amount financed"
+        },
+        {
+          "label": "48-mo payment",
+          "align": "r"
+        },
+        {
+          "label": "60-mo payment",
+          "align": "r"
+        },
+        {
+          "label": "72-mo payment",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$35,000 loan",
+            "href": "/auto-loan/35000-car-loan-payment"
+          },
+          {
+            "text": "$838.12"
+          },
+          {
+            "text": "$693.04"
+          },
+          {
+            "text": "$596.72"
+          }
+        ],
+        [
+          {
+            "text": "$40,000 loan",
+            "href": "/auto-loan/40000-car-loan-payment"
+          },
+          {
+            "text": "$957.85"
+          },
+          {
+            "text": "$792.05"
+          },
+          {
+            "text": "$681.96"
+          }
+        ],
+        [
+          {
+            "text": "$45,000 loan",
+            "href": "/auto-loan/45000-car-loan-payment"
+          },
+          {
+            "text": "$1,077.58"
+          },
+          {
+            "text": "$891.05"
+          },
+          {
+            "text": "$767.21"
+          }
+        ],
+        [
+          {
+            "text": "$50,000 loan (this page)",
+            "accent": true
+          },
+          {
+            "text": "$1,197.31"
+          },
+          {
+            "text": "$990.06"
+          },
+          {
+            "text": "$852.45"
+          }
+        ],
+        [
+          {
+            "text": "$55,000 loan",
+            "href": "/auto-loan/55000-car-loan-payment"
+          },
+          {
+            "text": "$1,317.04"
+          },
+          {
+            "text": "$1,089.07"
+          },
+          {
+            "text": "$937.70"
+          }
+        ],
+        [
+          {
+            "text": "$60,000 loan",
+            "href": "/auto-loan/60000-car-loan-payment"
+          },
+          {
+            "text": "$1,436.77"
+          },
+          {
+            "text": "$1,188.07"
+          },
+          {
+            "text": "$1,022.94"
+          }
+        ]
+      ],
+      "note": "Same math, different principal — use these links to jump to the breakdown for a different budget."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is the monthly payment on a $50,000 car loan?",
+      "a": "At 7% APR, a $50,000 car loan costs $990.06 a month over 60 months, $1,197.31 over 48 months, or $852.45 over 72 months. Across the 5%–9% APR range, the 60-month payment runs $943.56–$1,037.92."
+    },
+    {
+      "q": "How much interest will I pay on a $50,000 auto loan?",
+      "a": "At 7% APR, total interest is $7,471 over 48 months, $9,404 over 60, and $11,376 over 72. The longer the term, the lower the payment but the higher the total cost — 72 months costs $3,906 more than 48 at the same rate."
+    },
+    {
+      "q": "Is a 72-month loan a bad idea for $50,000?",
+      "a": "Not automatically, but it has two costs: $3,906 more interest than a 48-month term at 7%, and a longer stretch of negative equity — around month 24 you'd owe about $35,599 while a typical $50,000 car is worth roughly $34,000. If you need 72 months to afford the payment, consider a cheaper car or a larger down payment."
+    },
+    {
+      "q": "What credit score do I need for a good rate on $50,000?",
+      "a": "The 5%–9% range shown spans roughly prime to near-prime pricing in 2026; top-tier borrowers on new cars can beat it, while subprime rates run well above it. On this loan, each 1% of APR changes the 60-month payment by about $23.76/month — so improving your score before buying has a measurable payoff."
+    },
+    {
+      "q": "Should I put money down on a $50,000 car?",
+      "a": "Yes, if you can — every $1,000 of down payment cuts the 60-month payment at 7% by about $19.80/month and reduces the risk of owing more than the car is worth. A 10–20% down payment typically keeps the balance below the depreciation curve from day one."
+    }
+  ],
+  "cta": {
+    "label": "Your exact numbers",
+    "title": "Model your own rate, term, and extra payments",
+    "text": "The interactive loan calculator handles any APR and term, shows the full amortization schedule, and lets you test extra payments against the balance.",
+    "links": [
+      {
+        "label": "Loan Calculator",
+        "href": "/calculators/loan"
+      },
+      {
+        "label": "Savings Calculator",
+        "href": "/calculators/savings"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "Loan Calculator",
+      "desc": "Any loan amount, rate, and term with amortization.",
+      "mark": "LN",
+      "href": "/calculators/loan",
+      "cat": "Borrowing",
+      "time": "30 sec"
+    },
+    {
+      "name": "Savings Calculator",
+      "desc": "Save up a bigger down payment on a schedule.",
+      "mark": "SV",
+      "href": "/calculators/savings",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Compound Interest",
+      "desc": "What invested money grows to while you drive.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Mortgage Calculator",
+      "desc": "The other big amortizing loan in most budgets.",
+      "mark": "MG",
+      "href": "/calculators/mortgage",
+      "cat": "Borrowing",
+      "time": "1 min"
+    }
+  ],
+  "methodology": [
+    "Payments use the standard amortization formula with monthly compounding on $50,000 financed. APRs shown (5%–9%) are illustrative steps spanning typical 2026 prime/near-prime pricing, not offers.",
+    "Depreciation figures use a typical curve — about 20% loss in year one and 15% per year thereafter — applied to the financed amount as a proxy for vehicle price with zero down. Individual models vary widely.",
+    "Figures exclude sales tax, title/registration fees, dealer add-ons, and insurance. Educational estimates — not lending or financial advice."
+  ],
+  "dateModified": "2026-08-01"
+}

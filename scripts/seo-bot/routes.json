@@ -1,0 +1,24 @@
+{
+  "routes": [
+    { "path": "/", "changefreq": "weekly", "priority": 1.0 },
+    { "path": "/calculators", "changefreq": "weekly", "priority": 0.9 },
+    { "path": "/calculators/compound-interest", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/mortgage", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/loan", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/retirement", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/investment", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/savings", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/rent-vs-buy", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/salary-to-hourly", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/coast-fire", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/cd", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/hysa", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/calculators/rmd", "changefreq": "monthly", "priority": 0.8 },
+    { "path": "/blog", "changefreq": "weekly", "priority": 0.8 },
+    { "path": "/about", "changefreq": "monthly", "priority": 0.6 },
+    { "path": "/contact", "changefreq": "monthly", "priority": 0.5 },
+    { "path": "/privacy-policy", "changefreq": "yearly", "priority": 0.3 },
+    { "path": "/terms-of-service", "changefreq": "yearly", "priority": 0.3 },
+    { "path": "/embed/savings", "changefreq": "monthly", "priority": 0.6, "prerender": false }
+  ]
+}

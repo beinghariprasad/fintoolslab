@@ -1,0 +1,587 @@
+{
+  "slug": "800000-mortgage-payment",
+  "path": "/mortgage/800000-mortgage-payment",
+  "category": "mortgage",
+  "title": "$800,000 Mortgage Payment by Rate & Term (2026)",
+  "metaDescription": "A $800,000 mortgage costs $5,056.54/mo at 6.5% over 30 years ($6,968.86 on 15). See payments at 5–7.5%, total interest, and the income needed.",
+  "hero": {
+    "chip": "Mortgage · 2026 rate table",
+    "titleBefore": "The $800,000 mortgage ",
+    "titleEm": "payment",
+    "titleAfter": ", at every rate.",
+    "lede": "Principal-and-interest payments on a $800,000 home loan across 5.0%–7.5% rates and 15/30-year terms, plus total interest, a first-year amortization schedule, and the income the 28% rule implies.",
+    "meta": [
+      {
+        "label": "Rates shown",
+        "value": "5.0%–7.5%"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Mortgage Calculator",
+        "href": "/calculators/mortgage"
+      },
+      {
+        "label": "$800,000 mortgage"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "5,056.54",
+      "label": "Monthly P&I · $800,000 at 6.5%, 30-year fixed",
+      "features": [
+        "$6,968.86/mo on a 15-year term",
+        "$1,020,354 total interest over 30 yrs",
+        "≈ $216,709 income under the 28% rule",
+        "Taxes, insurance & PMI not included"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "What does a $800,000 mortgage cost per month?",
+    "html": "<strong>A $800,000 mortgage costs about $5,056.54 a month</strong> in principal and interest at 6.5% on a 30-year fixed term, or $6,968.86 on a 15-year. Depending on your rate (5.0%–7.5%), the 30-year payment runs $4,294.57–$5,593.72. Total 30-year interest at 6.5%: $1,020,354."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Monthly payment",
+      "title": "$800,000 mortgage payment <em>by rate and term</em>.",
+      "columns": [
+        {
+          "label": "Interest rate"
+        },
+        {
+          "label": "15-year P&I",
+          "align": "r"
+        },
+        {
+          "label": "30-year P&I",
+          "align": "r"
+        },
+        {
+          "label": "Difference / mo",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "5.0%",
+          "$6,326.35",
+          {
+            "text": "$4,294.57",
+            "accent": false
+          },
+          "$2,031.78"
+        ],
+        [
+          "5.5%",
+          "$6,536.67",
+          {
+            "text": "$4,542.31",
+            "accent": false
+          },
+          "$1,994.36"
+        ],
+        [
+          "6.0%",
+          "$6,750.85",
+          {
+            "text": "$4,796.40",
+            "accent": false
+          },
+          "$1,954.45"
+        ],
+        [
+          "6.5% (used below)",
+          "$6,968.86",
+          {
+            "text": "$5,056.54",
+            "accent": true
+          },
+          "$1,912.32"
+        ],
+        [
+          "7.0%",
+          "$7,190.63",
+          {
+            "text": "$5,322.42",
+            "accent": false
+          },
+          "$1,868.21"
+        ],
+        [
+          "7.5%",
+          "$7,416.10",
+          {
+            "text": "$5,593.72",
+            "accent": false
+          },
+          "$1,822.38"
+        ]
+      ],
+      "note": "Principal and interest only — add property taxes, homeowners insurance, and PMI (if under 20% down) for the full monthly cost."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "The headline numbers",
+      "title": "What $800,000 of mortgage debt really costs.",
+      "paragraphs": [
+        "Borrow $800,000 at 6.5% for 30 years and the principal-and-interest payment is <strong>$5,056.54 per month</strong>. Choose 15 years instead and you pay $6,968.86 monthly, yet total interest falls from $1,020,354 to $454,395 — the shorter term keeps $565,960 in your pocket.",
+        "Rates move the payment more than most buyers expect: on $800,000, going from 6.0% to 7.0% adds $526.02 a month on a 30-year term — $189,367 over the life of the loan. Across the 5.0%–7.5% range in the table above, the 30-year payment spans $4,294.57 to $5,593.72."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Lifetime cost",
+      "title": "Total interest on $800,000 <em>over the full term</em>.",
+      "columns": [
+        {
+          "label": "Interest rate"
+        },
+        {
+          "label": "15-yr total interest",
+          "align": "r"
+        },
+        {
+          "label": "30-yr total interest",
+          "align": "r"
+        },
+        {
+          "label": "30-yr total repaid",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "5.0%",
+          "$338,743",
+          {
+            "text": "$746,045",
+            "accent": false
+          },
+          "$1,546,045"
+        ],
+        [
+          "5.5%",
+          "$376,601",
+          {
+            "text": "$835,232",
+            "accent": false
+          },
+          "$1,635,232"
+        ],
+        [
+          "6.0%",
+          "$415,153",
+          {
+            "text": "$926,704",
+            "accent": false
+          },
+          "$1,726,704"
+        ],
+        [
+          "6.5%",
+          "$454,395",
+          {
+            "text": "$1,020,354",
+            "accent": true
+          },
+          "$1,820,354"
+        ],
+        [
+          "7.0%",
+          "$494,313",
+          {
+            "text": "$1,116,071",
+            "accent": false
+          },
+          "$1,916,071"
+        ],
+        [
+          "7.5%",
+          "$534,898",
+          {
+            "text": "$1,213,739",
+            "accent": false
+          },
+          "$2,013,739"
+        ]
+      ],
+      "note": "At 6.5% on a 30-year term you repay $1,820,354 in total — 2.28× the amount borrowed."
+    },
+    {
+      "type": "table",
+      "eyebrow": "Year one · 6.5%, 30-year",
+      "title": "First-year amortization: where each payment <em>actually goes</em>.",
+      "columns": [
+        {
+          "label": "Month"
+        },
+        {
+          "label": "Payment",
+          "align": "r"
+        },
+        {
+          "label": "Interest",
+          "align": "r"
+        },
+        {
+          "label": "Principal",
+          "align": "r"
+        },
+        {
+          "label": "Balance",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "M01",
+          "$5,056.54",
+          {
+            "text": "$4,333.33",
+            "accent": true
+          },
+          "$723.21",
+          "$799,276.79"
+        ],
+        [
+          "M02",
+          "$5,056.54",
+          {
+            "text": "$4,329.42",
+            "accent": true
+          },
+          "$727.12",
+          "$798,549.67"
+        ],
+        [
+          "M03",
+          "$5,056.54",
+          {
+            "text": "$4,325.48",
+            "accent": true
+          },
+          "$731.06",
+          "$797,818.61"
+        ],
+        [
+          "M04",
+          "$5,056.54",
+          {
+            "text": "$4,321.52",
+            "accent": true
+          },
+          "$735.02",
+          "$797,083.59"
+        ],
+        [
+          "M05",
+          "$5,056.54",
+          {
+            "text": "$4,317.54",
+            "accent": true
+          },
+          "$739.00",
+          "$796,344.59"
+        ],
+        [
+          "M06",
+          "$5,056.54",
+          {
+            "text": "$4,313.53",
+            "accent": true
+          },
+          "$743.01",
+          "$795,601.58"
+        ],
+        [
+          "M07",
+          "$5,056.54",
+          {
+            "text": "$4,309.51",
+            "accent": true
+          },
+          "$747.03",
+          "$794,854.55"
+        ],
+        [
+          "M08",
+          "$5,056.54",
+          {
+            "text": "$4,305.46",
+            "accent": true
+          },
+          "$751.08",
+          "$794,103.47"
+        ],
+        [
+          "M09",
+          "$5,056.54",
+          {
+            "text": "$4,301.39",
+            "accent": true
+          },
+          "$755.15",
+          "$793,348.32"
+        ],
+        [
+          "M10",
+          "$5,056.54",
+          {
+            "text": "$4,297.30",
+            "accent": true
+          },
+          "$759.24",
+          "$792,589.08"
+        ],
+        [
+          "M11",
+          "$5,056.54",
+          {
+            "text": "$4,293.19",
+            "accent": true
+          },
+          "$763.35",
+          "$791,825.73"
+        ],
+        [
+          "M12",
+          "$5,056.54",
+          {
+            "text": "$4,289.06",
+            "accent": true
+          },
+          "$767.48",
+          "$791,058.25"
+        ]
+      ],
+      "note": "In year one you pay $51,737 of interest but only $8,942 of principal — early payments are mostly interest, which is why extra principal payments early on save so much."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Beyond P&I",
+      "title": "PMI, income needed, and the <em>rest of the bill</em>.",
+      "paragraphs": [
+        "Remember that these are principal-and-interest numbers only. Put down less than 20% and PMI adds roughly $333–$667 monthly (0.5–1% of $800,000 per year) until you reach 20% equity. Property tax and insurance frequently add several hundred dollars more — a $800,000 loan with 20% down implies a purchase price near $1,000,000.",
+        "How much income does it take? The common 28% front-end rule says housing costs shouldn't exceed 28% of gross income. On the $5,056.54 payment at 6.5%/30-year, that implies roughly $216,709 of annual income — and more once taxes, insurance, and any PMI join the payment."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "Nearby loan amounts at 6.5%.",
+      "columns": [
+        {
+          "label": "Loan amount"
+        },
+        {
+          "label": "30-yr P&I",
+          "align": "r"
+        },
+        {
+          "label": "15-yr P&I",
+          "align": "r"
+        },
+        {
+          "label": "Income needed (28% rule)",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$650,000 loan",
+            "href": "/mortgage/650000-mortgage-payment"
+          },
+          {
+            "text": "$4,108.44"
+          },
+          {
+            "text": "$5,662.20"
+          },
+          {
+            "text": "$176,076"
+          }
+        ],
+        [
+          {
+            "text": "$700,000 loan",
+            "href": "/mortgage/700000-mortgage-payment"
+          },
+          {
+            "text": "$4,424.48"
+          },
+          {
+            "text": "$6,097.75"
+          },
+          {
+            "text": "$189,621"
+          }
+        ],
+        [
+          {
+            "text": "$750,000 loan",
+            "href": "/mortgage/750000-mortgage-payment"
+          },
+          {
+            "text": "$4,740.51"
+          },
+          {
+            "text": "$6,533.31"
+          },
+          {
+            "text": "$203,165"
+          }
+        ],
+        [
+          {
+            "text": "$800,000 loan (this page)",
+            "accent": true
+          },
+          {
+            "text": "$5,056.54"
+          },
+          {
+            "text": "$6,968.86"
+          },
+          {
+            "text": "$216,709"
+          }
+        ],
+        [
+          {
+            "text": "$850,000 loan",
+            "href": "/mortgage/850000-mortgage-payment"
+          },
+          {
+            "text": "$5,372.58"
+          },
+          {
+            "text": "$7,404.41"
+          },
+          {
+            "text": "$230,253"
+          }
+        ],
+        [
+          {
+            "text": "$900,000 loan",
+            "href": "/mortgage/900000-mortgage-payment"
+          },
+          {
+            "text": "$5,688.61"
+          },
+          {
+            "text": "$7,839.97"
+          },
+          {
+            "text": "$243,798"
+          }
+        ],
+        [
+          {
+            "text": "$950,000 loan",
+            "href": "/mortgage/950000-mortgage-payment"
+          },
+          {
+            "text": "$6,004.65"
+          },
+          {
+            "text": "$8,275.52"
+          },
+          {
+            "text": "$257,342"
+          }
+        ]
+      ],
+      "note": "Income column applies the 28% front-end rule to the 30-year P&I payment only; taxes and insurance push the real requirement higher."
+    }
+  ],
+  "faq": [
+    {
+      "q": "What is the monthly payment on a $800,000 mortgage?",
+      "a": "At 6.5% on a 30-year fixed, a $800,000 mortgage costs $5,056.54 a month in principal and interest. Across rates from 5.0% to 7.5%, the 30-year payment ranges from $4,294.57 to $5,593.72. Property taxes, insurance, and PMI come on top."
+    },
+    {
+      "q": "How much income do I need for a $800,000 mortgage?",
+      "a": "Using the 28% front-end rule on the $5,056.54 payment (6.5%, 30-year), you'd want roughly $216,709 of gross annual income for the principal and interest alone. Since lenders count taxes, insurance, PMI, and your other debts too, a comfortable qualifying income is typically higher."
+    },
+    {
+      "q": "How much interest will I pay on a $800,000 mortgage?",
+      "a": "At 6.5%, total interest comes to $1,020,354 over a 30-year term versus $454,395 over 15 years — the shorter term saves $565,960. In the first year alone the 30-year loan accrues $51,737 of interest against just $8,942 of principal reduction."
+    },
+    {
+      "q": "Is a 15-year or 30-year term better for a $800,000 loan?",
+      "a": "The 30-year payment ($5,056.54 at 6.5%) is $1,912.32 cheaper per month than the 15-year ($6,968.86), but costs $565,960 more in lifetime interest. Choose 15 years if the payment fits comfortably; otherwise take the 30-year and make extra principal payments when you can."
+    },
+    {
+      "q": "Does the $800,000 payment include taxes and insurance?",
+      "a": "No — every figure on this page is principal and interest only. Budget extra for property tax and homeowners insurance (often several hundred dollars monthly, varying by state), plus PMI of roughly $333–$667/month if your down payment is under 20%. With 20% down, $800,000 of financing corresponds to about a $1,000,000 purchase price."
+    }
+  ],
+  "cta": {
+    "label": "Your exact numbers",
+    "title": "Model your own rate, down payment, and term",
+    "text": "These tables use fixed rate steps. The interactive mortgage calculator handles any rate, adds PMI, property tax, and insurance, and builds the full 360-payment amortization schedule.",
+    "links": [
+      {
+        "label": "Mortgage Calculator",
+        "href": "/calculators/mortgage"
+      },
+      {
+        "label": "Rent vs. Buy Calculator",
+        "href": "/calculators/rent-vs-buy"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "Mortgage Calculator",
+      "desc": "Full PITI payment with PMI, taxes, and amortization.",
+      "mark": "MG",
+      "href": "/calculators/mortgage",
+      "cat": "Borrowing",
+      "time": "1 min"
+    },
+    {
+      "name": "Rent vs. Buy",
+      "desc": "Compare the true 10-year cost of renting against buying.",
+      "mark": "RB",
+      "href": "/calculators/rent-vs-buy",
+      "cat": "Real estate",
+      "time": "2 min"
+    },
+    {
+      "name": "Loan Calculator",
+      "desc": "Payments and amortization for any fixed-rate loan.",
+      "mark": "LN",
+      "href": "/calculators/loan",
+      "cat": "Borrowing",
+      "time": "30 sec"
+    },
+    {
+      "name": "Compound Interest",
+      "desc": "What the money you save on interest could earn instead.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    }
+  ],
+  "methodology": [
+    "Payments use the standard amortization formula M = P·r(1+r)ⁿ / ((1+r)ⁿ − 1) with monthly compounding, on a $800,000 principal. Rates shown (5.0%–7.5%) are illustrative steps, not quotes — your rate depends on credit, points, and the market.",
+    "The amortization table applies 6.5%/30-year, computing interest on the running balance each month and rounding to cents, the way a servicer statement does.",
+    "All figures are principal and interest only. Property tax, homeowners insurance, HOA dues, and PMI are excluded except where explicitly estimated (PMI shown at 0.5–1% of the loan per year).",
+    "Income-needed figures apply the 28% front-end ratio to P&I only. Educational estimates — not lending, tax, or financial advice."
+  ],
+  "dateModified": "2026-08-01"
+}

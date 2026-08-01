@@ -1,0 +1,461 @@
+{
+  "slug": "how-much-will-100000-grow-in-20-years",
+  "path": "/savings/how-much-will-100000-grow-in-20-years",
+  "category": "growth",
+  "title": "How Much Will $100,000 Grow in 20 Years? (2026)",
+  "metaDescription": "$100,000 grows to $386,968 in 20 years at 7% — and $672,750 at 10%. See growth tables for 4–10% returns, 5–30 year horizons, and monthly contributions.",
+  "hero": {
+    "chip": "Compound growth · projection tables",
+    "titleBefore": "$100,000 today is ",
+    "titleEm": "$386,968 in 20 years",
+    "titleAfter": " at 7%.",
+    "lede": "Full growth tables for a $100,000 starting balance: returns from 4% to 10%, horizons from 5 to 30 years, with and without monthly contributions — plus rule-of-72 doubling times.",
+    "meta": [
+      {
+        "label": "Headline",
+        "value": "7% return, 20 years"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Compound Interest",
+        "href": "/calculators/compound-interest"
+      },
+      {
+        "label": "$100,000 in 20 years"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "386,968",
+      "label": "$100,000 at 7% for 20 years, no additions",
+      "features": [
+        "$286,968 of pure compounding",
+        "$672,750 if returns average 10%",
+        "$455,967 with $100/mo added",
+        "Doubles roughly every 10.3 years at 7%"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "How much will $100,000 grow in 20 years?",
+    "html": "<strong>$100,000 grows to about $386,968 in 20 years at a 7% average annual return</strong> — 3.87× the starting amount. At 5% it reaches $265,330; at 10%, $672,750. Add $100 a month and the 7% outcome climbs to roughly $455,967. Returns are illustrative averages, not guarantees."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Lump sum",
+      "title": "$100,000 left to compound, <em>no additions</em>.",
+      "columns": [
+        {
+          "label": "Annual return"
+        },
+        {
+          "label": "5 years",
+          "align": "r"
+        },
+        {
+          "label": "10 years",
+          "align": "r"
+        },
+        {
+          "label": "20 years",
+          "align": "r"
+        },
+        {
+          "label": "30 years",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "4%",
+          "$121,665",
+          "$148,024",
+          "$219,112",
+          "$324,340"
+        ],
+        [
+          "5%",
+          "$127,628",
+          "$162,889",
+          "$265,330",
+          "$432,194"
+        ],
+        [
+          "7% (headline)",
+          "$140,255",
+          "$196,715",
+          {
+            "text": "$386,968",
+            "accent": true,
+            "strong": true
+          },
+          "$761,226"
+        ],
+        [
+          "8%",
+          "$146,933",
+          "$215,893",
+          "$466,096",
+          "$1,006,266"
+        ],
+        [
+          "10%",
+          "$161,051",
+          "$259,374",
+          "$672,750",
+          "$1,744,940"
+        ]
+      ],
+      "note": "Annual compounding on the starting amount only, before taxes, fees, and inflation. Returns are illustrative assumptions, not predictions."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "The compounding math",
+      "title": "What $100,000 becomes when you <em>leave it alone</em>.",
+      "paragraphs": [
+        "Compound $100,000 at 7% a year for two decades and it becomes <strong>$386,968</strong> — 3.87× the original stake, with $286,968 of that being growth. The engine is compounding: each year's return earns its own return the next year.",
+        "The return assumption dominates everything. The same $100,000 over the same 20 years ends at $219,112 at 4% (roughly a high-yield-savings trajectory) but $672,750 at 10% (close to the S&P 500's long-run nominal average). That spread — $453,638 — is why \"where you park it\" matters more than timing."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "With monthly contributions · 7% return",
+      "title": "Add a monthly deposit and the curve <em>bends up</em>.",
+      "columns": [
+        {
+          "label": "Monthly addition"
+        },
+        {
+          "label": "5 years",
+          "align": "r"
+        },
+        {
+          "label": "10 years",
+          "align": "r"
+        },
+        {
+          "label": "20 years",
+          "align": "r"
+        },
+        {
+          "label": "30 years",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "$100,000 alone",
+          {
+            "text": "$141,763"
+          },
+          {
+            "text": "$200,966"
+          },
+          {
+            "text": "$403,874"
+          },
+          {
+            "text": "$811,650"
+          }
+        ],
+        [
+          "+ $100/month",
+          "$148,922",
+          "$218,275",
+          {
+            "text": "$455,967",
+            "accent": true
+          },
+          "$933,647"
+        ],
+        [
+          "+ $250/month",
+          "$159,661",
+          "$244,237",
+          {
+            "text": "$534,106",
+            "accent": true
+          },
+          "$1,116,643"
+        ],
+        [
+          "+ $500/month",
+          "$177,559",
+          "$287,509",
+          {
+            "text": "$664,337",
+            "accent": true
+          },
+          "$1,421,635"
+        ]
+      ],
+      "note": "7% annual return compounded monthly, contributions at each month's end. The $100,000-alone row differs slightly from the annual-compounding table above because of the monthly compounding convention."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Contributions",
+      "title": "Deposits first, compounding <em>later</em>.",
+      "paragraphs": [
+        "The lump sum is only half the story. $100/month added to $100,000 grows the 20-year outcome at 7% to roughly $455,967, and $500/month pushes it to $664,337. In the early years the deposits dominate; by the back half, growth on the balance out-earns the deposits themselves."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Rule of 72",
+      "title": "How fast $100,000 <em>doubles</em>.",
+      "columns": [
+        {
+          "label": "Annual return"
+        },
+        {
+          "label": "Years to double (72 ÷ rate)",
+          "align": "r"
+        },
+        {
+          "label": "Rule-of-72 estimate, 30 yrs",
+          "align": "r"
+        },
+        {
+          "label": "Exact value, 30 yrs",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "4%",
+          "18.0 years",
+          "$317,480",
+          {
+            "text": "$324,340",
+            "accent": false
+          }
+        ],
+        [
+          "5%",
+          "14.4 years",
+          "$423,785",
+          {
+            "text": "$432,194",
+            "accent": false
+          }
+        ],
+        [
+          "7%",
+          "10.3 years",
+          "$754,464",
+          {
+            "text": "$761,226",
+            "accent": true
+          }
+        ],
+        [
+          "8%",
+          "9.0 years",
+          "$1,007,937",
+          {
+            "text": "$1,006,266",
+            "accent": false
+          }
+        ],
+        [
+          "10%",
+          "7.2 years",
+          "$1,795,939",
+          {
+            "text": "$1,744,940",
+            "accent": false
+          }
+        ]
+      ],
+      "note": "At 7%, money doubles roughly every 10.3 years — so a 20-year horizon fits almost two full doublings of $100,000."
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "Other starting amounts, <em>20-year view</em>.",
+      "columns": [
+        {
+          "label": "Starting amount"
+        },
+        {
+          "label": "At 5% · 20 yrs",
+          "align": "r"
+        },
+        {
+          "label": "At 7% · 20 yrs",
+          "align": "r"
+        },
+        {
+          "label": "At 10% · 20 yrs",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$20,000 starting",
+            "href": "/savings/how-much-will-20000-grow-in-20-years"
+          },
+          {
+            "text": "$53,066"
+          },
+          {
+            "text": "$77,394"
+          },
+          {
+            "text": "$134,550"
+          }
+        ],
+        [
+          {
+            "text": "$25,000 starting",
+            "href": "/savings/how-much-will-25000-grow-in-20-years"
+          },
+          {
+            "text": "$66,332"
+          },
+          {
+            "text": "$96,742"
+          },
+          {
+            "text": "$168,188"
+          }
+        ],
+        [
+          {
+            "text": "$50,000 starting",
+            "href": "/savings/how-much-will-50000-grow-in-20-years"
+          },
+          {
+            "text": "$132,665"
+          },
+          {
+            "text": "$193,484"
+          },
+          {
+            "text": "$336,375"
+          }
+        ],
+        [
+          {
+            "text": "$100,000 starting (this page)",
+            "accent": true
+          },
+          {
+            "text": "$265,330"
+          },
+          {
+            "text": "$386,968"
+          },
+          {
+            "text": "$672,750"
+          }
+        ],
+        [
+          {
+            "text": "$250,000 starting",
+            "href": "/savings/how-much-will-250000-grow-in-20-years"
+          },
+          {
+            "text": "$663,324"
+          },
+          {
+            "text": "$967,421"
+          },
+          {
+            "text": "$1,681,875"
+          }
+        ]
+      ],
+      "note": "Annual compounding, lump sum only — click through for the full breakdown of any amount."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How much will $100,000 grow in 20 years at 7%?",
+      "a": "$100,000 compounding at 7% annually becomes about $386,968 in 20 years — 3.87× the starting amount, or $286,968 of growth with no additional deposits. With monthly compounding the figure is slightly higher: about $403,874."
+    },
+    {
+      "q": "How much will $100,000 be worth in 20 years at 10%?",
+      "a": "At a 10% average annual return — near the S&P 500's long-run nominal average — $100,000 grows to about $672,750 in 20 years. At a more conservative 5% it reaches $265,330, and at 4% (a savings-account-like rate) about $219,112."
+    },
+    {
+      "q": "How long does it take $100,000 to double?",
+      "a": "By the rule of 72, dividing 72 by the return gives the doubling time: about 10.3 years at 7%, 7.2 years at 10%, and 18.0 years at 4%. Over 30 years at 7%, $100,000 doubles almost three times, reaching about $761,226."
+    },
+    {
+      "q": "What if I add $100 a month to $100,000?",
+      "a": "Adding $100 a month at a 7% return takes the 20-year total from about $403,874 to roughly $455,967. At $250/month it reaches $534,106, and at $500/month about $664,337."
+    },
+    {
+      "q": "Are these growth numbers guaranteed?",
+      "a": "No. Market returns vary year to year — 7% and 10% are long-run averages, not promises, and real results are lumpy, can be negative for stretches, and are reduced by taxes, fees, and inflation. Treat every figure here as an illustration of compounding math, not a forecast."
+    }
+  ],
+  "cta": {
+    "label": "Your own scenario",
+    "title": "Chart any amount, rate, and timeline",
+    "text": "The interactive compound interest calculator draws the full year-by-year curve for any starting balance, contribution schedule, and compounding frequency.",
+    "links": [
+      {
+        "label": "Compound Interest Calculator",
+        "href": "/calculators/compound-interest"
+      },
+      {
+        "label": "Investment Calculator",
+        "href": "/calculators/investment"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "Compound Interest",
+      "desc": "Interactive version of these tables with charts.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Investment Growth",
+      "desc": "Project a portfolio with regular contributions.",
+      "mark": "IV",
+      "href": "/calculators/investment",
+      "cat": "Investing",
+      "time": "1 min"
+    },
+    {
+      "name": "Savings Calculator",
+      "desc": "Work backward from a savings goal to a monthly amount.",
+      "mark": "SV",
+      "href": "/calculators/savings",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Retirement Calculator",
+      "desc": "Stretch the same compounding out to retirement age.",
+      "mark": "RT",
+      "href": "/calculators/retirement",
+      "cat": "Retirement",
+      "time": "1 min"
+    }
+  ],
+  "methodology": [
+    "Lump-sum tables use annual compounding: FV = P × (1 + r)ᵗ. The contribution table uses monthly compounding (r ÷ 12) with deposits at the end of each month, which is why its zero-contribution row runs slightly ahead of the annual table.",
+    "Return rates (4–10%) are illustrative long-run averages: 4–5% resembles high-yield savings/bonds, 7% a conservative stock-portfolio assumption, 10% the S&P 500’s long-run nominal average. Actual returns vary and can be negative.",
+    "All figures are nominal — before taxes, investment fees, and inflation, each of which reduces real-world outcomes.",
+    "Educational illustrations of compound-interest math — not investment advice or a forecast."
+  ],
+  "dateModified": "2026-08-01"
+}

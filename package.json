@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:seo": "vite build && node scripts/seo-bot/prerender.mjs && node scripts/generateSitemap.cjs --out dist/sitemap.xml",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "seo:generate": "node scripts/seo-bot/generate-pages.mjs && node scripts/generateSitemap.cjs",
+    "seo:release": "node scripts/seo-bot/release-batch.mjs",
+    "seo:sitemap": "node scripts/generateSitemap.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

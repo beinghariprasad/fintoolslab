@@ -1,0 +1,452 @@
+{
+  "slug": "35000-a-year-is-how-much-an-hour",
+  "path": "/salary/35000-a-year-is-how-much-an-hour",
+  "category": "salary",
+  "title": "$35,000 a Year Is How Much an Hour? (2026)",
+  "metaDescription": "$35,000 a year is $16.83/hour at 40 hrs/week — $673.08 weekly, $2,917 monthly. Full 2026 breakdown with a federal take-home estimate.",
+  "hero": {
+    "chip": "Salary breakdown · 2026 figures",
+    "titleBefore": "$35,000 a year is ",
+    "titleEm": "$16.83 an hour",
+    "titleAfter": ".",
+    "lede": "Based on a 40-hour week worked 52 weeks a year (2,080 hours). Below: every pay-period equivalent, the rate at other workweeks, a 2026 federal take-home estimate, and how $35,000 compares with the U.S. median.",
+    "meta": [
+      {
+        "label": "Basis",
+        "value": "2,080 hours/year"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Calculators",
+        "href": "/calculators"
+      },
+      {
+        "label": "$35,000 a year"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "16.83",
+      "label": "Per hour · $35,000 ÷ 2,080 working hours",
+      "features": [
+        "$673.08 per week",
+        "$1,346.15 per biweekly check",
+        "$2,916.67 per month",
+        "≈ $2,525.21/mo after est. federal tax"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "How much is $35,000 a year per hour?",
+    "html": "<strong>$35,000 a year is $16.83 an hour</strong> at 40 hours a week, 52 weeks a year (2,080 hours). That's $134.62 a day, $673.08 a week, $1,346.15 biweekly, and $2,916.67 a month — all gross. After estimated federal income tax and FICA, a single filer keeps about $30,303 a year, roughly $2,525 a month."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Pay schedule",
+      "title": "What $35,000 looks like <em>per paycheck</em>.",
+      "columns": [
+        {
+          "label": "Pay period"
+        },
+        {
+          "label": "Gross pay",
+          "align": "r"
+        },
+        {
+          "label": "How it is figured",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "Hourly",
+          {
+            "text": "$16.83",
+            "accent": true
+          },
+          "$35,000 ÷ 2,080 hours"
+        ],
+        [
+          "Daily (8-hour day)",
+          "$134.62",
+          "$35,000 ÷ 260 workdays"
+        ],
+        [
+          "Weekly",
+          "$673.08",
+          "$35,000 ÷ 52 weeks"
+        ],
+        [
+          "Biweekly",
+          "$1,346.15",
+          "$35,000 ÷ 26 pay periods"
+        ],
+        [
+          "Semi-monthly",
+          "$1,458.33",
+          "$35,000 ÷ 24 pay periods"
+        ],
+        [
+          "Monthly",
+          "$2,916.67",
+          "$35,000 ÷ 12 months"
+        ],
+        [
+          "Annual",
+          {
+            "text": "$35,000",
+            "strong": true
+          },
+          "gross salary"
+        ]
+      ],
+      "note": "All figures are gross (pre-tax). See the take-home table below for the federal-only estimate after taxes."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Context",
+      "title": "Where $35,000 stands in 2026.",
+      "paragraphs": [
+        "At 40 hours a week, $35,000 a year is <strong>$16.83 an hour</strong>. That is the offer-letter number, not the bank-deposit number: gross pay lands at $1,346.15 per biweekly check, and what actually arrives depends on taxes and benefits withheld.",
+        "For scale, the median full-time U.S. worker earns $1,251 weekly per the BLS (BLS, Q2 2026), roughly $65,052 a year, so this salary is about 46% under the midpoint. A useful rule of thumb at this level: every extra $1 of hourly pay is worth about $2,080 a year at full time, so small raises compound faster than they feel."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Workweek math",
+      "title": "The hourly rate depends on <em>your hours</em>.",
+      "columns": [
+        {
+          "label": "Hours per week"
+        },
+        {
+          "label": "Hours per year",
+          "align": "r"
+        },
+        {
+          "label": "Hourly rate",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "35 hours",
+          "1,820",
+          {
+            "text": "$19.23",
+            "accent": false
+          }
+        ],
+        [
+          "37.5 hours",
+          "1,950",
+          {
+            "text": "$17.95",
+            "accent": false
+          }
+        ],
+        [
+          "40 hours (standard)",
+          "2,080",
+          {
+            "text": "$16.83",
+            "accent": true
+          }
+        ],
+        [
+          "45 hours",
+          "2,340",
+          {
+            "text": "$14.96",
+            "accent": false
+          }
+        ]
+      ],
+      "note": "Salaried roles rarely pay overtime — at 45 hours a week the same $35,000 effectively pays $14.96 per hour worked."
+    },
+    {
+      "type": "table",
+      "eyebrow": "Federal-only estimate",
+      "title": "From $35,000 gross to <em>take-home</em>.",
+      "columns": [
+        {
+          "label": "Line item"
+        },
+        {
+          "label": "Amount",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "Gross annual salary",
+          "$35,000.00"
+        ],
+        [
+          "Standard deduction (single, 2026)",
+          "−$16,100.00"
+        ],
+        [
+          "Federally taxable income",
+          "$18,900.00"
+        ],
+        [
+          "Federal income tax (effective 5.8%)",
+          "−$2,020.00"
+        ],
+        [
+          "Social Security (6.2%)",
+          "−$2,170.00"
+        ],
+        [
+          "Medicare (1.45%)",
+          "−$507.50"
+        ],
+        [
+          "Estimated annual take-home",
+          {
+            "text": "$30,302.50",
+            "accent": true,
+            "strong": true
+          }
+        ],
+        [
+          "≈ Monthly take-home",
+          "$2,525.21"
+        ],
+        [
+          "≈ Biweekly take-home",
+          "$1,165.48"
+        ]
+      ],
+      "note": "Single filer, standard deduction, no state/local income tax, no credits or pre-tax benefits. Your actual paycheck will differ."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Taxes",
+      "title": "Why the 12% bracket doesn't mean <em>12% tax</em>.",
+      "paragraphs": [
+        "Only $18,900 of this salary is actually taxable federally once the 2026 standard deduction of $16,100 is applied. Federal income tax totals $2,020 — a 5.8% effective rate even though the marginal bracket is 12% — and employee FICA adds $2,678.",
+        "After those federal deductions, take-home is roughly $30,303 a year — $1,165.48 per biweekly paycheck. On a 50/30/20 plan that budget supports about $1,263/month of essentials, $758/month of discretionary spending, and $505/month toward savings, before any state income tax."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "How nearby salaries <em>stack up</em>.",
+      "columns": [
+        {
+          "label": "Annual salary"
+        },
+        {
+          "label": "Hourly (40 hrs)",
+          "align": "r"
+        },
+        {
+          "label": "Weekly",
+          "align": "r"
+        },
+        {
+          "label": "Est. monthly take-home",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$32,000 a year",
+            "href": "/salary/32000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$15.38"
+          },
+          {
+            "text": "$615.38"
+          },
+          {
+            "text": "$2,324.33"
+          }
+        ],
+        [
+          {
+            "text": "$33,000 a year",
+            "href": "/salary/33000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$15.87"
+          },
+          {
+            "text": "$634.62"
+          },
+          {
+            "text": "$2,391.29"
+          }
+        ],
+        [
+          {
+            "text": "$34,000 a year",
+            "href": "/salary/34000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$16.35"
+          },
+          {
+            "text": "$653.85"
+          },
+          {
+            "text": "$2,458.25"
+          }
+        ],
+        [
+          {
+            "text": "$35,000 a year (this page)",
+            "accent": true
+          },
+          {
+            "text": "$16.83"
+          },
+          {
+            "text": "$673.08"
+          },
+          {
+            "text": "$2,525.21"
+          }
+        ],
+        [
+          {
+            "text": "$36,000 a year",
+            "href": "/salary/36000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$17.31"
+          },
+          {
+            "text": "$692.31"
+          },
+          {
+            "text": "$2,592.17"
+          }
+        ],
+        [
+          {
+            "text": "$37,000 a year",
+            "href": "/salary/37000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$17.79"
+          },
+          {
+            "text": "$711.54"
+          },
+          {
+            "text": "$2,659.13"
+          }
+        ],
+        [
+          {
+            "text": "$38,000 a year",
+            "href": "/salary/38000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$18.27"
+          },
+          {
+            "text": "$730.77"
+          },
+          {
+            "text": "$2,726.08"
+          }
+        ]
+      ],
+      "note": "Take-home column is the same federal-only, single-filer estimate used above."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How much is $35,000 a year per hour?",
+      "a": "$35,000 a year is $16.83 an hour at 40 hours a week (2,080 hours a year). At 37.5 hours a week it rises to $17.95 an hour, and if you actually work 45-hour weeks it averages $14.96 per hour worked."
+    },
+    {
+      "q": "How much is $35,000 a year biweekly?",
+      "a": "Gross biweekly pay on $35,000 is $1,346.15 ($35,000 ÷ 26 pay periods). After estimated federal income tax and FICA for a single filer, roughly $1,165.48 per check remains — before state taxes and benefits."
+    },
+    {
+      "q": "How much is $35,000 a year after taxes?",
+      "a": "Using 2026 federal brackets and the $16,100 standard deduction, a single filer earning $35,000 pays about $2,020 in federal income tax and $2,678 in FICA, keeping roughly $30,303 a year ($2,525.21 a month). This is a federal-only estimate — state and local taxes reduce it further."
+    },
+    {
+      "q": "Is $35,000 a good salary in 2026?",
+      "a": "$35,000 is about 46% below the U.S. median full-time salary of roughly $65,052 (BLS, Q2 2026: $1,251/week). Whether it is \"good\" depends heavily on your metro's cost of living, household size, and debt load — the same salary goes much further in a low-cost region than in an expensive coastal city."
+    },
+    {
+      "q": "What tax bracket is $35,000 in for 2026?",
+      "a": "After the $16,100 standard deduction, $35,000 leaves $18,900 of taxable income, which puts a single filer in the 12% marginal bracket for 2026. Only income above each threshold is taxed at the higher rate, so the effective federal rate is just 5.8%."
+    }
+  ],
+  "cta": {
+    "label": "Put the paycheck to work",
+    "title": "Turn this salary into a savings plan",
+    "text": "Even $505 a month — the 20% slice of the take-home estimate above — compounds into serious money over a decade. Model it with real numbers.",
+    "links": [
+      {
+        "label": "Savings Calculator",
+        "href": "/calculators/savings"
+      },
+      {
+        "label": "Compound Interest Calculator",
+        "href": "/calculators/compound-interest"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "$17/hour → yearly",
+      "desc": "Flip the math: what $17 an hour earns per year, with overtime tables.",
+      "mark": "HR",
+      "href": "/salary/17-an-hour-is-how-much-a-year",
+      "cat": "Salary",
+      "time": "1 min read"
+    },
+    {
+      "name": "Savings Calculator",
+      "desc": "See what saving a slice of this paycheck grows into.",
+      "mark": "SV",
+      "href": "/calculators/savings",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Compound Interest",
+      "desc": "How invested savings compound over the years.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Retirement Calculator",
+      "desc": "Project what this income can fund by retirement.",
+      "mark": "RT",
+      "href": "/calculators/retirement",
+      "cat": "Retirement",
+      "time": "1 min"
+    }
+  ],
+  "methodology": [
+    "Conversions are straight arithmetic on gross salary: $35,000 ÷ 2,080 hours (40 × 52) for hourly, ÷ 260 workdays for daily, ÷ 52, 26, 24 and 12 for the pay-period figures. No taxes are applied to those rows.",
+    "The take-home estimate uses 2026 federal brackets for a single filer with the $16,100 standard deduction, plus employee FICA (6.2% Social Security + 1.45% Medicare). It excludes state/local income tax, credits, and pre-tax benefits such as 401(k) or health premiums — so real paychecks will differ.",
+    "The median comparison uses BLS median usual weekly earnings for full-time wage and salary workers: $1,251/week (BLS, Q2 2026).",
+    "Educational estimates only — not tax, legal, or financial advice."
+  ],
+  "dateModified": "2026-08-01"
+}

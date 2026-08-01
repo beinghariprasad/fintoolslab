@@ -11,9 +11,14 @@ const TOOLS = [
   { id: 'retirement', name: 'Retirement planner', desc: "Project the nest egg you'll have and what it produces monthly.", cat: 'Planning', time: '2 min', href: '/calculators/retirement' },
   { id: 'savings', name: 'Savings goal', desc: 'Reverse-engineer the monthly deposit needed to hit your target.', cat: 'Saving', time: '30 sec', href: '/calculators/savings' },
   { id: 'rent-vs-buy', name: 'Rent vs. buy', desc: 'Compare the true cost of renting against buying over time.', cat: 'Real estate', time: '2 min', href: '/calculators/rent-vs-buy' },
+  { id: 'salary-to-hourly', name: 'Salary to hourly', desc: 'Convert between hourly wage and annual salary, with overtime.', cat: 'Income', time: '30 sec', href: '/calculators/salary-to-hourly' },
+  { id: 'coast-fire', name: 'Coast FIRE', desc: 'Find the savings level where compounding funds retirement alone.', cat: 'Planning', time: '1 min', href: '/calculators/coast-fire' },
+  { id: 'cd', name: 'CD calculator', desc: 'Certificate of deposit growth, early-withdrawal costs, and ladders.', cat: 'Saving', time: '1 min', href: '/calculators/cd' },
+  { id: 'hysa', name: 'HYSA calculator', desc: 'High-yield savings growth versus the national average rate.', cat: 'Saving', time: '30 sec', href: '/calculators/hysa' },
+  { id: 'rmd', name: 'RMD calculator', desc: 'Required minimum distributions under current IRS rules.', cat: 'Planning', time: '1 min', href: '/calculators/rmd' },
 ];
 
-const CATS = ['All', 'Investing', 'Borrowing', 'Saving', 'Planning', 'Real estate'];
+const CATS = ['All', 'Investing', 'Borrowing', 'Saving', 'Planning', 'Real estate', 'Income'];
 
 export default function CalculatorList() {
   const [cat, setCat] = useState('All');
@@ -36,7 +41,7 @@ export default function CalculatorList() {
             "name": "Financial Calculators",
             "description": "Free professional-grade financial calculators",
             "url": "https://fintoolslab.com/calculators",
-            "numberOfItems": 7,
+            "numberOfItems": 12,
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Compound Interest Calculator", "url": "https://fintoolslab.com/calculators/compound-interest" },
               { "@type": "ListItem", "position": 2, "name": "Mortgage Calculator", "url": "https://fintoolslab.com/calculators/mortgage" },
@@ -45,6 +50,11 @@ export default function CalculatorList() {
               { "@type": "ListItem", "position": 5, "name": "Retirement Planner", "url": "https://fintoolslab.com/calculators/retirement" },
               { "@type": "ListItem", "position": 6, "name": "Savings Goal Calculator", "url": "https://fintoolslab.com/calculators/savings" },
               { "@type": "ListItem", "position": 7, "name": "Rent vs. Buy Calculator", "url": "https://fintoolslab.com/calculators/rent-vs-buy" },
+              { "@type": "ListItem", "position": 8, "name": "Salary to Hourly Calculator", "url": "https://fintoolslab.com/calculators/salary-to-hourly" },
+              { "@type": "ListItem", "position": 9, "name": "Coast FIRE Calculator", "url": "https://fintoolslab.com/calculators/coast-fire" },
+              { "@type": "ListItem", "position": 10, "name": "CD Calculator", "url": "https://fintoolslab.com/calculators/cd" },
+              { "@type": "ListItem", "position": 11, "name": "HYSA Calculator", "url": "https://fintoolslab.com/calculators/hysa" },
+              { "@type": "ListItem", "position": 12, "name": "RMD Calculator", "url": "https://fintoolslab.com/calculators/rmd" },
             ],
           })}
         </script>

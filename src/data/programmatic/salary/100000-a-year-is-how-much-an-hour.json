@@ -1,0 +1,444 @@
+{
+  "slug": "100000-a-year-is-how-much-an-hour",
+  "path": "/salary/100000-a-year-is-how-much-an-hour",
+  "category": "salary",
+  "title": "$100,000 a Year Is How Much an Hour? (2026)",
+  "metaDescription": "$100,000 a year is $48.08/hour at 40 hrs/week — $1,923.08 weekly, $8,333 monthly. Full 2026 breakdown with a federal take-home estimate.",
+  "hero": {
+    "chip": "Salary breakdown · 2026 figures",
+    "titleBefore": "$100,000 a year is ",
+    "titleEm": "$48.08 an hour",
+    "titleAfter": ".",
+    "lede": "Based on a 40-hour week worked 52 weeks a year (2,080 hours). Below: every pay-period equivalent, the rate at other workweeks, a 2026 federal take-home estimate, and how $100,000 compares with the U.S. median.",
+    "meta": [
+      {
+        "label": "Basis",
+        "value": "2,080 hours/year"
+      },
+      {
+        "label": "Updated",
+        "value": "August 2026"
+      }
+    ],
+    "breadcrumb": [
+      {
+        "label": "Home",
+        "href": "/"
+      },
+      {
+        "label": "Calculators",
+        "href": "/calculators"
+      },
+      {
+        "label": "$100,000 a year"
+      }
+    ],
+    "example": {
+      "prefix": "$",
+      "amount": "48.08",
+      "label": "Per hour · $100,000 ÷ 2,080 working hours",
+      "features": [
+        "$1,923.08 per week",
+        "$3,846.15 per biweekly check",
+        "$8,333.33 per month",
+        "≈ $6,598.33/mo after est. federal tax"
+      ]
+    }
+  },
+  "shortAnswer": {
+    "heading": "How much is $100,000 a year per hour?",
+    "html": "<strong>$100,000 a year is $48.08 an hour</strong> at 40 hours a week, 52 weeks a year (2,080 hours). That's $384.62 a day, $1,923.08 a week, $3,846.15 biweekly, and $8,333.33 a month — all gross. After estimated federal income tax and FICA, a single filer keeps about $79,180 a year, roughly $6,598 a month."
+  },
+  "sections": [
+    {
+      "type": "table",
+      "eyebrow": "Pay schedule",
+      "title": "What $100,000 looks like <em>per paycheck</em>.",
+      "columns": [
+        {
+          "label": "Pay period"
+        },
+        {
+          "label": "Gross pay",
+          "align": "r"
+        },
+        {
+          "label": "How it is figured",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "Hourly",
+          {
+            "text": "$48.08",
+            "accent": true
+          },
+          "$100,000 ÷ 2,080 hours"
+        ],
+        [
+          "Daily (8-hour day)",
+          "$384.62",
+          "$100,000 ÷ 260 workdays"
+        ],
+        [
+          "Weekly",
+          "$1,923.08",
+          "$100,000 ÷ 52 weeks"
+        ],
+        [
+          "Biweekly",
+          "$3,846.15",
+          "$100,000 ÷ 26 pay periods"
+        ],
+        [
+          "Semi-monthly",
+          "$4,166.67",
+          "$100,000 ÷ 24 pay periods"
+        ],
+        [
+          "Monthly",
+          "$8,333.33",
+          "$100,000 ÷ 12 months"
+        ],
+        [
+          "Annual",
+          {
+            "text": "$100,000",
+            "strong": true
+          },
+          "gross salary"
+        ]
+      ],
+      "note": "All figures are gross (pre-tax). See the take-home table below for the federal-only estimate after taxes."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Context",
+      "title": "Where $100,000 stands in 2026.",
+      "paragraphs": [
+        "Spread $100,000 across the 2,080 working hours in a standard year and you get <strong>$48.08 per hour</strong>. The same salary reads as $1,923.08 a week, $3,846.15 every two weeks, or $8,333.33 a month — all before a dollar of tax comes out.",
+        "Measured against the typical American paycheck, it is around 54% higher than the median: BLS pegs median full-time earnings at $1,251 a week, or about $65,052 annualized (BLS, Q2 2026). Household context matters too: as a single income supporting a family, $100,000 works harder than the same figure in a two-earner household, even though the per-hour arithmetic never changes."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Workweek math",
+      "title": "The hourly rate depends on <em>your hours</em>.",
+      "columns": [
+        {
+          "label": "Hours per week"
+        },
+        {
+          "label": "Hours per year",
+          "align": "r"
+        },
+        {
+          "label": "Hourly rate",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "35 hours",
+          "1,820",
+          {
+            "text": "$54.95",
+            "accent": false
+          }
+        ],
+        [
+          "37.5 hours",
+          "1,950",
+          {
+            "text": "$51.28",
+            "accent": false
+          }
+        ],
+        [
+          "40 hours (standard)",
+          "2,080",
+          {
+            "text": "$48.08",
+            "accent": true
+          }
+        ],
+        [
+          "45 hours",
+          "2,340",
+          {
+            "text": "$42.74",
+            "accent": false
+          }
+        ]
+      ],
+      "note": "Salaried roles rarely pay overtime — at 45 hours a week the same $100,000 effectively pays $42.74 per hour worked."
+    },
+    {
+      "type": "table",
+      "eyebrow": "Federal-only estimate",
+      "title": "From $100,000 gross to <em>take-home</em>.",
+      "columns": [
+        {
+          "label": "Line item"
+        },
+        {
+          "label": "Amount",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          "Gross annual salary",
+          "$100,000.00"
+        ],
+        [
+          "Standard deduction (single, 2026)",
+          "−$16,100.00"
+        ],
+        [
+          "Federally taxable income",
+          "$83,900.00"
+        ],
+        [
+          "Federal income tax (effective 13.2%)",
+          "−$13,170.00"
+        ],
+        [
+          "Social Security (6.2%)",
+          "−$6,200.00"
+        ],
+        [
+          "Medicare (1.45%)",
+          "−$1,450.00"
+        ],
+        [
+          "Estimated annual take-home",
+          {
+            "text": "$79,180.00",
+            "accent": true,
+            "strong": true
+          }
+        ],
+        [
+          "≈ Monthly take-home",
+          "$6,598.33"
+        ],
+        [
+          "≈ Biweekly take-home",
+          "$3,045.38"
+        ]
+      ],
+      "note": "Single filer, standard deduction, no state/local income tax, no credits or pre-tax benefits. Your actual paycheck will differ."
+    },
+    {
+      "type": "prose",
+      "eyebrow": "Taxes",
+      "title": "Why the 22% bracket doesn't mean <em>22% tax</em>.",
+      "paragraphs": [
+        "For a single filer in 2026, the $16,100 standard deduction trims $100,000 of wages down to $83,900 of taxable income. The last dollar is taxed at 22%, yet the average rate is far gentler: $13,170 of federal income tax works out to 13.2% effective, with another $7,650 going to FICA payroll taxes.",
+        "That leaves an estimated $79,180 a year of federal take-home — about $6,598.33 a month, or a total withholding rate of 20.8% before state tax. Run it through a 50/30/20 budget and the monthly split is roughly $3,299 for needs, $1,980 for wants, and $1,320 for saving or debt paydown."
+      ]
+    },
+    {
+      "type": "table",
+      "eyebrow": "Compare",
+      "title": "How nearby salaries <em>stack up</em>.",
+      "columns": [
+        {
+          "label": "Annual salary"
+        },
+        {
+          "label": "Hourly (40 hrs)",
+          "align": "r"
+        },
+        {
+          "label": "Weekly",
+          "align": "r"
+        },
+        {
+          "label": "Est. monthly take-home",
+          "align": "r"
+        }
+      ],
+      "rows": [
+        [
+          {
+            "text": "$92,000 a year",
+            "href": "/salary/92000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$44.23"
+          },
+          {
+            "text": "$1,769.23"
+          },
+          {
+            "text": "$6,129.33"
+          }
+        ],
+        [
+          {
+            "text": "$95,000 a year",
+            "href": "/salary/95000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$45.67"
+          },
+          {
+            "text": "$1,826.92"
+          },
+          {
+            "text": "$6,305.21"
+          }
+        ],
+        [
+          {
+            "text": "$98,000 a year",
+            "href": "/salary/98000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$47.12"
+          },
+          {
+            "text": "$1,884.62"
+          },
+          {
+            "text": "$6,481.08"
+          }
+        ],
+        [
+          {
+            "text": "$100,000 a year (this page)",
+            "accent": true
+          },
+          {
+            "text": "$48.08"
+          },
+          {
+            "text": "$1,923.08"
+          },
+          {
+            "text": "$6,598.33"
+          }
+        ],
+        [
+          {
+            "text": "$105,000 a year",
+            "href": "/salary/105000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$50.48"
+          },
+          {
+            "text": "$2,019.23"
+          },
+          {
+            "text": "$6,891.46"
+          }
+        ],
+        [
+          {
+            "text": "$110,000 a year",
+            "href": "/salary/110000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$52.88"
+          },
+          {
+            "text": "$2,115.38"
+          },
+          {
+            "text": "$7,184.58"
+          }
+        ],
+        [
+          {
+            "text": "$115,000 a year",
+            "href": "/salary/115000-a-year-is-how-much-an-hour"
+          },
+          {
+            "text": "$55.29"
+          },
+          {
+            "text": "$2,211.54"
+          },
+          {
+            "text": "$7,477.71"
+          }
+        ]
+      ],
+      "note": "Take-home column is the same federal-only, single-filer estimate used above."
+    }
+  ],
+  "faq": [
+    {
+      "q": "How much is $100,000 a year per hour?",
+      "a": "$100,000 a year is $48.08 an hour at 40 hours a week (2,080 hours a year). At 37.5 hours a week it rises to $51.28 an hour, and if you actually work 45-hour weeks it averages $42.74 per hour worked."
+    },
+    {
+      "q": "How much is $100,000 a year biweekly?",
+      "a": "Gross biweekly pay on $100,000 is $3,846.15 ($100,000 ÷ 26 pay periods). After estimated federal income tax and FICA for a single filer, roughly $3,045.38 per check remains — before state taxes and benefits."
+    },
+    {
+      "q": "How much is $100,000 a year after taxes?",
+      "a": "Using 2026 federal brackets and the $16,100 standard deduction, a single filer earning $100,000 pays about $13,170 in federal income tax and $7,650 in FICA, keeping roughly $79,180 a year ($6,598.33 a month). This is a federal-only estimate — state and local taxes reduce it further."
+    },
+    {
+      "q": "Is $100,000 a good salary in 2026?",
+      "a": "$100,000 is about 54% above the U.S. median full-time salary of roughly $65,052 (BLS, Q2 2026: $1,251/week). Whether it is \"good\" depends heavily on your metro's cost of living, household size, and debt load — the same salary goes much further in a low-cost region than in an expensive coastal city."
+    },
+    {
+      "q": "What tax bracket is $100,000 in for 2026?",
+      "a": "After the $16,100 standard deduction, $100,000 leaves $83,900 of taxable income, which puts a single filer in the 22% marginal bracket for 2026. Only income above each threshold is taxed at the higher rate, so the effective federal rate is just 13.2%."
+    }
+  ],
+  "cta": {
+    "label": "Put the paycheck to work",
+    "title": "Turn this salary into a savings plan",
+    "text": "Even $1,320 a month — the 20% slice of the take-home estimate above — compounds into serious money over a decade. Model it with real numbers.",
+    "links": [
+      {
+        "label": "Savings Calculator",
+        "href": "/calculators/savings"
+      },
+      {
+        "label": "Compound Interest Calculator",
+        "href": "/calculators/compound-interest"
+      }
+    ]
+  },
+  "related": [
+    {
+      "name": "Savings Calculator",
+      "desc": "See what saving a slice of this paycheck grows into.",
+      "mark": "SV",
+      "href": "/calculators/savings",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Compound Interest",
+      "desc": "How invested savings compound over the years.",
+      "mark": "CI",
+      "href": "/calculators/compound-interest",
+      "cat": "Savings",
+      "time": "30 sec"
+    },
+    {
+      "name": "Retirement Calculator",
+      "desc": "Project what this income can fund by retirement.",
+      "mark": "RT",
+      "href": "/calculators/retirement",
+      "cat": "Retirement",
+      "time": "1 min"
+    }
+  ],
+  "methodology": [
+    "Conversions are straight arithmetic on gross salary: $100,000 ÷ 2,080 hours (40 × 52) for hourly, ÷ 260 workdays for daily, ÷ 52, 26, 24 and 12 for the pay-period figures. No taxes are applied to those rows.",
+    "The take-home estimate uses 2026 federal brackets for a single filer with the $16,100 standard deduction, plus employee FICA (6.2% Social Security + 1.45% Medicare). It excludes state/local income tax, credits, and pre-tax benefits such as 401(k) or health premiums — so real paychecks will differ.",
+    "The median comparison uses BLS median usual weekly earnings for full-time wage and salary workers: $1,251/week (BLS, Q2 2026).",
+    "Educational estimates only — not tax, legal, or financial advice."
+  ],
+  "dateModified": "2026-08-01"
+}
