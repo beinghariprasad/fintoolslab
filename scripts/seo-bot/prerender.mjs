@@ -145,20 +145,47 @@ async function main() {
       ],
   });
 
+  // Tiered launch:
+  //   1. Regular puppeteer (works locally and on GitHub's ubuntu runners)
+  //   2. Auto-install Chrome and retry (CI package managers like bun skip
+  //      puppeteer's download postinstall)
+  //   3. @sparticuz/chromium via puppeteer-core (Vercel's Amazon Linux image
+  //      lacks Chrome's system libraries, e.g. libnspr4.so; sparticuz bundles
+  //      them all)
+  const isMissingSharedLibs = (e) => /loading shared libraries/i.test(e.message || '');
   let browser;
   try {
     browser = await puppeteer.launch(launchOptions());
   } catch (firstError) {
-    // Self-heal: CI package managers (e.g. bun on Vercel) skip puppeteer's
-    // Chrome-download postinstall. Install it now and retry once.
-    console.warn('Chrome not found — installing via `npx puppeteer browsers install chrome` ...');
-    try {
-      execSync('npx puppeteer browsers install chrome', { stdio: 'inherit' });
-      browser = await puppeteer.launch(launchOptions());
-    } catch (e) {
-      console.error('Could not launch Chrome even after installing.');
-      console.error('First error:', firstError.message);
-      console.error('Retry error:', e.message);
+    if (!isMissingSharedLibs(firstError)) {
+      console.warn('Chrome not found — installing via `npx puppeteer browsers install chrome` ...');
+      try {
+        execSync('npx puppeteer browsers install chrome', { stdio: 'inherit' });
+        browser = await puppeteer.launch(launchOptions());
+      } catch (retryError) {
+        if (!isMissingSharedLibs(retryError)) {
+          console.error('Could not launch Chrome even after installing.');
+          console.error('First error:', firstError.message);
+          console.error('Retry error:', retryError.message);
+        }
+      }
+    }
+    if (!browser && process.platform === 'linux') {
+      console.warn('System Chrome unusable — falling back to @sparticuz/chromium ...');
+      try {
+        const chromium = (await import('@sparticuz/chromium')).default;
+        const puppeteerCore = (await import('puppeteer-core')).default;
+        browser = await puppeteerCore.launch({
+          executablePath: await chromium.executablePath(),
+          headless: true,
+          args: [...chromium.args, ...launchOptions().args],
+        });
+      } catch (e) {
+        console.error('sparticuz/chromium fallback failed:', e.message);
+      }
+    }
+    if (!browser) {
+      console.error('No usable Chrome found. First error:', firstError.message);
       server.close();
       process.exit(process.env.PRERENDER_OPTIONAL ? 0 : 1);
     }
