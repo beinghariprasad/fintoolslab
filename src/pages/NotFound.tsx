@@ -4,7 +4,10 @@ import { Helmet } from 'react-helmet-async';
 export default function NotFound() {
   return (
     <>
-      <Helmet><title>Page Not Found | Fin Tools Lab</title></Helmet>
+      <Helmet>
+        <title>Page Not Found | Fin Tools Lab</title>
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <section style={{ paddingBlock: 'clamp(80px, 12vw, 200px)', textAlign: 'center' }}>
         <div className="container">
           <div style={{ fontFamily: 'var(--ff-display)', fontSize: 'clamp(80px, 15vw, 160px)', lineHeight: 1, color: 'var(--ink-4)', marginBottom: 16 }}>404</div>
